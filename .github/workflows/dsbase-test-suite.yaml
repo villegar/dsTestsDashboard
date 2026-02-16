@@ -54,7 +54,7 @@ jobs:
       R_KEEP_PKG_SOURCE: yes
 
     steps:
-      - name: Checkout dsBase (curated ref: branch/tag/SHA)
+      - name: Checkout dsBase
         uses: actions/checkout@v4
         with:
           repository: ${{ github.repository }}
