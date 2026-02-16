@@ -60,7 +60,7 @@ jobs:
       - name: Checkout dsBase
         uses: actions/checkout@v4
         with:
-          repository: ${{ github.repository }}
+          repository: ${{ env.TARGET_REPOSITORY }}
           ref: ${{ matrix.ref }}
           fetch-depth: 0
           path: dsBase
