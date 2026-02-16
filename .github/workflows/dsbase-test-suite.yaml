@@ -11,6 +11,10 @@ on:
     - cron: '0 1 * * *'   # nightly
   workflow_dispatch:
 
+env:
+  TARGET_REPOSITORY: datashield/dsBase
+  PROJECT_NAME: dsBase
+
 jobs:
   set-matrix:
     runs-on: ubuntu-latest
@@ -48,7 +52,6 @@ jobs:
       TEST_FILTER: '*'
       _r_check_system_clock_: 0
       WORKFLOW_ID: ${{ github.run_id }}-${{ github.run_attempt }}-${{ matrix.ref }}
-      PROJECT_NAME: dsBase
       REF_NAME: ${{ matrix.ref }}
       REPO_OWNER: ${{ github.repository_owner }}
       R_KEEP_PKG_SOURCE: yes
