@@ -171,10 +171,10 @@ jobs:
           echo "R:$(R --version | head -n1)" >> ${{ env.WORKFLOW_ID }}.txt
         working-directory: dsBase/logs
 
-      - name: Parse results from testthat and covr
-        run: |
-          Rscript --verbose --vanilla ../dsTestsDashboard/source/parse_test_report.R logs/
-        working-directory: dsBase
+      # - name: Parse results from testthat and covr
+      #   run: |
+      #     Rscript --verbose --vanilla ../dsTestsDashboard/source/parse_test_report.R logs/
+      #   working-directory: dsBase
 
       - name: Commit results to dsTestsDashboard
         run: |
@@ -183,31 +183,34 @@ jobs:
           cd dsTestsDashboard
 
           git remote set-url origin https://x-access-token:${{ secrets.GITHUB_TOKEN }}@github.com/${{ env.REPO_OWNER }}/dsTestsDashboard.git
-          git checkout main
-          git pull origin main
+          git checkout
+          git pull origin
 
           mkdir -p logs/${{ env.PROJECT_NAME }}/${{ env.REF_NAME }}/${{ env.WORKFLOW_ID }}/
-          mkdir -p docs/${{ env.PROJECT_NAME }}/${{ env.REF_NAME }}/${{ env.WORKFLOW_ID }}/
-          mkdir -p docs/${{ env.PROJECT_NAME }}/${{ env.REF_NAME }}/latest/
-          rm -rf docs/${{ env.PROJECT_NAME }}/${{ env.REF_NAME }}/latest/*
+          # mkdir -p docs/${{ env.PROJECT_NAME }}/${{ env.REF_NAME }}/${{ env.WORKFLOW_ID }}/
+          # mkdir -p docs/${{ env.PROJECT_NAME }}/${{ env.REF_NAME }}/latest/
+          # rm -rf docs/${{ env.PROJECT_NAME }}/${{ env.REF_NAME }}/latest/*
 
           cp -rv ../dsBase/logs/* logs/${{ env.PROJECT_NAME }}/${{ env.REF_NAME }}/${{ env.WORKFLOW_ID }}/
           cp -rv ../dsBase/logs/${{ env.WORKFLOW_ID }}.txt logs/${{ env.PROJECT_NAME }}/${{ env.REF_NAME }}/${{ env.WORKFLOW_ID }}/
 
           ln -sf ${{ env.WORKFLOW_ID }}/ logs/${{ env.PROJECT_NAME }}/${{ env.REF_NAME }}/.LATEST
 
-          R -e 'input_dir <- file.path("../logs", Sys.getenv("PROJECT_NAME"), Sys.getenv("REF_NAME"), Sys.getenv("WORKFLOW_ID")); quarto::quarto_render("source/test_report.qmd", execute_params = list(input_dir = input_dir))'
-          mv source/test_report.html docs/${{ env.PROJECT_NAME }}/${{ env.REF_NAME }}/${{ env.WORKFLOW_ID }}/index.html
-          cp -r docs/${{ env.PROJECT_NAME }}/${{ env.REF_NAME }}/${{ env.WORKFLOW_ID }}/* docs/${{ env.PROJECT_NAME }}/${{ env.REF_NAME }}/latest
+          # R -e 'input_dir <- file.path("../logs", Sys.getenv("PROJECT_NAME"), Sys.getenv("REF_NAME"), Sys.getenv("WORKFLOW_ID")); quarto::quarto_render("source/test_report.qmd", execute_params = list(input_dir = input_dir))'
+          # mv source/test_report.html docs/${{ env.PROJECT_NAME }}/${{ env.REF_NAME }}/${{ env.WORKFLOW_ID }}/index.html
+          # cp -r docs/${{ env.PROJECT_NAME }}/${{ env.REF_NAME }}/${{ env.WORKFLOW_ID }}/* docs/${{ env.PROJECT_NAME }}/${{ env.REF_NAME }}/latest
 
           git add .
           git commit -m "Auto test for ${{ env.PROJECT_NAME }}/${{ env.REF_NAME }} @ ${{ env.WORKFLOW_ID }}" || echo "No changes to commit"
-          git push origin main
+          git push origin
 
         env:
           PROJECT_NAME: ${{ env.PROJECT_NAME }}
           REF_NAME: ${{ env.REF_NAME }}
           WORKFLOW_ID: ${{ env.WORKFLOW_ID }}
+        with:
+          clean: true
+          branch: main
 
       - name: Dump environment info
         run: |
