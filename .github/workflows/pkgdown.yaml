@@ -3,8 +3,8 @@
 on:
   schedule:
     - cron: "0 5 * * *"     # Run daily at 5AM UTC
-  push:
-    branches: [main, master]
+  # push:
+  #   branches: [main, master]
   pull_request:
   release:
     types: [published]
