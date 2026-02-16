@@ -9,6 +9,10 @@ on:
   release:
     types: [published]
   workflow_dispatch:
+  workflow_run:
+    workflows: ["dsBase tests' suite"]
+    types:
+      - completed
 
 name: pkgdown.yaml
 
