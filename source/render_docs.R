@@ -128,7 +128,7 @@ body_html <- dirs_lst[idx] |>
       purrr::map(\(sd) {
         paste0(
           "\t<li><a href='",
-          clean_url(sub(pattern = "//", replacement = "/", sd), INPUT_DIR),
+          clean_url(sd, OUTPUT_DIR),
           # "/latest'>",
           "'>",
           basename(sd),
