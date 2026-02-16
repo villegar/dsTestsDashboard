@@ -66,13 +66,13 @@ jobs:
           fetch-depth: 0
           path: dsBase
 
-      - name: Checkout testStatus
+      - name: Checkout dsTestsDashboard
         uses: actions/checkout@v4
         with:
-          repository: ${{ env.REPO_OWNER }}/testStatus
-          token: ${{ github.token }}
-          ref: master
-          path: testStatus
+          # repository: ${{ env.REPO_OWNER }}/testStatus
+          # token: ${{ github.token }}
+          # ref: master
+          path: dsTestsDashboard
 
       - uses: r-lib/actions/setup-pandoc@v2
 
@@ -176,16 +176,16 @@ jobs:
 
       - name: Parse results from testthat and covr
         run: |
-          Rscript --verbose --vanilla ../testStatus/source/parse_test_report.R logs/
+          Rscript --verbose --vanilla ../dsTestsDashboard/source/parse_test_report.R logs/
         working-directory: dsBase
 
-      - name: Commit results to testStatus
+      - name: Commit results to dsTestsDashboard
         run: |
           git config --global user.email "github-actions[bot]@users.noreply.github.com"
           git config --global user.name "github-actions[bot]"
-          cd testStatus
+          cd dsTestsDashboard
 
-          git remote set-url origin https://x-access-token:${{ secrets.GITHUB_TOKEN }}@github.com/${{ env.REPO_OWNER }}/testStatus.git
+          git remote set-url origin https://x-access-token:${{ secrets.GITHUB_TOKEN }}@github.com/${{ env.REPO_OWNER }}/dsTestsDashboard.git
           git checkout master
           git pull origin master
 
