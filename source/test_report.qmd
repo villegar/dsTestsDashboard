@@ -1,0 +1,111 @@
+---
+params:
+  title: "DataSHIELD tests' overview"
+  input_dir: getwd() 
+format: 
+  html:
+    self-contained: true
+---
+
+# `r params$title`
+**Last updated:** `r Sys.Date()` @ `r format(Sys.time(), "%H:%M:%S")`
+
+```{r}
+#| echo: false
+#| output: asis
+# load code coverage and test results
+test_files_rds <- list.files(file.path(params$input_dir), pattern = "_covr_and_test_results.Rds", full.names = TRUE)
+
+# attempt loading session info details
+session_info_txt <- list.files(file.path(params$input_dir), pattern = "^session", full.names = TRUE)
+
+test_files_rds[length(test_files_rds)] |>
+  readr::read_rds() |>
+  purrr::walk(function(x) {
+    test_class <- x$test_class[1]
+    cat("### Test type: `", test_class, "`\n\n")
+    
+    # overwrite x, to ensure there's a value for all the columns
+    x <- x |>
+       dplyr::bind_rows(
+         tibble::tibble(
+           fn_name = character(),
+           file_coverage = double(),
+           test_url = character(),
+           skipped = character(),
+           failures = character(),
+           errors = character(),
+           time = character()
+       )
+      )
+    
+    # create overview (e.g., total number of tests, running time, etc.)
+    x_overview <- x |>
+      dplyr::summarise(
+        fn_name = "OVERVIEW",
+        coverage = round(mean(as.numeric(file_coverage), na.rm = TRUE), 2),
+        test_url = "",
+        tests = sum(as.numeric(tests), na.rm = TRUE),
+        skipped = sum(as.numeric(skipped), na.rm = TRUE),
+        failures = sum(as.numeric(failures), na.rm = TRUE),
+        errors = sum(as.numeric(errors), na.rm = TRUE),
+        time = sum(as.numeric(time), na.rm = TRUE)
+      )
+                                   
+    x_tbl <- x |>
+      dplyr::rename(coverage = file_coverage) |>
+      dplyr::mutate(
+        coverage = ifelse(is.na(coverage), 0, as.numeric(coverage)),
+        tests = ifelse(is.na(tests), 0, as.numeric(tests)),
+        skipped = ifelse(is.na(skipped), 0, as.numeric(skipped)),
+        failures = sum(as.numeric(failures), na.rm = TRUE),
+        errors = ifelse(is.na(errors), 0, as.numeric(errors)),
+        time = ifelse(is.na(time), 0, as.numeric(time))
+      ) |>
+      dplyr::mutate(
+        fn_name = ifelse(is.na(script_url), {
+          paste0(fn_name, stringr::str_replace_na(fn_name_sub, "")) |>
+            stringr::str_remove_all("[-]*$")
+        }, {
+          paste0(fn_name, stringr::str_replace_na(fn_name_sub, "")) |>
+            kableExtra::cell_spec("html", link = script_url, new_tab = TRUE) |>
+            stringr::str_remove_all("[-]*$")
+        }),
+        test_url = ifelse(is.na(test_url), "", {
+          kableExtra::cell_spec("Link", "html", link = test_url, new_tab = TRUE)
+          }),
+        fn_name_sub = stringr::str_replace_na(fn_name_sub, ""),
+        time = time |> as.numeric() |> round(digits = 8)
+      ) |>
+      dplyr::select(-fn_name_sub, -script_url, -test_class) |>
+      dplyr::bind_rows(x_overview)
+    
+    x_tbl |>
+      ( \(.) magrittr::set_names(., colnames(.) |> stringr::str_to_title()))()|>
+      dplyr::rename(
+        Function = Fn_name,
+        Test = Test_url
+      ) |>
+      knitr::kable("html", escape = FALSE) |>
+      kableExtra::kable_styling(fixed_thead = TRUE) |>
+      kableExtra::column_spec(
+        column = 2, 
+        background = ifelse(
+          is.na(x_tbl$coverage) | x_tbl$coverage < 60, "#cc323266", 
+          ifelse(x_tbl$coverage < 80, "#e7b41666", "#2dc93766")
+        )
+      ) |>
+      kableExtra::row_spec(c(0, nrow(x) + 1), bold = TRUE, color = "white", background = "#173529") |>
+      cat()
+    
+    cat("\n\n")
+    }
+  )
+
+# if a session_info_* file was found, then load the details here:
+if (length(session_info_txt) == 1) {
+  cat("\n\n### Session information\n\n")
+  paste0("\n> ", readLines(session_info_txt)) |>
+    cat()
+}
+```

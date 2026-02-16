@@ -1,0 +1,149 @@
+# utilitarian functions ----
+# identify directories containing both:
+# - coveragelist.csv
+# - test_results.xml
+has_covr_tests <- function(d) {
+  sub_files <- list.files(d)
+  idx <- c("test_results.xml", "coveragelist.csv") %in% sub_files
+  # idx_2 <- "index.html" %in% sub_files
+  all(idx) #, !idx_2)
+}
+
+# validate XML file (i.e., is it readable?)
+validate_xml <- function(xml_path) {
+  tryCatch(
+    {
+      xml_path |> xml2::read_xml()
+      return(TRUE)
+    },
+    error = function(e) {
+      return(FALSE)
+    }
+  )
+}
+
+# dependencies
+# install.packages(c("glue", "kableExtra", "knitr", "purrr", "quarto"))
+
+# remove invalid XMLs
+list.files(
+  "logs",
+  ".xml",
+  ignore.case = TRUE,
+  full.names = TRUE,
+  recursive = TRUE
+) |>
+  purrr::walk(function(xml_path) {
+    if (!validate_xml(xml_path)) {
+      message("Deleting: ", xml_path)
+      unlink(xml_path)
+    }
+  })
+
+# list directories inside the 'logs' directory
+logs_dirs_packages <- list.dirs("logs", recursive = FALSE)
+
+# list sub-directories
+logs_dirs_versions <- list.dirs(logs_dirs_packages, recursive = FALSE)
+
+find_latest_version <- function(d) {
+  if (!has_covr_tests(d)) {
+    # list sub-directories: multiple reports for the same version
+    sub_dirs <- list.dirs(d, recursive = FALSE)
+    if (length(sub_dirs) == 0) {
+      return(NULL)
+    }
+    # check which of the reports have coverage and test results
+    idx <- purrr::map_lgl(sub_dirs, has_covr_tests)
+    sub_dirs_2 <- sub_dirs[idx]
+    # return path to latest report
+    return(tibble::tibble(path = d, latest = sub_dirs_2[length(sub_dirs_2)]))
+  } else {
+    return(tibble::tibble(path = d, latest = d))
+  }
+}
+
+logs_dirs_versions |>
+  purrr::map(find_latest_version) |>
+  purrr::list_c() |>
+  # dplyr::slice(7) |>
+  purrr::pwalk(
+    function(path, latest) {
+      # setup
+      INPUT_DIR <- latest
+      OUTPUT_DIR <- INPUT_DIR
+      HTML_DIR <- stringr::str_replace(path, "logs/", "docs/") |>
+        file.path("latest")
+      repo <- stringr::str_extract(path, "(?<=logs\\/)(.*)(?=\\/)")
+      version <- stringr::str_extract(
+        path,
+        paste0("(?<=\\/", repo, "\\/)(.*)(?=\\/*)")
+      )
+      GH_REPO <- file.path(
+        "https://github.com/datashield",
+        repo,
+        "blob",
+        version
+      )
+
+      if (stringr::str_detect(repo, "dsBaseClient")) {
+        FN_NAME_PATTERN <- "(ds)*([^-]+)"
+        FN_TEST_CLASS_PATTERN <- "[^-]+"
+      } else if (stringr::str_detect(repo, "dsBase")) {
+        FN_NAME_PATTERN <- "[^-:.]+"
+        # FN_TEST_CLASS_PATTERN <- "^[a-zA-Z]+(?=-)"
+        FN_TEST_CLASS_PATTERN <- "(?<=::)[^:]+(?=::)"
+      } else if (stringr::str_detect(repo, "dsBetaTestClient")) {
+        FN_NAME_PATTERN <- "([^:]+)"
+        FN_TEST_CLASS_PATTERN <- "(?<=::)(.*)(?=::)"
+      } else {
+        FN_NAME_PATTERN <- "[^-:.]+"
+        FN_TEST_CLASS_PATTERN <- "^[a-zA-Z]+(?=-)"
+      }
+
+      message("==== Processing: ", file.path(repo, version), " ====")
+      tryCatch(
+        {
+          suppressWarnings(suppressMessages({
+            RDS_OUTPUT <- file.path(
+              OUTPUT_DIR,
+              paste0(Sys.Date(), "_covr_and_test_results.Rds")
+            )
+            # parse test report results
+            if (!file.exists(RDS_OUTPUT)) {
+              glue::glue(
+                "Rscript source/parse_test_report.R {INPUT_DIR} {OUTPUT_DIR} {GH_REPO} {glue::single_quote(FN_NAME_PATTERN)} {glue::single_quote(FN_TEST_CLASS_PATTERN)}"
+              ) |>
+                system()
+            }
+
+            # generate report with Quarto template
+            title <- paste0(
+              "DataSHIELD tests\\' overview: ",
+              basename(dirname(path)),
+              "/",
+              basename(path)
+            )
+            glue::glue(
+              "R -s -e \"quarto::quarto_render('source/test_report.qmd', execute_params = list(input_dir = '../{OUTPUT_DIR}', title = \'{title}\'))\""
+            ) |>
+              system()
+
+            # delete old version of output
+            unlink(HTML_DIR, recursive = TRUE)
+
+            # create output dir in the 'docs/' directory
+            dir.create(HTML_DIR, recursive = TRUE)
+
+            # relocate HTML output
+            glue::glue("mv source/test_report.html {HTML_DIR}/index.html") |>
+              system()
+          }))
+        },
+        error = function(e) {
+          message("[ERROR] ", e)
+        }
+      )
+    },
+    .progress = TRUE
+  )
