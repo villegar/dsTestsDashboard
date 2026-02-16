@@ -74,7 +74,7 @@ log_dirs <- INPUT_DIR |>
   unlist()
 
 # render logs and store outputs in OUTPUT_DIR
-sapply(log_dirs[1], function(d) {
+sapply(log_dirs, function(d) {
   quarto::quarto_render(
     "source/test_report.qmd",
     execute_params = list(input_dir = file.path("..", d))
@@ -105,23 +105,23 @@ idx <- dirs_lst |>
 body_html <- dirs_lst[idx] |>
   purrr::map(function(d) {
     new_section <- paste0("<h2>", basename(d), "</h2>\n<ul>\n")
-    # clear the documents directory and only keep latest snapshot
-    if (CLEAR_DOCS) {
-      # list directories at level 1
-      list_all_dirs_level_1 <- d |>
-        list.dirs(full.names = TRUE, recursive = FALSE)
-      # list directories at level 2
-      list_all_dirs_level_2 <- list_all_dirs_level_1 |>
-        list.dirs(full.names = TRUE, recursive = FALSE)
-      # detect directories that are not the latest version, avoid cluttering repo
-      idx <- stringr::str_detect(list_all_dirs_level_2, "latest", negate = TRUE)
-      message(
-        "Deleting unwanted directories: \n",
-        paste0("- ", list_all_dirs_level_2[idx], collapse = "\n")
-      )
-      # delete unwanted directories
-      unlink(list_all_dirs_level_2[idx], force = TRUE, recursive = TRUE)
-    }
+    # # clear the documents directory and only keep latest snapshot
+    # if (CLEAR_DOCS) {
+    #   # list directories at level 1
+    #   list_all_dirs_level_1 <- d |>
+    #     list.dirs(full.names = TRUE, recursive = FALSE)
+    #   # list directories at level 2
+    #   list_all_dirs_level_2 <- list_all_dirs_level_1 |>
+    #     list.dirs(full.names = TRUE, recursive = FALSE)
+    #   # detect directories that are not the latest version, avoid cluttering repo
+    #   idx <- stringr::str_detect(list_all_dirs_level_2, "latest", negate = TRUE)
+    #   message(
+    #     "Deleting unwanted directories: \n",
+    #     paste0("- ", list_all_dirs_level_2[idx], collapse = "\n")
+    #   )
+    #   # delete unwanted directories
+    #   unlink(list_all_dirs_level_2[idx], force = TRUE, recursive = TRUE)
+    # }
 
     aux <- d |>
       list.dirs(full.names = TRUE, recursive = FALSE) |>
@@ -129,7 +129,8 @@ body_html <- dirs_lst[idx] |>
         paste0(
           "\t<li><a href='",
           clean_url(sd, INPUT_DIR),
-          "/latest'>",
+          # "/latest'>",
+          "'>",
           basename(sd),
           "</a></li>"
         )
