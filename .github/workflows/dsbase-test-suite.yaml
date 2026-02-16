@@ -171,15 +171,12 @@ jobs:
           echo "R:$(R --version | head -n1)" >> ${{ env.WORKFLOW_ID }}.txt
         working-directory: dsBase/logs
 
-      # - name: Parse results from testthat and covr
-      #   run: |
-      #     Rscript --verbose --vanilla ../dsTestsDashboard/source/parse_test_report.R logs/
-      #   working-directory: dsBase
+      - name: Parse results from testthat and covr
+        run: |
+          Rscript --verbose --vanilla ../dsTestsDashboard/source/parse_test_report.R logs/
+        working-directory: dsBase
 
       - name: Commit results to dsTestsDashboard
-        with:
-          clean: true
-          branch: main
         run: |
           git config --global user.email "github-actions[bot]@users.noreply.github.com"
           git config --global user.name "github-actions[bot]"
