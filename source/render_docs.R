@@ -80,7 +80,6 @@ sapply(log_dirs, function(d) {
     execute_params = list(input_dir = file.path("..", d))
   )
   output_report <- file.path(
-    # "..",
     dirname(sub(INPUT_DIR, OUTPUT_DIR, d)),
     "index.html"
   )
@@ -97,6 +96,7 @@ sapply(log_dirs, function(d) {
 # list directories inside OUTPUT_DIR
 dirs_lst <- OUTPUT_DIR |>
   list.dirs(full.names = TRUE, recursive = FALSE)
+
 # filter out subdirectories that don't start with a letter or number
 idx <- dirs_lst |>
   basename() |>
@@ -128,7 +128,7 @@ body_html <- dirs_lst[idx] |>
       purrr::map(\(sd) {
         paste0(
           "\t<li><a href='",
-          clean_url(sd, INPUT_DIR),
+          clean_url(sub(pattern = "//", replacement = "/", sd), INPUT_DIR),
           # "/latest'>",
           "'>",
           basename(sd),
