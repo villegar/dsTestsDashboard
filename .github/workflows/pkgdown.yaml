@@ -45,7 +45,7 @@ jobs:
 
       - name: Build site
         run: |
-          Rscript --verbose --vanilla source/render_docs.R docs docs TRUE
+          Rscript --verbose --vanilla source/render_docs.R logs docs TRUE
 
       - name: Deploy to GitHub pages 🚀
         if: github.event_name != 'pull_request'
