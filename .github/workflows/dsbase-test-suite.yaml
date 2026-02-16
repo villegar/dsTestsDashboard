@@ -1,0 +1,229 @@
+################################################################################
+# DataSHIELD GHA test suite - dsBase (curated refs matrix version)
+# Now supports testing curated branches/tags from .github/dsbase-refs.txt
+################################################################################
+name: dsBase tests' suite
+
+on:
+  push:
+  schedule:
+    - cron: '0 0 * * 0'   # weekly
+    - cron: '0 1 * * *'   # nightly
+  workflow_dispatch:
+
+jobs:
+  set-matrix:
+    runs-on: ubuntu-latest
+    outputs:
+      refs: ${{ steps.refs.outputs.refs }}
+    steps:
+      - uses: actions/checkout@v4
+
+      - name: Read curated refs file (.github/dsbase-refs.txt)
+        id: refs
+        run: |
+          if [ ! -f .github/dsbase-refs.txt ]; then
+            echo "ERROR: .github/dsbase-refs.txt not found."
+            exit 1
+          fi
+
+          # Remove comments and empty lines, convert to JSON array
+          REFS=$(grep -v '^\s*#' .github/dsbase-refs.txt | grep -v '^\s*$' | jq -R -s -c 'split("\n")[:-1]')
+          echo "Using refs: $REFS"
+          echo "refs=$REFS" >> $GITHUB_OUTPUT
+
+  dsBase_test_suite:
+    needs: set-matrix
+    runs-on: ubuntu-latest
+    timeout-minutes: 120
+    permissions:
+      contents: write
+
+    strategy:
+      fail-fast: false
+      matrix:
+        ref: ${{ fromJson(needs.set-matrix.outputs.refs) }}
+
+    env:
+      TEST_FILTER: '*'
+      _r_check_system_clock_: 0
+      WORKFLOW_ID: ${{ github.run_id }}-${{ github.run_attempt }}-${{ matrix.ref }}
+      PROJECT_NAME: dsBase
+      REF_NAME: ${{ matrix.ref }}
+      REPO_OWNER: ${{ github.repository_owner }}
+      R_KEEP_PKG_SOURCE: yes
+
+    steps:
+      - name: Checkout dsBase (curated ref: branch/tag/SHA)
+        uses: actions/checkout@v4
+        with:
+          repository: ${{ github.repository }}
+          ref: ${{ matrix.ref }}
+          fetch-depth: 0
+          path: dsBase
+
+      - name: Checkout testStatus
+        uses: actions/checkout@v4
+        with:
+          repository: ${{ env.REPO_OWNER }}/testStatus
+          token: ${{ secrets.GH_TOKEN }}
+          ref: master
+          path: testStatus
+
+      - uses: r-lib/actions/setup-pandoc@v2
+
+      - uses: r-lib/actions/setup-r@v2
+        with:
+          r-version: release
+          http-user-agent: release
+          use-public-rspm: true
+
+      - name: Install dsBase
+        run: |
+          Rscript -e 'install.packages(c("RANN", "stringr", "lme4", "dplyr", "reshape2", "polycor", "gamlss", "gamlss.dist", "mice", "childsds", "usethis", "devtools"), dependencies = TRUE)'
+          R CMD INSTALL ./dsBase
+
+      - uses: r-lib/actions/setup-r-dependencies@v2
+        with:
+          dependencies: 'c("Imports")'
+          extra-packages: |
+            any::rcmdcheck
+            cran::devtools
+            cran::git2r
+            cran::RCurl
+            cran::readr
+            cran::magrittr
+            cran::xml2
+            cran::purrr
+            cran::dplyr
+            cran::stringr
+            cran::tidyr
+            cran::quarto
+            cran::knitr
+            cran::kableExtra
+            cran::rmarkdown
+            cran::downlit
+          needs: check
+
+      - name: Check man files up-to-date
+        run: |
+          orig_sum=$(find man -type f | sort -u | xargs cat | md5sum)
+          R -e "devtools::document()"
+          new_sum=$(find man -type f | sort -u | xargs cat | md5sum)
+          if [ "$orig_sum" != "$new_sum" ]; then
+            echo "Your committed manual files (man/*.Rd) are out of sync with the R files. Run devtools::document() locally then commit."
+            exit 1
+          else
+            echo "Documentation up-to-date."
+          fi
+        working-directory: dsBase
+        continue-on-error: true
+
+      - name: Run devtools::check
+        run: |
+          R -q -e "library('devtools'); devtools::check(args = c('--no-tests', '--no-examples'))" | tee ../check.Rout
+          grep -q "^0 errors" ../check.Rout && grep -q " 0 warnings" ../check.Rout && grep -q " 0 notes" ../check.Rout
+        working-directory: dsBase
+        continue-on-error: true
+
+      - name: Run tests with coverage & JUnit report
+        run: |
+          mkdir -p logs
+          R -q -e "devtools::reload();"
+          R -q -e '
+            write.csv(
+              covr::coverage_to_list(
+                covr::package_coverage(
+                  type = c("none"),
+                  code = c('"'"'
+                    output_file <- file("test_console_output.txt");
+                    sink(output_file);
+                    sink(output_file, type = "message");
+                    junit_rep <- testthat::JunitReporter$new(file = file.path(getwd(), "test_results.xml"));
+                    progress_rep <- testthat::ProgressReporter$new(max_failures = 999999);
+                    multi_rep <- testthat::MultiReporter$new(reporters = list(progress_rep, junit_rep));
+                    testthat::test_package("${{ env.PROJECT_NAME }}", filter = "${{ env.TEST_FILTER }}", reporter = multi_rep, stop_on_failure = FALSE)'"'"'
+                  )
+                )
+              ),
+              "coveragelist.csv"
+            )'
+
+          mv coveragelist.csv logs/
+          mv test_* logs/
+          grep -q " FAIL 0 " logs/test_console_output.txt
+        working-directory: dsBase
+
+      - name: Check for JUnit errors
+        run: |
+          issue_count=$(sed 's/failures="0" errors="0"//' test_results.xml | grep -c errors= || true)
+          echo "Number of testsuites with issues: $issue_count"
+          sed 's/failures="0" errors="0"//' test_results.xml | grep errors= > issues.log || true
+          cat issues.log || true
+          exit $issue_count
+        working-directory: dsBase/logs
+
+      - name: Write versions to file
+        run: |
+          echo "ref:${{ env.REF_NAME }}" > ${{ env.WORKFLOW_ID }}.txt
+          echo "os:$(lsb_release -ds)" >> ${{ env.WORKFLOW_ID }}.txt
+          echo "R:$(R --version | head -n1)" >> ${{ env.WORKFLOW_ID }}.txt
+        working-directory: dsBase/logs
+
+      - name: Parse results from testthat and covr
+        run: |
+          Rscript --verbose --vanilla ../testStatus/source/parse_test_report.R logs/
+        working-directory: dsBase
+
+      - name: Commit results to testStatus
+        run: |
+          git config --global user.email "github-actions[bot]@users.noreply.github.com"
+          git config --global user.name "github-actions[bot]"
+          cd testStatus
+
+          git remote set-url origin https://x-access-token:${{ secrets.GITHUB_TOKEN }}@github.com/${{ env.REPO_OWNER }}/testStatus.git
+          git checkout master
+          git pull origin master
+
+          mkdir -p logs/${{ env.PROJECT_NAME }}/${{ env.REF_NAME }}/${{ env.WORKFLOW_ID }}/
+          mkdir -p docs/${{ env.PROJECT_NAME }}/${{ env.REF_NAME }}/${{ env.WORKFLOW_ID }}/
+          mkdir -p docs/${{ env.PROJECT_NAME }}/${{ env.REF_NAME }}/latest/
+          rm -rf docs/${{ env.PROJECT_NAME }}/${{ env.REF_NAME }}/latest/*
+
+          cp -rv ../dsBase/logs/* logs/${{ env.PROJECT_NAME }}/${{ env.REF_NAME }}/${{ env.WORKFLOW_ID }}/
+          cp -rv ../dsBase/logs/${{ env.WORKFLOW_ID }}.txt logs/${{ env.PROJECT_NAME }}/${{ env.REF_NAME }}/${{ env.WORKFLOW_ID }}/
+
+          ln -sf ${{ env.WORKFLOW_ID }}/ logs/${{ env.PROJECT_NAME }}/${{ env.REF_NAME }}/.LATEST
+
+          R -e 'input_dir <- file.path("../logs", Sys.getenv("PROJECT_NAME"), Sys.getenv("REF_NAME"), Sys.getenv("WORKFLOW_ID")); quarto::quarto_render("source/test_report.qmd", execute_params = list(input_dir = input_dir))'
+          mv source/test_report.html docs/${{ env.PROJECT_NAME }}/${{ env.REF_NAME }}/${{ env.WORKFLOW_ID }}/index.html
+          cp -r docs/${{ env.PROJECT_NAME }}/${{ env.REF_NAME }}/${{ env.WORKFLOW_ID }}/* docs/${{ env.PROJECT_NAME }}/${{ env.REF_NAME }}/latest
+
+          git add .
+          git commit -m "Auto test for ${{ env.PROJECT_NAME }}/${{ env.REF_NAME }} @ ${{ env.WORKFLOW_ID }}" || echo "No changes to commit"
+          git push origin master
+
+        env:
+          PROJECT_NAME: ${{ env.PROJECT_NAME }}
+          REF_NAME: ${{ env.REF_NAME }}
+          WORKFLOW_ID: ${{ env.WORKFLOW_ID }}
+
+      - name: Dump environment info
+        run: |
+          echo -e "\n#############################"
+          echo -e "ls /: ######################"
+          ls -al .
+          echo -e "\n#############################"
+          echo -e "lscpu: ######################"
+          lscpu
+          echo -e "\n#############################"
+          echo -e "memory: #####################"
+          free -m
+          echo -e "\n#############################"
+          echo -e "env: ########################"
+          env
+          echo -e "\n#############################"
+          echo -e "R sessionInfo(): ############"
+          R -e 'sessionInfo()'
+          sudo apt install tree -y
+          tree .
