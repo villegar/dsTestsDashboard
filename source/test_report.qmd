@@ -14,7 +14,7 @@ format:
 #| echo: false
 #| output: asis
 # load code coverage and test results
-test_files_rds <- list.files(file.path(params$input_dir), pattern = "_covr_and_test_results.Rds", full.names = TRUE)
+test_files_rds <- list.files(file.path(params$input_dir), pattern = "covr_and_test_results.Rds", full.names = TRUE)
 
 # attempt loading session info details
 session_info_txt <- list.files(file.path(params$input_dir), pattern = "^session", full.names = TRUE)
