@@ -177,6 +177,9 @@ jobs:
       #   working-directory: dsBase
 
       - name: Commit results to dsTestsDashboard
+        with:
+          clean: true
+          branch: main
         run: |
           git config --global user.email "github-actions[bot]@users.noreply.github.com"
           git config --global user.name "github-actions[bot]"
@@ -208,9 +211,6 @@ jobs:
           PROJECT_NAME: ${{ env.PROJECT_NAME }}
           REF_NAME: ${{ env.REF_NAME }}
           WORKFLOW_ID: ${{ env.WORKFLOW_ID }}
-        with:
-          clean: true
-          branch: main
 
       - name: Dump environment info
         run: |
