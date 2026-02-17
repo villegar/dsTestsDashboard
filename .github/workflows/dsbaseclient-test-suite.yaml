@@ -245,25 +245,22 @@ jobs:
 
       - name: Commit results to dsTestsDashboard
         run: |
-          git config --global user.email "github-actions[bot]@users.noreply.github.com"
-          git config --global user.name "github-actions[bot]"
           cd dsTestsDashboard
 
-          git remote set-url origin https://x-access-token:${{ secrets.GITHUB_TOKEN }}@github.com/${{ env.REPO_OWNER }}/dsTestsDashboard.git
-          git checkout
-          git pull origin
+          git config user.email "github-actions[bot]@users.noreply.github.com"
+          git config user.name "github-actions[bot]"
+
+          # rebase instead of pull to avoid merge commits
+          git pull --rebase origin main || true
 
           mkdir -p logs/${{ env.PROJECT_NAME }}/${{ env.REF_NAME }}/${{ env.WORKFLOW_ID }}/
 
           cp -rv ../dsBaseClient/logs/* logs/${{ env.PROJECT_NAME }}/${{ env.REF_NAME }}/${{ env.WORKFLOW_ID }}/
           cp -rv ../dsBaseClient/logs/${{ env.WORKFLOW_ID }}.txt logs/${{ env.PROJECT_NAME }}/${{ env.REF_NAME }}/${{ env.WORKFLOW_ID }}/
 
-          ln -sf ${{ env.WORKFLOW_ID }}/ logs/${{ env.PROJECT_NAME }}/${{ env.REF_NAME }}/.LATEST
-
           git add .
           git commit -m "Auto test for ${{ env.PROJECT_NAME }}/${{ env.REF_NAME }} @ ${{ env.WORKFLOW_ID }}" || echo "No changes to commit"
           git push origin
-
         env:
           PROJECT_NAME: ${{ env.PROJECT_NAME }}
           REF_NAME: ${{ env.REF_NAME }}
