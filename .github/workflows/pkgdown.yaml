@@ -49,11 +49,8 @@ jobs:
 
       - name: Parse logs
         run: |
+          mkdir -p docs
           Rscript --verbose --vanilla source/parse_logs.R logs docs
-
-      # - name: Build site
-      #   run: |
-      #     Rscript --verbose --vanilla source/render_docs.R logs docs TRUE
 
       - name: Deploy to GitHub pages 🚀
         if: github.event_name != 'pull_request'

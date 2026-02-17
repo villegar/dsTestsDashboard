@@ -87,8 +87,7 @@ logs_dirs_versions |>
       # setup
       INPUT_DIR <- latest
       OUTPUT_DIR <- INPUT_DIR
-      HTML_DIR <- stringr::str_replace(path, INPUT_DIR, OUTPUT_DIR) |>
-        file.path("latest")
+      HTML_DIR <- stringr::str_replace(path, INPUT_DIR, OUTPUT_DIR)
       repo <- stringr::str_extract(path, "(?<=logs\\/)(.*)(?=\\/)")
       version <- stringr::str_extract(
         path,
@@ -153,6 +152,8 @@ logs_dirs_versions |>
             # relocate HTML output
             glue::glue("mv source/test_report.html {HTML_DIR}/index.html") |>
               system()
+
+            message(glue::glue("Report saved to: {HTML_DIR}/index.html"))
           }))
         },
         error = function(e) {
