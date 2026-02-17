@@ -62,7 +62,7 @@ jobs:
       _r_check_system_clock_: 0
       REF_NAME: ${{ matrix.ref }}
       REF_LABEL: ${{ matrix.label }}
-      WORKFLOW_ID: ${{ github.run_id }}-${{ github.run_attempt }}-${{ matrix.label }}
+      WORKFLOW_ID: ${{ github.run_id }}-${{ github.run_attempt }}-${{ matrix.ref }}
       REPO_OWNER: ${{ github.repository_owner }}
       R_KEEP_PKG_SOURCE: yes
 
@@ -177,7 +177,7 @@ jobs:
       - name: Write versions to file
         run: |
           echo "ref:${{ env.REF_NAME }}" > ${{ env.WORKFLOW_ID }}.txt
-          echo "ref_label:${{ env.REF_LABEL }}" > ${{ env.WORKFLOW_ID }}.txt
+          echo "ref_label:${{ env.REF_LABEL }}" >> ${{ env.WORKFLOW_ID }}.txt
           echo "os:$(lsb_release -ds)" >> ${{ env.WORKFLOW_ID }}.txt
           echo "R:$(R --version | head -n1)" >> ${{ env.WORKFLOW_ID }}.txt
           Rscript --vanilla -e 'sessionInfo()' >> session_info_${{ env.WORKFLOW_ID }}.txt
