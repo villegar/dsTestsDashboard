@@ -83,26 +83,6 @@ log_dirs <- INPUT_DIR |>
   }) |>
   unlist()
 
-# render logs and store outputs in OUTPUT_DIR
-sapply(log_dirs, function(d) {
-  quarto::quarto_render(
-    "source/test_report.qmd",
-    execute_params = list(input_dir = file.path("..", d))
-  )
-  output_report <- file.path(
-    dirname(sub(INPUT_DIR, OUTPUT_DIR, d)),
-    "index.html"
-  )
-  # delete previous versions
-  unlink(output_report, force = TRUE, recursive = TRUE)
-  # ensure the output directory exists
-  dir.create(dirname(output_report), recursive = TRUE, showWarnings = FALSE)
-  file.rename(
-    "source/test_report.html",
-    output_report
-  )
-})
-
 # list directories inside OUTPUT_DIR
 dirs_lst <- OUTPUT_DIR |>
   list.dirs(full.names = TRUE, recursive = FALSE)
