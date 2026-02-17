@@ -10,7 +10,7 @@ on:
     types: [published]
   workflow_dispatch:
   workflow_run:
-    workflows: ["dsBase tests' suite"]
+    workflows: ["dsBase tests' suite", "dsBaseClient tests' suite"]
     types:
       - completed
 
