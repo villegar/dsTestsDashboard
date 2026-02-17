@@ -183,10 +183,10 @@ jobs:
           Rscript --vanilla -e 'sessionInfo()' >> session_info_${{ env.WORKFLOW_ID }}.txt
         working-directory: dsBase/logs
 
-      - name: Parse results from testthat and covr
-        run: |
-          Rscript --verbose --vanilla ../dsTestsDashboard/source/parse_test_report.R logs/
-        working-directory: dsBase
+      # - name: Parse results from testthat and covr
+      #   run: |
+      #     Rscript --verbose --vanilla ../dsTestsDashboard/source/parse_test_report.R logs/
+      #   working-directory: dsBase
 
       - name: Commit results to dsTestsDashboard
         run: |
