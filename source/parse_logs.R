@@ -1,3 +1,18 @@
+# SETUP ----
+args <- commandArgs(trailingOnly = TRUE) # read CL arguments
+# 1st argument: INPUT_DIR
+if (length(args) >= 1) {
+  INPUT_DIR <- args[1]
+} else {
+  INPUT_DIR <- getwd()
+}
+# 2nd argument: OUTPUT_DIR
+if (length(args) >= 2) {
+  OUTPUT_DIR <- args[2]
+} else {
+  OUTPUT_DIR <- INPUT_DIR
+}
+
 # utilitarian functions ----
 # identify directories containing both:
 # - coveragelist.csv
@@ -27,7 +42,7 @@ validate_xml <- function(xml_path) {
 
 # remove invalid XMLs
 list.files(
-  "logs",
+  INPUT_DIR,
   ".xml",
   ignore.case = TRUE,
   full.names = TRUE,
@@ -40,8 +55,8 @@ list.files(
     }
   })
 
-# list directories inside the 'logs' directory
-logs_dirs_packages <- list.dirs("logs", recursive = FALSE)
+# list directories inside the INPUT_DIR directory
+logs_dirs_packages <- list.dirs(INPUT_DIR, recursive = FALSE)
 
 # list sub-directories
 logs_dirs_versions <- list.dirs(logs_dirs_packages, recursive = FALSE)
@@ -72,7 +87,7 @@ logs_dirs_versions |>
       # setup
       INPUT_DIR <- latest
       OUTPUT_DIR <- INPUT_DIR
-      HTML_DIR <- stringr::str_replace(path, "logs/", "docs/") |>
+      HTML_DIR <- stringr::str_replace(path, INPUT_DIR, OUTPUT_DIR) |>
         file.path("latest")
       repo <- stringr::str_extract(path, "(?<=logs\\/)(.*)(?=\\/)")
       version <- stringr::str_extract(
