@@ -19,40 +19,50 @@ jobs:
   set-matrix:
     runs-on: ubuntu-latest
     outputs:
-      refs: ${{ steps.refs.outputs.refs }}
+      matrix: ${{ steps.build.outputs.matrix }}
     steps:
       - uses: actions/checkout@v4
 
-      - name: Read curated refs file (.github/dsbaseclient-refs.txt)
-        id: refs
+      - name: Build matrix from LABEL=REF file (.github/dsbaseclient-refs.txt)
+        id: build
         run: |
           if [ ! -f .github/dsbaseclient-refs.txt ]; then
             echo "ERROR: .github/dsbaseclient-refs.txt not found."
             exit 1
           fi
 
-          # Remove comments and empty lines, convert to JSON array
-          REFS=$(grep -v '^\s*#' .github/dsbaseclient-refs.txt | grep -v '^\s*$' | jq -R -s -c 'split("\n")[:-1]')
-          echo "Using refs: $REFS"
-          echo "refs=$REFS" >> $GITHUB_OUTPUT
+          FILE=".github/dsbaseclient-refs.txt"
+
+          MATRIX_JSON=$(grep -v '^\s*#' "$FILE" | grep -v '^\s*$' | awk -F= '
+            {
+              label=$1
+              ref=$2
+              gsub(/^[ \t]+|[ \t]+$/, "", label)
+              gsub(/^[ \t]+|[ \t]+$/, "", ref)
+              printf "{\"label\":\"%s\",\"ref\":\"%s\"}\n", label, ref
+            }
+          ' | jq -s -c '.')
+
+          echo "matrix=$MATRIX_JSON" >> $GITHUB_OUTPUT
 
   dsBaseClient_test_suite:
     needs: set-matrix
     runs-on: ubuntu-latest
     timeout-minutes: 180
     permissions:
-      contents: read
+      contents: write
 
     strategy:
       fail-fast: false
       matrix:
-        ref: ${{ fromJson(needs.set-matrix.outputs.refs) }}
+        include: ${{ fromJson(needs.set-matrix.outputs.matrix) }}
 
     env:
       TEST_FILTER: '_-|datachk-|smk-|arg-|disc-|perf-|smk_expt-|expt-|math-'
       _r_check_system_clock_: 0
-      WORKFLOW_ID: ${{ github.run_id }}-${{ github.run_attempt }}-${{ matrix.ref }}
       REF_NAME: ${{ matrix.ref }}
+      REF_LABEL: ${{ matrix.label }}
+      WORKFLOW_ID: ${{ github.run_id }}-${{ github.run_attempt }}-${{ matrix.ref }}
       REPO_OWNER: ${{ github.repository_owner }}
       R_KEEP_PKG_SOURCE: yes
 
@@ -233,38 +243,18 @@ jobs:
       - name: Write versions to file
         run: |
           echo "ref:${{ env.REF_NAME }}" > ${{ env.WORKFLOW_ID }}.txt
+          echo "ref_label:${{ env.REF_LABEL }}" >> ${{ env.WORKFLOW_ID }}.txt
           echo "os:$(lsb_release -ds)" >> ${{ env.WORKFLOW_ID }}.txt
           echo "R:$(R --version | head -n1)" >> ${{ env.WORKFLOW_ID }}.txt
           Rscript --vanilla -e 'sessionInfo()' >> session_info_${{ env.WORKFLOW_ID }}.txt
         working-directory: dsBaseClient/logs
 
-      - name: Parse results from testthat and covr
-        run: |
-          Rscript --verbose --vanilla ../dsTestsDashboard/source/parse_test_report.R logs/
-        working-directory: dsBaseClient
-
-      - name: Commit results to dsTestsDashboard
-        run: |
-          cd dsTestsDashboard
-
-          git config user.email "github-actions[bot]@users.noreply.github.com"
-          git config user.name "github-actions[bot]"
-
-          # rebase instead of pull to avoid merge commits
-          git pull --rebase origin main || true
-
-          mkdir -p logs/${{ env.PROJECT_NAME }}/${{ env.REF_NAME }}/${{ env.WORKFLOW_ID }}/
-
-          cp -rv ../dsBaseClient/logs/* logs/${{ env.PROJECT_NAME }}/${{ env.REF_NAME }}/${{ env.WORKFLOW_ID }}/
-          cp -rv ../dsBaseClient/logs/${{ env.WORKFLOW_ID }}.txt logs/${{ env.PROJECT_NAME }}/${{ env.REF_NAME }}/${{ env.WORKFLOW_ID }}/
-
-          git add .
-          git commit -m "Auto test for ${{ env.PROJECT_NAME }}/${{ env.REF_NAME }} @ ${{ env.WORKFLOW_ID }}" || echo "No changes to commit"
-          git push origin
-        env:
-          PROJECT_NAME: ${{ env.PROJECT_NAME }}
-          REF_NAME: ${{ env.REF_NAME }}
-          WORKFLOW_ID: ${{ env.WORKFLOW_ID }}
+      - name: Upload logs artefact
+        uses: actions/upload-artifact@v4
+        with:
+          name: logs-ref_${{ matrix.ref }}-label_${{ matrix.label }}
+          path: dsBase/logs
+          if-no-files-found: error
 
       - name: Dump environment info
         run: |
@@ -285,3 +275,54 @@ jobs:
           R -e 'sessionInfo()'
           sudo apt install tree -y
           tree .
+
+  publish-results:
+    name: Publish aggregated results
+    needs: dsBaseClient_test_suite
+    runs-on: ubuntu-latest
+    permissions:
+      contents: write
+
+    steps:
+      - name: Checkout dsTestsDashboard
+        uses: actions/checkout@v4
+        with:
+          path: dsTestsDashboard
+          fetch-depth: 0
+
+      - name: Download all artefacts
+        uses: actions/download-artifact@v4
+        with:
+          path: artefacts
+
+      - name: Merge artefacts into dashboard structure
+        run: |
+          set -e
+          cd dsTestsDashboard
+
+          echo "Artefacts downloaded:"
+          ls -R ../artefacts || true
+
+          for dir in ../artefacts/logs-*; do
+            if [ -d "$dir" ]; then
+              BASENAME=$(basename "$dir")
+
+              # extract ref (between logs-ref_ and -label_)
+              REF="${BASENAME#logs-ref_}"
+              REF="${REF%%-label_*}"
+
+              # extract label (after -label_)
+              LABEL="${BASENAME#*-label_}"
+
+              echo "Processing:"
+              echo "  ref:   $REF"
+              echo "  label: $LABEL"
+
+              WORKFLOW_ID="${{ github.run_id }}-${{ github.run_attempt }}-${REF}"
+              TARGET_DIR="logs/${{ env.PROJECT_NAME }}/${LABEL}/${WORKFLOW_ID}/"
+              mkdir -p "$TARGET_DIR"
+              cp -rv "$dir"/* "$TARGET_DIR" || true
+            fi
+          done
+        env:
+          PROJECT_NAME: ${{ env.PROJECT_NAME }}
