@@ -85,8 +85,8 @@ logs_dirs_versions |>
   purrr::pwalk(
     function(path, latest) {
       # setup
-      INPUT_DIR <- latest
-      OUTPUT_DIR <- INPUT_DIR
+      LOGS_INPUT_DIR <- latest
+      LOGS_OUTPUT_DIR <- LOGS_INPUT_DIR
       HTML_DIR <- stringr::str_replace(path, INPUT_DIR, OUTPUT_DIR)
       repo <- stringr::str_extract(path, "(?<=logs\\/)(.*)(?=\\/)")
       version <- stringr::str_extract(
@@ -120,13 +120,13 @@ logs_dirs_versions |>
         {
           suppressWarnings(suppressMessages({
             RDS_OUTPUT <- file.path(
-              OUTPUT_DIR,
+              LOGS_OUTPUT_DIR,
               paste0(Sys.Date(), "_covr_and_test_results.Rds")
             )
             # parse test report results
             if (!file.exists(RDS_OUTPUT)) {
               glue::glue(
-                "Rscript source/parse_test_report.R {INPUT_DIR} {OUTPUT_DIR} {GH_REPO} {glue::single_quote(FN_NAME_PATTERN)} {glue::single_quote(FN_TEST_CLASS_PATTERN)}"
+                "Rscript source/parse_test_report.R {LOGS_INPUT_DIR} {LOGS_OUTPUT_DIR} {GH_REPO} {glue::single_quote(FN_NAME_PATTERN)} {glue::single_quote(FN_TEST_CLASS_PATTERN)}"
               ) |>
                 system()
             }
@@ -139,21 +139,23 @@ logs_dirs_versions |>
               basename(path)
             )
             glue::glue(
-              "R -s -e \"quarto::quarto_render('source/test_report.qmd', execute_params = list(input_dir = '../{OUTPUT_DIR}', title = \'{title}\'))\""
+              "R -s -e \"quarto::quarto_render('source/test_report.qmd', execute_params = list(input_dir = '../{LOGS_OUTPUT_DIR}', title = \'{title}\'))\""
             ) |>
               system()
 
             # delete old version of output
             unlink(HTML_DIR, recursive = TRUE)
 
-            # create output dir in the 'docs/' directory
+            message("Creating output directory: ", HTML_DIR)
+            # create output dir in the HTML_DIR directory
             dir.create(HTML_DIR, recursive = TRUE)
 
+            message("Moving report into: ", HTML_DIR)
             # relocate HTML output
             glue::glue("mv source/test_report.html {HTML_DIR}/index.html") |>
               system()
 
-            message(glue::glue("Report saved to: {HTML_DIR}/index.html"))
+            message("Report saved to: ", HTML_DIR)
           }))
         },
         error = function(e) {
