@@ -18,11 +18,11 @@ if (length(args) >= 2) {
 } else {
   OUTPUT_DIR <- INPUT_DIR
 }
-# 3rd argument: CLEAR_DOCS
+# 3rd argument: CLEAR_LOGS
 if (length(args) >= 3) {
-  CLEAR_DOCS <- as.logical(args[3])
+  CLEAR_LOGS <- as.logical(args[3])
 } else {
-  CLEAR_DOCS <- FALSE
+  CLEAR_LOGS <- FALSE
 }
 
 message(
@@ -31,8 +31,8 @@ message(
   INPUT_DIR,
   "\n  OUTPUT_DIR: ",
   OUTPUT_DIR,
-  "\n  CLEAR_DOCS: ",
-  CLEAR_DOCS
+  "\n  CLEAR_LOGS: ",
+  CLEAR_LOGS
 )
 
 # create directory in case an empty directory is received
@@ -68,6 +68,16 @@ log_dirs <- INPUT_DIR |>
     list.dirs(pkg, full.names = TRUE, recursive = FALSE) |>
       sapply(function(vr) {
         log_dirs <- list.dirs(vr, full.names = TRUE, recursive = FALSE)
+        # clear the logs directory and only keep latest snapshot
+        if (CLEAR_LOGS && length(log_dirs) > 1) {
+          message(
+            "Deleting unwanted directories: \n",
+            paste0("- ", log_dirs[-length(log_dirs)], collapse = "\n")
+          )
+          # delete unwanted directories
+          unlink(log_dirs[-length(log_dirs)], force = TRUE, recursive = TRUE)
+        }
+        # return latest logs
         log_dirs[length(log_dirs)]
       })
   }) |>
@@ -105,24 +115,6 @@ idx <- dirs_lst |>
 body_html <- dirs_lst[idx] |>
   purrr::map(function(d) {
     new_section <- paste0("<h2>", basename(d), "</h2>\n<ul>\n")
-    # # clear the documents directory and only keep latest snapshot
-    # if (CLEAR_DOCS) {
-    #   # list directories at level 1
-    #   list_all_dirs_level_1 <- d |>
-    #     list.dirs(full.names = TRUE, recursive = FALSE)
-    #   # list directories at level 2
-    #   list_all_dirs_level_2 <- list_all_dirs_level_1 |>
-    #     list.dirs(full.names = TRUE, recursive = FALSE)
-    #   # detect directories that are not the latest version, avoid cluttering repo
-    #   idx <- stringr::str_detect(list_all_dirs_level_2, "latest", negate = TRUE)
-    #   message(
-    #     "Deleting unwanted directories: \n",
-    #     paste0("- ", list_all_dirs_level_2[idx], collapse = "\n")
-    #   )
-    #   # delete unwanted directories
-    #   unlink(list_all_dirs_level_2[idx], force = TRUE, recursive = TRUE)
-    # }
-
     aux <- d |>
       list.dirs(full.names = TRUE, recursive = FALSE) |>
       purrr::map(\(sd) {
