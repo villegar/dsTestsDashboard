@@ -52,6 +52,10 @@ jobs:
           mkdir -p docs
           Rscript --verbose --vanilla source/parse_logs.R logs docs
 
+      - name: Build site
+        run: |
+          Rscript --verbose --vanilla source/render_docs.R logs docs TRUE
+
       - name: Deploy to GitHub pages 🚀
         if: github.event_name != 'pull_request'
         uses: JamesIves/github-pages-deploy-action@v4.6.7
