@@ -151,6 +151,44 @@ jobs:
           R -q -f "molgenis_armadillo-upload_testing_datasets.R"
         working-directory: dsBaseClient/tests/testthat/data_files
 
+      - name: Install latest dsBase to Armadillo
+        run: |
+          set -e
+
+          echo "Looking for dsBase_* -permissive tarballs..."
+          ls -1 dsBase_*-permissive.tar.gz || true
+
+          # find latest version using version sort (-V handles X.Y.Z correctly)
+          LATEST_TARBALL=$(ls -1 dsBase_*-permissive.tar.gz 2>/dev/null | sort -V | tail -n 1)
+
+          if [ -z "$LATEST_TARBALL" ]; then
+            echo "❌ No dsBase_* -permissive.tar.gz file found in repo"
+            exit 1
+          fi
+
+          echo "✅ Latest dsBase package detected: $LATEST_TARBALL"
+
+          # extract version for logging
+          VERSION=$(echo "$LATEST_TARBALL" | sed -E 's/^dsBase_([0-9.]+)-permissive\.tar\.gz$/\1/')
+          echo "Installing dsBase version: $VERSION"
+
+          # check Armadillo API is reachable
+          curl -u admin:admin -X GET http://localhost:8080/packages
+
+          # install the latest tarball
+          curl -u admin:admin \
+            -H 'Content-Type: multipart/form-data' \
+            -F "file=@${LATEST_TARBALL}" \
+            -X POST http://localhost:8080/install-package
+
+          sleep 60
+          docker restart dsbaseclient-armadillo-1
+          sleep 30
+
+          # whitelist dsBase (package name stays constant)
+          curl -u admin:admin -X POST http://localhost:8080/whitelist/dsBase
+        working-directory: dsBaseClient
+
       - name: Run tests with coverage & JUnit report
         run: |
           mkdir -p logs
@@ -175,6 +213,7 @@ jobs:
             )'
           mv *.csv logs/ || true
           mv *.xml logs/ || true
+          grep -q " FAIL 0 " logs/test_console_output.txt
         working-directory: dsBaseClient
 
       - name: Check for JUnit errors
