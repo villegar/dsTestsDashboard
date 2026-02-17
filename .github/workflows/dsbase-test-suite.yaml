@@ -227,7 +227,7 @@ jobs:
       - name: Download all artefacts
         uses: actions/download-artifact@v4
         with:
-          path: artifacts
+          path: artefacts
 
       - name: Merge artefacts into dashboard structure
         run: |
@@ -235,7 +235,7 @@ jobs:
           cd dsTestsDashboard
 
           echo "Artefacts downloaded:"
-          ls -R ../artifacts || true
+          ls -R ../artefacts || true
 
           for dir in ../artefacts/logs-*; do
             if [ -d "$dir" ]; then
