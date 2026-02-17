@@ -253,7 +253,7 @@ jobs:
               echo "  label: $LABEL"
 
               WORKFLOW_ID="${{ github.run_id }}-${{ github.run_attempt }}-${REF}"
-              TARGET_DIR="logs/${{ env.PROJECT_NAME }}/${LABEL}/${RUN_REF}/"
+              TARGET_DIR="logs/${{ env.PROJECT_NAME }}/${LABEL}/${WORKFLOW_ID}/"
               mkdir -p "$TARGET_DIR"
               cp -rv "$dir"/* "$TARGET_DIR" || true
             fi
