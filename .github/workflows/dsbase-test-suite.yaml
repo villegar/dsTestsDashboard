@@ -19,22 +19,31 @@ jobs:
   set-matrix:
     runs-on: ubuntu-latest
     outputs:
-      refs: ${{ steps.refs.outputs.refs }}
+      matrix: ${{ steps.build.outputs.matrix }}
     steps:
       - uses: actions/checkout@v4
 
-      - name: Read curated refs file (.github/dsbase-refs.txt)
-        id: refs
+      - name: Build matrix from LABEL=REF file (.github/dsbase-refs.txt)
+        id: build
         run: |
           if [ ! -f .github/dsbase-refs.txt ]; then
             echo "ERROR: .github/dsbase-refs.txt not found."
             exit 1
           fi
 
-          # Remove comments and empty lines, convert to JSON array
-          REFS=$(grep -v '^\s*#' .github/dsbase-refs.txt | grep -v '^\s*$' | jq -R -s -c 'split("\n")[:-1]')
-          echo "Using refs: $REFS"
-          echo "refs=$REFS" >> $GITHUB_OUTPUT
+          FILE=".github/dsbase-refs.txt"
+
+          MATRIX_JSON=$(grep -v '^\s*#' "$FILE" | grep -v '^\s*$' | awk -F= '
+            {
+              label=$1
+              ref=$2
+              gsub(/^[ \t]+|[ \t]+$/, "", label)
+              gsub(/^[ \t]+|[ \t]+$/, "", ref)
+              printf "{\"label\":\"%s\",\"ref\":\"%s\"}\n", label, ref
+            }
+          ' | jq -s -c '.')
+
+          echo "matrix=$MATRIX_JSON" >> $GITHUB_OUTPUT
 
   dsBase_test_suite:
     needs: set-matrix
@@ -46,13 +55,14 @@ jobs:
     strategy:
       fail-fast: false
       matrix:
-        ref: ${{ fromJson(needs.set-matrix.outputs.refs) }}
+        include: ${{ fromJson(needs.set-matrix.outputs.matrix) }}
 
     env:
       TEST_FILTER: '*'
       _r_check_system_clock_: 0
-      WORKFLOW_ID: ${{ github.run_id }}-${{ github.run_attempt }}-${{ matrix.ref }}
       REF_NAME: ${{ matrix.ref }}
+      REF_LABEL: ${{ matrix.label }}
+      WORKFLOW_ID: ${{ github.run_id }}-${{ github.run_attempt }}-${{ matrix.label }}
       REPO_OWNER: ${{ github.repository_owner }}
       R_KEEP_PKG_SOURCE: yes
 
@@ -167,6 +177,7 @@ jobs:
       - name: Write versions to file
         run: |
           echo "ref:${{ env.REF_NAME }}" > ${{ env.WORKFLOW_ID }}.txt
+          echo "ref_label:${{ env.REF_LABEL }}" > ${{ env.WORKFLOW_ID }}.txt
           echo "os:$(lsb_release -ds)" >> ${{ env.WORKFLOW_ID }}.txt
           echo "R:$(R --version | head -n1)" >> ${{ env.WORKFLOW_ID }}.txt
           Rscript --vanilla -e 'sessionInfo()' >> session_info_${{ env.WORKFLOW_ID }}.txt
@@ -187,27 +198,21 @@ jobs:
           git checkout
           git pull origin
 
-          mkdir -p logs/${{ env.PROJECT_NAME }}/${{ env.REF_NAME }}/${{ env.WORKFLOW_ID }}/
-          # mkdir -p docs/${{ env.PROJECT_NAME }}/${{ env.REF_NAME }}/${{ env.WORKFLOW_ID }}/
-          # mkdir -p docs/${{ env.PROJECT_NAME }}/${{ env.REF_NAME }}/latest/
-          # rm -rf docs/${{ env.PROJECT_NAME }}/${{ env.REF_NAME }}/latest/*
+          mkdir -p logs/${{ env.PROJECT_NAME }}/${{ env.REF_LABEL }}/${{ env.WORKFLOW_ID }}/
 
-          cp -rv ../dsBase/logs/* logs/${{ env.PROJECT_NAME }}/${{ env.REF_NAME }}/${{ env.WORKFLOW_ID }}/
-          cp -rv ../dsBase/logs/${{ env.WORKFLOW_ID }}.txt logs/${{ env.PROJECT_NAME }}/${{ env.REF_NAME }}/${{ env.WORKFLOW_ID }}/
+          cp -rv ../dsBase/logs/* logs/${{ env.PROJECT_NAME }}/${{ env.REF_LABEL }}/${{ env.WORKFLOW_ID }}/
+          cp -rv ../dsBase/logs/${{ env.WORKFLOW_ID }}.txt logs/${{ env.PROJECT_NAME }}/${{ env.REF_LABEL }}/${{ env.WORKFLOW_ID }}/
 
-          ln -sf ${{ env.WORKFLOW_ID }}/ logs/${{ env.PROJECT_NAME }}/${{ env.REF_NAME }}/.LATEST
-
-          # R -e 'input_dir <- file.path("../logs", Sys.getenv("PROJECT_NAME"), Sys.getenv("REF_NAME"), Sys.getenv("WORKFLOW_ID")); quarto::quarto_render("source/test_report.qmd", execute_params = list(input_dir = input_dir))'
-          # mv source/test_report.html docs/${{ env.PROJECT_NAME }}/${{ env.REF_NAME }}/${{ env.WORKFLOW_ID }}/index.html
-          # cp -r docs/${{ env.PROJECT_NAME }}/${{ env.REF_NAME }}/${{ env.WORKFLOW_ID }}/* docs/${{ env.PROJECT_NAME }}/${{ env.REF_NAME }}/latest
+          ln -sf ${{ env.WORKFLOW_ID }}/ logs/${{ env.PROJECT_NAME }}/${{ env.REF_LABEL }}/.LATEST
 
           git add .
-          git commit -m "Auto test for ${{ env.PROJECT_NAME }}/${{ env.REF_NAME }} @ ${{ env.WORKFLOW_ID }}" || echo "No changes to commit"
+          git commit -m "Auto test for ${{ env.PROJECT_NAME }}/${{ env.REF_LABEL }} @ ${{ env.WORKFLOW_ID }}" || echo "No changes to commit"
           git push origin
 
         env:
           PROJECT_NAME: ${{ env.PROJECT_NAME }}
           REF_NAME: ${{ env.REF_NAME }}
+          REF_LABEL: ${{ env.REF_LABEL }}
           WORKFLOW_ID: ${{ env.WORKFLOW_ID }}
 
       - name: Dump environment info
