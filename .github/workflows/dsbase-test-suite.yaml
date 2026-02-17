@@ -183,10 +183,10 @@ jobs:
           Rscript --vanilla -e 'sessionInfo()' >> session_info_${{ env.WORKFLOW_ID }}.txt
         working-directory: dsBase/logs
 
-      - name: Upload logs artifact
+      - name: Upload logs artefact
         uses: actions/upload-artifact@v4
         with:
-          name: logs-${{ matrix.label }}
+          name: logs-ref_${{ matrix.ref }}-label_${{ matrix.label }}
           path: dsBase/logs
           if-no-files-found: error
 
@@ -224,26 +224,38 @@ jobs:
           path: dsTestsDashboard
           fetch-depth: 0
 
-      - name: Download all artifacts
+      - name: Download all artefacts
         uses: actions/download-artifact@v4
         with:
           path: artifacts
 
-      - name: Merge artifacts into dashboard structure
+      - name: Merge artefacts into dashboard structure
         run: |
           set -e
           cd dsTestsDashboard
 
-          echo "Artifacts downloaded:"
+          echo "Artefacts downloaded:"
           ls -R ../artifacts || true
 
-          for dir in ../artifacts/logs-*; do
+          for dir in ../artefacts/logs-*; do
             if [ -d "$dir" ]; then
-              LABEL=$(basename "$dir" | sed 's/^logs-//')
-              WORKFLOW_ID="${{ github.run_id }}-${{ github.run_attempt }}-${LABEL}"
+              BASENAME=$(basename "$dir")
 
-              mkdir -p logs/${{ env.PROJECT_NAME }}/${LABEL}/${WORKFLOW_ID}/
-              cp -rv "$dir"/* logs/${{ env.PROJECT_NAME }}/${LABEL}/${WORKFLOW_ID}/ || true
+              # extract ref (between logs-ref_ and -label_)
+              REF="${BASENAME#logs-ref_}"
+              REF="${REF%%-label_*}"
+
+              # extract label (after -label_)
+              LABEL="${BASENAME#*-label_}"
+
+              echo "Processing:"
+              echo "  ref:   $REF"
+              echo "  label: $LABEL"
+
+              WORKFLOW_ID="${{ github.run_id }}-${{ github.run_attempt }}-${REF}"
+              TARGET_DIR="logs/${{ env.PROJECT_NAME }}/${LABEL}/${RUN_REF}/"
+              mkdir -p "$TARGET_DIR"
+              cp -rv "$dir"/* "$TARGET_DIR" || true
             fi
           done
         env:
@@ -256,7 +268,7 @@ jobs:
           git config user.email "github-actions[bot]@users.noreply.github.com"
           git config user.name "github-actions[bot]"
 
-          # Rebase instead of pull to avoid merge commits
+          # rebase instead of pull to avoid merge commits
           git pull --rebase origin main || true
 
           git add .
