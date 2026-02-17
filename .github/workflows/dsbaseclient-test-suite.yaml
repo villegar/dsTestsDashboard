@@ -192,16 +192,20 @@ jobs:
       - name: Run tests with coverage & JUnit report
         run: |
           mkdir -p logs
+          R -q -e "devtools::reload();"
           R -q -e '
             write.csv(
               covr::coverage_to_list(
                 covr::package_coverage(
                   type = c("none"),
                   code = c('"'"'
-                    junit_rep <- testthat::JunitReporter$new(file = "test_results.xml");
+                    output_file <- file("test_console_output.txt");
+                    sink(output_file);
+                    sink(output_file, type = "message");
+                    junit_rep <- testthat::JunitReporter$new(file = file.path(getwd(), "test_results.xml"));
                     progress_rep <- testthat::ProgressReporter$new(max_failures = 999999);
                     multi_rep <- testthat::MultiReporter$new(reporters = list(progress_rep, junit_rep));
-                    options("datashield.return_errors" = FALSE);
+                    options("datashield.return_errors" = FALSE, "default_driver" = "ArmadilloDriver");
                     testthat::test_package("${{ env.PROJECT_NAME }}",
                                            filter = "${{ env.TEST_FILTER }}",
                                            reporter = multi_rep,
@@ -211,8 +215,9 @@ jobs:
               ),
               "coveragelist.csv"
             )'
-          mv *.csv logs/ || true
-          mv *.xml logs/ || true
+
+          mv coveragelist.csv logs/
+          mv test_* logs/
           grep -q " FAIL 0 " logs/test_console_output.txt
         working-directory: dsBaseClient
 
