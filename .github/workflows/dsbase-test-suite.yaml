@@ -183,37 +183,12 @@ jobs:
           Rscript --vanilla -e 'sessionInfo()' >> session_info_${{ env.WORKFLOW_ID }}.txt
         working-directory: dsBase/logs
 
-      # - name: Parse results from testthat and covr
-      #   run: |
-      #     Rscript --verbose --vanilla ../dsTestsDashboard/source/parse_test_report.R logs/
-      #   working-directory: dsBase
-
-      - name: Commit results to dsTestsDashboard
-        run: |
-          git config --global user.email "github-actions[bot]@users.noreply.github.com"
-          git config --global user.name "github-actions[bot]"
-          cd dsTestsDashboard
-
-          git remote set-url origin https://x-access-token:${{ secrets.GITHUB_TOKEN }}@github.com/${{ env.REPO_OWNER }}/dsTestsDashboard.git
-          git checkout
-          git pull origin
-
-          mkdir -p logs/${{ env.PROJECT_NAME }}/${{ env.REF_LABEL }}/${{ env.WORKFLOW_ID }}/
-
-          cp -rv ../dsBase/logs/* logs/${{ env.PROJECT_NAME }}/${{ env.REF_LABEL }}/${{ env.WORKFLOW_ID }}/
-          cp -rv ../dsBase/logs/${{ env.WORKFLOW_ID }}.txt logs/${{ env.PROJECT_NAME }}/${{ env.REF_LABEL }}/${{ env.WORKFLOW_ID }}/
-
-          ln -sf ${{ env.WORKFLOW_ID }}/ logs/${{ env.PROJECT_NAME }}/${{ env.REF_LABEL }}/.LATEST
-
-          git add .
-          git commit -m "Auto test for ${{ env.PROJECT_NAME }}/${{ env.REF_LABEL }} @ ${{ env.WORKFLOW_ID }}" || echo "No changes to commit"
-          git push origin
-
-        env:
-          PROJECT_NAME: ${{ env.PROJECT_NAME }}
-          REF_NAME: ${{ env.REF_NAME }}
-          REF_LABEL: ${{ env.REF_LABEL }}
-          WORKFLOW_ID: ${{ env.WORKFLOW_ID }}
+      - name: Upload logs artifact
+        uses: actions/upload-artifact@v4
+        with:
+          name: logs-${{ matrix.label }}
+          path: dsBase/logs
+          if-no-files-found: error
 
       - name: Dump environment info
         run: |
@@ -234,3 +209,62 @@ jobs:
           R -e 'sessionInfo()'
           sudo apt install tree -y
           tree .
+
+  publish-results:
+    name: Publish aggregated results
+    needs: dsBase_test_suite
+    runs-on: ubuntu-latest
+    permissions:
+      contents: write
+
+    steps:
+      - name: Checkout dsTestsDashboard
+        uses: actions/checkout@v4
+        with:
+          path: dsTestsDashboard
+          fetch-depth: 0
+
+      - name: Download all artifacts
+        uses: actions/download-artifact@v4
+        with:
+          path: artifacts
+
+      - name: Merge artifacts into dashboard structure
+        run: |
+          set -e
+          cd dsTestsDashboard
+
+          echo "Artifacts downloaded:"
+          ls -R ../artifacts || true
+
+          for dir in ../artifacts/logs-*; do
+            if [ -d "$dir" ]; then
+              LABEL=$(basename "$dir" | sed 's/^logs-//')
+              WORKFLOW_ID="${{ github.run_id }}-${{ github.run_attempt }}-${LABEL}"
+
+              mkdir -p logs/${{ env.PROJECT_NAME }}/${LABEL}/${WORKFLOW_ID}/
+              cp -rv "$dir"/* logs/${{ env.PROJECT_NAME }}/${LABEL}/${WORKFLOW_ID}/ || true
+            fi
+          done
+        env:
+          PROJECT_NAME: ${{ env.PROJECT_NAME }}
+
+      - name: Commit and push once
+        run: |
+          cd dsTestsDashboard
+
+          git config user.email "github-actions[bot]@users.noreply.github.com"
+          git config user.name "github-actions[bot]"
+
+          # Rebase instead of pull to avoid merge commits
+          git pull --rebase origin main || true
+
+          git add .
+
+          if git diff --cached --quiet; then
+            echo "No changes to commit"
+            exit 0
+          fi
+
+          git commit -m "Aggregated dsBase results @ ${{ github.run_id }}-${{ github.run_attempt }}"
+          git push origin main
