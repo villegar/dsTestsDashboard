@@ -8,7 +8,7 @@ on:
   push:
   schedule:
     - cron: '0 0 * * 0'   # weekly
-    - cron: '0 1 * * *'   # nightly
+    # - cron: '0 1 * * *'   # nightly
   workflow_dispatch:
 
 env:
@@ -169,6 +169,7 @@ jobs:
           echo "ref:${{ env.REF_NAME }}" > ${{ env.WORKFLOW_ID }}.txt
           echo "os:$(lsb_release -ds)" >> ${{ env.WORKFLOW_ID }}.txt
           echo "R:$(R --version | head -n1)" >> ${{ env.WORKFLOW_ID }}.txt
+          Rscript --vanilla -e 'sessionInfo()' >> session_info_${{ env.WORKFLOW_ID }}.txt
         working-directory: dsBase/logs
 
       - name: Parse results from testthat and covr
