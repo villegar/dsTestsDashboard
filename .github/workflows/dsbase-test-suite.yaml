@@ -110,6 +110,7 @@ jobs:
             dir.create("logs");
 
             devtools::reload();
+            library(dsBase);
 
             # define output paths
             test_results_xml <- "logs/test_results.xml";
