@@ -1,0 +1,1047 @@
+Loading required package: Matrix
+✔ | F W  S  OK | Context
+
+⠏ |          0 | arg-asIntegerDS                                                
+⠏ |          0 | asIntegerDS::arg::setup                                        
+⠏ |          0 | asIntegerDS::arg::direct input numeric                         
+✔ |          1 | asIntegerDS::arg::direct input numeric
+
+⠏ |          0 | asIntegerDS::arg::shutdown                                     
+⠏ |          0 | asIntegerDS::arg::done                                         
+⠏ |          0 | arg-asLogicalDS                                                
+⠏ |          0 | asLogicalDS::arg::setup                                        
+⠏ |          0 | asLogicalDS::arg::direct input numeric                         
+✔ |          1 | asLogicalDS::arg::direct input numeric
+
+⠏ |          0 | asLogicalDS::arg::input NULL                                   
+✔ |          1 | asLogicalDS::arg::input NULL
+
+⠏ |          0 | asLogicalDS::arg::input NA                                     
+✔ |          1 | asLogicalDS::arg::input NA
+
+⠏ |          0 | asLogicalDS::arg::shutdown                                     
+⠏ |          0 | asLogicalDS::arg::done                                         
+⠏ |          0 | arg-dataFrameFillDS                                            
+⠏ |          0 | dataFrameFillDS::arg::setup                                    
+⠏ |          0 | dataFrameFillDS::arg                                           
+✔ |          4 | dataFrameFillDS::arg
+
+⠏ |          0 | dataFrameFillDS::arg::shutdown                                 
+⠏ |          0 | dataFrameFillDS::arg::done                                     
+⠏ |          0 | arg-dataFrameSortDS                                            
+⠏ |          0 | dataFrameSortDS::arg::setup                                    
+⠏ |          0 | dataFrameSortDS::arg                                           
+✔ |          1 | dataFrameSortDS::arg
+
+⠏ |          0 | dataFrameSortDS::arg::shutdown                                 
+⠏ |          0 | dataFrameSortDS::arg::done                                     
+⠏ |          0 | arg-uniqueDS                                                   
+⠏ |          0 | uniqueDS::arg::setup                                           
+⠏ |          0 | uniqueDS::arg::simple null argument                            
+✔ |          1 | uniqueDS::arg::simple null argument
+
+⠏ |          0 | uniqueDS::arg::null value                                      
+✔ |          1 | uniqueDS::arg::null value
+
+⠏ |          0 | uniqueDS::arg::not character value                             
+✔ |          1 | uniqueDS::arg::not character value
+
+⠏ |          0 | uniqueDS::arg::missing value                                   
+✔ |          1 | uniqueDS::arg::missing value
+
+⠏ |          0 | uniqueDS::arg::shutdown                                        
+⠏ |          0 | uniqueDS::arg::done                                            
+⠏ |          0 | disc-meanDS                                                    
+⠏ |          0 | meanDS::disc::setup                                            
+⠏ |          0 | meanDS::disc::numeric with below nfilter.tab values            
+✔ |          1 | meanDS::disc::numeric with below nfilter.tab values
+
+⠏ |          0 | meanDS::disc::shutdown                                         
+⠏ |          0 | meanDS::disc::done                                             
+⠏ |          0 | disc-varDS                                                     
+⠏ |          0 | varDS::disc::setup                                             
+⠏ |          0 | varDS::disc::numeric with below nfilter.tab values             
+✔ |          1 | varDS::disc::numeric with below nfilter.tab values
+
+⠏ |          0 | varDS::disc::shutdown                                          
+⠏ |          0 | varDS::disc::done                                              
+⠏ |          0 | perf-meanDS                                                    
+✔ |      1   0 | perf-meanDS
+
+⠏ |          0 | perf-varDS                                                     
+✔ |      1   0 | perf-varDS
+
+⠏ |          0 | smk-absDS                                                      
+⠏ |          0 | absDS::smk::setup                                              
+⠏ |          0 | absDS::smk::special                                            
+✔ |         12 | absDS::smk::special
+
+⠏ |          0 | absDS::smk::numeric                                            
+✔ |          9 | absDS::smk::numeric
+
+⠏ |          0 | absDS::smk::integer                                            
+✔ |          9 | absDS::smk::integer
+
+⠏ |          0 | absDS::smk::special vector                                     
+✔ |          6 | absDS::smk::special vector
+
+⠏ |          0 | absDS::smk::numeric vector                                     
+✔ |          8 | absDS::smk::numeric vector
+
+⠏ |          0 | absDS::smk::integer vector                                     
+✔ |          8 | absDS::smk::integer vector
+
+⠏ |          0 | absDS::smk::shutdown                                           
+⠏ |          0 | absDS::smk::done                                               
+⠏ |          0 | smk-asCharacterDS                                              
+⠏ |          0 | asCharacterDS::smk::setup                                      
+⠏ |          0 | asCharacterDS::smk::numeric                                    
+✔ |          3 | asCharacterDS::smk::numeric
+
+⠏ |          0 | asCharacterDS::smk::numeric vector                             
+✔ |          7 | asCharacterDS::smk::numeric vector
+
+⠏ |          0 | asCharacterDS::smk::logical                                    
+✔ |          6 | asCharacterDS::smk::logical
+
+⠏ |          0 | asCharacterDS::smk::logical vector                             
+✔ |          7 | asCharacterDS::smk::logical vector
+
+⠏ |          0 | asCharacterDS::smk::shutdown                                   
+⠏ |          0 | asCharacterDS::smk::done                                       
+⠏ |          0 | smk-asDataMatrixDS                                             
+⠏ |          0 | asDataMatrixDS::smk::setup                                     
+⠏ |          0 | asDataMatrixDS::smk::simple                                    
+✔ |         17 | asDataMatrixDS::smk::simple
+
+⠏ |          0 | asDataMatrixDS::smk::shutdown                                  
+⠏ |          0 | asDataMatrixDS::smk::done                                      
+⠏ |          0 | smk-asFactorDS1                                                
+⠏ |          0 | asFactorDS1::smk::setup                                        
+⠏ |          0 | asFactorDS1::smk::simple                                       
+✔ |          5 | asFactorDS1::smk::simple
+
+⠏ |          0 | asFactorDS1::smk::shutdown                                     
+⠏ |          0 | asFactorDS1::smk::done                                         
+⠏ |          0 | smk-asFactorDS2                                                
+⠏ |          0 | asFactorDS2::smk::setup                                        
+⠏ |          0 | asFactorDS2::smk::simple                                       
+⠧ |         28 | asFactorDS2::smk::simple                                       
+✔ |         47 | asFactorDS2::smk::simple
+
+⠏ |          0 | asFactorDS2::smk::shutdown                                     
+⠏ |          0 | asFactorDS2::smk::done                                         
+⠏ |          0 | smk-asFactorSimpleDS                                           
+⠏ |          0 | asFactorSimpleDS::smk::setup                                   
+⠏ |          0 | asFactorSimpleDS::smk::simple                                  
+✔ |         17 | asFactorSimpleDS::smk::simple
+
+⠏ |          0 | asFactorSimpleDS::smk::shutdown                                
+⠏ |          0 | asFactorSimpleDS::smk::done                                    
+⠏ |          0 | smk-asIntegerDS                                                
+⠏ |          0 | asIntegerDS::smk::setup                                        
+⠏ |          0 | asIntegerDS::smk::numeric                                      
+✔ |          3 | asIntegerDS::smk::numeric
+
+⠏ |          0 | asIntegerDS::smk::numeric vector                               
+✔ |          7 | asIntegerDS::smk::numeric vector
+
+⠏ |          0 | asIntegerDS::smk::character                                    
+✔ |          3 | asIntegerDS::smk::character
+
+⠏ |          0 | asIntegerDS::smk::character vector                             
+✔ |          7 | asIntegerDS::smk::character vector
+
+⠏ |          0 | asIntegerDS::smk::shutdown                                     
+⠏ |          0 | asIntegerDS::smk::done                                         
+⠏ |          0 | smk-asListDS                                                   
+⠏ |          0 | asListDS::smk::setup                                           
+⠏ |          0 | asListDS::smk::simple                                          
+✔ |          8 | asListDS::smk::simple
+
+⠏ |          0 | asListDS::smk::shutdown                                        
+⠏ |          0 | asListDS::smk::done                                            
+⠏ |          0 | smk-asLogicalDS                                                
+⠏ |          0 | asLogicalDS::smk::setup                                        
+⠏ |          0 | asLogicalDS::smk::integer                                      
+✔ |          6 | asLogicalDS::smk::integer
+
+⠏ |          0 | asLogicalDS::smk::integer vector                               
+✔ |          7 | asLogicalDS::smk::integer vector
+
+⠏ |          0 | asLogicalDS::smk::numeric                                      
+✔ |          6 | asLogicalDS::smk::numeric
+
+⠏ |          0 | asLogicalDS::smk::numeric vector                               
+✔ |          7 | asLogicalDS::smk::numeric vector
+
+⠏ |          0 | asLogicalDS::smk::character                                    
+✔ |         26 | asLogicalDS::smk::character
+
+⠏ |          0 | asLogicalDS::smk::shutdown                                     
+⠏ |          0 | asLogicalDS::smk::done                                         
+⠏ |          0 | smk-asMatrixDS                                                 
+⠏ |          0 | asMatrixDS::smk::setup                                         
+⠏ |          0 | asMatrixDS::smk::simple                                        
+✔ |         17 | asMatrixDS::smk::simple
+
+⠏ |          0 | asMatrixDS::smk::shutdown                                      
+⠏ |          0 | asMatrixDS::smk::done                                          
+⠏ |          0 | smk-asNumericDS                                                
+⠏ |          0 | asNumericDS::smk::setup                                        
+⠏ |          0 | asNumericDS::smk::character                                    
+✔ |          3 | asNumericDS::smk::character
+
+⠏ |          0 | asNumericDS::smk::character vector                             
+✔ |          7 | asNumericDS::smk::character vector
+
+⠏ |          0 | asNumericDS::smk::character 'non numeric' vector               
+✔ |          7 | asNumericDS::smk::character 'non numeric' vector
+
+⠏ |          0 | asNumericDS::smk::factor vector                                
+✔ |          7 | asNumericDS::smk::factor vector
+
+⠏ |          0 | asNumericDS::smk::factor rev vector                            
+✔ |          7 | asNumericDS::smk::factor rev vector
+
+⠏ |          0 | asNumericDS::smk::factor numeric levels vector                 
+✔ |          7 | asNumericDS::smk::factor numeric levels vector
+
+⠏ |          0 | asNumericDS::smk::factor vector with only numbers in its values
+✔ |          7 | asNumericDS::smk::factor vector with only numbers in its values
+
+⠏ |          0 | asNumericDS::smk::factor vector with only characters in its values
+✔ |          7 | asNumericDS::smk::factor vector with only characters in its values
+
+⠏ |          0 | asNumericDS::smk::character vector with only numbers in its values
+✔ |          7 | asNumericDS::smk::character vector with only numbers in its values
+
+⠏ |          0 | asNumericDS::smk::character vector with only characters in its values
+✔ |          7 | asNumericDS::smk::character vector with only characters in its values
+
+⠏ |          0 | asNumericDS::smk::character vector with strings having characters and numbers
+✔ |          7 | asNumericDS::smk::character vector with strings having characters and numbers
+
+⠏ |          0 | asNumericDS::smk::logical vector                               
+✔ |          6 | asNumericDS::smk::logical vector
+
+⠏ |          0 | asNumericDS::smk::logical character vector                     
+✔ |          6 | asNumericDS::smk::logical character vector
+
+⠏ |          0 | asNumericDS::smk::integer vector                               
+✔ |          7 | asNumericDS::smk::integer vector
+
+⠏ |          0 | asNumericDS::smk::shutdown                                     
+⠏ |          0 | asNumericDS::smk::done                                         
+⠏ |          0 | smk-aucDS                                                      
+⠏ |          0 | aucDS::smk::setup                                              
+⠋ |          1 | aucDS::smk::setup                                              
+✔ |          6 | aucDS::smk::setup
+
+⠏ |          0 | aucDS::smk::shutdown                                           
+⠏ |          0 | aucDS::smk::done                                               
+⠏ |          0 | smk-BooleDS                                                    
+⠏ |          0 | BooleDS::smk::setup                                            
+⠏ |          0 | BooleDS::smk::simple equal                                     
+✔ |         14 | BooleDS::smk::simple equal
+
+⠏ |          0 | BooleDS::smk::simple not-equal                                 
+✔ |         14 | BooleDS::smk::simple not-equal
+
+⠏ |          0 | BooleDS::smk::simple less-than                                 
+✔ |         14 | BooleDS::smk::simple less-than
+
+⠏ |          0 | BooleDS::smk::simple less-than-equal                           
+✔ |         14 | BooleDS::smk::simple less-than-equal
+
+⠏ |          0 | BooleDS::smk::simple greater-than                              
+✔ |         14 | BooleDS::smk::simple greater-than
+
+⠏ |          0 | BooleDS::smk::simple greater-than-equal                        
+✔ |         14 | BooleDS::smk::simple greater-than-equal
+
+⠏ |          0 | BooleDS::smk::na-check numeric                                 
+✔ |         21 | BooleDS::smk::na-check numeric
+
+⠏ |          0 | BooleDS::smk::na-check logical                                 
+✔ |         21 | BooleDS::smk::na-check logical
+
+⠏ |          0 | BooleDS::smk::shutdown                                         
+⠏ |          0 | BooleDS::smk::done                                             
+⠏ |          0 | smk-bp_standardsDS                                             
+⠏ |          0 | bp_standardsDS::smk::setup                                     
+⠏ |          0 | bp_standardsDS::smk::systolic                                  
+✔ |         10 | bp_standardsDS::smk::systolic
+
+⠏ |          0 | bp_standardsDS::smk::diastolic                                 
+✔ |         10 | bp_standardsDS::smk::diastolic
+
+⠏ |          0 | bp_standardsDS::smk::shutdown                                  
+⠏ |          0 | bp_standardsDS::smk::done                                      
+⠏ |          0 | smk-cbindDS                                                    
+⠏ |          0 | cbindDS::smk::setup                                            
+⠏ |          0 | cbindDS::smk::simple                                           
+✔ |          8 | cbindDS::smk::simple
+
+⠏ |          0 | cbindDS::smk::shutdown                                         
+⠏ |          0 | cbindDS::smk::done                                             
+⠏ |          0 | smk-cDS                                                        
+⠏ |          0 | cDS::smk::setup                                                
+⠏ |          0 | cDS::smk::numeric list                                         
+✔ |          6 | cDS::smk::numeric list
+
+⠏ |          0 | cDS::smk::character list                                       
+✔ |          6 | cDS::smk::character list
+
+⠏ |          0 | cDS::smk::numeric list small                                   
+✔ |          4 | cDS::smk::numeric list small
+
+⠏ |          0 | cDS::smk::empty list                                           
+✔ |          2 | cDS::smk::empty list
+
+⠏ |          0 | cDS::smk::shutdown                                             
+⠏ |          0 | cDS::smk::done                                                 
+⠏ |          0 | smk-changeRefGroupDS                                           
+⠏ |          0 | changeRefGroupDS::smk::setup                                   
+⠏ |          0 | changeRefGroupDS::smk                                          
+✔ |         32 | changeRefGroupDS::smk
+
+⠏ |          0 | changeRefGroupDS::smk::shutdown                                
+⠏ |          0 | changeRefGroupDS::smk::done                                    
+⠏ |          0 | smk-checkNegValueDS                                            
+⠏ |          0 | checkNegValueDS::smk::setup                                    
+⠏ |          0 | checkNegValueDS::smk::with no neg                              
+✔ |          6 | checkNegValueDS::smk::with no neg
+
+⠏ |          0 | checkNegValueDS::smk::with neg                                 
+✔ |          6 | checkNegValueDS::smk::with neg
+
+⠏ |          0 | checkNegValueDS::smk::shutdown                                 
+⠏ |          0 | checkNegValueDS::smk::done                                     
+⠏ |          0 | smk-classDS                                                    
+⠏ |          0 | classDS::smk::setup                                            
+⠏ |          0 | classDS::smk::character                                        
+✔ |          6 | classDS::smk::character
+
+⠏ |          0 | classDS::smk::integer                                          
+✔ |          6 | classDS::smk::integer
+
+⠏ |          0 | classDS::smk::numeric                                          
+✔ |          6 | classDS::smk::numeric
+
+⠏ |          0 | classDS::smk::logical                                          
+✔ |          9 | classDS::smk::logical
+
+⠏ |          0 | classDS::smk::data.frame                                       
+✔ |          3 | classDS::smk::data.frame
+
+⠏ |          0 | classDS::smk::array                                            
+✔ |          3 | classDS::smk::array
+
+⠏ |          0 | classDS::smk::matrix                                           
+✔ |          4 | classDS::smk::matrix
+
+⠏ |          0 | classDS::smk::data.matrix                                      
+✔ |          4 | classDS::smk::data.matrix
+
+⠏ |          0 | classDS::smk::date                                             
+✔ |          3 | classDS::smk::date
+
+⠏ |          0 | classDS::smk::formula                                          
+✔ |          3 | classDS::smk::formula
+
+⠏ |          0 | classDS::smk::environment                                      
+✔ |          3 | classDS::smk::environment
+
+⠏ |          0 | classDS::smk::NA                                               
+✔ |          3 | classDS::smk::NA
+
+⠏ |          0 | classDS::smk::NULL                                             
+✔ |          3 | classDS::smk::NULL
+
+⠏ |          0 | classDS::smk::shutdown                                         
+⠏ |          0 | classDS::smk::done                                             
+⠏ |          0 | smk-colnamesDS                                                 
+⠏ |          0 | colnamesDS::smk::setup                                         
+⠏ |          0 | colnamesDS::smk::data.frame                                    
+✔ |          4 | colnamesDS::smk::data.frame
+
+⠏ |          0 | colnamesDS::smk::data.matrix                                   
+✔ |          4 | colnamesDS::smk::data.matrix
+
+⠏ |          0 | colnamesDS::smk::shutdown                                      
+⠏ |          0 | colnamesDS::smk::done                                          
+⠏ |          0 | smk-completeCasesDS                                            
+⠏ |          0 | completeCasesDS::smk::setup                                    
+⠏ |          0 | completeCasesDS::smk::vector                                   
+✔ |         11 | completeCasesDS::smk::vector
+
+⠏ |          0 | completeCasesDS::smk::data.frame                               
+✔ |         28 | completeCasesDS::smk::data.frame
+
+⠏ |          0 | completeCasesDS::smk::matrix                                   
+✔ |         12 | completeCasesDS::smk::matrix
+
+⠏ |          0 | completeCasesDS::smk::data.matrix                              
+✔ |         28 | completeCasesDS::smk::data.matrix
+
+⠏ |          0 | completeCasesDS::smk::shutdown                                 
+⠏ |          0 | completeCasesDS::smk::done                                     
+⠏ |          0 | smk-corDS                                                      
+⠏ |          0 | corDS::smk::setup                                              
+⠏ |          0 | corDS::smk::casewise without na                                
+⠦ |         37 | corDS::smk::casewise without na                                
+⠦ |         77 | corDS::smk::casewise without na                                
+✔ |        108 | corDS::smk::casewise without na
+
+⠏ |          0 | corDS::smk::casewise with na                                   
+✔ |         36 | corDS::smk::casewise with na
+
+⠏ |          0 | corDS::smk::shutdown                                           
+⠏ |          0 | corDS::smk::done                                               
+⠏ |          0 | smk-corTestDS                                                  
+⠏ |          0 | corTestDS::smk::setup                                          
+⠏ |          0 | corTestDS::smk::without na, pearson                            
+⠦ |         57 | corTestDS::smk::without na, pearson                            
+✔ |        102 | corTestDS::smk::without na, pearson
+
+⠏ |          0 | corTestDS::smk::with na, pearson                               
+✔ |         30 | corTestDS::smk::with na, pearson
+
+⠏ |          0 | corTestDS::smk::without na, kendall                            
+⠦ |         57 | corTestDS::smk::without na, kendall                            
+✔ |         84 | corTestDS::smk::without na, kendall
+
+⠏ |          0 | corTestDS::smk::with na, kendall                               
+✔ |         28 | corTestDS::smk::with na, kendall
+
+⠏ |          0 | corTestDS::smk::without na, spearman                           
+⠴ |         56 | corTestDS::smk::without na, spearman                           
+✔ |         84 | corTestDS::smk::without na, spearman
+
+⠏ |          0 | corTestDS::smk::with na, spearman                              
+✔ |         28 | corTestDS::smk::with na, spearman
+
+⠏ |          0 | corTestDS::smk::shutdown                                       
+⠏ |          0 | corTestDS::smk::done                                           
+⠏ |          0 | smk-covDS                                                      
+⠏ |          0 | covDS::smk::setup                                              
+⠏ |          0 | covDS::smk::casewise.complete                                  
+✔ |         41 | covDS::smk::casewise.complete
+
+⠏ |          0 | covDS::smk::pairwise.complete                                  
+⠋ |          1 | covDS::smk::pairwise.complete                                  
+✔ |         46 | covDS::smk::pairwise.complete
+
+⠏ |          0 | covDS::smk::shutdown                                           
+⠏ |          0 | covDS::smk::done                                               
+⠏ |          0 | smk-dataFrameDS                                                
+⠏ |          0 | dataFrameDS::smk::setup                                        
+⠏ |          0 | dataFrameDS::smk                                               
+✔ |         18 | dataFrameDS::smk
+
+⠏ |          0 | dataFrameDS::smk::shutdown                                     
+⠏ |          0 | dataFrameDS::smk::done                                         
+⠏ |          0 | smk-dataFrameFillDS                                            
+⠏ |          0 | dataFrameFillDS::smk::setup                                    
+⠏ |          0 | dataFrameFillDS::smk                                           
+⠇ |         49 | dataFrameFillDS::smk                                           
+⠙ |         82 | dataFrameFillDS::smk                                           
+✔ |         83 | dataFrameFillDS::smk
+
+⠏ |          0 | dataFrameFillDS::smk::shutdown                                 
+⠏ |          0 | dataFrameFillDS::smk::done                                     
+⠏ |          0 | smk-dataFrameSortDS                                            
+⠏ |          0 | dataFrameSortDS::smk::setup                                    
+⠏ |          0 | dataFrameSortDS::smk::numeric input                            
+⠙ |         32 | dataFrameSortDS::smk::numeric input                            
+⠹ |         73 | dataFrameSortDS::smk::numeric input                            
+⠇ |        119 | dataFrameSortDS::smk::numeric input                            
+✔ |        138 | dataFrameSortDS::smk::numeric input
+
+⠏ |          0 | dataFrameSortDS::smk::string input                             
+⠸ |         54 | dataFrameSortDS::smk::string input                             
+⠴ |        106 | dataFrameSortDS::smk::string input                             
+✔ |        138 | dataFrameSortDS::smk::string input
+
+⠏ |          0 | dataFrameSortDS::smk::shutdown                                 
+⠏ |          0 | dataFrameSortDS::smk::done                                     
+⠏ |          0 | smk-dataFrameSubsetDS1                                         
+⠏ |          0 | gamlssDS::smk::setup                                           
+⠏ |          0 | dataFrameSubsetDS1::smk::test1                                 
+✔ |          2 | dataFrameSubsetDS1::smk::test1
+
+⠏ |          0 | dataFrameSubsetDS1::smk::test2                                 
+⠋ |          1 | dataFrameSubsetDS1::smk::test2                                 
+✔ |         12 | dataFrameSubsetDS1::smk::test2
+
+⠏ |          0 | dataFrameSubsetDS1::smk::shutdown                              
+⠏ |          0 | dataFrameSubsetDS1::smk::done                                  
+⠏ |          0 | smk-dataFrameSubsetDS2                                         
+⠏ |          0 | gamlssDS::smk::setup                                           
+⠏ |          0 | dataFrameSubsetDS2::smk::test1                                 
+✔ |          7 | dataFrameSubsetDS2::smk::test1
+
+⠏ |          0 | dataFrameSubsetDS2::smk::test2                                 
+⠋ |          1 | dataFrameSubsetDS2::smk::test2                                 
+✔ |          4 | dataFrameSubsetDS2::smk::test2
+
+⠏ |          0 | dataFrameSubsetDS2::smk::shutdown                              
+⠏ |          0 | dataFrameSubsetDS2::smk::done                                  
+⠏ |          0 | smk-densityGridDS                                              
+⠏ |          0 | densityGridDS::smk::setup                                      
+⠏ |          0 | densityGridDS::smk                                             
+✔ |          6 | densityGridDS::smk
+
+⠏ |          0 | densityGridDS::smk::shutdown                                   
+⠏ |          0 | densityGridDS::smk::done                                       
+⠏ |          0 | smk-dimDS                                                      
+⠏ |          0 | dimDS::smk::setup                                              
+⠏ |          0 | dimDS::smk::numeric                                            
+✔ |          4 | dimDS::smk::numeric
+
+⠏ |          0 | dimDS::smk::character                                          
+✔ |          4 | dimDS::smk::character
+
+⠏ |          0 | dimDS::smk::shutdown                                           
+⠏ |          0 | dimDS::smk::done                                               
+⠏ |          0 | smk-extract                                                    
+⠏ |          0 | extract::smk::setup                                            
+⠏ |          0 | extract::smk::simple                                           
+✔ |         12 | extract::smk::simple
+
+⠏ |          0 | extract::smk::simple vector                                    
+✔ |         36 | extract::smk::simple vector
+
+⠏ |          0 | extract::smk::shutdown                                         
+⠏ |          0 | extract::smk::done                                             
+⠏ |          0 | smk-gamlssDS                                                   
+⠏ |          0 | gamlssDS::smk::setup                                           
+⠏ |          0 | gamlssDS::smk::birthweight                                     GAMLSS-RS iteration 1: Global Deviance = 294.1712 
+GAMLSS-RS iteration 2: Global Deviance = 294.1582 
+GAMLSS-RS iteration 3: Global Deviance = 294.1581 
+
+✔ |         21 | gamlssDS::smk::birthweight
+
+⠏ |          0 | gamlssDS::smk::shutdown                                        
+⠏ |          0 | gamlssDS::smk::done                                            
+⠏ |          0 | smk-getWGSRDS                                                  
+⠏ |          0 | getWGSRDS::smk::setup                                          
+⠏ |          0 | getWGSRDS::smk::simple                                         
+⠹ |         13 | getWGSRDS::smk::simple                                         
+⠦ |         47 | getWGSRDS::smk::simple                                         
+✔ |         60 | getWGSRDS::smk::simple
+
+⠏ |          0 | getWGSRDS::smk::shutdown                                       
+⠏ |          0 | getWGSRDS::smk::done                                           
+⠏ |          0 | smk-hetcorDS                                                   
+⠏ |          0 | hetcorDS::smk::setup                                           
+⠏ |          0 | hetcorDS::smk                                                  
+✔ |         31 | hetcorDS::smk
+
+⠏ |          0 | hetcorDS::smk::shutdown                                        
+⠏ |          0 | hetcorDS::smk::done                                            
+⠏ |          0 | smk-igb_standardsDS                                            
+⠏ |          0 | igb_standardsDS::smk::setup                                    
+⠏ |          0 | igb_standardsDS::smk::simple                                   
+⠋ |          1 | igb_standardsDS::smk::simple                                   
+⠹ |         33 | igb_standardsDS::smk::simple                                   
+⠦ |         77 | igb_standardsDS::smk::simple                                   
+✔ |         96 | igb_standardsDS::smk::simple
+
+⠏ |          0 | igb_standardsDS::smk::shutdown                                 
+⠏ |          0 | igb_standardsDS::smk::done                                     
+⠏ |          0 | smk-isNaDS                                                     
+⠏ |          0 | isNaDS::smk::setup                                             
+⠏ |          0 | isNaDS::smk::numeric vector                                    
+✔ |          9 | isNaDS::smk::numeric vector
+
+⠏ |          0 | isNaDS::smk::character vector                                  
+✔ |          9 | isNaDS::smk::character vector
+
+⠏ |          0 | isNaDS::smk::shutdown                                          
+⠏ |          0 | isNaDS::smk::done                                              
+⠏ |          0 | smk-isValidDS                                                  
+⠏ |          0 | isValidDS::smk::setup                                          
+⠏ |          0 | isValidDS::smk::character                                      
+✔ |          6 | isValidDS::smk::character
+
+⠏ |          0 | isValidDS::smk::integer                                        
+✔ |          6 | isValidDS::smk::integer
+
+⠏ |          0 | isValidDS::smk::numeric                                        
+✔ |          6 | isValidDS::smk::numeric
+
+⠏ |          0 | isValidDS::smk::logical                                        
+✔ |         18 | isValidDS::smk::logical
+
+⠏ |          0 | isValidDS::smk::data.frame                                     
+✔ |          3 | isValidDS::smk::data.frame
+
+⠏ |          0 | isValidDS::smk::array                                          
+✔ |          3 | isValidDS::smk::array
+
+⠏ |          0 | isValidDS::smk::matrix                                         
+✔ |          3 | isValidDS::smk::matrix
+
+⠏ |          0 | isValidDS::smk::data.matrix                                    
+✔ |          3 | isValidDS::smk::data.matrix
+
+⠏ |          0 | isValidDS::smk::date                                           
+✔ |          3 | isValidDS::smk::date
+
+⠏ |          0 | isValidDS::smk::formula                                        
+✔ |          3 | isValidDS::smk::formula
+
+⠏ |          0 | isValidDS::smk::environment                                    
+✔ |          3 | isValidDS::smk::environment
+
+⠏ |          0 | isValidDS::smk::NA                                             
+✔ |          3 | isValidDS::smk::NA
+
+⠏ |          0 | isValidDS::smk::NULL                                           
+✔ |          3 | isValidDS::smk::NULL
+
+⠏ |          0 | isValidDS::smk::shutdown                                       
+⠏ |          0 | isValidDS::smk::done                                           
+⠏ |          0 | smk-kurtosisDS1                                                
+⠏ |          0 | kurtosisDS1::smk::setup                                        
+⠏ |          0 | kurtosisDS1::smk::method 1                                     
+✔ |          8 | kurtosisDS1::smk::method 1
+
+⠏ |          0 | kurtosisDS1::smk::method 2                                     
+✔ |          8 | kurtosisDS1::smk::method 2
+
+⠏ |          0 | kurtosisDS1::smk::method 3                                     
+✔ |          8 | kurtosisDS1::smk::method 3
+
+⠏ |          0 | kurtosisDS1::smk::shutdown                                     
+⠏ |          0 | kurtosisDS1::smk::done                                         
+⠏ |          0 | smk-kurtosisDS2                                                
+⠏ |          0 | kurtosisDS2::smk::setup                                        
+⠏ |          0 | kurtosisDS2::smk                                               
+✔ |         10 | kurtosisDS2::smk
+
+⠏ |          0 | kurtosisDS2::smk::shutdown                                     
+⠏ |          0 | kurtosisDS2::smk::done                                         
+⠏ |          0 | smk-lengthDS                                                   
+⠏ |          0 | lengthDS::smk::setup                                           
+⠏ |          0 | lengthDS::smk::data.frame                                      
+✔ |          4 | lengthDS::smk::data.frame
+
+⠏ |          0 | lengthDS::smk::vector                                          
+✔ |          4 | lengthDS::smk::vector
+
+⠏ |          0 | lengthDS::smk::shutdown                                        
+⠏ |          0 | lengthDS::smk::done                                            
+⠏ |          0 | smk-levelsDS                                                   
+⠏ |          0 | levelsDS::smk::setup                                           
+⠏ |          0 | levelsDS::smk::numeric vector                                  
+✔ |         10 | levelsDS::smk::numeric vector
+
+⠏ |          0 | levelsDS::smk::shutdown                                        
+⠏ |          0 | levelsDS::smk::done                                            
+⠏ |          0 | smk-listDisclosureSettingsDS                                   
+⠏ |          0 | listDisclosureSettingsDS::smk::setup                           
+⠏ |          0 | listDisclosureSettingsDS::smk                                  
+✔ |         35 | listDisclosureSettingsDS::smk
+
+⠏ |          0 | listDisclosureSettingsDS::smk::shutdown                        
+⠏ |          0 | listDisclosureSettingsDS::smk::done                            
+⠏ |          0 | smk-listDS                                                     
+⠏ |          0 | listDS::smk::setup                                             
+⠏ |          0 | listDS::smk::simple                                            
+✔ |          8 | listDS::smk::simple
+
+⠏ |          0 | listDS::smk::shutdown                                          
+⠏ |          0 | listDS::smk::done                                              
+⠏ |          0 | smk-lsDS                                                       
+⠏ |          0 | lsDS::smk::setup                                               
+⠏ |          0 | lsDS::smk::simple                                              
+✔ |          5 | lsDS::smk::simple
+
+⠏ |          0 | lsDS::smk::simple                                              
+✔ |          7 | lsDS::smk::simple
+
+⠏ |          0 | lsDS::smk::shutdown                                            
+⠏ |          0 | lsDS::smk::done                                                
+⠏ |          0 | smk-meanDS                                                     
+⠏ |          0 | meanDS::smk::setup                                             
+⠏ |          0 | meanDS::smk::numeric                                           
+✔ |         12 | meanDS::smk::numeric
+
+⠏ |          0 | meanDS::smk::numeric with NA                                   
+✔ |         12 | meanDS::smk::numeric with NA
+
+⠏ |          0 | meanDS::smk::numeric with all NA                               
+✔ |         12 | meanDS::smk::numeric with all NA
+
+⠏ |          0 | meanDS::smk::shutdown                                          
+⠏ |          0 | meanDS::smk::done                                              
+⠏ |          0 | smk-messageDS                                                  
+⠏ |          0 | messageDS::smk::setup                                          
+⠏ |          0 | messageDS::smk                                                 
+✔ |         19 | messageDS::smk
+
+⠏ |          0 | messageDS::smk::shutdown                                       
+⠏ |          0 | messageDS::smk::done                                           
+⠏ |          0 | smk-metadataDS                                                 
+⠏ |          0 | metadataDS::smk::setup                                         
+⠏ |          0 | metadataDS::smk::list                                          
+✔ |          8 | metadataDS::smk::list
+
+⠏ |          0 | metadataDS::smk::list field                                    
+✔ |          2 | metadataDS::smk::list field
+
+⠏ |          0 | metadataDS::smk::shutdown                                      
+⠏ |          0 | metadataDS::smk::done                                          
+⠏ |          0 | smk-miceDS                                                     
+⠏ |          0 | miceDS::smk::setup                                             
+⠏ |          0 | miceDS::smk                                                    
+ iter imp variable
+  1   1  LAB_TSC  LAB_TRIG  LAB_HDL  LAB_GLUC_ADJUSTED  PM_BMI_CONTINUOUS  PM_BMI_CATEGORICAL
+  2   1  LAB_TSC  LAB_TRIG  LAB_HDL  LAB_GLUC_ADJUSTED  PM_BMI_CONTINUOUS  PM_BMI_CATEGORICAL
+  3   1  LAB_TSC  LAB_TRIG  LAB_HDL  LAB_GLUC_ADJUSTED  PM_BMI_CONTINUOUS  PM_BMI_CATEGORICAL
+  4   1  LAB_TSC  LAB_TRIG  LAB_HDL  LAB_GLUC_ADJUSTED  PM_BMI_CONTINUOUS  PM_BMI_CATEGORICAL
+  5   1  LAB_TSC  LAB_TRIG  LAB_HDL  LAB_GLUC_ADJUSTED  PM_BMI_CONTINUOUS  PM_BMI_CATEGORICAL
+
+⠋ |   1      0 | miceDS::smk                                                    
+✔ |   1     19 | miceDS::smk
+────────────────────────────────────────────────────────────────────────────────
+Warning ('test-smk-miceDS.R:27:5'): miceDS
+Number of logged events: 1
+Backtrace:
+    ▆
+ 1. └─dsBase::miceDS(...) at test-smk-miceDS.R:27:5
+ 2.   └─mice::mice(...)
+────────────────────────────────────────────────────────────────────────────────
+
+⠏ |          0 | miceDS::smk::shutdown                                          
+⠏ |          0 | miceDS::smk::done                                              
+⠏ |          0 | smk-minMaxRandDS                                               
+⠏ |          0 | minMaxRandDS::smk::setup                                       
+⠋ |          1 | minMaxRandDS::smk::setup                                       
+✔ |          4 | minMaxRandDS::smk::setup
+
+⠏ |          0 | minMaxRandDS::smk::shutdown                                    
+⠏ |          0 | minMaxRandDS::smk::done                                        
+⠏ |          0 | smk-namesDS                                                    
+⠏ |          0 | namesDS::smk::setup                                            
+⠏ |          0 | namesDS::smk::list of atoms                                    
+✔ |          4 | namesDS::smk::list of atoms
+
+⠏ |          0 | namesDS::smk::list of vectors                                  
+✔ |          4 | namesDS::smk::list of vectors
+
+⠏ |          0 | namesDS::smk::shutdown                                         
+⠏ |          0 | namesDS::smk::done                                             
+⠏ |          0 | smk-numNaDS                                                    
+⠏ |          0 | numNaDS::smk::setup                                            
+⠏ |          0 | numNaDS::smk::simple                                           
+✔ |          6 | numNaDS::smk::simple
+
+⠏ |          0 | numNaDS::smk::shutdown                                         
+⠏ |          0 | numNaDS::smk::done                                             
+⠏ |          0 | smk-quantileMeanDS                                             
+⠏ |          0 | quantileMeanDS::smk::setup                                     
+⠏ |          0 | quantileMeanDS::smk                                            
+✔ |         20 | quantileMeanDS::smk
+
+⠏ |          0 | quantileMeanDS::smk::with NA                                   
+✔ |         20 | quantileMeanDS::smk::with NA
+
+⠏ |          0 | quantileMeanDS::smk::shutdown                                  
+⠏ |          0 | quantileMeanDS::smk::done                                      
+⠏ |          0 | smk-rangeDS                                                    
+⠏ |          0 | rangeDS::smk::setup                                            
+⠏ |          0 | rangeDS::smk::without NAs                                      
+✔ |          4 | rangeDS::smk::without NAs
+
+⠏ |          0 | rangeDS::smk::with NAs                                         
+✔ |          4 | rangeDS::smk::with NAs
+
+⠏ |          0 | rangeDS::smk::shutdown                                         
+⠏ |          0 | rangeDS::smk::done                                             
+⠏ |          0 | smk-rbindDS                                                    
+⠏ |          0 | rbindDS::smk::setup                                            
+⠏ |          0 | rbindDS::smk::simple                                           
+✔ |         15 | rbindDS::smk::simple
+
+⠏ |          0 | rbindDS::smk::shutdown                                         
+⠏ |          0 | rbindDS::smk::done                                             
+⠏ |          0 | smk-rBinomDS                                                   
+⠏ |          0 | rBinomDS::smk::setup                                           
+⠏ |          0 | rBinomDS::smk::simple                                          
+✔ |         20 | rBinomDS::smk::simple
+
+⠏ |          0 | rBinomDS::smk::shutdown                                        
+⠏ |          0 | rBinomDS::smk::done                                            
+⠏ |          0 | smk-recodeLevelsDS                                             
+⠏ |          0 | recodeLevelsDS::smk::setup                                     
+✔ |          8 | recodeLevelsDS::smk::setup
+
+⠏ |          0 | recodeLevelsDS::smk::shutdown                                  
+⠏ |          0 | recodeLevelsDS::smk::done                                      
+⠏ |          0 | smk-recodeValuesDS                                             
+⠏ |          0 | recodeValuesDS::smk::setup                                     
+⠙ |         12 | recodeValuesDS::smk::setup                                     
+✔ |         45 | recodeValuesDS::smk::setup
+
+⠏ |          0 | recodeValuesDS::smk::shutdown                                  
+⠏ |          0 | recodeValuesDS::smk::done                                      
+⠏ |          0 | smk-replaceNaDS                                                
+⠏ |          0 | replaceNaDS::smk::setup                                        
+⠏ |          0 | replaceNaDS::smk                                               
+✔ |         10 | replaceNaDS::smk
+
+⠏ |          0 | replaceNaDS::smk::shutdown                                     
+⠏ |          0 | replaceNaDS::smk::done                                         
+⠏ |          0 | smk-rmDS                                                       
+⠏ |          0 | rmDS::smk::setup                                               
+⠏ |          0 | rmDS::smk::single                                              
+✔ |          9 | rmDS::smk::single
+
+⠏ |          0 | rmDS::smk::multiple                                            
+✔ |         12 | rmDS::smk::multiple
+
+⠏ |          0 | rmDS::smk::single missing                                      
+✔ |          8 | rmDS::smk::single missing
+
+⠏ |          0 | rmDS::smk::multiple missing                                    
+✔ |         10 | rmDS::smk::multiple missing
+
+⠏ |          0 | rmDS::smk::multiple mixed                                      
+✔ |         10 | rmDS::smk::multiple mixed
+
+⠏ |          0 | rmDS::smk::shutdown                                            
+⠏ |          0 | rmDS::smk::done                                                
+⠏ |          0 | smk-rNormDS                                                    
+⠏ |          0 | rNormDS::smk::setup                                            
+⠏ |          0 | rNormDS::smk::simple                                           
+✔ |         20 | rNormDS::smk::simple
+
+⠏ |          0 | rNormDS::smk::shutdown                                         
+⠏ |          0 | rNormDS::smk::done                                             
+⠏ |          0 | smk-rowColCalcDS                                               
+⠏ |          0 | rowColCalcDS::smk::setup                                       
+⠏ |          0 | rowColCalcDS::smk                                              
+✔ |         24 | rowColCalcDS::smk
+
+⠏ |          0 | rowColCalcDS::smk::shutdown                                    
+⠏ |          0 | rowColCalcDS::smk::done                                        
+⠏ |          0 | smk-rPoisDS                                                    
+⠏ |          0 | rPoisDS::smk::setup                                            
+⠏ |          0 | rPoisDS::smk::simple                                           
+✔ |         20 | rPoisDS::smk::simple
+
+⠏ |          0 | rPoisDS::smk::shutdown                                         
+⠏ |          0 | rPoisDS::smk::done                                             
+⠏ |          0 | smk-rUnifDS                                                    
+⠏ |          0 | rUnifDS::smk::setup                                            
+⠏ |          0 | rUnifDS::smk::simple                                           
+✔ |         20 | rUnifDS::smk::simple
+
+⠏ |          0 | rUnifDS::smk::shutdown                                         
+⠏ |          0 | rUnifDS::smk::done                                             
+⠏ |          0 | smk-sampleDS                                                   
+⠏ |          0 | sampleDS::smk::setup                                           
+⠏ |          0 | sampleDS::smk::simple                                          
+✔ |         11 | sampleDS::smk::simple
+
+⠏ |          0 | sampleDS::smk::shutdown                                        
+⠏ |          0 | sampleDS::smk::done                                            
+⠏ |          0 | smk-seqDS                                                      
+⠏ |          0 | seqDS::smk::setup                                              
+⠏ |          0 | seqDS::smk                                                     
+⠙ |         22 | seqDS::smk                                                     
+✔ |         41 | seqDS::smk
+
+⠏ |          0 | seqDS::smk::shutdown                                           
+⠏ |          0 | seqDS::smk::done                                               
+⠏ |          0 | smk-setFilterDS                                                
+⠏ |          0 | setFilterDS::smk::setup                                        
+⠏ |          0 | setFilterDS::smk::simple                                       
+✔ |          6 | setFilterDS::smk::simple
+
+⠏ |          0 | setFilterDS::smk::shutdown                                     
+⠏ |          0 | setFilterDS::smk::done                                         
+⠏ |          0 | smk-setSeedDS                                                  
+⠏ |          0 | setSeedDS::smk::setup                                          
+⠏ |          0 | setSeedDS::smk::simple                                         
+✔ |          3 | setSeedDS::smk::simple
+
+⠏ |          0 | setSeedDS::smk::shutdown                                       
+⠏ |          0 | setSeedDS::smk::done                                           
+⠏ |          0 | smk-skewnessDS1                                                
+⠏ |          0 | skewnessDS1::smk::setup                                        
+⠏ |          0 | skewnessDS1::smk::method 1                                     
+✔ |          8 | skewnessDS1::smk::method 1
+
+⠏ |          0 | skewnessDS1::smk::method 2                                     
+✔ |          8 | skewnessDS1::smk::method 2
+
+⠏ |          0 | skewnessDS1::smk::method 3                                     
+✔ |          8 | skewnessDS1::smk::method 3
+
+⠏ |          0 | skewnessDS1::smk::shutdown                                     
+⠏ |          0 | skewnessDS1::smk::done                                         
+⠏ |          0 | smk-skewnessDS2                                                
+⠏ |          0 | skewnessDS2::smk::setup                                        
+⠏ |          0 | skewnessDS2::smk                                               
+✔ |         10 | skewnessDS2::smk
+
+⠏ |          0 | skewnessDS2::smk::shutdown                                     
+⠏ |          0 | skewnessDS2::smk::done                                         
+⠏ |          0 | smk-sqrtDS                                                     
+⠏ |          0 | sqrtDS::smk::setup                                             
+⠏ |          0 | sqrtDS::smk::special                                           
+✔ |         13 | sqrtDS::smk::special
+
+⠏ |          0 | sqrtDS::smk::numeric                                           
+✔ |         10 | sqrtDS::smk::numeric
+
+⠏ |          0 | sqrtDS::smk::integer                                           
+✔ |         10 | sqrtDS::smk::integer
+
+⠏ |          0 | sqrtDS::smk::special vector                                    
+✔ |          6 | sqrtDS::smk::special vector
+
+⠏ |          0 | sqrtDS::smk::numeric vector                                    
+✔ |          9 | sqrtDS::smk::numeric vector
+
+⠏ |          0 | sqrtDS::smk::integer vector                                    
+✔ |          9 | sqrtDS::smk::integer vector
+
+⠏ |          0 | sqrtDS::smk::shutdown                                          
+⠏ |          0 | sqrtDS::smk::done                                              
+⠏ |          0 | smk-subsetByClassDS                                            
+⠏ |          0 | subsetByClassDS::smk::setup                                    
+⠏ |          0 | subsetByClassDS::smk                                           
+✔ |         24 | subsetByClassDS::smk
+
+⠏ |          0 | subsetByClassDS::smk::shutdown                                 
+⠏ |          0 | subsetByClassDS::smk::done                                     
+⠏ |          0 | smk-subsetDS                                                   
+⠏ |          0 | subsetDS::smk::setup                                           
+⠏ |          0 | subsetDS::smk                                                  
+⠇ |         19 | subsetDS::smk                                                  
+✔ |         50 | subsetDS::smk
+
+⠏ |          0 | subsetDS::smk::shutdown                                        
+⠏ |          0 | subsetDS::smk::done                                            
+⠏ |          0 | smk-tapplyDS.assign                                            
+⠏ |          0 | tapplyDS.assign::smk::setup                                    
+⠏ |          0 | tapplyDS.assign::smk::simple                                   
+✔ |         14 | tapplyDS.assign::smk::simple
+
+⠏ |          0 | tapplyDS.assign::smk::shutdown                                 
+⠏ |          0 | tapplyDS.assign::smk::done                                     
+⠏ |          0 | smk-tapplyDS                                                   
+⠏ |          0 | tapplyDS::smk::setup                                           
+⠼ |         15 | tapplyDS::smk::setup                                           
+⠏ |         70 | tapplyDS::smk::setup                                           
+✔ |         78 | tapplyDS::smk::setup
+
+⠏ |          0 | tapplyDS::smk::shutdown                                        
+⠏ |          0 | tapplyDS::smk::done                                            
+⠏ |          0 | smk-testObjExistsDS                                            
+⠏ |          0 | testObjExistsDS::smk::setup                                    
+⠏ |          0 | testObjExistsDS::smk::character                                
+✔ |          8 | testObjExistsDS::smk::character
+
+⠏ |          0 | testObjExistsDS::smk::integer                                  
+✔ |          8 | testObjExistsDS::smk::integer
+
+⠏ |          0 | testObjExistsDS::smk::numeric                                  
+✔ |          8 | testObjExistsDS::smk::numeric
+
+⠏ |          0 | testObjExistsDS::smk::logical                                  
+✔ |         12 | testObjExistsDS::smk::logical
+
+⠏ |          0 | testObjExistsDS::smk::data.frame                               
+✔ |          4 | testObjExistsDS::smk::data.frame
+
+⠏ |          0 | testObjExistsDS::smk::array                                    
+✔ |          4 | testObjExistsDS::smk::array
+
+⠏ |          0 | testObjExistsDS::smk::matrix                                   
+✔ |          6 | testObjExistsDS::smk::matrix
+
+⠏ |          0 | testObjExistsDS::smk::data.matrix                              
+⠴ |          6 | testObjExistsDS::smk::data.matrix                              
+✔ |          6 | testObjExistsDS::smk::data.matrix
+
+⠏ |          0 | testObjExistsDS::smk::date                                     
+✔ |          4 | testObjExistsDS::smk::date
+
+⠏ |          0 | testObjExistsDS::smk::formula                                  
+✔ |          4 | testObjExistsDS::smk::formula
+
+⠏ |          0 | testObjExistsDS::smk::environment                              
+✔ |          4 | testObjExistsDS::smk::environment
+
+⠏ |          0 | testObjExistsDS::smk::NA                                       
+✔ |          4 | testObjExistsDS::smk::NA
+
+⠏ |          0 | testObjExistsDS::smk::NULL                                     
+✔ |          4 | testObjExistsDS::smk::NULL
+
+⠏ |          0 | testObjExistsDS::smk::not exists                               
+✔ |          4 | testObjExistsDS::smk::not exists
+
+⠏ |          0 | testObjExistsDS::smk::shutdown                                 
+⠏ |          0 | testObjExistsDS::smk::done                                     
+⠏ |          0 | smk-uniqueDS                                                   
+⠏ |          0 | uniqueDS::smk::setup                                           
+⠏ |          0 | uniqueDS::smk::simple for vector                               
+✔ |          6 | uniqueDS::smk::simple for vector
+
+⠏ |          0 | uniqueDS::smk::simple for vector                               
+✔ |          7 | uniqueDS::smk::simple for vector
+
+⠏ |          0 | uniqueDS::smk::shutdown                                        
+⠏ |          0 | uniqueDS::smk::done                                            
+⠏ |          0 | smk-unListDS                                                   
+⠏ |          0 | unListDS::smk::setup                                           
+⠏ |          0 | unListDS::smk::simple                                          
+✔ |         16 | unListDS::smk::simple
+
+⠏ |          0 | unListDS::smk::shutdown                                        
+⠏ |          0 | unListDS::smk::done                                            
+⠏ |          0 | smk-varDS                                                      
+⠏ |          0 | varDS::smk::setup                                              
+⠏ |          0 | varDS::smk::numeric                                            
+✔ |         14 | varDS::smk::numeric
+
+⠏ |          0 | varDS::smk::numeric with NA                                    
+✔ |         14 | varDS::smk::numeric with NA
+
+⠏ |          0 | varDS::smk::numeric with all NA                                
+✔ |         14 | varDS::smk::numeric with all NA
+
+⠏ |          0 | varDS::smk::shutdown                                           
+⠏ |          0 | varDS::smk::done                                               
+⠏ |          0 | smk-vectorDS                                                   
+⠏ |          0 | vectorDS::smk::setup                                           
+⠏ |          0 | vectorDS::smk::numeric list                                    
+✔ |          6 | vectorDS::smk::numeric list
+
+⠏ |          0 | vectorDS::smk::character list                                  
+✔ |          6 | vectorDS::smk::character list
+
+⠏ |          0 | vectorDS::smk::numeric list small                              
+✔ |          4 | vectorDS::smk::numeric list small
+
+⠏ |          0 | vectorDS::smk::empty list                                      
+✔ |          2 | vectorDS::smk::empty list
+
+⠏ |          0 | vectorDS::smk::shutdown                                        
+⠏ |          0 | vectorDS::smk::done                                            
+══ Results ═════════════════════════════════════════════════════════════════════
+Duration: 13.0 s
+
+── Skipped tests (2) ───────────────────────────────────────────────────────────
+• On CI (2): 'test-perf-meanDS.R:17:1', 'test-perf-varDS.R:17:1'
+
+[ FAIL 0 | WARN 1 | SKIP 2 | PASS 3045 ]
+
