@@ -1,0 +1,374 @@
+Loading required package: Matrix
+✔ | F W  S  OK | Context
+
+⠏ |          0 | arg-asIntegerDS                                                
+✔ |          1 | arg-asIntegerDS
+
+⠏ |          0 | arg-asLogicalDS                                                
+✔ |          3 | arg-asLogicalDS
+
+⠏ |          0 | arg-dataFrameFillDS                                            
+✔ |          4 | arg-dataFrameFillDS
+
+⠏ |          0 | arg-dataFrameSortDS                                            
+✔ |          1 | arg-dataFrameSortDS
+
+⠏ |          0 | arg-uniqueDS                                                   
+✔ |          4 | arg-uniqueDS
+
+⠏ |          0 | disc-meanDS                                                    
+✔ |          1 | disc-meanDS
+
+⠏ |          0 | disc-varDS                                                     
+✔ |          1 | disc-varDS
+
+⠏ |          0 | perf-meanDS                                                    
+✔ |      1   0 | perf-meanDS
+
+⠏ |          0 | perf-varDS                                                     
+✔ |      1   0 | perf-varDS
+
+⠏ |          0 | smk-absDS                                                      
+⠏ |         30 | smk-absDS                                                      
+✔ |         52 | smk-absDS
+
+⠏ |          0 | smk-asCharacterDS                                              
+✔ |         23 | smk-asCharacterDS
+
+⠏ |          0 | smk-asDataMatrixDS                                             
+✔ |         17 | smk-asDataMatrixDS
+
+⠏ |          0 | smk-asFactorDS1                                                
+✔ |          5 | smk-asFactorDS1
+
+⠏ |          0 | smk-asFactorDS2                                                
+⠴ |         36 | smk-asFactorDS2                                                
+✔ |         47 | smk-asFactorDS2
+
+⠏ |          0 | smk-asFactorSimpleDS                                           
+✔ |         17 | smk-asFactorSimpleDS
+
+⠏ |          0 | smk-asIntegerDS                                                
+✔ |         20 | smk-asIntegerDS
+
+⠏ |          0 | smk-asListDS                                                   
+✔ |          8 | smk-asListDS
+
+⠏ |          0 | smk-asLogicalDS                                                
+⠇ |         29 | smk-asLogicalDS                                                
+✔ |         52 | smk-asLogicalDS
+
+⠏ |          0 | smk-asMatrixDS                                                 
+✔ |         17 | smk-asMatrixDS
+
+⠏ |          0 | smk-asNumericDS                                                
+⠼ |         25 | smk-asNumericDS                                                
+⠼ |         55 | smk-asNumericDS                                                
+⠴ |         86 | smk-asNumericDS                                                
+✔ |         92 | smk-asNumericDS
+
+⠏ |          0 | smk-aucDS                                                      
+⠋ |          1 | smk-aucDS                                                      
+✔ |          6 | smk-aucDS
+
+⠏ |          0 | smk-BooleDS                                                    
+⠇ |          9 | smk-BooleDS                                                    
+⠦ |         37 | smk-BooleDS                                                    
+⠦ |         67 | smk-BooleDS                                                    
+⠹ |         93 | smk-BooleDS                                                    
+⠙ |        122 | smk-BooleDS                                                    
+✔ |        126 | smk-BooleDS
+
+⠏ |          0 | smk-bp_standardsDS                                             
+⠋ |         11 | smk-bp_standardsDS                                             
+✔ |         20 | smk-bp_standardsDS
+
+⠏ |          0 | smk-cbindDS                                                    
+✔ |          8 | smk-cbindDS
+
+⠏ |          0 | smk-cDS                                                        
+✔ |         18 | smk-cDS
+
+⠏ |          0 | smk-changeRefGroupDS                                           
+⠋ |         31 | smk-changeRefGroupDS                                           
+✔ |         32 | smk-changeRefGroupDS
+
+⠏ |          0 | smk-checkNegValueDS                                            
+✔ |         12 | smk-checkNegValueDS
+
+⠏ |          0 | smk-classDS                                                    
+⠧ |         28 | smk-classDS                                                    
+⠸ |         54 | smk-classDS                                                    
+✔ |         56 | smk-classDS
+
+⠏ |          0 | smk-colnamesDS                                                 
+✔ |         10 | smk-colnamesDS
+
+⠏ |          0 | smk-completeCasesDS                                            
+⠇ |         19 | smk-completeCasesDS                                            
+⠹ |         53 | smk-completeCasesDS                                            
+✔ |         79 | smk-completeCasesDS
+
+⠏ |          0 | smk-corDS                                                      
+⠴ |         36 | smk-corDS                                                      
+⠏ |         40 | smk-corDS                                                      
+⠹ |         73 | smk-corDS                                                      
+⠦ |        107 | smk-corDS                                                      
+⠦ |        137 | smk-corDS                                                      
+✔ |        144 | smk-corDS
+
+⠏ |          0 | smk-corTestDS                                                  
+⠼ |         35 | smk-corTestDS                                                  
+⠹ |         73 | smk-corTestDS                                                  
+⠹ |        103 | smk-corTestDS                                                  
+⠴ |        136 | smk-corTestDS                                                  
+⠏ |        170 | smk-corTestDS                                                  
+⠇ |        199 | smk-corTestDS                                                  
+⠦ |        227 | smk-corTestDS                                                  
+⠦ |        257 | smk-corTestDS                                                  
+⠸ |        284 | smk-corTestDS                                                  
+⠏ |        310 | smk-corTestDS                                                  
+⠧ |        338 | smk-corTestDS                                                  
+✔ |        356 | smk-corTestDS [1.2s]
+
+⠏ |          0 | smk-covDS                                                      
+⠴ |         36 | smk-covDS                                                      
+⠙ |         42 | smk-covDS                                                      
+⠏ |         80 | smk-covDS                                                      
+✔ |         87 | smk-covDS
+
+⠏ |          0 | smk-dataFrameDS                                                
+✔ |         18 | smk-dataFrameDS
+
+⠏ |          0 | smk-dataFrameFillDS                                            
+⠴ |         36 | smk-dataFrameFillDS                                            
+⠋ |         71 | smk-dataFrameFillDS                                            
+✔ |         83 | smk-dataFrameFillDS
+
+⠏ |          0 | smk-dataFrameSortDS                                            
+⠸ |         24 | smk-dataFrameSortDS                                            
+⠇ |         59 | smk-dataFrameSortDS                                            
+⠹ |         93 | smk-dataFrameSortDS                                            
+⠴ |        126 | smk-dataFrameSortDS                                            
+⠼ |        155 | smk-dataFrameSortDS                                            
+⠼ |        185 | smk-dataFrameSortDS                                            
+⠼ |        215 | smk-dataFrameSortDS                                            
+⠙ |        242 | smk-dataFrameSortDS                                            
+⠏ |        270 | smk-dataFrameSortDS                                            
+✔ |        276 | smk-dataFrameSortDS
+
+⠏ |          0 | smk-dataFrameSubsetDS1                                         
+⠹ |          3 | smk-dataFrameSubsetDS1                                         
+✔ |         14 | smk-dataFrameSubsetDS1
+
+⠏ |          0 | smk-dataFrameSubsetDS2                                         
+⠧ |          8 | smk-dataFrameSubsetDS2                                         
+✔ |         11 | smk-dataFrameSubsetDS2
+
+⠏ |          0 | smk-densityGridDS                                              
+✔ |          6 | smk-densityGridDS
+
+⠏ |          0 | smk-dimDS                                                      
+✔ |          8 | smk-dimDS
+
+⠏ |          0 | smk-extract                                                    
+⠇ |         29 | smk-extract                                                    
+✔ |         48 | smk-extract
+
+⠏ |          0 | smk-gamlssDS                                                   GAMLSS-RS iteration 1: Global Deviance = 294.1712 
+GAMLSS-RS iteration 2: Global Deviance = 294.1582 
+GAMLSS-RS iteration 3: Global Deviance = 294.1581 
+
+⠇ |         19 | smk-gamlssDS                                                   
+✔ |         21 | smk-gamlssDS
+
+⠏ |          0 | smk-getWGSRDS                                                  
+⠹ |         13 | smk-getWGSRDS                                                  
+⠇ |         39 | smk-getWGSRDS                                                  
+✔ |         60 | smk-getWGSRDS
+
+⠏ |          0 | smk-hetcorDS                                                   
+⠼ |         25 | smk-hetcorDS                                                   
+✔ |         31 | smk-hetcorDS
+
+⠏ |          0 | smk-igb_standardsDS                                            
+⠋ |          1 | smk-igb_standardsDS                                            
+⠋ |         31 | smk-igb_standardsDS                                            
+⠹ |         33 | smk-igb_standardsDS                                            
+⠏ |         60 | smk-igb_standardsDS                                            
+⠼ |         85 | smk-igb_standardsDS                                            
+✔ |         96 | smk-igb_standardsDS
+
+⠏ |          0 | smk-isNaDS                                                     
+✔ |         18 | smk-isNaDS
+
+⠏ |          0 | smk-isValidDS                                                  
+⠦ |         27 | smk-isValidDS                                                  
+⠼ |         55 | smk-isValidDS                                                  
+✔ |         63 | smk-isValidDS
+
+⠏ |          0 | smk-kurtosisDS1                                                
+⠋ |         21 | smk-kurtosisDS1                                                
+✔ |         24 | smk-kurtosisDS1
+
+⠏ |          0 | smk-kurtosisDS2                                                
+✔ |         10 | smk-kurtosisDS2
+
+⠏ |          0 | smk-lengthDS                                                   
+✔ |          8 | smk-lengthDS
+
+⠏ |          0 | smk-levelsDS                                                   
+✔ |         10 | smk-levelsDS
+
+⠏ |          0 | smk-listDisclosureSettingsDS                                   
+⠙ |         32 | smk-listDisclosureSettingsDS                                   
+✔ |         35 | smk-listDisclosureSettingsDS
+
+⠏ |          0 | smk-listDS                                                     
+✔ |          8 | smk-listDS
+
+⠏ |          0 | smk-lsDS                                                       
+✔ |         12 | smk-lsDS
+
+⠏ |          0 | smk-meanDS                                                     
+⠼ |         25 | smk-meanDS                                                     
+✔ |         36 | smk-meanDS
+
+⠏ |          0 | smk-messageDS                                                  
+⠇ |         19 | smk-messageDS                                                  
+✔ |         19 | smk-messageDS
+
+⠏ |          0 | smk-metadataDS                                                 
+✔ |         10 | smk-metadataDS
+
+⠏ |          0 | smk-miceDS                                                     
+ iter imp variable
+  1   1  LAB_TSC  LAB_TRIG  LAB_HDL  LAB_GLUC_ADJUSTED  PM_BMI_CONTINUOUS  PM_BMI_CATEGORICAL
+  2   1  LAB_TSC  LAB_TRIG  LAB_HDL  LAB_GLUC_ADJUSTED  PM_BMI_CONTINUOUS  PM_BMI_CATEGORICAL
+  3   1  LAB_TSC  LAB_TRIG  LAB_HDL  LAB_GLUC_ADJUSTED  PM_BMI_CONTINUOUS  PM_BMI_CATEGORICAL
+  4   1  LAB_TSC  LAB_TRIG  LAB_HDL  LAB_GLUC_ADJUSTED  PM_BMI_CONTINUOUS  PM_BMI_CATEGORICAL
+  5   1  LAB_TSC  LAB_TRIG  LAB_HDL  LAB_GLUC_ADJUSTED  PM_BMI_CONTINUOUS  PM_BMI_CATEGORICAL
+
+⠋ |          1 | smk-miceDS                                                     
+✔ |         20 | smk-miceDS
+
+⠏ |          0 | smk-minMaxRandDS                                               
+⠋ |          1 | smk-minMaxRandDS                                               
+✔ |          4 | smk-minMaxRandDS
+
+⠏ |          0 | smk-namesDS                                                    
+✔ |          8 | smk-namesDS
+
+⠏ |          0 | smk-numNaDS                                                    
+✔ |          6 | smk-numNaDS
+
+⠏ |          0 | smk-quantileMeanDS                                             
+⠴ |         26 | smk-quantileMeanDS                                             
+✔ |         40 | smk-quantileMeanDS
+
+⠏ |          0 | smk-rangeDS                                                    
+✔ |          8 | smk-rangeDS
+
+⠏ |          0 | smk-rbindDS                                                    
+✔ |         15 | smk-rbindDS
+
+⠏ |          0 | smk-rBinomDS                                                   
+✔ |         20 | smk-rBinomDS
+
+⠏ |          0 | smk-recodeLevelsDS                                             
+✔ |          8 | smk-recodeLevelsDS
+
+⠏ |          0 | smk-recodeValuesDS                                             
+⠇ |          9 | smk-recodeValuesDS                                             
+⠦ |         37 | smk-recodeValuesDS                                             
+✔ |         45 | smk-recodeValuesDS
+
+⠏ |          0 | smk-replaceNaDS                                                
+✔ |         10 | smk-replaceNaDS
+
+⠏ |          0 | smk-rmDS                                                       
+⠙ |         22 | smk-rmDS                                                       
+✔ |         49 | smk-rmDS
+
+⠏ |          0 | smk-rNormDS                                                    
+✔ |         20 | smk-rNormDS
+
+⠏ |          0 | smk-rowColCalcDS                                               
+✔ |         24 | smk-rowColCalcDS
+
+⠏ |          0 | smk-rPoisDS                                                    
+✔ |         20 | smk-rPoisDS
+
+⠏ |          0 | smk-rUnifDS                                                    
+✔ |         20 | smk-rUnifDS
+
+⠏ |          0 | smk-sampleDS                                                   
+✔ |         11 | smk-sampleDS
+
+⠏ |          0 | smk-seqDS                                                      
+⠦ |         17 | smk-seqDS                                                      
+✔ |         41 | smk-seqDS
+
+⠏ |          0 | smk-setFilterDS                                                
+✔ |          6 | smk-setFilterDS
+
+⠏ |          0 | smk-setSeedDS                                                  
+✔ |          3 | smk-setSeedDS
+
+⠏ |          0 | smk-skewnessDS1                                                
+⠙ |         12 | smk-skewnessDS1                                                
+✔ |         24 | smk-skewnessDS1
+
+⠏ |          0 | smk-skewnessDS2                                                
+✔ |         10 | smk-skewnessDS2
+
+⠏ |          0 | smk-sqrtDS                                                     
+⠸ |         24 | smk-sqrtDS                                                     
+⠙ |         52 | smk-sqrtDS                                                     
+✔ |         57 | smk-sqrtDS
+
+⠏ |          0 | smk-subsetByClassDS                                            
+✔ |         24 | smk-subsetByClassDS
+
+⠏ |          0 | smk-subsetDS                                                   
+⠇ |         19 | smk-subsetDS                                                   
+⠏ |         50 | smk-subsetDS                                                   
+✔ |         50 | smk-subsetDS
+
+⠏ |          0 | smk-tapplyDS.assign                                            
+✔ |         14 | smk-tapplyDS.assign
+
+⠏ |          0 | smk-tapplyDS                                                   
+⠼ |         15 | smk-tapplyDS                                                   
+⠇ |         49 | smk-tapplyDS                                                   
+✔ |         78 | smk-tapplyDS
+
+⠏ |          0 | smk-testObjExistsDS                                            
+⠼ |         25 | smk-testObjExistsDS                                            
+⠴ |         56 | smk-testObjExistsDS                                            
+✔ |         80 | smk-testObjExistsDS
+
+⠏ |          0 | smk-uniqueDS                                                   
+✔ |         13 | smk-uniqueDS
+
+⠏ |          0 | smk-unListDS                                                   
+✔ |         16 | smk-unListDS
+
+⠏ |          0 | smk-utils                                                      
+✔ |          6 | smk-utils
+
+⠏ |          0 | smk-varDS                                                      
+⠹ |         23 | smk-varDS                                                      
+✔ |         42 | smk-varDS
+
+⠏ |          0 | smk-vectorDS                                                   
+✔ |         18 | smk-vectorDS
+
+══ Results ═════════════════════════════════════════════════════════════════════
+Duration: 14.4 s
+
+── Skipped tests (2) ───────────────────────────────────────────────────────────
+• On CI (2): 'test-perf-meanDS.R:17:1', 'test-perf-varDS.R:17:1'
+
+[ FAIL 0 | WARN 0 | SKIP 2 | PASS 3054 ]
+
