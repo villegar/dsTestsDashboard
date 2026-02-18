@@ -197,6 +197,9 @@ jobs:
             cat("Working directory:", getwd(), "\n");
             cat("R version:", R.version.string, "\n");
 
+            # Ensure the dsBaseClient package is loaded in the session
+            library(dsBaseClient);  # Load the package explicitly
+
             junit_rep <- testthat::JunitReporter$new(
               file = file.path(getwd(), "test_results.xml")
             );
