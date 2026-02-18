@@ -131,7 +131,7 @@ jobs:
       - name: Install dsBaseClient explicitly
         run: |
           echo "Installing dsBaseClient after check"
-          R -e "devtools::install('dsBaseClient')"
+          R -e "devtools::install('.')"
         working-directory: dsBaseClient
 
       - name: Start Armadillo
