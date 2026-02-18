@@ -91,6 +91,8 @@ jobs:
           dependencies: '"Imports"'
           needs: check
           cache-version: 1
+          extra-packages: |
+            cran::devtools
 
       - name: Devtools check
         run: |
