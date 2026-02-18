@@ -110,9 +110,19 @@ jobs:
           cache-version: 1
           needs: check
 
+      - name: Checkout dsDangerClient
+        uses: actions/checkout@v4
+        with:
+          repository: datashield/dsDangerClient
+          token: ${{ github.token }}
+          ref: ${{ matrix.dsdangerclient }}
+          fetch-depth: 0
+          path: dsDangerClient
+
       - name: Install dsDangerClient
         run: |
-          R -q -e "devtools::install_github(repo='datashield/dsDangerClient', ref=Sys.getenv('REF_DSDANGERCLIENT'))"
+          echo "Installing dsDangerClient/$REF_DSDANGERCLIENT"
+          R CMD INSTALL ./dsDangerClient
 
       - name: Devtools checks
         run: |
