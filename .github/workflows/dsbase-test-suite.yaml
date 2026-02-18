@@ -122,6 +122,7 @@ jobs:
             # define output paths
             test_results_xml <- file.path(out_dir, "test_results.xml");
             coverage_csv <- file.path(out_dir, "coveragelist.csv");
+            coverage_xml <- file.path(out_dir, "coverage.xml");
 
             cat("=== Running testthat directly (debug mode) ===\n");
             cat("Working directory:", getwd(), "\n");
@@ -137,10 +138,35 @@ jobs:
 
             # calculate coverage and write to CSV
             library(covr);
-            coverage_result <- covr::package_coverage(type = c("none"));
+            coverage_result <- covr::package_coverage(type = c("tests"));
             coverage_list <- covr::coverage_to_list(coverage_result);
             write.csv(coverage_list, coverage_csv, row.names = FALSE);
+
+            # generate coverage xml to be push to Codecov
+            covr::to_cobertura(coverage_result, coverage_xml)
           '
+      - name: Upload coverage to Codecov
+        uses: codecov/codecov-action@v4
+        with:
+          working-directory: dsBase
+          files: logs/coverage.xml
+          token: ${{ secrets.CODECOV_TOKEN }}
+
+      - name: Upload test results to Codecov
+        if: ${{ !cancelled() }}
+        uses: codecov/test-results-action@v1
+        with:
+          working-directory: dsBase
+          files: logs/test_results.xml
+          token: ${{ secrets.CODECOV_TOKEN }}
+
+      - name: Publish Test Report
+        uses: dorny/test-reporter@v1
+        if: always()
+        with:
+          name: R testthat results
+          path: dsBase/logs/test_results.xml
+          reporter: java-junit
 
       - name: Write versions to file
         run: |
