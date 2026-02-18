@@ -204,28 +204,33 @@ jobs:
           mkdir -p logs
           R -q -e "devtools::reload();"
           R -q -e '
-            # write.csv(
-            #   covr::coverage_to_list(
-            #     covr::package_coverage(
-            #       type = c("none"),
-            #       code = c('"'"'
-                    # output_file <- file("test_console_output.txt");
-                    # sink(output_file);
-                    # sink(output_file, type = "message");
-                    junit_rep <- testthat::JunitReporter$new(file = file.path(getwd(), "test_results.xml"));
-                    progress_rep <- testthat::ProgressReporter$new(max_failures = 999999);
-                    multi_rep <- testthat::MultiReporter$new(reporters = list(progress_rep, junit_rep));
-                    options("datashield.return_errors" = FALSE, "default_driver" = "ArmadilloDriver");
-                    testthat::test_package("${{ env.PROJECT_NAME }}",
-                                           filter = "${{ env.TEST_FILTER }}",
-                                           reporter = multi_rep,
-                                           stop_on_failure = FALSE)#'"'"'
-            #       )
-            #     )
-            #   ),
-            #   "coveragelist.csv"
-            # )'
-            '
+            options(warn = 1);
+            options("datashield.return_errors" = FALSE, "default_driver" = "ArmadilloDriver");
+
+            cat("=== Running testthat directly (debug mode) ===\n");
+            cat("Working directory:", getwd(), "\n");
+            cat("R version:", R.version.string, "\n");
+
+            junit_rep <- testthat::JunitReporter$new(
+              file = file.path(getwd(), "test_results.xml")
+            );
+
+            progress_rep <- testthat::ProgressReporter$new(
+              max_failures = Inf
+            );
+
+            multi_rep <- testthat::MultiReporter$new(
+              reporters = list(progress_rep, junit_rep)
+            );
+
+            # Run tests with full output (no sink, no covr)
+            testthat::test_package(
+              "${{ env.PROJECT_NAME }}",
+              filter = "${{ env.TEST_FILTER }}",
+              reporter = multi_rep,
+              stop_on_failure = FALSE
+            )
+          '
 
           mv coveragelist.csv logs/
           mv test_* logs/
