@@ -128,6 +128,12 @@ jobs:
         working-directory: dsBaseClient
         continue-on-error: true
 
+      - name: Install dsBaseClient explicitly
+        run: |
+          echo "Installing dsBaseClient after check"
+          R -e "devtools::install('dsBaseClient')"
+        working-directory: dsBaseClient
+
       - name: Start Armadillo
         run: docker compose -f docker-compose_armadillo.yml up -d
         working-directory: dsBaseClient
