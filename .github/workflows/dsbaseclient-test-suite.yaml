@@ -284,12 +284,11 @@ jobs:
       - name: Merge artefacts into dashboard structure
         run: |
           set -e
-          cd dsTestsDashboard
 
           echo "Artefacts downloaded:"
-          ls -R ../artefacts || true
+          ls -R artefacts || true
 
-          for dir in ../artefacts/logs-*; do
+          for dir in artefacts/logs-*; do
             if [ -d "$dir" ]; then
               BASENAME=$(basename "$dir")
 
