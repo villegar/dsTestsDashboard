@@ -65,6 +65,11 @@ jobs:
       WORKFLOW_ID: ${{ github.run_id }}-${{ github.run_attempt }}-${{ matrix.ref }}
 
     steps:
+      - name: Checkout dsTestsDashboard
+        uses: actions/checkout@v4
+        with:
+          fetch-depth: 0
+
       - name: Checkout dsBase
         uses: actions/checkout@v4
         with:
@@ -73,9 +78,6 @@ jobs:
           ref: ${{ matrix.ref }}
           fetch-depth: 0
           path: dsBase
-
-      - name: Checkout dsTestsDashboard
-        uses: actions/checkout@v4
 
       - uses: r-lib/actions/setup-pandoc@v2
 
@@ -213,6 +215,8 @@ jobs:
     steps:
       - name: Checkout dsTestsDashboard
         uses: actions/checkout@v4
+        with:
+          fetch-depth: 0
 
       - name: Download all artefacts
         uses: actions/download-artifact@v4
@@ -222,11 +226,12 @@ jobs:
       - name: Merge artefacts into dashboard structure
         run: |
           set -e
+          cd dsTestsDashboard
 
           echo "Artefacts downloaded:"
-          ls -R artefacts || true
+          ls -R ../artefacts || true
 
-          for dir in artefacts/logs-*; do
+          for dir in ../artefacts/logs-*; do
             if [ -d "$dir" ]; then
               BASENAME=$(basename "$dir")
 
@@ -252,7 +257,7 @@ jobs:
 
       - name: Commit and push once
         run: |
-          cd artefacts
+          cd dsTestsDashboard
 
           git config user.email "github-actions[bot]@users.noreply.github.com"
           git config user.name "github-actions[bot]"
