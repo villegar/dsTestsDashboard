@@ -112,13 +112,13 @@ jobs:
                 covr::package_coverage(
                   type = c("none"),
                   code = c('"'"'
-                    # output_file <- file("test_console_output.txt");
-                    # sink(output_file);
-                    # sink(output_file, type = "message");
+                    output_file <- file("test_console_output.txt");
+                    sink(output_file);
+                    sink(output_file, type = "message");
                     junit_rep <- testthat::JunitReporter$new(file = file.path(getwd(), "test_results.xml"));
                     progress_rep <- testthat::ProgressReporter$new(max_failures = 999999);
                     multi_rep <- testthat::MultiReporter$new(reporters = list(progress_rep, junit_rep));
-                    testthat::test_package("${{ env.PROJECT_NAME }}", filter = "${{ env.TEST_FILTER }}", reporter = multi_rep, stop_on_failure = FALSE)'"'"'
+                    testthat::test_dir("tests/testthat", filter = "${{ env.TEST_FILTER }}", reporter = multi_rep, stop_on_failure = FALSE)'"'"'
                   )
                 )
               ),
