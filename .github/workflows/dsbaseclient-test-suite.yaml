@@ -111,6 +111,10 @@ jobs:
           sudo R -q -e "install.packages(c('devtools','covr','fields','meta','metafor','ggplot2','gridExtra','data.table','DSI','DSOpal','DSLite','MolgenisAuth','MolgenisArmadillo','DSMolgenisArmadillo','DescTools','e1071'), repos='https://cloud.r-project.org')"
           sudo R -q -e "devtools::install_github(repo='datashield/dsDangerClient', ref=Sys.getenv('REF_NAME'))"
 
+      - name: Install dsBaseClient
+        run: |
+          R CMD INSTALL ./dsBaseClient
+
       - uses: r-lib/actions/setup-r-dependencies@v2
         with:
           dependencies: 'c("Imports")'
