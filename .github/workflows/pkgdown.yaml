@@ -35,7 +35,6 @@ jobs:
 
       - name: Check for new commits since last successful run
         id: changes
-        if: github.event_name == 'schedule'
         uses: actions/github-script@v7
         with:
           script: |
@@ -75,7 +74,7 @@ jobs:
 
       - name: Check for relevant file changes
         id: relevant_changes
-        if: github.event_name == 'schedule' && steps.changes.outputs.changed == 'true'
+        if: steps.changes.outputs.changed == 'true'
         run: |
           LAST_SHA=$(git rev-parse HEAD^ || echo "")
           if [ -z "$LAST_SHA" ]; then
@@ -93,7 +92,6 @@ jobs:
 
       - name: Stop workflow if no changes
         if: >
-          github.event_name == 'schedule' &&
           (steps.changes.outputs.changed != 'true' ||
            steps.relevant_changes.outputs.changed != 'true')
         run: |
