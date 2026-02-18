@@ -117,6 +117,8 @@ jobs:
           sudo apt-get install -y libcurl4-openssl-dev libssl-dev libxml2-dev  # Required system dependencies for R packages
           R -e "install.packages('devtools')"  # Install devtools if it's not already installed
           R -e "devtools::install_github('datashield/dsDangerClient', ref = '${{ matrix.dsdangerclient }}')"
+        env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
 
       - name: Devtools checks
         run: |
