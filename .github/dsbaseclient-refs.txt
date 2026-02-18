@@ -1,6 +1,6 @@
-# branches
-#latest=master
+# branches (LABEL=REF=dsDangerClient)
+#latest=master=master
 
 # releases to regression test
-#6.3.5=6.3.5
-6.3.4=6.3.4
+#6.3.5=6.3.5=master
+6.3.4=6.3.4=master

@@ -23,7 +23,7 @@ jobs:
     steps:
       - uses: actions/checkout@v4
 
-      - name: Build matrix from LABEL=REF file (.github/dsbaseclient-refs.txt)
+      - name: Build matrix from file (.github/dsbaseclient-refs.txt)
         id: build
         run: |
           if [ ! -f .github/dsbaseclient-refs.txt ]; then
@@ -37,9 +37,11 @@ jobs:
             {
               label=$1
               ref=$2
+              dsdangerclient=$3
               gsub(/^[ \t]+|[ \t]+$/, "", label)
               gsub(/^[ \t]+|[ \t]+$/, "", ref)
-              printf "{\"label\":\"%s\",\"ref\":\"%s\"}\n", label, ref
+              gsub(/^[ \t]+|[ \t]+$/, "", dsdangerclient)
+              printf "{\"label\":\"%s\",\"ref\":\"%s\",\"dsdangerclient\":\"%s\"}\n", label, ref, dsdangerclient
             }
           ' | jq -s -c '.')
 
@@ -61,6 +63,7 @@ jobs:
       TEST_FILTER: '_-|datachk-|smk-|arg-|disc-|perf-|smk_expt-|expt-|math-'
       REF_NAME: ${{ matrix.ref }}
       REF_LABEL: ${{ matrix.label }}
+      REF_DSDANGERCLIENT: ${{ matrix.dsdangerclient }}
       WORKFLOW_ID: ${{ github.run_id }}-${{ github.run_attempt }}-${{ matrix.ref }}
 
     steps:
@@ -107,9 +110,9 @@ jobs:
           cache-version: 1
           needs: check
 
-      - name: Install dsDangerClient (ref-aligned)
+      - name: Install dsDangerClient
         run: |
-          R -q -e "devtools::install_github(repo='datashield/dsDangerClient', ref=Sys.getenv('REF_NAME'))"
+          R -q -e "devtools::install_github(repo='datashield/dsDangerClient', ref=Sys.getenv('REF_DSDANGERCLIENT'))"
 
       - name: Devtools checks
         run: |
