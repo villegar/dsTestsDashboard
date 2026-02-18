@@ -76,8 +76,6 @@ jobs:
 
       - name: Checkout dsTestsDashboard
         uses: actions/checkout@v4
-        with:
-          path: dsTestsDashboard
 
       - uses: r-lib/actions/setup-pandoc@v2
 
@@ -215,9 +213,6 @@ jobs:
     steps:
       - name: Checkout dsTestsDashboard
         uses: actions/checkout@v4
-        with:
-          path: dsTestsDashboard
-          fetch-depth: 0
 
       - name: Download all artefacts
         uses: actions/download-artifact@v4
@@ -227,12 +222,11 @@ jobs:
       - name: Merge artefacts into dashboard structure
         run: |
           set -e
-          cd dsTestsDashboard
 
           echo "Artefacts downloaded:"
-          ls -R ../artefacts || true
+          ls -R artefacts || true
 
-          for dir in ../artefacts/logs-*; do
+          for dir in artefacts/logs-*; do
             if [ -d "$dir" ]; then
               BASENAME=$(basename "$dir")
 
@@ -258,7 +252,7 @@ jobs:
 
       - name: Commit and push once
         run: |
-          cd dsTestsDashboard
+          cd artefacts
 
           git config user.email "github-actions[bot]@users.noreply.github.com"
           git config user.name "github-actions[bot]"
