@@ -115,6 +115,10 @@ jobs:
                     output_file <- file("test_console_output.txt");
                     sink(output_file);
                     sink(output_file, type = "message");
+
+                    # ensure the dsBase package is loaded in the session
+                    library(dsBase);
+
                     junit_rep <- testthat::JunitReporter$new(file = file.path(getwd(), "test_results.xml"));
                     progress_rep <- testthat::ProgressReporter$new(max_failures = 999999);
                     multi_rep <- testthat::MultiReporter$new(reporters = list(progress_rep, junit_rep));
