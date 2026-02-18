@@ -112,26 +112,23 @@ jobs:
                 covr::package_coverage(
                   type = c("none"),
                   code = c('"'"'
-                    output_file <- file("test_console_output.txt");
-                    sink(output_file);
-                    sink(output_file, type = "message");
+                    # output_file <- file("test_console_output.txt");
+                    # sink(output_file);
+                    # sink(output_file, type = "message");
 
                     # ensure the dsBase package is loaded in the session
                     library(dsBase);
 
-                    junit_rep <- testthat::JunitReporter$new(file = file.path(getwd(), "test_results.xml"));
+                    junit_rep <- testthat::JunitReporter$new(file = file.path(getwd(), "logs/test_results.xml"));
                     progress_rep <- testthat::ProgressReporter$new(max_failures = 999999);
                     multi_rep <- testthat::MultiReporter$new(reporters = list(progress_rep, junit_rep));
                     testthat::test_dir("tests/testthat", filter = "${{ env.TEST_FILTER }}", reporter = multi_rep, stop_on_failure = FALSE)'"'"'
                   )
                 )
               ),
-              "coveragelist.csv"
+              "logs/coveragelist.csv"
             )'
 
-          mv coveragelist.csv logs/
-          mv test_* logs/
-          grep -q " FAIL 0 " logs/test_console_output.txt
         working-directory: dsBase
 
       - name: Check for JUnit errors
