@@ -209,9 +209,14 @@ jobs:
               reporters = list(progress_rep, junit_rep)
             );
 
-            # Run tests with full output (no sink, no covr)
-            testthat::test_package(
-              "${{ env.PROJECT_NAME }}",
+            # Check if the tests are in the right place
+            cat("Tests found in:", list.files(path = "dsBaseClient/tests/testthat", full.names = TRUE), "\n");
+
+            # Alternatively check a different path:
+            cat("ALTERNATIVE PATH\n");
+            cat("Tests found in:", list.files(path = "tests/testthat", full.names = TRUE), "\n");
+            # Run tests with full output
+            testthat::test_dir("dsBaseClient/tests/testthat",
               filter = "${{ env.TEST_FILTER }}",
               reporter = multi_rep,
               stop_on_failure = FALSE
