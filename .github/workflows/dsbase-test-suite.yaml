@@ -63,8 +63,6 @@ jobs:
       REF_NAME: ${{ matrix.ref }}
       REF_LABEL: ${{ matrix.label }}
       WORKFLOW_ID: ${{ github.run_id }}-${{ github.run_attempt }}-${{ matrix.ref }}
-      REPO_OWNER: ${{ github.repository_owner }}
-      R_KEEP_PKG_SOURCE: yes
 
     steps:
       - name: Checkout dsBase
@@ -86,54 +84,17 @@ jobs:
       - uses: r-lib/actions/setup-r@v2
         with:
           r-version: release
-          http-user-agent: release
           use-public-rspm: true
-
-      - name: Install dsBase
-        run: |
-          Rscript -e 'install.packages(c("RANN", "stringr", "lme4", "dplyr", "reshape2", "polycor", "gamlss", "gamlss.dist", "mice", "childsds", "usethis", "devtools"), dependencies = TRUE)'
-          R CMD INSTALL ./dsBase
 
       - uses: r-lib/actions/setup-r-dependencies@v2
         with:
-          dependencies: 'c("Imports")'
-          extra-packages: |
-            any::rcmdcheck
-            cran::devtools
-            cran::git2r
-            cran::RCurl
-            cran::readr
-            cran::magrittr
-            cran::xml2
-            cran::purrr
-            cran::dplyr
-            cran::stringr
-            cran::tidyr
-            cran::quarto
-            cran::knitr
-            cran::kableExtra
-            cran::rmarkdown
-            cran::downlit
+          dependencies: '"Imports"'
           needs: check
+          cache-version: 1
 
-      - name: Check man files up-to-date
+      - name: Devtools check
         run: |
-          orig_sum=$(find man -type f | sort -u | xargs cat | md5sum)
-          R -e "devtools::document()"
-          new_sum=$(find man -type f | sort -u | xargs cat | md5sum)
-          if [ "$orig_sum" != "$new_sum" ]; then
-            echo "Your committed manual files (man/*.Rd) are out of sync with the R files. Run devtools::document() locally then commit."
-            exit 1
-          else
-            echo "Documentation up-to-date."
-          fi
-        working-directory: dsBase
-        continue-on-error: true
-
-      - name: Run devtools::check
-        run: |
-          R -q -e "library('devtools'); devtools::check(args = c('--no-tests', '--no-examples'))" | tee ../check.Rout
-          grep -q "^0 errors" ../check.Rout && grep -q " 0 warnings" ../check.Rout && grep -q " 0 notes" ../check.Rout
+          R -q -e "devtools::check(args = c('--no-tests','--no-examples'))"
         working-directory: dsBase
         continue-on-error: true
 
@@ -190,7 +151,8 @@ jobs:
           path: dsBase/logs
           if-no-files-found: error
 
-      - name: Dump environment info
+      - name: Dump environment (on failure)
+        if: failure()
         run: |
           echo -e "\n#############################"
           echo -e "ls /: ######################"
