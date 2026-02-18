@@ -253,7 +253,7 @@ jobs:
         uses: actions/upload-artifact@v4
         with:
           name: logs-ref_${{ matrix.ref }}-label_${{ matrix.label }}
-          path: dsBase/logs
+          path: dsBaseClient/logs
           if-no-files-found: error
 
       - name: Dump environment info
