@@ -110,19 +110,13 @@ jobs:
           cache-version: 1
           needs: check
 
-      - name: Checkout dsDangerClient
-        uses: actions/checkout@v4
-        with:
-          repository: datashield/dsDangerClient
-          token: ${{ github.token }}
-          ref: ${{ matrix.dsdangerclient }}
-          fetch-depth: 0
-          path: dsDangerClient
-
-      - name: Install dsDangerClient
+      - name: Install dsDangerClient and dependencies
         run: |
-          echo "Installing dsDangerClient/$REF_DSDANGERCLIENT"
-          R CMD INSTALL ./dsDangerClient
+          echo "Installing dsDangerClient/$REF_DSDANGERCLIENT and dependencies"
+          sudo apt-get update
+          sudo apt-get install -y libcurl4-openssl-dev libssl-dev libxml2-dev  # Required system dependencies for R packages
+          R -e "install.packages('devtools')"  # Install devtools if it's not already installed
+          R -e "devtools::install_github('datashield/dsDangerClient', ref = '${{ matrix.dsdangerclient }}')"
 
       - name: Devtools checks
         run: |
