@@ -109,6 +109,8 @@ jobs:
           dependencies: 'c("Imports", "Suggests")'
           cache-version: 1
           needs: check
+          extra-packages: |
+            cran::MolgenisArmadillo
 
       - name: Install dsDangerClient and dependencies
         run: |
