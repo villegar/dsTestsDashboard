@@ -102,34 +102,36 @@ jobs:
         working-directory: dsBase
         continue-on-error: false
 
-      - name: Run tests with coverage & JUnit report
-        run: |
-          mkdir -p logs
-          R -q -e "devtools::reload();"
-          R -q -e '
-            write.csv(
-              covr::coverage_to_list(
-                covr::package_coverage(
-                  type = c("none"),
-                  code = c('"'"'
-                    # output_file <- file("test_console_output.txt");
-                    # sink(output_file);
-                    # sink(output_file, type = "message");
-
-                    # ensure the dsBase package is loaded in the session
-                    library(dsBase);
-
-                    junit_rep <- testthat::JunitReporter$new(file = file.path(getwd(), "logs/test_results.xml"));
-                    progress_rep <- testthat::ProgressReporter$new(max_failures = 999999);
-                    multi_rep <- testthat::MultiReporter$new(reporters = list(progress_rep, junit_rep));
-                    testthat::test_dir("tests/testthat", filter = "${{ env.TEST_FILTER }}", reporter = multi_rep, stop_on_failure = FALSE)'"'"'
-                  )
-                )
-              ),
-              "logs/coveragelist.csv"
-            )'
-
+      - name: Run tests and generate coverage report
         working-directory: dsBase
+        continue-on-error: false
+        run: |
+          dir.create("logs")
+
+          devtools::reload()
+
+          # define output paths
+          test_results_xml <- "logs/test_results.xml"
+          coverage_csv <- "logs/coveragelist.csv"
+
+          cat("=== Running testthat directly (debug mode) ===\n")
+          cat("Working directory:", getwd(), "\n")
+          cat("R version:", R.version.string, "\n")
+          # check if the tests are in the right place
+          cat("Tests found in:", list.files(path = "tests/testthat", full.names = TRUE), "\n")
+
+          # run tests using testthat and save results to XML
+          library(testthat)
+          junit_rep <- testthat::JunitReporter$new(file = test_results_xml)
+          progress_rep <- testthat::ProgressReporter$new(max_failures = 999999)
+          multi_rep <- testthat::MultiReporter$new(reporters = list(progress_rep, junit_rep))
+          testthat::test_dir("tests/testthat", filter = Sys.getenv("TEST_FILTER"), reporter = multi_rep, stop_on_failure = FALSE)
+
+          # calculate coverage and write to CSV
+          library(covr)
+          coverage_result <- covr::package_coverage(type = c("none"))
+          coverage_list <- covr::coverage_to_list(coverage_result)
+          write.csv(coverage_list, coverage_csv, row.names = FALSE)
 
       - name: Check for JUnit errors
         run: |
