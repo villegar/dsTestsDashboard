@@ -88,13 +88,13 @@ jobs:
 
       - uses: r-lib/actions/setup-r-dependencies@v2
         with:
+          working-directory: dsBase
           dependencies: '"Imports", "Suggests"'
           needs: check
           cache-version: 1
           extra-packages: |
             cran::devtools
             cran::usethis
-        working-directory: dsBase
 
       - name: Devtools check
         run: |
