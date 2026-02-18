@@ -102,6 +102,12 @@ jobs:
         working-directory: dsBase
         continue-on-error: false
 
+      - name: Install dsBase explicitly
+        run: |
+          echo "Installing dsBase after check"
+          R -e "devtools::install('.')"
+        working-directory: dsBase
+
       - name: Run tests and generate coverage report
         working-directory: dsBase
         continue-on-error: false
