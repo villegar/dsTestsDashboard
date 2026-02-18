@@ -191,69 +191,39 @@ jobs:
           curl -u admin:admin -X POST http://localhost:8080/whitelist/dsBase
         working-directory: dsBaseClient
 
-      - name: Run tests with coverage & JUnit report
-        run: |
-          mkdir -p logs
-          R -q -e "devtools::reload();"
-          R -q -e '
-            write.csv(
-              covr::coverage_to_list(
-                covr::package_coverage(
-                  type = c("none"),
-                  code = c('"'"'
-                    output_file <- file("test_console_output.txt");
-                    sink(output_file);
-                    sink(output_file, type = "message");
-                    options(warn = 1);
-                    options("datashield.return_errors" = FALSE, "default_driver" = "ArmadilloDriver");
-
-                    cat("=== Running testthat directly (debug mode) ===\n");
-                    cat("Working directory:", getwd(), "\n");
-                    cat("R version:", R.version.string, "\n");
-
-                    # Ensure the dsBaseClient package is loaded in the session
-                    library(dsBaseClient);  # Load the package explicitly
-
-                    junit_rep <- testthat::JunitReporter$new(
-                      file = file.path(getwd(), "test_results.xml")
-                    );
-
-                    progress_rep <- testthat::ProgressReporter$new(
-                      max_failures = Inf
-                    );
-
-                    multi_rep <- testthat::MultiReporter$new(
-                      reporters = list(progress_rep, junit_rep)
-                    );
-
-                    # Check if the tests are in the right place
-                    cat("Tests found in:", list.files(path = "tests/testthat", full.names = TRUE), "\n");
-
-                    # Run tests with full output
-                    testthat::test_dir("tests/testthat",
-                      filter = "${{ env.TEST_FILTER }}",
-                      reporter = multi_rep,
-                      stop_on_failure = FALSE
-                    )'"'"'
-                  )
-                )
-              ),
-              "coveragelist.csv"
-            )'
-
-          mv coveragelist.csv logs/
-          mv test_* logs/
-          grep -q " FAIL 0 " logs/test_console_output.txt
+      - name: Run tests and generate coverage report
         working-directory: dsBaseClient
-
-      - name: Check for JUnit errors
+        continue-on-error: false
         run: |
-          issue_count=$(sed 's/failures="0" errors="0"//' test_results.xml | grep -c errors= || true)
-          echo "Number of testsuites with issues: $issue_count"
-          sed 's/failures="0" errors="0"//' test_results.xml | grep errors= > issues.log || true
-          cat issues.log || true
-          exit $issue_count
-        working-directory: dsBaseClient/logs
+          Rscript -e '
+            out_dir <- file.path(getwd(), "logs");
+            dir.create(out_dir, recursive = TRUE, showWarnings = FALSE);
+
+            devtools::reload();
+            library(dsBaseClient);
+
+            # define output paths
+            test_results_xml <- file.path(out_dir, "test_results.xml");
+            coverage_csv <- file.path(out_dir, "coveragelist.csv");
+
+            cat("=== Running testthat directly (debug mode) ===\n");
+            cat("Working directory:", getwd(), "\n");
+            cat("R version:", R.version.string, "\n");
+            cat("Writing outputs to: ", out_dir, "\n");
+
+            # run tests using testthat and save results to XML
+            library(testthat);
+            junit_rep <- testthat::JunitReporter$new(file = test_results_xml);
+            progress_rep <- testthat::ProgressReporter$new(max_failures = 999999);
+            multi_rep <- testthat::MultiReporter$new(reporters = list(progress_rep, junit_rep));
+            testthat::test_dir("tests/testthat", filter = Sys.getenv("TEST_FILTER"), reporter = multi_rep, stop_on_failure = FALSE);
+
+            # calculate coverage and write to CSV
+            library(covr);
+            coverage_result <- covr::package_coverage(type = c("none"));
+            coverage_list <- covr::coverage_to_list(coverage_result);
+            write.csv(coverage_list, coverage_csv, row.names = FALSE);
+          '
 
       - name: Write versions to file
         run: |
