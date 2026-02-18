@@ -106,7 +106,7 @@ jobs:
       - uses: r-lib/actions/setup-r-dependencies@v2
         with:
           working-directory: dsBaseClient
-          dependencies: '"Imports"'
+          dependencies: 'c("Imports", "Suggests")'
           cache-version: 1
           needs: check
 
