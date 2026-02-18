@@ -88,11 +88,12 @@ jobs:
 
       - uses: r-lib/actions/setup-r-dependencies@v2
         with:
-          dependencies: 'c("Imports", "Suggests")'
+          dependencies: '"Imports"'
           needs: check
           cache-version: 1
           extra-packages: |
             cran::devtools
+            cran::usethis
 
       - name: Devtools check
         run: |
