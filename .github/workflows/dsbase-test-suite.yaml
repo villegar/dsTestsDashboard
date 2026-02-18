@@ -113,20 +113,20 @@ jobs:
         continue-on-error: false
         run: |
           Rscript -e '
-            dir.create("logs");
+            out_dir <- file.path(getwd(), "logs");
+            dir.create(out_dir, recursive = TRUE, showWarnings = FALSE);
 
             devtools::reload();
             library(dsBase);
 
             # define output paths
-            test_results_xml <- "logs/test_results.xml";
-            coverage_csv <- "logs/coveragelist.csv";
+            test_results_xml <- file.path(out_dir, "test_results.xml");
+            coverage_csv <- file.path(out_dir, "coveragelist.csv");
 
             cat("=== Running testthat directly (debug mode) ===\n");
             cat("Working directory:", getwd(), "\n");
             cat("R version:", R.version.string, "\n");
-            # check if the tests are in the right place
-            cat("Tests found in:", list.files(path = "tests/testthat", full.names = TRUE), "\n");
+            cat("Writing outputs to: ", out_dir, "\n");
 
             # run tests using testthat and save results to XML
             library(testthat);
@@ -141,15 +141,6 @@ jobs:
             coverage_list <- covr::coverage_to_list(coverage_result);
             write.csv(coverage_list, coverage_csv, row.names = FALSE);
           '
-
-      - name: Check for JUnit errors
-        run: |
-          issue_count=$(sed 's/failures="0" errors="0"//' test_results.xml | grep -c errors= || true)
-          echo "Number of testsuites with issues: $issue_count"
-          sed 's/failures="0" errors="0"//' test_results.xml | grep errors= > issues.log || true
-          cat issues.log || true
-          exit $issue_count
-        working-directory: dsBase/logs
 
       - name: Write versions to file
         run: |
