@@ -46,12 +46,52 @@ valid_url <- function(URL) {
 # LOAD RESULTS ----
 message("Loading results...")
 # Load coverage output
-covr_csv <- file.path(INPUT_DIR, "coveragelist.csv") |>
-  readr::read_csv(
-    show_col_types = FALSE,
-    skip = 1,
-    col_names = c("name", "file_coverage", "total_coverage")
-  )
+if (file.exists(file.path(INPUT_DIR, "coverage.xml"))) {
+  covr_xml <- file.path(INPUT_DIR, "coverage.xml") |>
+    xml2::read_xml()
+  # get total coverage
+  pkg_coverage <- covr_xml |>
+    xml2::xml_find_all("packages") |>
+    xml2::xml_find_all("package") |>
+    xml2::xml_attrs() |>
+    purrr::list_c() |>
+    tibble::as_tibble_row()
+
+  # parse XML results into tibble
+  covr_csv <- covr_xml |>
+    xml2::xml_find_all("packages") |>
+    xml2::xml_find_all("package") |>
+    xml2::xml_find_all("classes") |>
+    xml2::xml_find_all("class") |>
+    purrr::map(
+      function(x) {
+        tmp <- tempfile()
+        on.exit(unlink(tmp))
+        x |>
+          xml2::xml_attrs() |>
+          tibble::as_tibble_row() |>
+          readr::write_csv(tmp)
+        readr::read_csv(tmp, show_col_types = FALSE)
+      },
+      .progress = FALSE
+    ) |>
+    purrr::list_c()
+
+  # update columns
+  covr_csv <- covr_csv |>
+    dplyr::mutate(
+      file_coverage = `line-rate` * 100,
+      total_coverage = as.numeric(pkg_coverage$`line-rate`) * 100
+    ) |>
+    dplyr::select(name, file_coverage, total_coverage)
+} else {
+  covr_csv <- file.path(INPUT_DIR, "coveragelist.csv") |>
+    readr::read_csv(
+      show_col_types = FALSE,
+      skip = 1,
+      col_names = c("name", "file_coverage", "total_coverage")
+    )
+}
 
 # Load test results
 tests_xml <- file.path(INPUT_DIR, "test_results.xml") |>
