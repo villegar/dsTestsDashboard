@@ -80,6 +80,7 @@ if (file.exists(file.path(INPUT_DIR, "coverage.xml"))) {
   # update columns
   covr_csv <- covr_csv |>
     dplyr::mutate(
+      name = filename,
       file_coverage = `line-rate` * 100,
       total_coverage = as.numeric(pkg_coverage$`line-rate`) * 100
     ) |>
@@ -210,18 +211,28 @@ covr_csv_2 <- covr_csv |>
     fn_name = ifelse(
       is.na(fn_name),
       name |>
-        stringr::str_remove("R\\/*") |>
-        stringr::str_remove("\\.R"),
+        stringr::str_remove("\\.R") |>
+        stringr::str_remove("R\\/*"),
       fn_name
     ),
-    # extract any additional components to the test file
-    fn_name_sub = name |>
-      basename() |>
-      stringr::str_remove("\\.R") |>
-      stringr::str_extract("^[^:]+") |>
-      stringr::str_remove(fn_name),
-    # fn_name_sub = ifelse(nchar(fn_name_sub) == 0, NA, fn_name_sub),
-  )
+    # detect naming style
+    is_hyphen_style = stringr::str_detect(name, "^[^-:]+-[^-:]+"),
+    # fn_name_sub ONLY for hyphen-style: class-function-sub
+    fn_name_sub = dplyr::if_else(
+      is_hyphen_style,
+      name |>
+        basename() |>
+        stringr::str_remove("\\.R") |>
+        # remove "class-function-" prefix (optional trailing dash)
+        stringr::str_remove("^[^-:]+-[^-:]+-?") |>
+        # keep only the first condition token if present
+        stringr::str_extract("^[^:-]+") |>
+        stringr::str_remove_all("[\\(\\)]") |>
+        tidyr::replace_na(""),
+      ""
+    )
+  ) |>
+  dplyr::select(-is_hyphen_style)
 
 # Combine results
 covr_and_test_results <- tests_tbl_v4 |>
