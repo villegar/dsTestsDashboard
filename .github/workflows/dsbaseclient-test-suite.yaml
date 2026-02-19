@@ -124,14 +124,14 @@ jobs:
 
       - name: Devtools checks
         run: |
-          R -q -e "devtools::check(args = c('--no-examples', '--no-tests'))"
+          R --vanilla -q -e "devtools::check(args = c('--no-examples', '--no-tests'))"
         working-directory: dsBaseClient
         continue-on-error: true
 
       - name: Install dsBaseClient explicitly
         run: |
           echo "Installing dsBaseClient after check"
-          R -e "devtools::install('.')"
+          R --vanilla -e "devtools::install('.')"
         working-directory: dsBaseClient
 
       - name: Start Armadillo
@@ -148,7 +148,7 @@ jobs:
 
       - name: Install test datasets
         run: |
-          R -q -f "molgenis_armadillo-upload_testing_datasets.R"
+          R --vanilla -q -f "molgenis_armadillo-upload_testing_datasets.R"
         working-directory: dsBaseClient/tests/testthat/data_files
 
       - name: Install latest dsBase to Armadillo
@@ -191,7 +191,7 @@ jobs:
           curl -u admin:admin -X POST http://localhost:8080/whitelist/dsBase
 
           # install dsBase locally too
-          Rscript --vanilla -e 'install.packages(c("RANN", "reshape2", "polycor", "gamlss", "gamlss.dist", "mice", "childsds"), dependencies = TRUE)'
+          Rscript --vanilla -e 'options(repos = c(CRAN = "https://cran.rstudio.com")); install.packages(c("RANN", "reshape2", "polycor", "gamlss", "gamlss.dist", "mice", "childsds"), dependencies = TRUE)'
           R CMD INSTALL $LATEST_TARBALL
         working-directory: dsBaseClient
 
