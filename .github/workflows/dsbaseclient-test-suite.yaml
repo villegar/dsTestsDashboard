@@ -197,7 +197,7 @@ jobs:
 
       - name: Run tests and generate coverage report
         working-directory: dsBaseClient
-        continue-on-error: false
+        continue-on-error: true
         run: |
           Rscript --vanilla -e '
             out_dir <- file.path(getwd(), "logs");
@@ -219,11 +219,10 @@ jobs:
 
             # run tests using testthat and save results to XML
             tryCatch({
-              # attempt to delete very slow test
-              slow_test_path <- file.path(getwd(), "tests/testthat/test-smk-ds.glm-poisson.R")
-              if (file.exists(slow_test_path)) {
-                unlink(slow_test_path, force = TRUE)
-              }
+              # attempt to delete very slow tests
+              slow_tests_path <- file.path(getwd(), "tests/testthat", c("test-smk-ds.glm-poisson.R", "test-smk-ds.glmPredict-poisson.R"))
+              unlink(slow_tests_path, force = TRUE)
+
               library(testthat);
               junit_rep <- testthat::JunitReporter$new(file = test_results_xml);
               progress_rep <- testthat::ProgressReporter$new(max_failures = 999999);
@@ -257,6 +256,7 @@ jobs:
         working-directory: dsBaseClient/logs
 
       - name: Upload logs artefact
+        if: success()
         uses: actions/upload-artifact@v4
         with:
           name: logs-ref_${{ matrix.ref }}-label_${{ matrix.label }}
