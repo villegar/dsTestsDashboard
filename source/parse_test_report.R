@@ -81,17 +81,23 @@ if (file.exists(file.path(INPUT_DIR, "coverage.xml"))) {
   covr_csv <- covr_csv |>
     dplyr::mutate(
       name = filename,
-      file_coverage = `line-rate` * 100,
-      total_coverage = as.numeric(pkg_coverage$`line-rate`) * 100
+      file_coverage = round(as.numeric(`line-rate`) * 100, 2),
+      total_coverage = round(as.numeric(pkg_coverage$`line-rate`) * 100, 2)
     ) |>
     dplyr::select(name, file_coverage, total_coverage)
-} else {
+} else if (file.exists(file.path(INPUT_DIR, "coverage.xml"))) {
   covr_csv <- file.path(INPUT_DIR, "coveragelist.csv") |>
     readr::read_csv(
       show_col_types = FALSE,
       skip = 1,
       col_names = c("name", "file_coverage", "total_coverage")
+    ) |>
+    dplyr::mutate(
+      file_coverage = round(as.numeric(file_coverage), 2),
+      total_coverage = round(as.numeric(total_coverage), 2)
     )
+} else {
+  covr_csv <- tibble::tibble()
 }
 
 # Load test results
