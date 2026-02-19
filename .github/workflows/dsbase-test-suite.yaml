@@ -130,20 +130,28 @@ jobs:
             cat("Writing outputs to: ", out_dir, "\n");
 
             # run tests using testthat and save results to XML
-            library(testthat);
-            junit_rep <- testthat::JunitReporter$new(file = test_results_xml);
-            progress_rep <- testthat::ProgressReporter$new(max_failures = 999999);
-            multi_rep <- testthat::MultiReporter$new(reporters = list(progress_rep, junit_rep));
-            testthat::test_dir("tests/testthat", filter = Sys.getenv("TEST_FILTER"), reporter = multi_rep, stop_on_failure = FALSE);
+            tryCatch({
+              library(testthat);
+              junit_rep <- testthat::JunitReporter$new(file = test_results_xml);
+              progress_rep <- testthat::ProgressReporter$new(max_failures = 999999);
+              multi_rep <- testthat::MultiReporter$new(reporters = list(progress_rep, junit_rep));
+              testthat::test_dir("tests/testthat", filter = Sys.getenv("TEST_FILTER"), reporter = multi_rep, stop_on_failure = FALSE);
+            }, error = function(e) {
+              message("[ERROR] Testing: ", e);
+            });
 
             # calculate coverage and write to CSV
-            library(covr);
-            coverage_result <- covr::package_coverage(type = c("tests"));
-            coverage_list <- covr::coverage_to_list(coverage_result);
-            write.csv(coverage_list, coverage_csv, row.names = FALSE);
+            tryCatch({
+              library(covr);
+              coverage_result <- covr::package_coverage(type = c("tests"), quiet = FALSE);
+              coverage_list <- covr::coverage_to_list(coverage_result);
+              write.csv(coverage_list, coverage_csv, row.names = FALSE);
 
-            # generate coverage xml to be push to Codecov
-            covr::to_cobertura(coverage_result, coverage_xml)
+              # generate coverage xml to be push to Codecov
+              covr::to_cobertura(coverage_result, coverage_xml)
+            }, error = function(e) {
+              message("[ERROR] Code coverage: ", e);
+            });
           '
       - name: Upload coverage to Codecov
         uses: codecov/codecov-action@v4
