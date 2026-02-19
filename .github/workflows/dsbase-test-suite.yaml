@@ -227,12 +227,13 @@ jobs:
       - name: Merge artefacts into dashboard structure
         run: |
           set -e
-          cd dsTestsDashboard
+
+          ls -R .
 
           echo "Artefacts downloaded:"
-          ls -R ../artefacts || true
+          ls -R artefacts || true
 
-          for dir in ../artefacts/logs-*; do
+          for dir in artefacts/logs-*; do
             if [ -d "$dir" ]; then
               BASENAME=$(basename "$dir")
 
@@ -248,7 +249,7 @@ jobs:
               echo "  label: $LABEL"
 
               WORKFLOW_ID="${{ github.run_id }}-${{ github.run_attempt }}-${REF}"
-              TARGET_DIR="logs/${{ env.PROJECT_NAME }}/${LABEL}/${WORKFLOW_ID}/"
+              TARGET_DIR="../logs/${{ env.PROJECT_NAME }}/${LABEL}/${WORKFLOW_ID}/"
               mkdir -p "$TARGET_DIR"
               cp -rv "$dir"/* "$TARGET_DIR" || true
             fi
@@ -258,7 +259,7 @@ jobs:
 
       - name: Commit and push once
         run: |
-          cd dsTestsDashboard
+          rm -rf artefacts
 
           git config user.email "github-actions[bot]@users.noreply.github.com"
           git config user.name "github-actions[bot]"
