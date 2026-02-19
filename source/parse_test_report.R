@@ -118,32 +118,32 @@ tests_tbl_v2 <- tests_tbl |>
   dplyr::filter(tests > 0) |>
   # extract details from testsuite
   dplyr::mutate(
-    # extract function name
+    # detect if current record has a test class
+    has_test_class = stringr::str_detect(name, FN_TEST_CLASS_PATTERN),
+    # detect naming style
+    is_hyphen_style = stringr::str_detect(name, "^[^-:]+-[^-:]+"),
+    # extract function name (handles both `class-fn` and `fn::class::...`)
     fn_name = name |>
-      stringr::str_remove("(?=::test).*") |>
-      stringr::str_remove(FN_TEST_CLASS_PATTERN) |>
       stringr::str_extract(FN_NAME_PATTERN) |>
       stringr::str_remove_all("[\\(\\)]"),
-    # extract any additional components to the test file
-    fn_name_sub = name |>
-      stringr::str_remove("(?=::test).*") |>
-      stringr::str_remove(FN_TEST_CLASS_PATTERN) |>
-      stringr::str_remove(fn_name) |>
-      stringr::str_extract("^[^:-]+") |>
-      stringr::str_remove_all("[\\(\\)]") |>
-      stringr::str_replace_na(""),
-    # fn_name_sub = ifelse(nchar(fn_name_sub) == 0, NA, fn_name_sub),
-    # detect if current record has a test class
-    has_test_class = name |>
-      stringr::str_detect(FN_TEST_CLASS_PATTERN),
-    # extract test class (e.g., arg)
+    # extract test class (e.g., arg, smk, etc.)
     test_class = name |>
-      stringr::str_remove(fn_name) |>
-      stringr::str_match(FN_TEST_CLASS_PATTERN) |>
-      # (\(x) x[,2])()
-      (\(.) .[, 1])(),
-    test_class = ifelse(has_test_class, test_class, NA)
+      stringr::str_extract(FN_TEST_CLASS_PATTERN),
+    test_class = dplyr::if_else(has_test_class, test_class, NA_character_),
+    # fn_name_sub ONLY for hyphen-style: class-function-sub
+    fn_name_sub = dplyr::if_else(
+      is_hyphen_style,
+      name |>
+        # remove "class-function-" prefix (optional trailing dash)
+        stringr::str_remove("^[^-:]+-[^-:]+-?") |>
+        # keep only the first condition token if present
+        stringr::str_extract("^[^:-]+") |>
+        stringr::str_remove_all("[\\(\\)]") |>
+        tidyr::replace_na(""),
+      ""
+    )
   ) |>
+  dplyr::select(-is_hyphen_style) |>
   # fill in sub-tests with test class
   tidyr::fill(test_class, .direction = "down") |>
   dplyr::mutate(
