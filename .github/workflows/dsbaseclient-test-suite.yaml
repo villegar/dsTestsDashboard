@@ -191,7 +191,7 @@ jobs:
           curl -u admin:admin -X POST http://localhost:8080/whitelist/dsBase
 
           # install dsBase locally too
-          Rscript -e 'install.packages(c("RANN", "reshape2", "polycor", "gamlss", "gamlss.dist", "mice", "childsds"), dependencies = TRUE)'
+          Rscript --vanilla -e 'install.packages(c("RANN", "reshape2", "polycor", "gamlss", "gamlss.dist", "mice", "childsds"), dependencies = TRUE)'
           R CMD INSTALL $LATEST_TARBALL
         working-directory: dsBaseClient
 
@@ -199,7 +199,7 @@ jobs:
         working-directory: dsBaseClient
         continue-on-error: false
         run: |
-          Rscript -e '
+          Rscript --vanilla -e '
             out_dir <- file.path(getwd(), "logs");
             dir.create(out_dir, recursive = TRUE, showWarnings = FALSE);
 
