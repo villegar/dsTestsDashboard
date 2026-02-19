@@ -111,6 +111,7 @@ jobs:
           needs: check
           extra-packages: |
             cran::MolgenisArmadillo
+            cran::MolgenisAuth
 
       - name: Install dsDangerClient and dependencies
         run: |
