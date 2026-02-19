@@ -15,13 +15,13 @@ if (length(args) >= 2) {
 
 # utilitarian functions ----
 # identify directories containing both:
-# - coveragelist.csv
+# - coveragelist.csv OR coverage.xml
 # - test_results.xml
 has_covr_tests <- function(d) {
   sub_files <- list.files(d)
   idx <- c("test_results.xml", "coveragelist.csv") %in% sub_files
-  # idx_2 <- "index.html" %in% sub_files
-  all(idx) #, !idx_2)
+  idx_alt <- c("test_results.xml", "coverage.xml") %in% sub_files
+  all(idx) || all(idx_alt)
 }
 
 # validate XML file (i.e., is it readable?)
@@ -36,9 +36,6 @@ validate_xml <- function(xml_path) {
     }
   )
 }
-
-# dependencies
-# install.packages(c("glue", "kableExtra", "knitr", "purrr", "quarto"))
 
 # remove invalid XMLs
 list.files(
