@@ -112,6 +112,7 @@ jobs:
             cran::purrr
             cran::readr
             cran::stringr
+            cran::quarto
           needs: website
 
       - name: Parse logs
