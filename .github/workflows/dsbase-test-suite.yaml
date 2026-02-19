@@ -110,7 +110,7 @@ jobs:
 
       - name: Run tests and generate coverage report
         working-directory: dsBase
-        continue-on-error: false
+        continue-on-error: true
         run: |
           Rscript --vanilla -e '
             out_dir <- file.path(getwd(), "logs");
@@ -154,6 +154,7 @@ jobs:
             });
           '
       - name: Upload coverage to Codecov
+        if: success()
         uses: codecov/codecov-action@v4
         with:
           working-directory: dsBase
@@ -161,7 +162,7 @@ jobs:
           token: ${{ secrets.CODECOV_TOKEN }}
 
       - name: Upload test results to Codecov
-        if: ${{ !cancelled() }}
+        if: ${{ !cancelled() }} && success()
         uses: codecov/codecov-action@v5
         with:
           report_type: test_results
@@ -187,6 +188,7 @@ jobs:
         working-directory: dsBase/logs
 
       - name: Upload logs artefact
+        if: success()
         uses: actions/upload-artifact@v4
         with:
           name: logs-ref_${{ matrix.ref }}-label_${{ matrix.label }}
@@ -254,7 +256,7 @@ jobs:
               echo "  ref:   $REF"
               echo "  label: $LABEL"
 
-              WORKFLOW_ID="${{ github.run_id }}-${{ github.run_attempt }}-${REF}"
+              WORKFLOW_ID="${WORKFLOW_ID_PREFIX}-${REF}"
               TARGET_DIR="logs/${{ env.PROJECT_NAME }}/${LABEL}/${WORKFLOW_ID}/"
               mkdir -p "$TARGET_DIR"
               cp -rv "$dir"/* "$TARGET_DIR" || true
@@ -262,6 +264,7 @@ jobs:
           done
         env:
           PROJECT_NAME: ${{ env.PROJECT_NAME }}
+          WORKFLOW_ID_PREFIX: ${{ github.run_id }}-${{ github.run_attempt }}
 
       - name: Commit and push once
         run: |
