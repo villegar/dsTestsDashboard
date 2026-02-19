@@ -210,6 +210,7 @@ jobs:
             # define output paths
             test_results_xml <- file.path(out_dir, "test_results.xml");
             coverage_csv <- file.path(out_dir, "coveragelist.csv");
+            coverage_xml <- file.path(out_dir, "coverage.xml");
 
             cat("=== Running testthat directly (debug mode) ===\n");
             cat("Working directory:", getwd(), "\n");
@@ -225,9 +226,12 @@ jobs:
 
             # calculate coverage and write to CSV
             library(covr);
-            coverage_result <- covr::package_coverage(type = c("none"));
+            coverage_result <- covr::package_coverage(type = c("tests"));
             coverage_list <- covr::coverage_to_list(coverage_result);
             write.csv(coverage_list, coverage_csv, row.names = FALSE);
+
+            # generate coverage xml to be push to Codecov
+            covr::to_cobertura(coverage_result, coverage_xml)
           '
 
       - name: Write versions to file
