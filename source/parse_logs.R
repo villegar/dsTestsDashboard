@@ -97,20 +97,10 @@ logs_dirs_versions |>
         version
       )
 
-      if (stringr::str_detect(repo, "dsBaseClient")) {
-        FN_NAME_PATTERN <- "(ds)*([^-]+)"
-        FN_TEST_CLASS_PATTERN <- "[^-]+"
-      } else if (stringr::str_detect(repo, "dsBase")) {
-        FN_NAME_PATTERN <- "[^-:.]+"
-        # FN_TEST_CLASS_PATTERN <- "^[a-zA-Z]+(?=-)"
-        FN_TEST_CLASS_PATTERN <- "(?<=::)[^:]+(?=::)"
-      } else if (stringr::str_detect(repo, "dsBetaTestClient")) {
-        FN_NAME_PATTERN <- "([^:]+)"
-        FN_TEST_CLASS_PATTERN <- "(?<=::)(.*)(?=::)"
-      } else {
-        FN_NAME_PATTERN <- "[^-:.]+"
-        FN_TEST_CLASS_PATTERN <- "^[a-zA-Z]+(?=-)"
-      }
+      # common patterns for all packages
+      ## captures "fn::class::" and "class-function-"
+      FN_NAME_PATTERN <- "^[^:]+(?=::)|(?<=-)[^-:]+"
+      FN_TEST_CLASS_PATTERN <- "^[^-:]+(?=-)|(?<=::)[^:]+"
 
       message("==== Processing: ", file.path(repo, version), " ====")
       tryCatch(
