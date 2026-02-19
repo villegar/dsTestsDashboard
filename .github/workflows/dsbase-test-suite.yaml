@@ -89,7 +89,7 @@ jobs:
       - uses: r-lib/actions/setup-r-dependencies@v2
         with:
           working-directory: dsBase
-          dependencies: '"Imports"'
+          dependencies: 'c("Imports", "Suggests")'
           needs: check
           cache-version: 1
           extra-packages: |
@@ -112,7 +112,7 @@ jobs:
         working-directory: dsBase
         continue-on-error: false
         run: |
-          Rscript -e '
+          Rscript --vanilla -e '
             out_dir <- file.path(getwd(), "logs");
             dir.create(out_dir, recursive = TRUE, showWarnings = FALSE);
 
