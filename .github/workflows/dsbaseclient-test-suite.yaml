@@ -67,6 +67,11 @@ jobs:
       WORKFLOW_ID: ${{ github.run_id }}-${{ github.run_attempt }}-${{ matrix.ref }}
 
     steps:
+      - name: Checkout dsTestsDashboard
+        uses: actions/checkout@v4
+        with:
+          fetch-depth: 0
+
       - name: Checkout dsBaseClient
         uses: actions/checkout@v4
         with:
@@ -75,11 +80,6 @@ jobs:
           ref: ${{ matrix.ref }}
           fetch-depth: 0
           path: dsBaseClient
-
-      - name: Checkout dsTestsDashboard
-        uses: actions/checkout@v4
-        with:
-          path: dsTestsDashboard
 
       - name: Install system dependencies
         run: |
@@ -278,7 +278,6 @@ jobs:
       - name: Checkout dsTestsDashboard
         uses: actions/checkout@v4
         with:
-          path: dsTestsDashboard
           fetch-depth: 0
 
       - name: Download all artefacts
@@ -316,3 +315,23 @@ jobs:
           done
         env:
           PROJECT_NAME: ${{ env.PROJECT_NAME }}
+
+      - name: Commit and push once
+        run: |
+          rm -rf artefacts
+
+          git config user.email "github-actions[bot]@users.noreply.github.com"
+          git config user.name "github-actions[bot]"
+
+          # rebase instead of pull to avoid merge commits
+          git pull --rebase origin main || true
+
+          git add .
+
+          if git diff --cached --quiet; then
+            echo "No changes to commit"
+            exit 0
+          fi
+
+          git commit -m "Aggregated dsBaseClient results @ ${{ github.run_id }}-${{ github.run_attempt }}"
+          git push origin main
