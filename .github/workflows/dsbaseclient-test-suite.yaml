@@ -60,7 +60,7 @@ jobs:
         include: ${{ fromJson(needs.set-matrix.outputs.matrix) }}
 
     env:
-      TEST_FILTER: '^(?!smk-ds\\.glm-poisson$).*(_-|datachk-|smk-|arg-|disc-|smk_expt-|expt-|math-)'
+      TEST_FILTER: '_-|datachk-|smk-|arg-|disc-|smk_expt-|expt-|math-'
       REF_NAME: ${{ matrix.ref }}
       REF_LABEL: ${{ matrix.label }}
       REF_DSDANGERCLIENT: ${{ matrix.dsdangerclient }}
@@ -219,6 +219,11 @@ jobs:
 
             # run tests using testthat and save results to XML
             tryCatch({
+              # attempt to delete very slow test
+              slow_test_path <- file.path(getwd(), "tests/testthat/test-smk-ds.glm-poisson.R")
+              if (file.exists(slow_test_path)) {
+                unlink(slow_test_path, force = TRUE)
+              }
               library(testthat);
               junit_rep <- testthat::JunitReporter$new(file = test_results_xml);
               progress_rep <- testthat::ProgressReporter$new(max_failures = 999999);
