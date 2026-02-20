@@ -255,7 +255,7 @@ jobs:
 
             coverage_result <- covr::package_coverage(
               type = "tests",
-              quiet = TRUE,
+              quiet = FALSE,
               expr = {
                 junit_rep <- testthat::JunitReporter$new(file = test_results_xml)
                 progress_rep <- testthat::ProgressReporter$new(max_failures = 999999)
