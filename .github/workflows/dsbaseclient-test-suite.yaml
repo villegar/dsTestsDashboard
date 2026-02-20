@@ -133,17 +133,41 @@ jobs:
           R --vanilla -e "devtools::install('.')"
         working-directory: dsBaseClient
 
-      - name: Start Armadillo
-        run: docker compose -f docker-compose_armadillo.yml up -d
+      - name: Create docker-compose override (expose 8443)
+        run: |
+          cat > docker-compose.override.yml <<'EOF'
+          services:
+            armadillo:
+              ports:
+                - "8080:8080"
+                - "8443:8443"
+          EOF
         working-directory: dsBaseClient
 
-      - name: Wait for Armadillo API
+      - name: Start Armadillo
+        run: docker compose -f docker-compose_armadillo.yml -f docker-compose.override.yml up -d
+        working-directory: dsBaseClient
+
+      - name: Wait for Armadillo (HTTPS + API)
         run: |
-          echo "Waiting for Armadillo..."
+          echo "Waiting for Armadillo API (8080)..."
           until curl -s http://localhost:8080/packages > /dev/null; do
             sleep 5
           done
-          echo "Armadillo ready."
+
+          echo "Waiting for DataSHIELD HTTPS (8443)..."
+          until curl -k https://localhost:8443 > /dev/null 2>&1; do
+            sleep 5
+          done
+
+          echo "Armadillo fully ready (8080 + 8443)."
+
+      - name: Debug Docker services
+        run: |
+          docker ps
+          docker compose -f docker-compose_armadillo.yml ps
+          docker compose -f docker-compose_armadillo.yml logs --tail=200
+        working-directory: dsBaseClient
 
       - name: Install test datasets
         run: |
@@ -182,9 +206,9 @@ jobs:
 
           docker restart dsbaseclient-armadillo-1
 
-          until curl -s http://localhost:8080/packages > /dev/null; do
-            sleep 5
-          done
+          echo "Waiting after restart..."
+          until curl -s http://localhost:8080/packages > /dev/null; do sleep 5; done
+          until curl -k https://localhost:8443 > /dev/null 2>&1; do sleep 5; done
 
           # whitelist dsBase (package name stays constant)
           curl -u admin:admin -X POST http://localhost:8080/whitelist/dsBase
