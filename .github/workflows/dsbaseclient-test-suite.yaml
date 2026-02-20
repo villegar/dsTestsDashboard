@@ -151,23 +151,33 @@ jobs:
         run: docker compose -f docker-compose_armadillo.yml -f docker-compose.override.yml up -d
         working-directory: dsBaseClient
 
-      - name: Debug ports and containers
-        run: |
-          echo "=== Docker PS ==="
-          docker ps
-
-          echo "=== Compose services ==="
-          docker compose -f docker-compose_armadillo.yml ps
-
-          echo "=== Listening ports on host ==="
-          sudo ss -tulpen | grep 8443 || echo "No 8443 listening"
-
-          echo "=== Container logs (last 200 lines) ==="
-          docker compose -f docker-compose_armadillo.yml logs --tail=200
-        working-directory: dsBaseClient
-
       - name: Wait for Armadillo (HTTPS + API)
         run: |
+          set -e
+
+          echo "Phase 1: Waiting for API (8080)..."
+          for i in {1..60}; do
+            if curl -s http://localhost:8080/packages > /dev/null; then
+              echo "API ready"
+              break
+            fi
+            sleep 5
+          done
+
+          echo "Phase 2: Waiting for HTTPS (8443 handshake)..."
+          for i in {1..60}; do
+            # Only test TLS handshake, not full response
+            if timeout 3 bash -c "</dev/tcp/127.0.0.1/8443" 2>/dev/null; then
+              echo "8443 socket accepting connections"
+              exit 0
+            fi
+            sleep 5
+          done
+
+          echo "ERROR: Armadillo never became ready"
+          docker compose -f docker-compose_armadillo.yml logs --tail=200
+          exit 1
+
           echo "Waiting for Armadillo API (8080)..."
           until curl -s http://localhost:8080/packages > /dev/null; do
             sleep 5
