@@ -133,11 +133,14 @@ jobs:
           R --vanilla -e "devtools::install('.')"
         working-directory: dsBaseClient
 
-      - name: Create docker-compose override (expose 8443)
+      - name: Generate dynamic docker-compose override to expose 8443
         run: |
-          cat > docker-compose.override.yml <<'EOF'
+          SERVICE=$(docker compose -f docker-compose_armadillo.yml config --services | head -n 1)
+          echo "Detected service: $SERVICE"
+
+          cat > docker-compose.override.yml <<EOF
           services:
-            armadillo:
+            $SERVICE:
               ports:
                 - "8080:8080"
                 - "8443:8443"
@@ -146,6 +149,21 @@ jobs:
 
       - name: Start Armadillo
         run: docker compose -f docker-compose_armadillo.yml -f docker-compose.override.yml up -d
+        working-directory: dsBaseClient
+
+      - name: Debug ports and containers
+        run: |
+          echo "=== Docker PS ==="
+          docker ps
+
+          echo "=== Compose services ==="
+          docker compose -f docker-compose_armadillo.yml ps
+
+          echo "=== Listening ports on host ==="
+          sudo ss -tulpen | grep 8443 || echo "No 8443 listening"
+
+          echo "=== Container logs (last 200 lines) ==="
+          docker compose -f docker-compose_armadillo.yml logs --tail=200
         working-directory: dsBaseClient
 
       - name: Wait for Armadillo (HTTPS + API)
@@ -161,13 +179,6 @@ jobs:
           done
 
           echo "Armadillo fully ready (8080 + 8443)."
-
-      - name: Debug Docker services
-        run: |
-          docker ps
-          docker compose -f docker-compose_armadillo.yml ps
-          docker compose -f docker-compose_armadillo.yml logs --tail=200
-        working-directory: dsBaseClient
 
       - name: Install test datasets
         run: |
