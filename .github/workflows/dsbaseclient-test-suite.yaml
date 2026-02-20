@@ -245,13 +245,13 @@ jobs:
             out_dir <- file.path(getwd(), "logs");
             dir.create(out_dir, recursive = TRUE, showWarnings = FALSE);
 
-            devtools::reload();
+            # devtools::reload();
             library(dsBase);
             library(dsBaseClient);
 
             # define output paths
-            test_results_xml <- file.path(out_dir, "test_results.xml");
-            coverage_csv <- file.path(out_dir, "coveragelist.csv");
+            # test_results_xml <- file.path(out_dir, "test_results.xml");
+            test_results_xml <- file.path(out_dir, paste0("test_results_", Sys.getenv("COVERAGE_SHARD"), ".xml"));
 
             cat("=== Running testthat directly (debug mode) ===\n");
             cat("Working directory:", getwd(), "\n");
@@ -260,10 +260,6 @@ jobs:
 
             # run tests using testthat and save results to XML
             tryCatch({
-              # attempt to delete very slow tests
-              slow_tests_path <- file.path(getwd(), "tests/testthat", c("test-smk-ds.glm-poisson.R", "test-smk-ds.glmPredict-poisson.R"))
-              unlink(slow_tests_path, force = TRUE)
-
               library(testthat);
               junit_rep <- testthat::JunitReporter$new(file = test_results_xml);
               progress_rep <- testthat::ProgressReporter$new(max_failures = 999999);
@@ -327,7 +323,6 @@ jobs:
                   filter = Sys.getenv("COVERAGE_SHARD")
                 );
 
-              cat("Total tests:", length(all_tests), "\n");
               cat("Shard tests:", length(shard_tests), "\n");
 
               if (length(shard_tests) == 0) {
@@ -391,8 +386,8 @@ jobs:
           sudo apt install tree -y
           tree .
 
-  merge-coverage:
-    name: Merge coverage shards
+  merge-coverage-tests:
+    name: Merge coverage & test shards
     needs: dsBaseClient_test_suite
     runs-on: ubuntu-latest
 
@@ -465,6 +460,36 @@ jobs:
             cat("Merged XML written to:", merged_xml, "\n")
           '
 
+      - name: Merge tests XML
+        run: |
+          Rscript --vanilla -e '
+            library(covr)
+            library(dplyr)
+
+            artefact_dirs <- list.dirs("artefacts", recursive = TRUE, full.names = TRUE)
+
+            xml_files <- list.files(
+              artefact_dirs,
+              pattern = "^test_results_.*\\.xml$",
+              full.names = TRUE
+            )
+
+            cat("Found XML shards:", length(xml_files), "\n")
+
+            dir.create("merged_coverage", showWarnings = FALSE)
+
+            file.rename(xml_files, file.path("merged_coverage", xml_files))
+
+            # # ---- Reconstruct a covr object and export single XML ----
+            # # covr can rebuild coverage from list format
+            # cov_obj <- covr::as_coverage(merged_cov)
+            #
+            # merged_xml <- "merged_coverage/coverage_merged.xml"
+            # covr::to_cobertura(cov_obj, merged_xml)
+            #
+            # cat("Merged XML written to:", merged_xml, "\n")
+          '
+
       - name: Upload merged coverage artefact
         uses: actions/upload-artifact@v4
         with:
@@ -473,7 +498,7 @@ jobs:
 
   publish-results:
     name: Publish aggregated results
-    needs: dsBaseClient_test_suite
+    needs: merge-coverage-tests
     runs-on: ubuntu-latest
     permissions:
       contents: write
@@ -515,6 +540,29 @@ jobs:
               TARGET_DIR="logs/${{ env.PROJECT_NAME }}/${LABEL}/${WORKFLOW_ID}/"
               mkdir -p "$TARGET_DIR"
               cp -rv "$dir"/* "$TARGET_DIR" || true
+            fi
+          done
+
+          for dir in artefacts/merged_coverage/*; do
+            if [ -d "$dir" ]; then
+              echo "$dir"
+              # BASENAME=$(basename "$dir")
+              #
+              # # extract ref (between logs-ref_ and -label_)
+              # REF="${BASENAME#logs-ref_}"
+              # REF="${REF%%-label_*}"
+              #
+              # # extract label (after -label_)
+              # LABEL="${BASENAME#*-label_}"
+              #
+              # echo "Processing:"
+              # echo "  ref:   $REF"
+              # echo "  label: $LABEL"
+              #
+              # WORKFLOW_ID="${{ github.run_id }}-${{ github.run_attempt }}-${REF}"
+              # TARGET_DIR="logs/${{ env.PROJECT_NAME }}/${LABEL}/${WORKFLOW_ID}/"
+              # mkdir -p "$TARGET_DIR"
+              # cp -rv "$dir"/* "$TARGET_DIR" || true
             fi
           done
         env:
