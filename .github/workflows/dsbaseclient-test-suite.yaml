@@ -151,6 +151,14 @@ jobs:
         run: docker compose -f docker-compose_armadillo.yml -f docker-compose.override.yml up -d
         working-directory: dsBaseClient
 
+      - name: Warm up Armadillo JVM (reduces later delays)
+        run: |
+          echo "Warming up API..."
+          for i in {1..10}; do
+            curl -s http://localhost:8080/packages || true
+            sleep 3
+          done
+
       - name: Wait for Armadillo (HTTPS + API)
         run: |
           set -e
@@ -177,18 +185,6 @@ jobs:
           echo "ERROR: Armadillo never became ready"
           docker compose -f docker-compose_armadillo.yml logs --tail=200
           exit 1
-
-          echo "Waiting for Armadillo API (8080)..."
-          until curl -s http://localhost:8080/packages > /dev/null; do
-            sleep 5
-          done
-
-          echo "Waiting for DataSHIELD HTTPS (8443)..."
-          until curl -k https://localhost:8443 > /dev/null 2>&1; do
-            sleep 5
-          done
-
-          echo "Armadillo fully ready (8080 + 8443)."
 
       - name: Install test datasets
         run: |
@@ -225,11 +221,11 @@ jobs:
             -F "file=@${LATEST_TARBALL}" \
             -X POST http://localhost:8080/install-package
 
-          docker restart dsbaseclient-armadillo-1
+          echo "Waiting for package registry refresh (no restart)..."
+          sleep 10
 
-          echo "Waiting after restart..."
-          until curl -s http://localhost:8080/packages > /dev/null; do sleep 5; done
-          until curl -k https://localhost:8443 > /dev/null 2>&1; do sleep 5; done
+          # just verify API still responds
+          curl -u admin:admin -X GET http://localhost:8080/packages
 
           # whitelist dsBase (package name stays constant)
           curl -u admin:admin -X POST http://localhost:8080/whitelist/dsBase
