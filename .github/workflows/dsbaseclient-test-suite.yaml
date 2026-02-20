@@ -228,7 +228,7 @@ jobs:
               multi_rep <- testthat::MultiReporter$new(reporters = list(progress_rep, junit_rep));
               testthat::test_package(Sys.getenv("PROJECT_NAME"), filter = Sys.getenv("TEST_FILTER"), reporter = multi_rep, stop_on_failure = FALSE);
             }, error = function(e) {
-              message("[ERROR] Testing: ", e);
+              warning(e);
             });
 
             # calculate coverage and write to CSV
@@ -241,7 +241,7 @@ jobs:
               # generate coverage xml to be push to Codecov
               covr::to_cobertura(coverage_result, coverage_xml)
             }, error = function(e) {
-              message("[ERROR] Code coverage: ", e);
+              warning(e);
             });
           '
 
