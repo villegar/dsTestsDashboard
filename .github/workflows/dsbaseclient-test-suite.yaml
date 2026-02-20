@@ -50,7 +50,7 @@ jobs:
   dsBaseClient_test_suite:
     needs: set-matrix
     runs-on: ubuntu-latest
-    timeout-minutes: 180
+    timeout-minutes: 240
     permissions:
       contents: write
 
