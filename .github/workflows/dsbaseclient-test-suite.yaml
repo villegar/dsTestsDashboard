@@ -151,14 +151,6 @@ jobs:
         run: docker compose -f docker-compose_armadillo.yml -f docker-compose.override.yml up -d
         working-directory: dsBaseClient
 
-      - name: Warm up Armadillo JVM (reduces later delays)
-        run: |
-          echo "Warming up API..."
-          for i in {1..10}; do
-            curl -s http://localhost:8080/packages || true
-            sleep 3
-          done
-
       - name: Wait for Armadillo (HTTPS + API)
         run: |
           set -e
