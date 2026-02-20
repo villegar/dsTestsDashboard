@@ -86,7 +86,7 @@ logs_dirs_versions |>
       LOGS_OUTPUT_DIR <- LOGS_INPUT_DIR
       HTML_DIR <- stringr::str_replace(path, INPUT_DIR, OUTPUT_DIR)
       repo <- stringr::str_extract(path, "(?<=logs\\/)(.*)(?=\\/)")
-      version <- stringr::str_remove_all(latest, "[^-]*-[^-]*-")
+      version <- stringr::str_remove(latest, "^[^-]*-[^-]*-")
       GH_REPO <- file.path(
         "https://github.com/datashield",
         repo,
