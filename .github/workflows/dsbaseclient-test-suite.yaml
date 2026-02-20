@@ -251,15 +251,14 @@ jobs:
             coverage_xml <- file.path(out_dir, "coverage.xml")
             coverage_csv <- file.path(out_dir, "coveragelist.csv")
 
+            junit_rep <- testthat::JunitReporter$new(file = test_results_xml)
+            progress_rep <- testthat::ProgressReporter$new(max_failures = 999999)
+            multi_rep <- testthat::MultiReporter$new(reporters = list(progress_rep, junit_rep))
+
             coverage_result <- covr::package_coverage(
-              type = "none",
               quiet = FALSE,
-              expr = {
-                junit_rep <- testthat::JunitReporter$new(file = test_results_xml)
-                progress_rep <- testthat::ProgressReporter$new(max_failures = 999999)
-                multi_rep <- testthat::MultiReporter$new(reporters = list(progress_rep, junit_rep))
-                testthat::test_package(Sys.getenv("PROJECT_NAME"), filter=Sys.getenv("TEST_FILTER"), reporter=multi_rep, stop_on_failure=FALSE)
-              }
+              clean = FALSE,
+              reporter = multi_rep
             )
 
             covr::to_cobertura(coverage_result, coverage_xml)
