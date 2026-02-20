@@ -38,10 +38,12 @@ jobs:
               label=$1
               ref=$2
               dsdangerclient=$3
+              docker_image=$4
               gsub(/^[ \t]+|[ \t]+$/, "", label)
               gsub(/^[ \t]+|[ \t]+$/, "", ref)
               gsub(/^[ \t]+|[ \t]+$/, "", dsdangerclient)
-              printf "{\"label\":\"%s\",\"ref\":\"%s\",\"dsdangerclient\":\"%s\"}\n", label, ref, dsdangerclient
+              gsub(/^[ \t]+|[ \t]+$/, "", docker_image)
+              printf "{\"label\":\"%s\",\"ref\":\"%s\",\"dsdangerclient\":\"%s\",\"docker_image\":\"%s\"}\n", label, ref, dsdangerclient, docker_image
             }
           ' | jq -s -c '.')
 
@@ -64,6 +66,7 @@ jobs:
       REF_NAME: ${{ matrix.ref }}
       REF_LABEL: ${{ matrix.label }}
       REF_DSDANGERCLIENT: ${{ matrix.dsdangerclient }}
+      DOCKER_IMAGE: ${{ matrix.docker_image }}
       WORKFLOW_ID: ${{ github.run_id }}-${{ github.run_attempt }}-${{ matrix.ref }}
 
     steps:
@@ -138,6 +141,7 @@ jobs:
               ports:
                 - "8080:8080"
                 - "8443:8443"
+              image: $DOCKER_IMAGE
           EOF
         working-directory: dsBaseClient
 
