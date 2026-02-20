@@ -60,14 +60,26 @@ jobs:
       fail-fast: false
       matrix:
         include: ${{ fromJson(needs.set-matrix.outputs.matrix) }}
+        coverage_shard:
+          - "_-"
+          - "arg-"
+          - "datachk-"
+          - "math-"
+          - "disc-"
+          - "smk-"
+          - "expt-"
 
     env:
-      TEST_FILTER: '_-|arg-'
+      TEST_FILTER: ${{ matrix.coverage_shard }}
+      COVERAGE_SHARD: ${{ matrix.coverage_shard }}
       REF_NAME: ${{ matrix.ref }}
       REF_LABEL: ${{ matrix.label }}
       REF_DSDANGERCLIENT: ${{ matrix.dsdangerclient }}
       DOCKER_IMAGE: ${{ matrix.docker_image }}
       WORKFLOW_ID: ${{ github.run_id }}-${{ github.run_attempt }}-${{ matrix.ref }}
+      R_COVR_FIX_PARALLEL: false
+      TESTTHAT_CPUS: 1
+      R_MAX_VSIZE: 4Gb
 
     steps:
       - name: Checkout dsTestsDashboard
@@ -268,7 +280,7 @@ jobs:
             });
           '
 
-      - name: Run code coverage and store in CSV and XML file
+      - name: Run code coverage (sharded, memory-safe)
         working-directory: dsBaseClient
         continue-on-error: true
         run: |
@@ -276,43 +288,67 @@ jobs:
             out_dir <- file.path(getwd(), "logs");
             dir.create(out_dir, recursive = TRUE, showWarnings = FALSE);
 
-            devtools::reload();
+            cat("=== SHARDED COVR RUN ===\n");
+            cat("Shard filter:", Sys.getenv("COVERAGE_SHARD"), "\n");
+
+            # hard memory + parallel protection
+            Sys.setenv(TESTTHAT_CPUS = 1);
+            Sys.setenv(R_COVR = "true");
+            options(mc.cores = 1);
+
+            # load libraries
+            # devtools::reload();
             library(dsBase);
             library(dsBaseClient);
+            library(covr);
+            library(testthat);
+
+            # to fix issue with missing default_driver for Armadillo
+            Sys.setenv(R_DEFAULT_DRIVER = "ArmadilloDriver");
+            options(default_driver = "ArmadilloDriver");
+            # to fix issue with mismatch in single quotes
+            options(encoding = "UTF-8")
+            Sys.setlocale("LC_CTYPE", "C")
 
             # define output paths
-            coverage_csv <- file.path(out_dir, "coveragelist.csv");
-            coverage_xml <- file.path(out_dir, "coverage.xml");
+            coverage_csv <- file.path(out_dir, paste0("coveragelist_", Sys.getenv("COVERAGE_SHARD"), ".csv"));
+            coverage_xml <- file.path(out_dir, paste0("coverage_", Sys.getenv("COVERAGE_SHARD"), ".xml"));
 
             cat("=== Running testthat directly (debug mode) ===\n");
             cat("Working directory:", getwd(), "\n");
             cat("R version:", R.version.string, "\n");
             cat("Writing outputs to: ", out_dir, "\n");
 
-            # calculate coverage and write to CSV
+            # calculate coverage and store results
             tryCatch({
-              library(covr);
-              # to fix issue with missing default_driver for Armadillo
-              Sys.setenv(R_DEFAULT_DRIVER = "ArmadilloDriver");
-              options(default_driver = "ArmadilloDriver");
-              # to fix issue with mismatch in single quotes
-              options(encoding = "UTF-8")
-              Sys.setlocale("LC_CTYPE", "C")
+              # explicitly enumerate ONLY shard test files (critical for memory)
+              shard_tests <- testthat::find_test_scripts(
+                  path = "tests/testthat",
+                  filter = Sys.getenv("COVERAGE_SHARD")
+                );
+
+              cat("Total tests:", length(all_tests), "\n");
+              cat("Shard tests:", length(shard_tests), "\n");
+
+              if (length(shard_tests) == 0) {
+                stop("No tests matched shard filter: ", Sys.getenv("COVERAGE_SHARD"));
+              }
+
+              # TRUE sharded coverage: only these test files drive instrumentation
               coverage_result <- covr::package_coverage(
-                type = c("tests"),
+                type = "tests",
                 quiet = FALSE,
                 clean = TRUE,
-                tests = testthat::find_test_scripts(
-                  path = "tests/testthat",
-                  filter = Sys.getenv("TEST_FILTER")
-                )
+                tests = shard_tests
               );
+
               coverage_list <- covr::coverage_to_list(coverage_result);
               write.csv(coverage_list, coverage_csv, row.names = FALSE);
 
               # generate coverage xml to be push to Codecov
               covr::to_cobertura(coverage_result, coverage_xml)
             }, error = function(e) {
+              cat("Coverage shard failed:", conditionMessage(e), "\n")
               warning(e);
             });
           '
@@ -330,7 +366,7 @@ jobs:
         if: success()
         uses: actions/upload-artifact@v4
         with:
-          name: logs-ref_${{ matrix.ref }}-label_${{ matrix.label }}
+          name: logs-ref_${{ matrix.ref }}-label_${{ matrix.label }}-shard_${{ matrix.coverage_shard }}
           path: dsBaseClient/logs
           if-no-files-found: error
 
