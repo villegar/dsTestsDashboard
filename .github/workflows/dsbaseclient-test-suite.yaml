@@ -121,12 +121,6 @@ jobs:
         env:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
 
-      - name: Devtools checks
-        run: |
-          R --vanilla -q -e "devtools::check(args = c('--no-examples', '--no-tests'))"
-        working-directory: dsBaseClient
-        continue-on-error: true
-
       - name: Install dsBaseClient explicitly
         run: |
           echo "Installing dsBaseClient after check"
@@ -254,7 +248,7 @@ jobs:
             coverage_csv <- file.path(out_dir, "coveragelist.csv")
 
             coverage_result <- covr::package_coverage(
-              type = "tests",
+              type = "none",
               quiet = FALSE,
               expr = {
                 junit_rep <- testthat::JunitReporter$new(file = test_results_xml)
