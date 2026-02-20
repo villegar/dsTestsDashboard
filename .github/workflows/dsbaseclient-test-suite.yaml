@@ -116,8 +116,6 @@ jobs:
       - name: Install dsDangerClient and dependencies
         run: |
           echo "Installing dsDangerClient/$REF_DSDANGERCLIENT and dependencies"
-          sudo apt-get update
-          sudo apt-get install -y libcurl4-openssl-dev libssl-dev libxml2-dev  # Required system dependencies for R packages
           R -e "install.packages('devtools')"  # Install devtools if it's not already installed
           R -e "devtools::install_github('datashield/dsDangerClient', ref = '${{ matrix.dsdangerclient }}')"
         env:
@@ -228,7 +226,7 @@ jobs:
               junit_rep <- testthat::JunitReporter$new(file = test_results_xml);
               progress_rep <- testthat::ProgressReporter$new(max_failures = 999999);
               multi_rep <- testthat::MultiReporter$new(reporters = list(progress_rep, junit_rep));
-              testthat::test_package("dsBaseClient", filter = Sys.getenv("TEST_FILTER"), reporter = multi_rep, stop_on_failure = FALSE);
+              testthat::test_package(Sys.getenv("PROJECT_NAME"), filter = Sys.getenv("TEST_FILTER"), reporter = multi_rep, stop_on_failure = FALSE);
             }, error = function(e) {
               message("[ERROR] Testing: ", e);
             });
