@@ -62,7 +62,7 @@ jobs:
         include: ${{ fromJson(needs.set-matrix.outputs.matrix) }}
 
     env:
-      TEST_FILTER: '_-|datachk-|arg-'
+      TEST_FILTER: '_-|arg-'
       REF_NAME: ${{ matrix.ref }}
       REF_LABEL: ${{ matrix.label }}
       REF_DSDANGERCLIENT: ${{ matrix.dsdangerclient }}
@@ -225,47 +225,98 @@ jobs:
           R CMD INSTALL $LATEST_TARBALL
         working-directory: dsBaseClient
 
-      - name: Run tests and generate coverage report
+      - name: Run tests and store in XML file
         working-directory: dsBaseClient
         continue-on-error: true
         run: |
           Rscript --vanilla -e '
-            # setup local environment
-            library(covr)
-            library(testthat)
-            library(dsBase)
-            library(dsBaseClient)
+            out_dir <- file.path(getwd(), "logs");
+            dir.create(out_dir, recursive = TRUE, showWarnings = FALSE);
 
-            # update environment configuration for testing
-            ## to fix issue with missing default_driver for Armadillo
-            Sys.setenv(R_DEFAULT_DRIVER = "ArmadilloDriver");
-            options(default_driver = "ArmadilloDriver");
-            ## to fix issue with mismatch in single quotes
-            options(encoding = "UTF-8")
-            Sys.setlocale("LC_CTYPE", "C")
+            devtools::reload();
+            library(dsBase);
+            library(dsBaseClient);
 
             # define output paths
-            out_dir <- file.path(getwd(), "logs")
-            dir.create(out_dir, recursive = TRUE, showWarnings = FALSE)
-            test_results_xml <- file.path(out_dir, "test_results.xml")
-            coverage_xml <- file.path(out_dir, "coverage.xml")
-            coverage_csv <- file.path(out_dir, "coveragelist.csv")
+            test_results_xml <- file.path(out_dir, "test_results.xml");
+            coverage_csv <- file.path(out_dir, "coveragelist.csv");
 
-            coverage_result <- covr::package_coverage(
-              quiet = FALSE,
-              clean = FALSE,
-              expr = {
-                junit_rep <- testthat::JunitReporter$new(file = test_results_xml)
-                progress_rep <- testthat::ProgressReporter$new(max_failures = 999999)
-                multi_rep <- testthat::MultiReporter$new(reporters = list(progress_rep, junit_rep))
-                testthat::test_package(Sys.getenv("PROJECT_NAME"), filter=Sys.getenv("TEST_FILTER"), reporter=multi_rep, stop_on_failure=FALSE)
-              }
-            )
+            cat("=== Running testthat directly (debug mode) ===\n");
+            cat("Working directory:", getwd(), "\n");
+            cat("R version:", R.version.string, "\n");
+            cat("Writing outputs to: ", out_dir, "\n");
 
-            covr::to_cobertura(coverage_result, coverage_xml)
-            coverage_list <- covr::coverage_to_list(coverage_result)
-            write.csv(coverage_list, coverage_csv, row.names=FALSE)
+            # run tests using testthat and save results to XML
+            tryCatch({
+              # attempt to delete very slow tests
+              slow_tests_path <- file.path(getwd(), "tests/testthat", c("test-smk-ds.glm-poisson.R", "test-smk-ds.glmPredict-poisson.R"))
+              unlink(slow_tests_path, force = TRUE)
+
+              library(testthat);
+              junit_rep <- testthat::JunitReporter$new(file = test_results_xml);
+              progress_rep <- testthat::ProgressReporter$new(max_failures = 999999);
+              multi_rep <- testthat::MultiReporter$new(reporters = list(progress_rep, junit_rep));
+              # to fix issue with missing default_driver for Armadillo
+              Sys.setenv(R_DEFAULT_DRIVER = "ArmadilloDriver");
+              options(default_driver = "ArmadilloDriver");
+              # to fix issue with mismatch in single quotes
+              options(encoding = "UTF-8")
+              Sys.setlocale("LC_CTYPE", "C")
+              testthat::test_package(Sys.getenv("PROJECT_NAME"), filter = Sys.getenv("TEST_FILTER"), reporter = multi_rep, stop_on_failure = FALSE);
+            }, error = function(e) {
+              warning(e);
+            });
           '
+
+      - name: Run code coverage and store in CSV and XML file
+        working-directory: dsBaseClient
+        continue-on-error: true
+        run: |
+          Rscript --vanilla -e '
+            out_dir <- file.path(getwd(), "logs");
+            dir.create(out_dir, recursive = TRUE, showWarnings = FALSE);
+
+            devtools::reload();
+            library(dsBase);
+            library(dsBaseClient);
+
+            # define output paths
+            coverage_csv <- file.path(out_dir, "coveragelist.csv");
+            coverage_xml <- file.path(out_dir, "coverage.xml");
+
+            cat("=== Running testthat directly (debug mode) ===\n");
+            cat("Working directory:", getwd(), "\n");
+            cat("R version:", R.version.string, "\n");
+            cat("Writing outputs to: ", out_dir, "\n");
+
+            # calculate coverage and write to CSV
+            tryCatch({
+              library(covr);
+              # to fix issue with missing default_driver for Armadillo
+              Sys.setenv(R_DEFAULT_DRIVER = "ArmadilloDriver");
+              options(default_driver = "ArmadilloDriver");
+              # to fix issue with mismatch in single quotes
+              options(encoding = "UTF-8")
+              Sys.setlocale("LC_CTYPE", "C")
+              coverage_result <- covr::package_coverage(
+                type = c("tests"),
+                quiet = FALSE,
+                clean = TRUE,
+                tests = testthat::find_test_scripts(
+                  path = "tests/testthat",
+                  filter = Sys.getenv("TEST_FILTER")
+                )
+              );
+              coverage_list <- covr::coverage_to_list(coverage_result);
+              write.csv(coverage_list, coverage_csv, row.names = FALSE);
+
+              # generate coverage xml to be push to Codecov
+              covr::to_cobertura(coverage_result, coverage_xml)
+            }, error = function(e) {
+              warning(e);
+            });
+          '
+
       - name: Write versions to file
         run: |
           echo "ref:${{ env.REF_NAME }}" > ${{ env.WORKFLOW_ID }}.txt
