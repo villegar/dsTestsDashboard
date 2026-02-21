@@ -348,10 +348,13 @@ jobs:
 
               # TRUE sharded coverage: only these test files drive instrumentation
               coverage_result <- covr::package_coverage(
-                type = "tests",
+                type = "none",
                 quiet = FALSE,
                 clean = TRUE,
-                tests = shard_tests
+                code = {
+                  sapply(shard_tests, testthat::test_file)
+                  # testthat::test_package(Sys.getenv("PROJECT_NAME"), filter = Sys.getenv("TEST_FILTER"), reporter = multi_rep, stop_on_failure = FALSE)
+                }
               );
 
               coverage_list <- covr::coverage_to_list(coverage_result);
