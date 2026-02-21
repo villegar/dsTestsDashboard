@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<testsuites>
+  <testsuite name="_-vm-test" timestamp="2026-02-21T16:24:23Z" hostname="runnervmwffz4" tests="0" skipped="0" failures="0" errors="0" time="0"/>
+  <testsuite name="vm-test::_::setup" timestamp="2026-02-21T16:24:23Z" hostname="runnervmwffz4" tests="0" skipped="0" failures="0" errors="0" time="0"/>
+  <testsuite name="vm-test::_::tests::vm" timestamp="2026-02-21T16:24:23Z" hostname="runnervmwffz4" tests="1" skipped="0" failures="0" errors="0" time="0.293">
+    <testcase time="0.293" classname="vm_test___tests_vm" name="The_virtual_machine_is_loaded._"/>
+  </testsuite>
+  <testsuite name="vm-test::_::shutdown" timestamp="2026-02-21T16:24:23Z" hostname="runnervmwffz4" tests="0" skipped="0" failures="0" errors="0" time="0"/>
+  <testsuite name="vm-test::_::done" timestamp="2026-02-21T16:24:23Z" hostname="runnervmwffz4" tests="0" skipped="0" failures="0" errors="0" time="0"/>
+</testsuites>
