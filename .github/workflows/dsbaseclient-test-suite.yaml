@@ -50,7 +50,7 @@ jobs:
 
           # Define shards
           SHARD_STRING="_-|datachk-|smk-|arg-|disc-|perf-|smk_expt-|expt-|math-"
-          SHARDS=$(printf '%s\n' $SHARD_STRING | awk '{gsub(/"/,"\\\""); printf "\"%s\",",$0}' | sed 's/,$//')
+          SHARDS=$(echo "$SHARD_STRING" | tr '|' '\n' | awk '{gsub(/"/,"\\\""); printf "\"%s\",",$0}' | sed 's/,$//')
           SHARDS="[${SHARDS}]"
 
           # Generate cross-product: each ref × each shard
