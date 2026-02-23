@@ -384,7 +384,7 @@ jobs:
               );
 
               # Only keep functions with any coverage
-              coverage_result_filtered <- coverage_result[sapply(coverage_result, function(x) sum(x) > 0)]
+              coverage_result_filtered <- coverage_result[sapply(coverage_result, function(x) length(x) > 0)]
 
               # generate coverage xml to be push to Codecov
               if (length(coverage_result_filtered) == 0) {
