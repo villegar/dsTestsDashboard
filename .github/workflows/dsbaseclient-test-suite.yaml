@@ -372,7 +372,8 @@ jobs:
               }
 
               coverage_result <- covr::package_coverage(
-                quiet = FALSE,
+                type = "tests",
+                quiet = TRUE,
                 clean = TRUE,
                 code = {
                   for (f in shard_tests) {
@@ -383,11 +384,10 @@ jobs:
                 }
               );
 
-              # store intermediate file
-              saveRDS(coverage_result, gsub("xml$", "Rds", coverage_xml))
-
               # Only keep functions with any coverage
-              coverage_result_filtered <- coverage_result[sapply(coverage_result, function(x) length(x) > 0)]
+              idx <- coverage_result |>
+                sapply(\(x) getElement(x, "value") > 0)
+              coverage_result_filtered <- coverage_result[idx]
 
               # generate coverage xml to be push to Codecov
               if (length(coverage_result_filtered) == 0) {
