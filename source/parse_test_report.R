@@ -43,11 +43,8 @@ valid_url <- function(URL) {
   RCurl::url.exists(URL)
 }
 
-# LOAD RESULTS ----
-message("Loading results...")
-# Load coverage output
-if (file.exists(file.path(INPUT_DIR, "coverage.xml"))) {
-  covr_xml <- file.path(INPUT_DIR, "coverage.xml") |>
+xml2tibble <- function(filepath) {
+  covr_xml <- filepath |>
     xml2::read_xml()
   # get total coverage
   pkg_coverage <- covr_xml |>
@@ -57,8 +54,7 @@ if (file.exists(file.path(INPUT_DIR, "coverage.xml"))) {
     purrr::list_c() |>
     tibble::as_tibble_row()
 
-  # parse XML results into tibble
-  covr_csv <- covr_xml |>
+  covr_xml |>
     xml2::xml_find_all("packages") |>
     xml2::xml_find_all("package") |>
     xml2::xml_find_all("classes") |>
@@ -75,16 +71,31 @@ if (file.exists(file.path(INPUT_DIR, "coverage.xml"))) {
       },
       .progress = FALSE
     ) |>
-    purrr::list_c()
-
-  # update columns
-  covr_csv <- covr_csv |>
+    purrr::list_c() |>
     dplyr::mutate(
       name = filename,
       file_coverage = round(as.numeric(`line-rate`) * 100, 2),
       total_coverage = round(as.numeric(pkg_coverage$`line-rate`) * 100, 2)
     ) |>
     dplyr::select(name, file_coverage, total_coverage)
+}
+
+# LOAD RESULTS ----
+message("Loading results...")
+# Load coverage output
+covr_files <- list.files(
+  INPUT_DIR,
+  pattern = "^coverage.*xml$",
+  full.names = TRUE
+)
+if (length(covr_files) > 0) {
+  covr_csv <- purrr::map(covr_files, xml2tibble) |>
+    purrr::list_c() |>
+    dplyr::group_by(name) |>
+    dplyr::reframe(
+      file_coverage = sum(file_coverage, na.rm = TRUE),
+      total_coverage = sum(total_coverage, na.rm = TRUE)
+    )
 } else if (file.exists(file.path(INPUT_DIR, "coverage.xml"))) {
   covr_csv <- file.path(INPUT_DIR, "coveragelist.csv") |>
     readr::read_csv(
