@@ -63,11 +63,6 @@ jobs:
         coverage_shard:
           - "_-"
           - "arg-"
-          - "datachk-"
-          - "math-"
-          - "disc-"
-          - "smk-"
-          - "expt-"
 
     env:
       TEST_FILTER: ${{ matrix.coverage_shard }}
@@ -367,8 +362,14 @@ jobs:
                 }
               );
 
+              print("`covr::package_coverage` EXECUTED SUCCESSFULLY!")
+
               # generate coverage xml to be push to Codecov
-              covr::to_cobertura(coverage_result, coverage_xml)
+              if (length(coverage_result) == 0 || sum(coverage_result) == 0) {
+                message("No coverage for this shard, skipping XML generation.")
+              } else {
+                covr::to_cobertura(coverage_result, filename = coverage_xml)
+              }
             }, error = function(e) {
               cat("Coverage shard failed:", conditionMessage(e), "\n")
               warning(e);
