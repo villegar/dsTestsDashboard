@@ -325,8 +325,9 @@ jobs:
             Sys.setenv(R_DEFAULT_DRIVER = "ArmadilloDriver");
             options(default_driver = "ArmadilloDriver");
             # to fix issue with mismatch in single quotes
+            # Use UTF-8 locale (critical for covr + DESCRIPTION parsing)
             options(encoding = "UTF-8")
-            Sys.setlocale("LC_CTYPE", "C")
+            try(Sys.setlocale("LC_CTYPE", "C.UTF-8"), silent = TRUE)
 
             # define output paths
             coverage_xml <- file.path(out_dir, paste0("coverage_", Sys.getenv("COVERAGE_SHARD"), ".xml"));
@@ -350,18 +351,15 @@ jobs:
                 stop("No tests matched shard filter: ", Sys.getenv("COVERAGE_SHARD"));
               }
 
-              # ---- FIX DESCRIPTION ENCODING (critical for covr in CI) ----
-              d <- readLines("DESCRIPTION", warn = FALSE, encoding = "UTF-8")
-              d <- iconv(d, from = "", to = "UTF-8", sub = "")
-              writeLines(d, "DESCRIPTION", useBytes = TRUE)
-
               # TRUE sharded coverage: only these test files drive instrumentation
               coverage_result <- covr::package_coverage(
-                type = "none",
                 quiet = FALSE,
                 clean = TRUE,
                 code = {
-                  lapply(shard_tests, testthat::test_file)
+                  for (f in shard_tests) {
+                    cat("Running shard:", f, "\n")
+                    testthat::test_file(f, stop_on_failure = FALSE)
+                  }
                   # testthat::test_package(Sys.getenv("PROJECT_NAME"), filter = Sys.getenv("TEST_FILTER"), reporter = multi_rep, stop_on_failure = FALSE)
                 }
               );
