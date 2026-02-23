@@ -62,6 +62,12 @@ jobs:
         include: ${{ fromJson(needs.set-matrix.outputs.matrix) }}
         coverage_shard:
           - "_-"
+          - "arg-"
+          - "datachk-"
+          - "math-"
+          - "disc-"
+          - "smk-"
+          - "expt-"
 
     env:
       TEST_FILTER: ${{ matrix.coverage_shard }}
