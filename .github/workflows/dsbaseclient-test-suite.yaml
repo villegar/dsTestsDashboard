@@ -142,7 +142,7 @@ jobs:
           R --vanilla -e "devtools::install('.')"
         working-directory: dsBaseClient
 
-      - name: Cleanup stale Docker containers and ports (CRITICAL)
+      - name: Cleanup stale Docker containers and ports
         run: |
           echo "Cleaning old containers..."
           docker ps -a || true
@@ -158,6 +158,17 @@ jobs:
           # Kill any process binding 8080 just in case
           sudo lsof -i :8080 || true
           sudo fuser -k 8080/tcp || true
+
+          # Kill anything holding the ports
+          sudo fuser -k 8080/tcp || true
+          sudo fuser -k 8443/tcp || true
+
+          # Clean any leftover compose stacks from previous failures
+          docker compose -f docker-compose_armadillo.yml down -v || true
+
+          # Nuclear cleanup
+          docker ps -aq | xargs -r docker rm -f || true
+          docker network prune -f || true
 
       - name: Generate dynamic docker-compose override to expose 8443
         run: |
