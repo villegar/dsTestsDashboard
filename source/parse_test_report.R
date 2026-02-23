@@ -43,7 +43,7 @@ valid_url <- function(URL) {
   RCurl::url.exists(URL)
 }
 
-xml2tibble <- function(filepath) {
+xml2tibble_covr <- function(filepath) {
   covr_xml <- filepath |>
     xml2::read_xml()
   # get total coverage
@@ -80,6 +80,22 @@ xml2tibble <- function(filepath) {
     dplyr::select(name, file_coverage, total_coverage)
 }
 
+xml2tibble_test <- function(filepath) {
+  filepath |>
+    xml2::read_xml() |>
+    xml2::xml_find_all("testsuite") |>
+    purrr::map(function(ts) {
+      tmp <- tempfile()
+      on.exit(unlink(tmp))
+      ts |>
+        xml2::xml_attrs() |>
+        tibble::as_tibble_row() |>
+        readr::write_csv(tmp)
+      readr::read_csv(tmp, show_col_types = FALSE)
+    }) |>
+    purrr::list_c()
+}
+
 # LOAD RESULTS ----
 message("Loading results...")
 # Load coverage output
@@ -89,7 +105,7 @@ covr_files <- list.files(
   full.names = TRUE
 )
 if (length(covr_files) > 0) {
-  covr_csv <- purrr::map(covr_files, xml2tibble) |>
+  covr_csv <- purrr::map(covr_files, xml2tibble_covr) |>
     purrr::list_c() |>
     dplyr::group_by(name) |>
     dplyr::reframe(
@@ -112,22 +128,22 @@ if (length(covr_files) > 0) {
 }
 
 # Load test results
-tests_xml <- file.path(INPUT_DIR, "test_results.xml") |>
-  xml2::read_xml()
-
+test_files <- list.files(
+  INPUT_DIR,
+  pattern = "^test_results.*xml$",
+  full.names = TRUE
+)
 # Parse XML results into tibble
-tests_tbl <- tests_xml |>
-  xml2::xml_find_all("testsuite") |>
-  purrr::map(function(ts) {
-    tmp <- tempfile()
-    on.exit(unlink(tmp))
-    ts |>
-      xml2::xml_attrs() |>
-      tibble::as_tibble_row() |>
-      readr::write_csv(tmp)
-    readr::read_csv(tmp, show_col_types = FALSE)
-  }) |>
-  purrr::list_c()
+tests_tbl <- purrr::map(test_files, xml2tibble_test) |>
+  purrr::list_c() |>
+  dplyr::group_by(name) |>
+  dplyr::reframe(
+    tests = sum(tests, na.rm = TRUE),
+    skipped = sum(skipped, na.rm = TRUE),
+    failures = sum(failures, na.rm = TRUE),
+    errors = sum(errors, na.rm = TRUE),
+    time = sum(time, na.rm = TRUE)
+  )
 
 # AGGREGATE RESULTS ----
 message("Aggregating results...")
