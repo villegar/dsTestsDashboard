@@ -368,15 +368,8 @@ jobs:
                 }
               );
 
-              cat("Class:", class(coverage_result), "\n")
-              cat("Length:", length(coverage_result), "\n")
-              cat("Sum:", tryCatch(sum(coverage_result), error = function(e) "ERR"), "\n")
-              str(coverage_result, max.level = 1)
-
-              print("`covr::package_coverage` EXECUTED SUCCESSFULLY!")
-
               # generate coverage xml to be push to Codecov
-              if (length(coverage_result) == 0 || sum(coverage_result) == 0) {
+              if (length(coverage_result) == 0) {
                 message("No coverage for this shard, skipping XML generation.")
               } else {
                 covr::to_cobertura(coverage_result, filename = coverage_xml)
