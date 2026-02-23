@@ -378,11 +378,14 @@ jobs:
                 }
               );
 
+              # Only keep functions with any coverage
+              coverage_result_filtered <- coverage_result[sapply(coverage_result, function(x) sum(x) > 0)]
+
               # generate coverage xml to be push to Codecov
-              if (length(coverage_result) == 0) {
+              if (length(coverage_result_filtered) == 0) {
                 message("No coverage for this shard, skipping XML generation.")
               } else {
-                covr::to_cobertura(coverage_result, filename = coverage_xml)
+                covr::to_cobertura(coverage_result_filtered, filename = coverage_xml)
               }
             }, error = function(e) {
               cat("Coverage shard failed:", conditionMessage(e), "\n")
