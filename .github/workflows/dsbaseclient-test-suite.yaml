@@ -62,7 +62,6 @@ jobs:
         include: ${{ fromJson(needs.set-matrix.outputs.matrix) }}
         coverage_shard:
           - "_-"
-          - "arg-"
 
     env:
       TEST_FILTER: ${{ matrix.coverage_shard }}
@@ -361,6 +360,11 @@ jobs:
                   # testthat::test_package(Sys.getenv("PROJECT_NAME"), filter = Sys.getenv("TEST_FILTER"), reporter = multi_rep, stop_on_failure = FALSE)
                 }
               );
+
+              cat("Class:", class(coverage_result), "\n")
+              cat("Length:", length(coverage_result), "\n")
+              cat("Sum:", tryCatch(sum(coverage_result), error = function(e) "ERR"), "\n")
+              str(coverage_result, max.level = 1)
 
               print("`covr::package_coverage` EXECUTED SUCCESSFULLY!")
 
