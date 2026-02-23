@@ -59,7 +59,11 @@ jobs:
               {label: $r.label, ref: $r.ref, dsdangerclient: $r.dsdangerclient, docker_image: $r.docker_image, coverage_shard: $s}]
           ')
 
-          echo "matrix=$MATRIX_JSON" >> $GITHUB_OUTPUT
+          {
+            echo "matrix<<EOF"
+            echo "$MATRIX_JSON"
+            echo "EOF"
+          } >> "$GITHUB_OUTPUT"
 
   dsBaseClient_test_suite:
     needs: set-matrix
