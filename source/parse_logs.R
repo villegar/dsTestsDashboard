@@ -22,7 +22,7 @@ has_covr_tests <- function(d) {
 
   has_tests <- any(grepl("^test_results.*xml$", sub_files))
   has_coverage <- any(grepl("^coverage.*xml$", sub_files))
-  has_tests && has_coverage
+  has_tests
 }
 
 # validate XML file (i.e., is it readable?)
@@ -49,7 +49,7 @@ list.files(
   purrr::walk(function(xml_path) {
     if (!validate_xml(xml_path)) {
       message("Deleting: ", xml_path)
-      # unlink(xml_path)
+      unlink(xml_path)
     }
   })
 
