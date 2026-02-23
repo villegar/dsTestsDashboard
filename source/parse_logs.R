@@ -15,13 +15,14 @@ if (length(args) >= 2) {
 
 # utilitarian functions ----
 # identify directories containing both:
-# - coveragelist.csv OR coverage.xml
-# - test_results.xml
+# - coveragelist_*.csv OR coverage_*.xml
+# - test_results_*.xml
 has_covr_tests <- function(d) {
   sub_files <- list.files(d)
-  idx <- c("test_results.xml", "coveragelist.csv") %in% sub_files
-  idx_alt <- c("test_results.xml", "coverage.xml") %in% sub_files
-  all(idx) || all(idx_alt)
+
+  has_tests <- any(grepl("^test_results.*xml$", sub_files))
+  has_coverage <- any(grepl("^coverage.*xml$", sub_files))
+  has_tests && has_coverage
 }
 
 # validate XML file (i.e., is it readable?)
@@ -48,7 +49,7 @@ list.files(
   purrr::walk(function(xml_path) {
     if (!validate_xml(xml_path)) {
       message("Deleting: ", xml_path)
-      unlink(xml_path)
+      # unlink(xml_path)
     }
   })
 
