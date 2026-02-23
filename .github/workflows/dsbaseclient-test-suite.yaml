@@ -33,7 +33,7 @@ jobs:
 
           FILE=".github/dsbaseclient-refs.txt"
 
-          MATRIX_JSON=$(grep -v '^\s*#' "$FILE" | grep -v '^\s*$' | awk -F= '
+          REFS=$(grep -v '^\s*#' "$FILE" | grep -v '^\s*$' | awk -F= '
             {
               label=$1
               ref=$2
@@ -43,9 +43,21 @@ jobs:
               gsub(/^[ \t]+|[ \t]+$/, "", ref)
               gsub(/^[ \t]+|[ \t]+$/, "", dsdangerclient)
               gsub(/^[ \t]+|[ \t]+$/, "", docker_image)
-              printf "{\"label\":\"%s\",\"ref\":\"%s\",\"dsdangerclient\":\"%s\",\"docker_image\":\"%s\"}\n", label, ref, dsdangerclient, docker_image
+              printf "{\"label\":\"%s\",\"ref\":\"%s\",\"dsdangerclient\":\"%s\",\"docker_image\":\"%s\"}\n",
+                      label, ref, dsdangerclient, docker_image
             }
           ' | jq -s -c '.')
+
+          # Define shards
+          SHARD_STRING="_-|datachk-|smk-|arg-|disc-|perf-|smk_expt-|expt-|math-"
+          SHARDS=$(printf '%s\n' $SHARD_STRING | awk '{gsub(/"/,"\\\""); printf "\"%s\",",$0}' | sed 's/,$//')
+          SHARDS="[${SHARDS}]"
+
+          # Generate cross-product: each ref × each shard
+          MATRIX_JSON=$(jq -n --argjson refs "$REFS" --argjson shards "$SHARDS" '
+            [$refs[] as $r | $shards[] as $s |
+              {label: $r.label, ref: $r.ref, dsdangerclient: $r.dsdangerclient, docker_image: $r.docker_image, coverage_shard: $s}]
+          ')
 
           echo "matrix=$MATRIX_JSON" >> $GITHUB_OUTPUT
 
@@ -58,25 +70,17 @@ jobs:
 
     strategy:
       fail-fast: false
-      matrix:
-        include: ${{ fromJson(needs.set-matrix.outputs.matrix) }}
-        coverage_shard:
-          - "_-"
-          - "arg-"
-          - "datachk-"
-          - "math-"
-          - "disc-"
-          - "smk-"
-          - "expt-"
+      matrix: ${{ fromJson(needs.set-matrix.outputs.matrix) }}
 
     env:
-      TEST_FILTER: ${{ matrix.coverage_shard }}
-      COVERAGE_SHARD: ${{ matrix.coverage_shard }}
       REF_NAME: ${{ matrix.ref }}
       REF_LABEL: ${{ matrix.label }}
       REF_DSDANGERCLIENT: ${{ matrix.dsdangerclient }}
       DOCKER_IMAGE: ${{ matrix.docker_image }}
+      TEST_FILTER: ${{ matrix.coverage_shard }}
+      COVERAGE_SHARD: ${{ matrix.coverage_shard }}
       WORKFLOW_ID: ${{ github.run_id }}-${{ github.run_attempt }}-${{ matrix.ref }}
+      WORKFLOW_ID_SHARD: ${{ github.run_id }}-${{ github.run_attempt }}-${{ matrix.ref }}-shard-${{ matrix.coverage_shard }}
       R_COVR_FIX_PARALLEL: false
       TESTTHAT_CPUS: 1
       R_MAX_VSIZE: 4Gb
@@ -388,11 +392,11 @@ jobs:
 
       - name: Write versions to file
         run: |
-          echo "ref:${{ env.REF_NAME }}" > ${{ env.WORKFLOW_ID }}.txt
-          echo "ref_label:${{ env.REF_LABEL }}" >> ${{ env.WORKFLOW_ID }}.txt
-          echo "os:$(lsb_release -ds)" >> ${{ env.WORKFLOW_ID }}.txt
-          echo "R:$(R --version | head -n1)" >> ${{ env.WORKFLOW_ID }}.txt
-          Rscript --vanilla -e 'sessionInfo()' >> session_info_${{ env.WORKFLOW_ID }}.txt
+          echo "ref:${{ env.REF_NAME }}" > ${{ env.WORKFLOW_ID_SHARD }}.txt
+          echo "ref_label:${{ env.REF_LABEL }}" >> ${{ env.WORKFLOW_ID_SHARD }}.txt
+          echo "os:$(lsb_release -ds)" >> ${{ env.WORKFLOW_ID_SHARD }}.txt
+          echo "R:$(R --version | head -n1)" >> ${{ env.WORKFLOW_ID_SHARD }}.txt
+          Rscript --vanilla -e 'sessionInfo()' >> session_info_${{ env.WORKFLOW_ID_SHARD }}.txt
         working-directory: dsBaseClient/logs
 
       - name: Upload logs artefact
@@ -473,7 +477,7 @@ jobs:
               echo "  label: $LABEL"
               echo "  shard: $SHARD"
 
-              WORKFLOW_ID="${{ github.run_id }}-${{ github.run_attempt }}-SHARD_${SHARD}-${REF}"
+              WORKFLOW_ID="${{ github.run_id }}-${{ github.run_attempt }}-${REF}"
               TARGET_DIR="logs/${{ env.PROJECT_NAME }}/${LABEL}/${WORKFLOW_ID}/"
               mkdir -p "$TARGET_DIR"
               cp -rv "$dir"/* "$TARGET_DIR" || true
