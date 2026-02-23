@@ -74,7 +74,8 @@ jobs:
 
     strategy:
       fail-fast: false
-      matrix: ${{ fromJson(needs.set-matrix.outputs.matrix) }}
+      matrix:
+        include: ${{ fromJson(needs.set-matrix.outputs.matrix) }}
 
     env:
       REF_NAME: ${{ matrix.ref }}
