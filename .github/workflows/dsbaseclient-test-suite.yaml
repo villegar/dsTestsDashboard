@@ -339,14 +339,15 @@ jobs:
             try(Sys.setlocale("LC_CTYPE", "C.UTF-8"), silent = TRUE)
 
             # create new helper file
-            helper_code <- paste(
-              "Sys.setenv(R_DEFAULT_DRIVER = 'ArmadilloDriver')",
-              "options(default_driver = 'ArmadilloDriver')",
-              "options(encoding = 'UTF-8')",
-              "try(Sys.setlocale('LC_CTYPE', 'C.UTF-8'), silent = TRUE)",
-              sep = "\n"
+            helper_lines <- c(
+              "# to fix issue with missing default_driver for Armadillo",
+              "Sys.setenv(R_DEFAULT_DRIVER = \"ArmadilloDriver\")",
+              "options(default_driver = \"ArmadilloDriver\")",
+              "# to fix issue with mismatch in single quotes",
+              "options(encoding = \"UTF-8\")",
+              "try(Sys.setlocale(\"LC_CTYPE\", \"C.UTF-8\"), silent = TRUE)"
             )
-            writeLines(helper_code, "tests/testthat/helper-armadillo-con.R")
+            writeLines(helper_lines, "tests/testthat/helper-armadillo-con.R", useBytes = TRUE)
 
             # define output paths
             coverage_xml <- file.path(out_dir, paste0("coverage_", Sys.getenv("COVERAGE_SHARD"), ".xml"))
