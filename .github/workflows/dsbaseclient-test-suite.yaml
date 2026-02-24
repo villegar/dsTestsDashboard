@@ -151,34 +151,6 @@ jobs:
           R --vanilla -e "devtools::install('.')"
         working-directory: dsBaseClient
 
-      - name: Cleanup stale Docker containers and ports
-        run: |
-          echo "Cleaning old containers..."
-          docker ps -a || true
-
-          # Stop any containers using 8080/8443
-          docker ps -q --filter "publish=8080" | xargs -r docker stop || true
-          docker ps -q --filter "publish=8443" | xargs -r docker stop || true
-
-          # Remove dangling containers & networks from previous runs
-          docker container prune -f || true
-          docker network prune -f || true
-
-          # Kill any process binding 8080 just in case
-          sudo lsof -i :8080 || true
-          sudo fuser -k 8080/tcp || true
-
-          # Kill anything holding the ports
-          sudo fuser -k 8080/tcp || true
-          sudo fuser -k 8443/tcp || true
-
-          # Clean any leftover compose stacks from previous failures
-          docker compose -f docker-compose_armadillo.yml down -v || true
-
-          # Nuclear cleanup
-          docker ps -aq | xargs -r docker rm -f || true
-          docker network prune -f || true
-
       - name: Generate dynamic docker-compose override to expose 8443
         run: |
           SERVICE=$(docker compose -f docker-compose_armadillo.yml config --services | head -n 1)
@@ -202,6 +174,31 @@ jobs:
           retry_on: error
           command: |
             cd dsBaseClient
+            echo "Cleaning old containers..."
+            docker ps -a || true
+
+            # stop any containers using 8080/8443
+            docker ps -q --filter "publish=8080" | xargs -r docker stop || true
+
+            # remove dangling containers & networks from previous runs
+            docker container prune -f || true
+            docker network prune -f || true
+
+            # kill any process binding 8080 just in case
+            sudo lsof -i :8080 || true
+            sudo fuser -k 8080/tcp || true
+
+            # kill anything holding the ports
+            sudo fuser -k 8080/tcp || true
+
+            # clean any leftover compose stacks from previous failures
+            docker compose -f docker-compose_armadillo.yml down -v || true
+
+            # nuclear cleanup
+            docker ps -aq | xargs -r docker rm -f || true
+            docker network prune -f || true
+
+            # start armadillo
             docker compose -f docker-compose_armadillo.yml -f docker-compose.override.yml up -d
 
       - name: Wait for Armadillo (HTTPS + API)
