@@ -335,7 +335,8 @@ jobs:
             library(testthat)
 
             # to fix issue with mismatch in single quotes
-            options(encoding = \"UTF-8\")", "try(Sys.setlocale(\"LC_CTYPE\", \"C.UTF-8\"), silent = TRUE)
+            options(encoding = "UTF-8")
+            try(Sys.setlocale("LC_CTYPE", "C.UTF-8"), silent = TRUE)
 
             # create new helper file
             helper_code <- paste(
