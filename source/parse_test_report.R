@@ -124,7 +124,11 @@ if (length(covr_files) > 0) {
       total_coverage = round(as.numeric(total_coverage), 2)
     )
 } else {
-  covr_csv <- tibble::tibble()
+  covr_csv <- tibble::tibble(
+    name = '<PLACEHOLDER>',
+    file_coverage = NA_real_,
+    total_coverage = NA_real_
+  )
 }
 
 # Load test results
@@ -209,7 +213,6 @@ tests_tbl_v3 <- tests_tbl_v2 |>
     fn_name,
     fn_name_sub,
     test_class,
-    timestamp,
     tests:github_test_link,
     -has_test_class
   ) |>
