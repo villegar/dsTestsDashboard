@@ -195,8 +195,14 @@ jobs:
         working-directory: dsBaseClient
 
       - name: Start Armadillo
-        run: docker compose -f docker-compose_armadillo.yml -f docker-compose.override.yml up -d
         working-directory: dsBaseClient
+        uses: nick-invision/retry@v3
+        with:
+          timeout_minutes: 5
+          max_attempts: 3
+          retry_on: error
+          command: |
+            docker compose -f docker-compose_armadillo.yml -f docker-compose.override.yml up -d
 
       - name: Wait for Armadillo (HTTPS + API)
         run: |
