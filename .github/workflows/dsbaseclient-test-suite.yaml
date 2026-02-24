@@ -330,9 +330,6 @@ jobs:
             options(mc.cores = 1);
 
             # load libraries
-            # devtools::reload();
-            library(dsBase);
-            library(dsBaseClient);
             library(covr);
             library(testthat);
 
@@ -366,25 +363,20 @@ jobs:
                 stop("No tests matched shard filter: ", Sys.getenv("COVERAGE_SHARD"));
               }
 
-              if (file.exists("tests/testthat.R")) {
-                cat("Renaming tests/testthat.R to tests/testthat.R.disabled")
-                file.rename("tests/testthat.R", "tests/testthat.R.disabled")
-              }
+              # delete test files not part of the shard
+              all_tests <- testthat::find_test_scripts(path = "tests/testthat")
+              unlink(all_tests[!(all_tests %in% shard_tests)], force = TRUE)
 
               coverage_result <- covr::package_coverage(
                 type = "tests",
                 quiet = TRUE,
-                clean = TRUE,
-                code = {
-                  for (f in shard_tests) {
-                    cat("Running shard:", f, "\n")
-                    testthat::test_file(f, stop_on_failure = FALSE)
-                  }
-                  # testthat::test_package(Sys.getenv("PROJECT_NAME"), filter = Sys.getenv("TEST_FILTER"), reporter = multi_rep, stop_on_failure = FALSE)
-                }
+                clean = TRUE
               );
 
-              # Only keep functions with any coverage
+              # store intermediate Rds file
+              saveRDS(coverage_result, file = sub("xml$", "Rds", coverage_xml))
+
+              # only keep functions with any coverage
               idx <- coverage_result |>
                 sapply(\(x) getElement(x, "value") > 0)
               coverage_result_filtered <- coverage_result[idx]
