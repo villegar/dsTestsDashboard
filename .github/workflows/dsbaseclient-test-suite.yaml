@@ -318,36 +318,32 @@ jobs:
         continue-on-error: true
         run: |
           Rscript --vanilla -e '
-            out_dir <- file.path(getwd(), "logs");
-            dir.create(out_dir, recursive = TRUE, showWarnings = FALSE);
+            out_dir <- file.path(getwd(), "logs")
+            dir.create(out_dir, recursive = TRUE, showWarnings = FALSE)
 
-            cat("=== SHARDED COVR RUN ===\n");
-            cat("Shard filter:", Sys.getenv("COVERAGE_SHARD"), "\n");
+            cat("=== SHARDED COVR RUN ===\n")
+            cat("Shard filter:", Sys.getenv("COVERAGE_SHARD"), "\n")
 
             # hard memory + parallel protection
-            Sys.setenv(TESTTHAT_CPUS = 1);
-            Sys.setenv(R_COVR = "true");
-            options(mc.cores = 1);
+            Sys.setenv(TESTTHAT_CPUS = 1)
+            Sys.setenv(R_COVR = "true")
+            Sys.setenv(COVR_FIX_PARALLEL = "true")
+            options(mc.cores = 1)
 
             # load libraries
-            library(covr);
-            library(testthat);
+            library(covr)
+            library(testthat)
 
             # to fix issue with missing default_driver for Armadillo
-            Sys.setenv(R_DEFAULT_DRIVER = "ArmadilloDriver");
-            options(default_driver = "ArmadilloDriver");
+            Sys.setenv(R_DEFAULT_DRIVER = "ArmadilloDriver")
+            options(default_driver = "ArmadilloDriver")
             # to fix issue with mismatch in single quotes
             # Use UTF-8 locale (critical for covr + DESCRIPTION parsing)
             options(encoding = "UTF-8")
             try(Sys.setlocale("LC_CTYPE", "C.UTF-8"), silent = TRUE)
 
             # define output paths
-            coverage_xml <- file.path(out_dir, paste0("coverage_", Sys.getenv("COVERAGE_SHARD"), ".xml"));
-
-            cat("=== Running testthat directly (debug mode) ===\n");
-            cat("Working directory:", getwd(), "\n");
-            cat("R version:", R.version.string, "\n");
-            cat("Writing outputs to: ", out_dir, "\n");
+            coverage_xml <- file.path(out_dir, paste0("coverage_", Sys.getenv("COVERAGE_SHARD"), ".xml"))
 
             # calculate coverage and store results
             tryCatch({
@@ -355,12 +351,12 @@ jobs:
               shard_tests <- testthat::find_test_scripts(
                   path = "tests/testthat",
                   filter = Sys.getenv("COVERAGE_SHARD")
-                );
+                )
 
-              cat("Shard tests:", length(shard_tests), "\n");
+              cat("Shard tests:", length(shard_tests), "\n")
 
               if (length(shard_tests) == 0) {
-                stop("No tests matched shard filter: ", Sys.getenv("COVERAGE_SHARD"));
+                stop("No tests matched shard filter: ", Sys.getenv("COVERAGE_SHARD"))
               }
 
               # delete test files not part of the shard
@@ -369,9 +365,9 @@ jobs:
 
               coverage_result <- covr::package_coverage(
                 type = "tests",
-                quiet = TRUE,
+                quiet = FALSE,
                 clean = TRUE
-              );
+              )
 
               # store intermediate Rds file
               saveRDS(coverage_result, file = sub("xml$", "Rds", coverage_xml))
@@ -389,8 +385,8 @@ jobs:
               }
             }, error = function(e) {
               cat("Coverage shard failed:", conditionMessage(e), "\n")
-              warning(e);
-            });
+              warning(e)
+            })
           '
 
       - name: Write versions to file
