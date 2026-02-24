@@ -340,12 +340,10 @@ jobs:
 
             # create new helper file
             helper_code <- paste(
-              "# to fix issue with missing default_driver for Armadillo",
-              'Sys.setenv(R_DEFAULT_DRIVER = "ArmadilloDriver")',
-              'options(default_driver = "ArmadilloDriver")',
-              "# to fix issue with mismatch in single quotes",
-              'options(encoding = "UTF-8")',
-              'try(Sys.setlocale("LC_CTYPE", "C.UTF-8"), silent = TRUE)',
+              "Sys.setenv(R_DEFAULT_DRIVER = 'ArmadilloDriver')",
+              "options(default_driver = 'ArmadilloDriver')",
+              "options(encoding = 'UTF-8')",
+              "try(Sys.setlocale('LC_CTYPE', 'C.UTF-8'), silent = TRUE)"",
               sep = "\n"
             )
             writeLines(helper_code, "tests/testthat/helper-armadillo-con.R")
