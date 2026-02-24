@@ -334,13 +334,18 @@ jobs:
             library(covr)
             library(testthat)
 
-            # to fix issue with missing default_driver for Armadillo
-            Sys.setenv(R_DEFAULT_DRIVER = "ArmadilloDriver")
-            options(default_driver = "ArmadilloDriver")
             # to fix issue with mismatch in single quotes
-            # Use UTF-8 locale (critical for covr + DESCRIPTION parsing)
-            options(encoding = "UTF-8")
-            try(Sys.setlocale("LC_CTYPE", "C.UTF-8"), silent = TRUE)
+            options(encoding = \"UTF-8\")", "try(Sys.setlocale(\"LC_CTYPE\", \"C.UTF-8\"), silent = TRUE)
+
+            # create new helper file
+            config_lines <- c(
+              "# to fix issue with missing default_driver for Armadillo",
+              "Sys.setenv(R_DEFAULT_DRIVER = \"ArmadilloDriver\")",
+              "options(default_driver = \"ArmadilloDriver\")",
+              "# to fix issue with mismatch in single quotes",
+              "options(encoding = \"UTF-8\")", "try(Sys.setlocale(\"LC_CTYPE\", \"C.UTF-8\"), silent = TRUE)"
+            )
+            writeLines(config_lines, "tests/testthat/helper-armadillo-con.R")
 
             # define output paths
             coverage_xml <- file.path(out_dir, paste0("coverage_", Sys.getenv("COVERAGE_SHARD"), ".xml"))
