@@ -1,0 +1,147 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<testsuites>
+  <testsuite name="perf-conndisconn" timestamp="2026-02-24T13:50:59Z" hostname="runnervmwffz4" tests="0" skipped="0" failures="0" errors="0" time="0"/>
+  <testsuite name="conndisconn::perf::setup" timestamp="2026-02-24T13:50:59Z" hostname="runnervmwffz4" tests="0" skipped="0" failures="0" errors="0" time="0"/>
+  <testsuite name="conndisconn::perf::simple0" timestamp="2026-02-24T13:51:09Z" hostname="runnervmwffz4" tests="2" skipped="0" failures="0" errors="0" time="133.07">
+    <testcase time="133.052" classname="conndisconn_perf_simple0" name="simple_connect_disconnect_performance"/>
+    <testcase time="0.0180000000000007" classname="conndisconn_perf_simple0" name="simple_connect_disconnect_performance"/>
+  </testsuite>
+  <testsuite name="conndisconn::perf::shutdown" timestamp="2026-02-24T13:53:12Z" hostname="runnervmwffz4" tests="0" skipped="0" failures="0" errors="0" time="0"/>
+  <testsuite name="conndisconn::perf::done" timestamp="2026-02-24T13:53:12Z" hostname="runnervmwffz4" tests="0" skipped="0" failures="0" errors="0" time="0"/>
+  <testsuite name="perf-ds.abs" timestamp="2026-02-24T13:53:12Z" hostname="runnervmwffz4" tests="0" skipped="0" failures="0" errors="0" time="0"/>
+  <testsuite name="ds.abs::perf::setup" timestamp="2026-02-24T13:53:12Z" hostname="runnervmwffz4" tests="0" skipped="0" failures="0" errors="0" time="0"/>
+  <testsuite name="ds.abs::perf:0" timestamp="2026-02-24T13:53:19Z" hostname="runnervmwffz4" tests="2" skipped="0" failures="1" errors="0" time="37.717">
+    <testcase time="37.711" classname="ds.abs_perf_0" name="combine_performance"/>
+    <testcase time="0.00600000000000023" classname="ds.abs_perf_0" name="combine_performance">
+      <failure type="failure" message="Expected Observed rate &lt; upper threshold on rate. ('test-perf-ds.abs.R:50:5')">Expected Observed rate &lt; upper threshold on rate.
+Actual comparison: 4.5 &gt;= 3.4
+Difference: 1.0 &gt;= 0</failure>
+    </testcase>
+  </testsuite>
+  <testsuite name="ds.abs::perf::shutdown" timestamp="2026-02-24T13:53:49Z" hostname="runnervmwffz4" tests="0" skipped="0" failures="0" errors="0" time="0"/>
+  <testsuite name="ds.abs::perf::done" timestamp="2026-02-24T13:53:50Z" hostname="runnervmwffz4" tests="0" skipped="0" failures="0" errors="0" time="0"/>
+  <testsuite name="perf-ds.asInteger" timestamp="2026-02-24T13:53:50Z" hostname="runnervmwffz4" tests="0" skipped="0" failures="0" errors="0" time="0"/>
+  <testsuite name="ds.asInteger::perf::setup" timestamp="2026-02-24T13:53:50Z" hostname="runnervmwffz4" tests="0" skipped="0" failures="0" errors="0" time="0"/>
+  <testsuite name="ds.asInteger::perf:0" timestamp="2026-02-24T13:53:57Z" hostname="runnervmwffz4" tests="2" skipped="0" failures="1" errors="0" time="37.627">
+    <testcase time="37.623" classname="ds.asInteger_perf_0" name="combine_performance"/>
+    <testcase time="0.00399999999999068" classname="ds.asInteger_perf_0" name="combine_performance">
+      <failure type="failure" message="Expected Observed rate &lt; upper threshold on rate. ('test-perf-ds.asInteger.R:50:5')">Expected Observed rate &lt; upper threshold on rate.
+Actual comparison: 5.4 &gt;= 3.0
+Difference: 2.4 &gt;= 0</failure>
+    </testcase>
+  </testsuite>
+  <testsuite name="ds.asInteger::perf::shutdown" timestamp="2026-02-24T13:54:27Z" hostname="runnervmwffz4" tests="0" skipped="0" failures="0" errors="0" time="0"/>
+  <testsuite name="ds.asInteger::perf::done" timestamp="2026-02-24T13:54:27Z" hostname="runnervmwffz4" tests="0" skipped="0" failures="0" errors="0" time="0"/>
+  <testsuite name="perf-ds.asList" timestamp="2026-02-24T13:54:27Z" hostname="runnervmwffz4" tests="0" skipped="0" failures="0" errors="0" time="0"/>
+  <testsuite name="ds.asList::perf::setup" timestamp="2026-02-24T13:54:27Z" hostname="runnervmwffz4" tests="0" skipped="0" failures="0" errors="0" time="0"/>
+  <testsuite name="ds.asList::perf:0" timestamp="2026-02-24T13:54:34Z" hostname="runnervmwffz4" tests="2" skipped="0" failures="1" errors="0" time="37.546">
+    <testcase time="37.541" classname="ds.asList_perf_0" name="combine_performance"/>
+    <testcase time="0.00499999999999545" classname="ds.asList_perf_0" name="combine_performance">
+      <failure type="failure" message="Expected Observed rate &lt; upper threshold on rate. ('test-perf-ds.asList.R:50:5')">Expected Observed rate &lt; upper threshold on rate.
+Actual comparison: 11.9 &gt;= 6.1
+Difference: 5.8 &gt;= 0</failure>
+    </testcase>
+  </testsuite>
+  <testsuite name="ds.asList::perf::shutdown" timestamp="2026-02-24T13:55:05Z" hostname="runnervmwffz4" tests="0" skipped="0" failures="0" errors="0" time="0"/>
+  <testsuite name="ds.asList::perf::done" timestamp="2026-02-24T13:55:05Z" hostname="runnervmwffz4" tests="0" skipped="0" failures="0" errors="0" time="0"/>
+  <testsuite name="perf-ds.asNumeric" timestamp="2026-02-24T13:55:05Z" hostname="runnervmwffz4" tests="0" skipped="0" failures="0" errors="0" time="0"/>
+  <testsuite name="ds.asNumeric::perf::setup" timestamp="2026-02-24T13:55:05Z" hostname="runnervmwffz4" tests="0" skipped="0" failures="0" errors="0" time="0"/>
+  <testsuite name="ds.asNumeric::perf:0" timestamp="2026-02-24T13:55:12Z" hostname="runnervmwffz4" tests="2" skipped="0" failures="1" errors="0" time="37.722">
+    <testcase time="37.718" classname="ds.asNumeric_perf_0" name="combine_performance"/>
+    <testcase time="0.00399999999996226" classname="ds.asNumeric_perf_0" name="combine_performance">
+      <failure type="failure" message="Expected Observed rate &lt; upper threshold on rate. ('test-perf-ds.asNumeric.R:50:5')">Expected Observed rate &lt; upper threshold on rate.
+Actual comparison: 5.6 &gt;= 3.0
+Difference: 2.6 &gt;= 0</failure>
+    </testcase>
+  </testsuite>
+  <testsuite name="ds.asNumeric::perf::shutdown" timestamp="2026-02-24T13:55:42Z" hostname="runnervmwffz4" tests="0" skipped="0" failures="0" errors="0" time="0"/>
+  <testsuite name="ds.asNumeric::perf::done" timestamp="2026-02-24T13:55:42Z" hostname="runnervmwffz4" tests="0" skipped="0" failures="0" errors="0" time="0"/>
+  <testsuite name="perf-ds.assign" timestamp="2026-02-24T13:55:42Z" hostname="runnervmwffz4" tests="0" skipped="0" failures="0" errors="0" time="0"/>
+  <testsuite name="ds.assign::perf::setup" timestamp="2026-02-24T13:55:42Z" hostname="runnervmwffz4" tests="0" skipped="0" failures="0" errors="0" time="0"/>
+  <testsuite name="ds.assign::perf::0" timestamp="2026-02-24T13:55:50Z" hostname="runnervmwffz4" tests="2" skipped="0" failures="1" errors="0" time="37.621">
+    <testcase time="37.617" classname="ds.assign_perf_0" name="performance"/>
+    <testcase time="0.0040000000000191" classname="ds.assign_perf_0" name="performance">
+      <failure type="failure" message="Expected Observed rate &lt; upper threshold on rate. ('test-perf-ds.assign.R:50:5')">Expected Observed rate &lt; upper threshold on rate.
+Actual comparison: 10.7 &gt;= 7.1
+Difference: 3.6 &gt;= 0</failure>
+    </testcase>
+  </testsuite>
+  <testsuite name="ds.assign::perf::shutdown" timestamp="2026-02-24T13:56:20Z" hostname="runnervmwffz4" tests="0" skipped="0" failures="0" errors="0" time="0"/>
+  <testsuite name="ds.assign::perf::done" timestamp="2026-02-24T13:56:20Z" hostname="runnervmwffz4" tests="0" skipped="0" failures="0" errors="0" time="0"/>
+  <testsuite name="perf-ds.class" timestamp="2026-02-24T13:56:20Z" hostname="runnervmwffz4" tests="0" skipped="0" failures="0" errors="0" time="0"/>
+  <testsuite name="ds.class::perf::setup" timestamp="2026-02-24T13:56:20Z" hostname="runnervmwffz4" tests="0" skipped="0" failures="0" errors="0" time="0"/>
+  <testsuite name="ds.class::perf::combine:0" timestamp="2026-02-24T13:56:27Z" hostname="runnervmwffz4" tests="2" skipped="0" failures="1" errors="0" time="37.61">
+    <testcase time="37.605" classname="ds.class_perf_combine_0" name="combine_performance"/>
+    <testcase time="0.00499999999999545" classname="ds.class_perf_combine_0" name="combine_performance">
+      <failure type="failure" message="Expected Observed rate &lt; upper threshold on rate. ('test-perf-ds.class.R:50:5')">Expected Observed rate &lt; upper threshold on rate.
+Actual comparison: 12.8 &gt;= 6.1
+Difference: 6.7 &gt;= 0</failure>
+    </testcase>
+  </testsuite>
+  <testsuite name="ds.class::perf::shutdown" timestamp="2026-02-24T13:56:58Z" hostname="runnervmwffz4" tests="0" skipped="0" failures="0" errors="0" time="0"/>
+  <testsuite name="ds.class::perf::done" timestamp="2026-02-24T13:56:58Z" hostname="runnervmwffz4" tests="0" skipped="0" failures="0" errors="0" time="0"/>
+  <testsuite name="perf-ds.colnames" timestamp="2026-02-24T13:56:58Z" hostname="runnervmwffz4" tests="0" skipped="0" failures="0" errors="0" time="0"/>
+  <testsuite name="ds.colnames::perf::setup" timestamp="2026-02-24T13:56:58Z" hostname="runnervmwffz4" tests="0" skipped="0" failures="0" errors="0" time="0"/>
+  <testsuite name="ds.colnames::perf:0" timestamp="2026-02-24T13:57:05Z" hostname="runnervmwffz4" tests="2" skipped="0" failures="1" errors="0" time="37.732">
+    <testcase time="37.728" classname="ds.colnames_perf_0" name="combine_performance"/>
+    <testcase time="0.0040000000000191" classname="ds.colnames_perf_0" name="combine_performance">
+      <failure type="failure" message="Expected Observed rate &lt; upper threshold on rate. ('test-perf-ds.colnames.R:50:5')">Expected Observed rate &lt; upper threshold on rate.
+Actual comparison: 9.7 &gt;= 4.9
+Difference: 4.8 &gt;= 0</failure>
+    </testcase>
+  </testsuite>
+  <testsuite name="ds.colnames::perf::shutdown" timestamp="2026-02-24T13:57:35Z" hostname="runnervmwffz4" tests="0" skipped="0" failures="0" errors="0" time="0"/>
+  <testsuite name="ds.colnames::perf::done" timestamp="2026-02-24T13:57:35Z" hostname="runnervmwffz4" tests="0" skipped="0" failures="0" errors="0" time="0"/>
+  <testsuite name="perf-ds.exists" timestamp="2026-02-24T13:57:35Z" hostname="runnervmwffz4" tests="0" skipped="0" failures="0" errors="0" time="0"/>
+  <testsuite name="ds.exists::perf::setup" timestamp="2026-02-24T13:57:35Z" hostname="runnervmwffz4" tests="0" skipped="0" failures="0" errors="0" time="0"/>
+  <testsuite name="ds.exists::perf::combine:0" timestamp="2026-02-24T13:57:43Z" hostname="runnervmwffz4" tests="2" skipped="0" failures="1" errors="0" time="37.728">
+    <testcase time="37.724" classname="ds.exists_perf_combine_0" name="combine_performance"/>
+    <testcase time="0.0040000000000191" classname="ds.exists_perf_combine_0" name="combine_performance">
+      <failure type="failure" message="Expected Observed rate &lt; upper threshold on rate. ('test-perf-ds.exists.R:50:5')">Expected Observed rate &lt; upper threshold on rate.
+Actual comparison: 25.9 &gt;= 13.8
+Difference: 12.1 &gt;= 0</failure>
+    </testcase>
+  </testsuite>
+  <testsuite name="ds.exists::perf::shutdown" timestamp="2026-02-24T13:58:13Z" hostname="runnervmwffz4" tests="0" skipped="0" failures="0" errors="0" time="0"/>
+  <testsuite name="ds.exists::perf::done" timestamp="2026-02-24T13:58:13Z" hostname="runnervmwffz4" tests="0" skipped="0" failures="0" errors="0" time="0"/>
+  <testsuite name="perf-ds.length" timestamp="2026-02-24T13:58:13Z" hostname="runnervmwffz4" tests="0" skipped="0" failures="0" errors="0" time="0"/>
+  <testsuite name="ds.length::perf::setup" timestamp="2026-02-24T13:58:13Z" hostname="runnervmwffz4" tests="0" skipped="0" failures="0" errors="0" time="0"/>
+  <testsuite name="ds.length::perf::combine:0" timestamp="2026-02-24T13:58:20Z" hostname="runnervmwffz4" tests="2" skipped="0" failures="1" errors="0" time="37.485">
+    <testcase time="37.48" classname="ds.length_perf_combine_0" name="combine_performance"/>
+    <testcase time="0.00499999999999545" classname="ds.length_perf_combine_0" name="combine_performance">
+      <failure type="failure" message="Expected Observed rate &lt; upper threshold on rate. ('test-perf-ds.length.R:50:5')">Expected Observed rate &lt; upper threshold on rate.
+Actual comparison: 25.8 &gt;= 12.1
+Difference: 13.7 &gt;= 0</failure>
+    </testcase>
+  </testsuite>
+  <testsuite name="ds.length::perf::shutdown" timestamp="2026-02-24T13:58:50Z" hostname="runnervmwffz4" tests="0" skipped="0" failures="0" errors="0" time="0"/>
+  <testsuite name="ds.length::perf::done" timestamp="2026-02-24T13:58:51Z" hostname="runnervmwffz4" tests="0" skipped="0" failures="0" errors="0" time="0"/>
+  <testsuite name="perf-ds.mean" timestamp="2026-02-24T13:58:51Z" hostname="runnervmwffz4" tests="0" skipped="0" failures="0" errors="0" time="0"/>
+  <testsuite name="ds.mean::perf::setup" timestamp="2026-02-24T13:58:51Z" hostname="runnervmwffz4" tests="0" skipped="0" failures="0" errors="0" time="0"/>
+  <testsuite name="ds.mean::perf::combine:0" timestamp="2026-02-24T13:58:58Z" hostname="runnervmwffz4" tests="2" skipped="0" failures="1" errors="0" time="37.552">
+    <testcase time="37.547" classname="ds.mean_perf_combine_0" name="combine_performance"/>
+    <testcase time="0.00499999999999545" classname="ds.mean_perf_combine_0" name="combine_performance">
+      <failure type="failure" message="Expected Observed rate &lt; upper threshold on rate. ('test-perf-ds.mean.R:50:5')">Expected Observed rate &lt; upper threshold on rate.
+Actual comparison: 25.4 &gt;= 11.8
+Difference: 13.6 &gt;= 0</failure>
+    </testcase>
+  </testsuite>
+  <testsuite name="ds.mean::perf::split:0" timestamp="2026-02-24T13:59:28Z" hostname="runnervmwffz4" tests="2" skipped="0" failures="1" errors="0" time="30.063">
+    <testcase time="30.058" classname="ds.mean_perf_split_0" name="split_performance"/>
+    <testcase time="0.00499999999999545" classname="ds.mean_perf_split_0" name="split_performance">
+      <failure type="failure" message="Expected Observed rate &lt; upper threshold on rate. ('test-perf-ds.mean.R:81:5')">Expected Observed rate &lt; upper threshold on rate.
+Actual comparison: 25.3 &gt;= 13.8
+Difference: 11.5 &gt;= 0</failure>
+    </testcase>
+  </testsuite>
+  <testsuite name="ds.mean::perf::shutdown" timestamp="2026-02-24T13:59:58Z" hostname="runnervmwffz4" tests="0" skipped="0" failures="0" errors="0" time="0"/>
+  <testsuite name="ds.mean::perf::done" timestamp="2026-02-24T13:59:58Z" hostname="runnervmwffz4" tests="0" skipped="0" failures="0" errors="0" time="0"/>
+  <testsuite name="perf-void" timestamp="2026-02-24T13:59:58Z" hostname="runnervmwffz4" tests="0" skipped="0" failures="0" errors="0" time="0"/>
+  <testsuite name="void::perf::void::setup" timestamp="2026-02-24T13:59:58Z" hostname="runnervmwffz4" tests="0" skipped="0" failures="0" errors="0" time="0"/>
+  <testsuite name="void::perf::void::0" timestamp="2026-02-24T13:59:58Z" hostname="runnervmwffz4" tests="2" skipped="0" failures="0" errors="0" time="60.234">
+    <testcase time="60.2330000000001" classname="void_perf_void_0" name="simple_void_performance"/>
+    <testcase time="0.000999999999976353" classname="void_perf_void_0" name="simple_void_performance"/>
+  </testsuite>
+  <testsuite name="void::perf::void::shutdown" timestamp="2026-02-24T14:00:58Z" hostname="runnervmwffz4" tests="0" skipped="0" failures="0" errors="0" time="0"/>
+  <testsuite name="void::perf::void::done" timestamp="2026-02-24T14:00:58Z" hostname="runnervmwffz4" tests="0" skipped="0" failures="0" errors="0" time="0"/>
+</testsuites>
