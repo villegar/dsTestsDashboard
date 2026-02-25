@@ -162,6 +162,7 @@ jobs:
             $SERVICE:
               ports:
                 - "8080:8080"
+                - "8443:8443"
               image: $DOCKER_IMAGE
           EOF
         working-directory: dsBaseClient
@@ -219,15 +220,15 @@ jobs:
             sleep 5
           done
 
-          # echo "Phase 2: Waiting for HTTPS (8443 handshake)..."
-          # for i in {1..60}; do
-          #   # Only test TLS handshake, not full response
-          #   if timeout 3 bash -c "</dev/tcp/127.0.0.1/8443" 2>/dev/null; then
-          #     echo "8443 socket accepting connections"
-          #     exit 0
-          #   fi
-          #   sleep 5
-          # done
+          echo "Phase 2: Waiting for HTTPS (8443 handshake)..."
+          for i in {1..60}; do
+            # Only test TLS handshake, not full response
+            if timeout 3 bash -c "</dev/tcp/127.0.0.1/8443" 2>/dev/null; then
+              echo "8443 socket accepting connections"
+              exit 0
+            fi
+            sleep 5
+          done
 
           echo "ERROR: Armadillo never became ready"
           docker compose -f docker-compose_armadillo.yml logs --tail=200
