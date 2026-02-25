@@ -52,7 +52,7 @@ jobs:
           cp site/report_template.qmd site/report_template.qmd || true
 
       - name: Build Quarto website (dynamic)
-        run: Rscript scripts/build_site.R
+        run: Rscript source/build_site.R
 
       - name: Upload docs artifact
         uses: actions/upload-pages-artifact@v3
