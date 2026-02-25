@@ -2,25 +2,45 @@
 title: "`r params$title`"
 params:
   rds_path: NULL
+  title: NULL
+format:
+  html:
+    theme: cosmo
+    toc: false
+    self-contained: false
 ---
 
 ```{r}
 #| echo: false
-library(dplyr)
-library(reactable)
-library(htmltools)
-library(readr)
+#| warning: false
+#| message: false
 
-test_list <- read_rds(params$rds_path)
+# ---- Safety check ----
+if (is.null(params$rds_path) || !file.exists(params$rds_path)) {
+  # stop("Parameter rds_path is missing or invalid")
+  return(0)
+}
 
-tagList(
+test_list <- readr::read_rds(params$rds_path)
+
+
+# ---- Coverage colouring ----
+coverage_colour <- function(x) {
+  if (is.na(x)) return("#eeeeee")
+  if (x < 60) return("#f8d7da")   # red-ish
+  if (x < 80) return("#fff3cd")   # yellow-ish
+  return("#d4edda")               # green-ish
+}
+
+# ---- Render all test classes ----
+output <- htmltools::tagList(
   lapply(test_list, function(x) {
 
     test_class <- x$test_class[1]
 
-    # Overview row
+    # ---- Overview row ----
     x_overview <- x |>
-      summarise(
+      dplyr::summarise(
         fn_name = "OVERVIEW",
         coverage = round(mean(as.numeric(file_coverage), na.rm = TRUE), 2),
         test_url = "",
@@ -30,10 +50,11 @@ tagList(
         errors = sum(as.numeric(errors), na.rm = TRUE),
         time = sum(as.numeric(time), na.rm = TRUE)
       )
-
+    
+    # ---- Main table ----
     x_tbl <- x |>
-      rename(coverage = file_coverage) |>
-      mutate(
+      dplyr::rename(coverage = file_coverage) |>
+      dplyr::mutate(
         coverage = as.numeric(coverage),
         tests = as.numeric(tests),
         skipped = as.numeric(skipped),
@@ -51,30 +72,42 @@ tagList(
           sprintf('<a href="%s" target="_blank">View</a>', test_url)
         )
       ) |>
-      select(-script_url, -test_class, -fn_name_sub) |>
-      bind_rows(x_overview) |>
-      rename(
+      dplyr::select(-script_url, -test_class, -fn_name_sub) |>
+      dplyr::bind_rows(x_overview) |>
+      dplyr::rename(
         Function = fn_name,
         Coverage = coverage,
         Test = test_url
       )
 
-    tagList(
-      tags$h3(sprintf("Test type: %s", test_class)),
-      reactable(
+    htmltools::tagList(
+      htmltools::tags$h3(sprintf("Test type: %s", test_class)),
+      reactable::reactable(
         x_tbl,
-        searchable = TRUE,
+        searchable = FALSE,
         sortable = TRUE,
         highlight = TRUE,
-        compact = TRUE,
+        compact = FALSE,
         bordered = TRUE,
         striped = TRUE,
+        defaultColDef = reactable::colDef(align = "center"),
         columns = list(
-          Function = colDef(html = TRUE),
-          Test = colDef(html = TRUE)
+          Function = reactable::colDef(html = TRUE, align = "left"),
+          Test = reactable::colDef(html = TRUE),
+          Coverage = reactable::colDef(
+            style = function(value) {
+              list(
+                background = coverage_colour(value),
+                fontWeight = "bold"
+              )
+            }
+          )
         )
-      )
+      ),
+      htmltools::tags$br()
     )
   })
 )
+
+output
 ```
