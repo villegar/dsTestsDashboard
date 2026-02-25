@@ -4,7 +4,10 @@ params:
   input_dir: getwd() 
 format: 
   html:
-    self-contained: true
+    self-contained: false
+    theme: cosmo
+    toc: false
+    embed-resources: false
 ---
 
 # `r params$title`
