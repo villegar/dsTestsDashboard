@@ -162,7 +162,6 @@ jobs:
             $SERVICE:
               ports:
                 - "8080:8080"
-                # - "8443:8443"
               image: $DOCKER_IMAGE
           EOF
         working-directory: dsBaseClient
