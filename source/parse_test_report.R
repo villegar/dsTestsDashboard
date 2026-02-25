@@ -39,8 +39,17 @@ if (length(args) >= 4) {
 }
 
 # HELPER FUNCTIONS ----
-valid_url <- function(URL) {
-  RCurl::url.exists(URL)
+valid_url <- function(url, timeout = 5) {
+  req <- httr2::request(url) |>
+    httr2::req_method("HEAD") |>
+    httr2::req_options(timeout = timeout)
+
+  res <- tryCatch(
+    httr2::req_perform(req),
+    error = function(e) NULL
+  )
+
+  !is.null(res) && httr2::resp_status(res) < 400
 }
 
 xml2tibble_covr <- function(filepath) {
