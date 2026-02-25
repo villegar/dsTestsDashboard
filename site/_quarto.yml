@@ -1,0 +1,18 @@
+project:
+  type: website
+  output-dir: ../docs
+
+website:
+  title: "DataSHIELD Test Reports"
+  sidebar:
+    style: "docked"
+    search: true
+    contents: auto
+
+format:
+  html:
+    theme: cosmo
+    toc: false
+    self-contained: false
+    embed-resources: false
+    code-fold: false

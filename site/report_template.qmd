@@ -1,0 +1,80 @@
+---
+title: "`r params$title`"
+params:
+  rds_path: NULL
+---
+
+```{r}
+#| echo: false
+library(dplyr)
+library(reactable)
+library(htmltools)
+library(readr)
+
+test_list <- read_rds(params$rds_path)
+
+tagList(
+  lapply(test_list, function(x) {
+
+    test_class <- x$test_class[1]
+
+    # Overview row
+    x_overview <- x |>
+      summarise(
+        fn_name = "OVERVIEW",
+        coverage = round(mean(as.numeric(file_coverage), na.rm = TRUE), 2),
+        test_url = "",
+        tests = sum(as.numeric(tests), na.rm = TRUE),
+        skipped = sum(as.numeric(skipped), na.rm = TRUE),
+        failures = sum(as.numeric(failures), na.rm = TRUE),
+        errors = sum(as.numeric(errors), na.rm = TRUE),
+        time = sum(as.numeric(time), na.rm = TRUE)
+      )
+
+    x_tbl <- x |>
+      rename(coverage = file_coverage) |>
+      mutate(
+        coverage = as.numeric(coverage),
+        tests = as.numeric(tests),
+        skipped = as.numeric(skipped),
+        failures = as.numeric(failures),
+        errors = as.numeric(errors),
+        time = round(as.numeric(time), 4),
+        fn_name = ifelse(
+          is.na(script_url),
+          fn_name,
+          sprintf('<a href="%s" target="_blank">%s</a>', script_url, fn_name)
+        ),
+        test_url = ifelse(
+          is.na(test_url),
+          "",
+          sprintf('<a href="%s" target="_blank">View</a>', test_url)
+        )
+      ) |>
+      select(-script_url, -test_class, -fn_name_sub) |>
+      bind_rows(x_overview) |>
+      rename(
+        Function = fn_name,
+        Coverage = coverage,
+        Test = test_url
+      )
+
+    tagList(
+      tags$h3(sprintf("Test type: %s", test_class)),
+      reactable(
+        x_tbl,
+        searchable = TRUE,
+        sortable = TRUE,
+        highlight = TRUE,
+        compact = TRUE,
+        bordered = TRUE,
+        striped = TRUE,
+        columns = list(
+          Function = colDef(html = TRUE),
+          Test = colDef(html = TRUE)
+        )
+      )
+    )
+  })
+)
+```

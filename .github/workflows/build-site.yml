@@ -1,0 +1,69 @@
+name: Build DataSHIELD Test Website
+
+on:
+  push:
+    branches: [main]
+  workflow_dispatch:
+
+permissions:
+  contents: write
+  pages: write
+  id-token: write
+
+jobs:
+  build-site:
+    runs-on: ubuntu-latest
+
+    env:
+      INPUT_DIR: logs
+
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v4
+
+      - name: Setup R
+        uses: r-lib/actions/setup-r@v2
+
+      - name: Setup Pandoc
+        uses: r-lib/actions/setup-pandoc@v2
+
+      - name: Install Quarto
+        uses: quarto-dev/quarto-actions/setup@v2
+
+      - name: Install R dependencies
+        run: |
+          install.packages(c(
+            "quarto",
+            "dplyr",
+            "reactable",
+            "htmltools",
+            "readr",
+            "purrr",
+            "stringr",
+            "fs",
+            "glue",
+            "tibble"
+          ))
+        shell: Rscript {0}
+
+      - name: Create site structure
+        run: |
+          mkdir -p site/reports
+          cp site/report_template.qmd site/report_template.qmd || true
+
+      - name: Build Quarto website (dynamic)
+        run: Rscript scripts/build_site.R
+
+      - name: Upload docs artifact
+        uses: actions/upload-pages-artifact@v3
+        with:
+          path: docs
+
+  deploy:
+    needs: build-site
+    runs-on: ubuntu-latest
+    environment:
+      name: github-pages
+    steps:
+      - name: Deploy to GitHub Pages
+        uses: actions/deploy-pages@v4
