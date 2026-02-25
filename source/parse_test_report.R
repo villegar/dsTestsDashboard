@@ -116,11 +116,7 @@ covr_files <- list.files(
 if (length(covr_files) > 0) {
   covr_csv <- purrr::map(covr_files, xml2tibble_covr) |>
     purrr::list_c() |>
-    dplyr::group_by(name) |>
-    dplyr::reframe(
-      file_coverage = sum(file_coverage, na.rm = TRUE),
-      total_coverage = sum(total_coverage, na.rm = TRUE)
-    )
+    dplyr::distinct()
 } else if (file.exists(file.path(INPUT_DIR, "coverage.xml"))) {
   covr_csv <- file.path(INPUT_DIR, "coveragelist.csv") |>
     readr::read_csv(
