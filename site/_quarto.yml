@@ -1,12 +1,18 @@
 project:
   type: website
   output-dir: ../docs
+  render:
+    - index.qmd
+    - reports/*.qmd
+
+execute:
+  freeze: auto
 
 website:
   title: "DataSHIELD Test Reports"
   sidebar:
-    style: "docked"
-    search: true
+    style: docked
+    search: false
     contents: auto
 
 format:
@@ -16,3 +22,4 @@ format:
     self-contained: false
     embed-resources: false
     code-fold: false
+    smooth-scroll: true
