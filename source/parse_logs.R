@@ -123,6 +123,7 @@ logs_dirs_versions |>
               "/",
               basename(path)
             )
+
             glue::glue(
               "R -s -e \"quarto::quarto_render('source/test_report.qmd', execute_params = list(input_dir = '../{LOGS_OUTPUT_DIR}', title = \'{title}\'))\""
             ) |>
@@ -139,6 +140,13 @@ logs_dirs_versions |>
             # relocate HTML output
             glue::glue("mv source/test_report.html {HTML_DIR}/index.html") |>
               system()
+
+            # move shared resources directory if exists
+            if (dir.exists("source/test_report_files")) {
+              system(glue::glue(
+                "mv source/test_report_files {HTML_DIR}/"
+              ))
+            }
 
             message("Report saved to: ", HTML_DIR)
           }))
