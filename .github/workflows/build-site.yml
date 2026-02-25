@@ -46,10 +46,10 @@ jobs:
           ))
         shell: Rscript {0}
 
-      - name: Create site structure
+      - name: Parse logs
         run: |
-          mkdir -p site/reports
-          cp site/report_template.qmd site/report_template.qmd || true
+          mkdir -p docs
+          Rscript --verbose --vanilla source/parse_logs.R logs docs FALSE
 
       - name: Build Quarto website (dynamic)
         run: Rscript source/build_site.R
