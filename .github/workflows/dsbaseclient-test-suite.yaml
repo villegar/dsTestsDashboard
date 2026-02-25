@@ -151,7 +151,7 @@ jobs:
           R --vanilla -e "devtools::install('.')"
         working-directory: dsBaseClient
 
-      - name: Generate dynamic docker-compose override to expose 8443
+      - name: Generate dynamic docker-compose override to expose additional ports
         run: |
           SERVICE=$(docker compose -f docker-compose_armadillo.yml config --services | head -n 1)
           echo "Detected service: $SERVICE"
@@ -161,7 +161,7 @@ jobs:
             $SERVICE:
               ports:
                 - "8080:8080"
-                - "8443:8443"
+                # - "8443:8443"
               image: $DOCKER_IMAGE
           EOF
         working-directory: dsBaseClient
@@ -177,7 +177,7 @@ jobs:
             echo "Cleaning old containers..."
             docker ps -a || true
 
-            # stop any containers using 8080/8443
+            # stop any containers using 8080
             docker ps -q --filter "publish=8080" | xargs -r docker stop || true
 
             # remove dangling containers & networks from previous runs
@@ -219,15 +219,15 @@ jobs:
             sleep 5
           done
 
-          echo "Phase 2: Waiting for HTTPS (8443 handshake)..."
-          for i in {1..60}; do
-            # Only test TLS handshake, not full response
-            if timeout 3 bash -c "</dev/tcp/127.0.0.1/8443" 2>/dev/null; then
-              echo "8443 socket accepting connections"
-              exit 0
-            fi
-            sleep 5
-          done
+          # echo "Phase 2: Waiting for HTTPS (8443 handshake)..."
+          # for i in {1..60}; do
+          #   # Only test TLS handshake, not full response
+          #   if timeout 3 bash -c "</dev/tcp/127.0.0.1/8443" 2>/dev/null; then
+          #     echo "8443 socket accepting connections"
+          #     exit 0
+          #   fi
+          #   sleep 5
+          # done
 
           echo "ERROR: Armadillo never became ready"
           docker compose -f docker-compose_armadillo.yml logs --tail=200
