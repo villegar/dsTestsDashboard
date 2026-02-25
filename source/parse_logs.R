@@ -12,6 +12,12 @@ if (length(args) >= 2) {
 } else {
   OUTPUT_DIR <- INPUT_DIR
 }
+# 3rd argument: RENDER_QUARTO
+if (length(args) >= 3) {
+  RENDER_QUARTO <- args[3]
+} else {
+  RENDER_QUARTO <- TRUE
+}
 
 # utilitarian functions ----
 # identify directories containing both:
@@ -116,39 +122,41 @@ logs_dirs_versions |>
                 system()
             }
 
-            # generate report with Quarto template
-            title <- paste0(
-              "DataSHIELD tests\\' overview: ",
-              basename(dirname(path)),
-              "/",
-              basename(path)
-            )
+            if (RENDER_QUARTO) {
+              # generate report with Quarto template
+              title <- paste0(
+                "DataSHIELD tests\\' overview: ",
+                basename(dirname(path)),
+                "/",
+                basename(path)
+              )
 
-            glue::glue(
-              "R -s -e \"quarto::quarto_render('source/test_report.qmd', execute_params = list(input_dir = '../{LOGS_OUTPUT_DIR}', title = \'{title}\'))\""
-            ) |>
-              system()
+              glue::glue(
+                "R -s -e \"quarto::quarto_render('source/test_report.qmd', execute_params = list(input_dir = '../{LOGS_OUTPUT_DIR}', title = \'{title}\'))\""
+              ) |>
+                system()
 
-            # delete old version of output
-            unlink(HTML_DIR, recursive = TRUE)
+              # delete old version of output
+              unlink(HTML_DIR, recursive = TRUE)
 
-            message("Creating output directory: ", HTML_DIR)
-            # create output dir in the HTML_DIR directory
-            dir.create(HTML_DIR, recursive = TRUE)
+              message("Creating output directory: ", HTML_DIR)
+              # create output dir in the HTML_DIR directory
+              dir.create(HTML_DIR, recursive = TRUE)
 
-            message("Moving report into: ", HTML_DIR)
-            # relocate HTML output
-            glue::glue("mv source/test_report.html {HTML_DIR}/index.html") |>
-              system()
+              message("Moving report into: ", HTML_DIR)
+              # relocate HTML output
+              glue::glue("mv source/test_report.html {HTML_DIR}/index.html") |>
+                system()
 
-            # move shared resources directory if exists
-            if (dir.exists("source/test_report_files")) {
-              system(glue::glue(
-                "mv source/test_report_files {HTML_DIR}/"
-              ))
+              # move shared resources directory if exists
+              if (dir.exists("source/test_report_files")) {
+                system(glue::glue(
+                  "mv source/test_report_files {HTML_DIR}/"
+                ))
+              }
+
+              message("Report saved to: ", HTML_DIR)
             }
-
-            message("Report saved to: ", HTML_DIR)
           }))
         },
         error = function(e) {
