@@ -5,7 +5,7 @@
 name: dsBaseClient tests' suite
 
 on:
-  push:
+  # push:
   schedule:
     - cron: '0 0 * * 6'   # weekly
     # - cron: '0 1 * * *'   # nightly
@@ -48,20 +48,9 @@ jobs:
             }
           ' | jq -s -c '.')
 
-          # Define shards
-          SHARD_STRING="_|arg|datachk|disc-|discctrl|expt_bug|expt_dgr|expt-|math_bug|math_dgr|math-|perf|smk_bug|smk_dgr|smk_expt|smk-"
-          SHARDS=$(echo "$SHARD_STRING" | tr '|' '\n' | awk '{gsub(/"/,"\\\""); printf "\"%s\",",$0}' | sed 's/,$//')
-          SHARDS="[${SHARDS}]"
-
-          # Generate cross-product: each ref × each shard
-          MATRIX_JSON=$(jq -n --argjson refs "$REFS" --argjson shards "$SHARDS" '
-            [$refs[] as $r | $shards[] as $s |
-              {label: $r.label, ref: $r.ref, dsdangerclient: $r.dsdangerclient, docker_image: $r.docker_image, coverage_shard: $s}]
-          ')
-
           {
             echo "matrix<<EOF"
-            echo "$MATRIX_JSON"
+            echo "$REFS"
             echo "EOF"
           } >> "$GITHUB_OUTPUT"
 
@@ -83,8 +72,6 @@ jobs:
       REF_LABEL: ${{ matrix.label }}
       REF_DSDANGERCLIENT: ${{ matrix.dsdangerclient }}
       DOCKER_IMAGE: ${{ matrix.docker_image }}
-      TEST_FILTER: ${{ matrix.coverage_shard }}
-      COVERAGE_SHARD: ${{ matrix.coverage_shard }}
       WORKFLOW_ID: ${{ github.run_id }}-${{ github.run_attempt }}-${{ matrix.ref }}
       WORKFLOW_ID_SHARD: ${{ github.run_id }}-${{ github.run_attempt }}-${{ matrix.ref }}-shard-${{ matrix.coverage_shard }}
       R_COVR_FIX_PARALLEL: false
@@ -287,120 +274,141 @@ jobs:
         working-directory: dsBaseClient
         continue-on-error: true
         run: |
-          Rscript --vanilla -e '
-            out_dir <- file.path(getwd(), "logs");
-            dir.create(out_dir, recursive = TRUE, showWarnings = FALSE);
+          # Define shards
+          SHARD_STRING="_|arg|datachk|disc-|discctrl|expt_bug|expt_dgr|expt-|math_bug|math_dgr|math-|perf|smk_bug|smk_dgr|smk_expt|smk-"
+          SHARDS=$(echo "$SHARD_STRING" | tr '|' '\n' | awk '{gsub(/"/,"\\\""); printf "\"%s\",",$0}' | sed 's/,$//')
+          SHARDS="[${SHARDS}]"
 
-            # devtools::reload();
-            library(dsBase);
-            library(dsBaseClient);
+          for shard in $SHARDS; do
+            echo "=== Running shard: $shard ==="
+            export COVERAGE_SHARD="$shard"
 
-            # define output paths
-            # test_results_xml <- file.path(out_dir, "test_results.xml");
-            test_results_xml <- file.path(out_dir, paste0("test_results_", Sys.getenv("COVERAGE_SHARD"), ".xml"));
+            Rscript --vanilla -e '
+              out_dir <- file.path(getwd(), "logs");
+              dir.create(out_dir, recursive = TRUE, showWarnings = FALSE);
 
-            cat("=== Running testthat directly (debug mode) ===\n");
-            cat("Working directory:", getwd(), "\n");
-            cat("R version:", R.version.string, "\n");
-            cat("Writing outputs to: ", out_dir, "\n");
+              # define output paths
+              test_results_xml <- file.path(out_dir, paste0("test_results_", Sys.getenv("COVERAGE_SHARD"), ".xml"));
 
-            # run tests using testthat and save results to XML
-            tryCatch({
-              library(testthat);
-              junit_rep <- testthat::JunitReporter$new(file = test_results_xml);
-              progress_rep <- testthat::ProgressReporter$new(max_failures = 999999);
-              multi_rep <- testthat::MultiReporter$new(reporters = list(progress_rep, junit_rep));
-              # to fix issue with missing default_driver for Armadillo
-              Sys.setenv(R_DEFAULT_DRIVER = "ArmadilloDriver");
-              options(default_driver = "ArmadilloDriver");
-              # to fix issue with mismatch in single quotes
-              options(encoding = "UTF-8")
-              Sys.setlocale("LC_CTYPE", "C")
-              testthat::test_package(Sys.getenv("PROJECT_NAME"), filter = Sys.getenv("TEST_FILTER"), reporter = multi_rep, stop_on_failure = FALSE);
-            }, error = function(e) {
-              warning(e);
-            });
-          '
+              cat("=== Running testthat directly (debug mode) ===\n");
+              cat("Working directory:", getwd(), "\n");
+              cat("R version:", R.version.string, "\n");
+              cat("Writing outputs to: ", out_dir, "\n");
+
+              # run tests using testthat and save results to XML
+              tryCatch({
+                library(testthat);
+                junit_rep <- testthat::JunitReporter$new(file = test_results_xml);
+                progress_rep <- testthat::ProgressReporter$new(max_failures = 999999);
+                multi_rep <- testthat::MultiReporter$new(reporters = list(progress_rep, junit_rep));
+                # to fix issue with missing default_driver for Armadillo
+                Sys.setenv(R_DEFAULT_DRIVER = "ArmadilloDriver");
+                options(default_driver = "ArmadilloDriver");
+                # to fix issue with mismatch in single quotes
+                options(encoding = "UTF-8")
+                Sys.setlocale("LC_CTYPE", "C")
+                testthat::test_package(Sys.getenv("PROJECT_NAME"), filter = Sys.getenv("TEST_FILTER"), reporter = multi_rep, stop_on_failure = FALSE);
+              }, error = function(e) {
+                warning(e);
+              });
+            '
+          done
 
       - name: Run code coverage (sharded, memory-safe)
         working-directory: dsBaseClient
         continue-on-error: true
         run: |
-          Rscript --vanilla -e '
-            out_dir <- file.path(getwd(), "logs")
-            dir.create(out_dir, recursive = TRUE, showWarnings = FALSE)
+          # Define shards
+          SHARD_STRING="_|arg|datachk|disc-|discctrl|expt_bug|expt_dgr|expt-|math_bug|math_dgr|math-|perf|smk_bug|smk_dgr|smk_expt|smk-"
+          SHARDS=$(echo "$SHARD_STRING" | tr '|' '\n' | awk '{gsub(/"/,"\\\""); printf "\"%s\",",$0}' | sed 's/,$//')
+          SHARDS="[${SHARDS}]"
 
-            cat("=== SHARDED COVR RUN ===\n")
-            cat("Shard filter:", Sys.getenv("COVERAGE_SHARD"), "\n")
+          # make a copy of the test directory
+          cp -rav tests/testthat tests/testthat_og
 
-            # hard memory + parallel protection
-            Sys.setenv(TESTTHAT_CPUS = 1)
-            Sys.setenv(R_COVR = "true")
-            Sys.setenv(COVR_FIX_PARALLEL = "true")
-            options(mc.cores = 1)
+          for shard in $SHARDS; do
+            export COVERAGE_SHARD="$shard"
 
-            # load libraries
-            library(covr)
-            library(testthat)
+            Rscript --vanilla -e '
+              out_dir <- file.path(getwd(), "logs")
+              dir.create(out_dir, recursive = TRUE, showWarnings = FALSE)
 
-            # to fix issue with mismatch in single quotes
-            options(encoding = "UTF-8")
-            try(Sys.setlocale("LC_CTYPE", "C.UTF-8"), silent = TRUE)
+              cat("=== SHARDED COVR RUN ===\n")
+              cat("Shard filter:", Sys.getenv("COVERAGE_SHARD"), "\n")
 
-            # create new helper file
-            helper_lines <- c(
-              "# to fix issue with missing default_driver for Armadillo",
-              "Sys.setenv(R_DEFAULT_DRIVER = \"ArmadilloDriver\")",
-              "options(default_driver = \"ArmadilloDriver\")",
-              "# to fix issue with mismatch in single quotes",
-              "options(encoding = \"UTF-8\")",
-              "try(Sys.setlocale(\"LC_CTYPE\", \"C.UTF-8\"), silent = TRUE)"
-            )
-            writeLines(helper_lines, "tests/testthat/helper-armadillo-con.R", useBytes = TRUE)
+              # make a copy of `tests/testthat_og`
+              unlink("tests/testthat", recursive = TRUE, force = TRUE)
+              system("cp -rav tests/testthat_og tests/testthat")
 
-            # define output paths
-            coverage_xml <- file.path(out_dir, paste0("coverage_", Sys.getenv("COVERAGE_SHARD"), ".xml"))
+              # hard memory + parallel protection
+              Sys.setenv(TESTTHAT_CPUS = 1)
+              Sys.setenv(R_COVR = "true")
+              Sys.setenv(COVR_FIX_PARALLEL = "true")
+              options(mc.cores = 1)
 
-            # calculate coverage and store results
-            tryCatch({
-              # explicitly enumerate ONLY shard test files (critical for memory)
-              shard_tests <- testthat::find_test_scripts(
-                  path = "tests/testthat",
-                  filter = Sys.getenv("COVERAGE_SHARD")
+              # load libraries
+              library(covr)
+              library(testthat)
+
+              # to fix issue with mismatch in single quotes
+              options(encoding = "UTF-8")
+              try(Sys.setlocale("LC_CTYPE", "C.UTF-8"), silent = TRUE)
+
+              # create new helper file
+              helper_lines <- c(
+                "# to fix issue with missing default_driver for Armadillo",
+                "Sys.setenv(R_DEFAULT_DRIVER = \"ArmadilloDriver\")",
+                "options(default_driver = \"ArmadilloDriver\")",
+                "# to fix issue with mismatch in single quotes",
+                "options(encoding = \"UTF-8\")",
+                "try(Sys.setlocale(\"LC_CTYPE\", \"C.UTF-8\"), silent = TRUE)"
+              )
+              writeLines(helper_lines, "tests/testthat/helper-armadillo-con.R", useBytes = TRUE)
+
+              # define output paths
+              coverage_xml <- file.path(out_dir, paste0("coverage_", Sys.getenv("COVERAGE_SHARD"), ".xml"))
+
+              # calculate coverage and store results
+              tryCatch({
+                # explicitly enumerate ONLY shard test files (critical for memory)
+                shard_tests <- testthat::find_test_scripts(
+                    path = "tests/testthat",
+                    filter = Sys.getenv("COVERAGE_SHARD")
+                  )
+
+                cat("Shard tests:", length(shard_tests), "\n")
+
+                if (length(shard_tests) == 0) {
+                  stop("No tests matched shard filter: ", Sys.getenv("COVERAGE_SHARD"))
+                }
+
+                # delete test files not part of the shard
+                all_tests <- testthat::find_test_scripts(path = "tests/testthat")
+                unlink(all_tests[!(all_tests %in% shard_tests)], force = TRUE)
+
+                coverage_result <- covr::package_coverage(
+                  type = "tests",
+                  quiet = FALSE,
+                  clean = TRUE
                 )
 
-              cat("Shard tests:", length(shard_tests), "\n")
+                # only keep functions with any coverage
+                idx <- coverage_result |>
+                  sapply(\(x) getElement(x, "value") > 0)
+                coverage_result_filtered <- coverage_result[idx]
 
-              if (length(shard_tests) == 0) {
-                stop("No tests matched shard filter: ", Sys.getenv("COVERAGE_SHARD"))
-              }
-
-              # delete test files not part of the shard
-              all_tests <- testthat::find_test_scripts(path = "tests/testthat")
-              unlink(all_tests[!(all_tests %in% shard_tests)], force = TRUE)
-
-              coverage_result <- covr::package_coverage(
-                type = "tests",
-                quiet = FALSE,
-                clean = TRUE
-              )
-
-              # only keep functions with any coverage
-              idx <- coverage_result |>
-                sapply(\(x) getElement(x, "value") > 0)
-              coverage_result_filtered <- coverage_result[idx]
-
-              # generate coverage xml to be push to Codecov
-              if (length(coverage_result_filtered) == 0) {
-                message("No coverage for this shard, skipping XML generation.")
-              } else {
-                covr::to_cobertura(coverage_result_filtered, filename = coverage_xml)
-              }
-            }, error = function(e) {
-              cat("Coverage shard failed:", conditionMessage(e), "\n")
-              warning(e)
-            })
-          '
+                # generate coverage xml to be push to Codecov
+                if (length(coverage_result_filtered) == 0) {
+                  message("No coverage for this shard, skipping XML generation.")
+                } else {
+                  covr::to_cobertura(coverage_result_filtered, filename = coverage_xml)
+                }
+              }, error = function(e) {
+                cat("Coverage shard failed:", conditionMessage(e), "\n")
+                warning(e)
+              })
+            '
+          done
 
       - name: Write versions to file
         run: |
