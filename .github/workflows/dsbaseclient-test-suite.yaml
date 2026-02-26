@@ -303,7 +303,8 @@ jobs:
 
                 # run tests using testthat and save results to XML
                 tryCatch({
-                  library(testthat);
+                  library(testthat)
+                  library(dsBaseClient)
                   junit_rep <- testthat::JunitReporter$new(file = test_results_xml);
                   progress_rep <- testthat::ProgressReporter$new(max_failures = 999999);
                   multi_rep <- testthat::MultiReporter$new(reporters = list(progress_rep, junit_rep));
