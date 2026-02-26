@@ -275,9 +275,7 @@ jobs:
         continue-on-error: true
         run: |
           # Define shards
-          SHARD_STRING="_|arg|datachk|disc-|discctrl|expt_bug|expt_dgr|expt-|math_bug|math_dgr|math-|perf|smk_bug|smk_dgr|smk_expt|smk-"
-          SHARDS=$(echo "$SHARD_STRING" | tr '|' '\n' | awk '{gsub(/"/,"\\\""); printf "\"%s\",",$0}' | sed 's/,$//')
-          SHARDS="[${SHARDS}]"
+          SHARDS="_ arg datachk disc- discctrl expt_bug expt_dgr expt- math_bug math_dgr math- perf smk_bug smk_dgr smk_expt smk-"
 
           for shard in $SHARDS; do
             echo "=== Running shard: $shard ==="
@@ -319,12 +317,10 @@ jobs:
         continue-on-error: true
         run: |
           # Define shards
-          SHARD_STRING="_|arg|datachk|disc-|discctrl|expt_bug|expt_dgr|expt-|math_bug|math_dgr|math-|perf|smk_bug|smk_dgr|smk_expt|smk-"
-          SHARDS=$(echo "$SHARD_STRING" | tr '|' '\n' | awk '{gsub(/"/,"\\\""); printf "\"%s\",",$0}' | sed 's/,$//')
-          SHARDS="[${SHARDS}]"
+          SHARDS="_ arg datachk disc- discctrl expt_bug expt_dgr expt- math_bug math_dgr math- perf smk_bug smk_dgr smk_expt smk-"
 
           # make a copy of the test directory
-          cp -rav tests/testthat tests/testthat_og
+          cp -ra tests/testthat tests/testthat_og
 
           for shard in $SHARDS; do
             export COVERAGE_SHARD="$shard"
