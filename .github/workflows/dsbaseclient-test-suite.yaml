@@ -291,7 +291,7 @@ jobs:
               cat("=== Running testthat directly (debug mode) ===\n");
               cat("Working directory:", getwd(), "\n");
               cat("R version:", R.version.string, "\n");
-              cat("Writing outputs to: ", out_dir, "\n");
+              cat("Writing outputs to: ", test_results_xml, "\n");
 
               # run tests using testthat and save results to XML
               tryCatch({
@@ -304,10 +304,11 @@ jobs:
                 options(default_driver = "ArmadilloDriver");
                 # to fix issue with mismatch in single quotes
                 options(encoding = "UTF-8")
-                Sys.setlocale("LC_CTYPE", "C")
-                testthat::test_package(Sys.getenv("PROJECT_NAME"), filter = Sys.getenv("COVERAGE_SHARD"), reporter = multi_rep, stop_on_failure = FALSE);
+                try(Sys.setlocale("LC_CTYPE", "C.UTF-8"), silent = TRUE)
+                testthat::test_package(Sys.getenv("PROJECT_NAME"), filter = Sys.getenv("COVERAGE_SHARD"), reporter = multi_rep, stop_on_failure = FALSE)
               }, error = function(e) {
-                warning(e);
+                cat("Coverage shard failed:", conditionMessage(e), "\n")
+                warning(e)
               });
             '
           done
