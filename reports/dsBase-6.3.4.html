@@ -1,0 +1,695 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en"><head>
+
+<meta charset="utf-8">
+<meta name="generator" content="quarto-1.8.27">
+
+<meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
+
+
+<title>dsBase/6.3.4 – DataSHIELD Test Reports</title>
+<style>
+code{white-space: pre-wrap;}
+span.smallcaps{font-variant: small-caps;}
+div.columns{display: flex; gap: min(4vw, 1.5em);}
+div.column{flex: auto; overflow-x: auto;}
+div.hanging-indent{margin-left: 1.5em; text-indent: -1.5em;}
+ul.task-list{list-style: none;}
+ul.task-list li input[type="checkbox"] {
+  width: 0.8em;
+  margin: 0 0.8em 0.2em -1em; /* quarto-specific, see https://github.com/quarto-dev/quarto-cli/issues/4556 */ 
+  vertical-align: middle;
+}
+</style>
+
+
+<script src="../site_libs/quarto-nav/quarto-nav.js"></script>
+<script src="../site_libs/quarto-nav/headroom.min.js"></script>
+<script src="../site_libs/clipboard/clipboard.min.js"></script>
+<script src="../site_libs/quarto-search/autocomplete.umd.js"></script>
+<script src="../site_libs/quarto-search/fuse.min.js"></script>
+<script src="../site_libs/quarto-search/quarto-search.js"></script>
+<meta name="quarto:offset" content="../">
+<script src="../site_libs/quarto-html/quarto.js" type="module"></script>
+<script src="../site_libs/quarto-html/tabsets/tabsets.js" type="module"></script>
+<script src="../site_libs/quarto-html/axe/axe-check.js" type="module"></script>
+<script src="../site_libs/quarto-html/popper.min.js"></script>
+<script src="../site_libs/quarto-html/tippy.umd.min.js"></script>
+<script src="../site_libs/quarto-html/anchor.min.js"></script>
+<link href="../site_libs/quarto-html/tippy.css" rel="stylesheet">
+<link href="../site_libs/quarto-html/quarto-syntax-highlighting-ed96de9b727972fe78a7b5d16c58bf87.css" rel="stylesheet" id="quarto-text-highlighting-styles">
+<script src="../site_libs/bootstrap/bootstrap.min.js"></script>
+<link href="../site_libs/bootstrap/bootstrap-icons.css" rel="stylesheet">
+<link href="../site_libs/bootstrap/bootstrap-251449ada0ddbdd49c494e2ec9d5d6a9.min.css" rel="stylesheet" append-hash="true" id="quarto-bootstrap" data-mode="light">
+<script id="quarto-search-options" type="application/json">{
+  "location": "sidebar",
+  "copy-button": false,
+  "collapse-after": 3,
+  "panel-placement": "start",
+  "type": "textbox",
+  "limit": 50,
+  "keyboard-shortcut": [
+    "f",
+    "/",
+    "s"
+  ],
+  "show-item-context": false,
+  "language": {
+    "search-no-results-text": "No results",
+    "search-matching-documents-text": "matching documents",
+    "search-copy-link-title": "Copy link to search",
+    "search-hide-matches-text": "Hide additional matches",
+    "search-more-match-text": "more match in this document",
+    "search-more-matches-text": "more matches in this document",
+    "search-clear-button-title": "Clear",
+    "search-text-placeholder": "",
+    "search-detached-cancel-button-title": "Cancel",
+    "search-submit-button-title": "Submit",
+    "search-label": "Search"
+  }
+}</script>
+<style>html{ scroll-behavior: smooth; }</style>
+<script src="../site_libs/core-js-2.5.3/shim.min.js"></script>
+<script src="../site_libs/react-18.2.0/react.min.js"></script>
+<script src="../site_libs/react-18.2.0/react-dom.min.js"></script>
+<script src="../site_libs/reactwidget-2.0.0/react-tools.js"></script>
+<link href="../site_libs/htmltools-fill-0.5.9/fill.css" rel="stylesheet">
+<script src="../site_libs/htmlwidgets-1.6.4/htmlwidgets.js"></script>
+<link href="../site_libs/reactable-0.4.5/reactable.css" rel="stylesheet">
+<script src="../site_libs/reactable-binding-0.4.5/reactable.js"></script>
+
+
+</head>
+
+<body class="nav-sidebar docked fullcontent quarto-light">
+
+<div id="quarto-search-results"></div>
+  <header id="quarto-header" class="headroom fixed-top">
+  <nav class="quarto-secondary-nav">
+    <div class="container-fluid d-flex">
+      <button type="button" class="quarto-btn-toggle btn" data-bs-toggle="collapse" role="button" data-bs-target=".quarto-sidebar-collapse-item" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">
+        <i class="bi bi-layout-text-sidebar-reverse"></i>
+      </button>
+        <nav class="quarto-page-breadcrumbs" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item">dsBase</li><li class="breadcrumb-item"><a href="../reports/dsBase-latest.html">Release</a></li><li class="breadcrumb-item"><a href="../reports/dsBase-6.3.4.html">6.3.4</a></li></ol></nav>
+        <a class="flex-grow-1" role="navigation" data-bs-toggle="collapse" data-bs-target=".quarto-sidebar-collapse-item" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">      
+        </a>
+    </div>
+  </nav>
+</header>
+<!-- content -->
+<div id="quarto-content" class="quarto-container page-columns page-rows-contents page-layout-article">
+<!-- sidebar -->
+  <nav id="quarto-sidebar" class="sidebar collapse collapse-horizontal quarto-sidebar-collapse-item sidebar-navigation docked overflow-auto">
+    <div class="pt-lg-2 mt-2 text-left sidebar-header">
+      <a href="../index.html" class="sidebar-logo-link">
+      <img src="https://i0.wp.com/datashield.org/wp-content/uploads/2024/07/DS-logo-A4.png" alt="" class="sidebar-logo light-content py-0 d-lg-inline d-none">
+      <img src="https://i0.wp.com/datashield.org/wp-content/uploads/2024/07/DS-logo-A4.png" alt="" class="sidebar-logo dark-content py-0 d-lg-inline d-none">
+      </a>
+      </div>
+    <div class="sidebar-menu-container"> 
+    <ul class="list-unstyled mt-1">
+        <li class="sidebar-item sidebar-item-section">
+      <div class="sidebar-item-container"> 
+            <a class="sidebar-item-text sidebar-link text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-1" role="navigation" aria-expanded="true">
+ <span class="menu-text">dsBase</span></a>
+          <a class="sidebar-item-toggle text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-1" role="navigation" aria-expanded="true" aria-label="Toggle section">
+            <i class="bi bi-chevron-right ms-2"></i>
+          </a> 
+      </div>
+      <ul id="quarto-sidebar-section-1" class="collapse list-unstyled sidebar-section depth1 show">  
+          <li class="sidebar-item sidebar-item-section">
+      <div class="sidebar-item-container"> 
+            <a class="sidebar-item-text sidebar-link text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-2" role="navigation" aria-expanded="true">
+ <span class="menu-text">Release</span></a>
+          <a class="sidebar-item-toggle text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-2" role="navigation" aria-expanded="true" aria-label="Toggle section">
+            <i class="bi bi-chevron-right ms-2"></i>
+          </a> 
+      </div>
+      <ul id="quarto-sidebar-section-2" class="collapse list-unstyled sidebar-section depth2 show">  
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../reports/dsBase-latest.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">latest</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../reports/dsBase-6.3.5.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">6.3.5</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../reports/dsBase-6.3.4.html" class="sidebar-item-text sidebar-link active">
+ <span class="menu-text">6.3.4</span></a>
+  </div>
+</li>
+      </ul>
+  </li>
+          <li class="sidebar-item sidebar-item-section">
+      <div class="sidebar-item-container"> 
+            <a class="sidebar-item-text sidebar-link text-start collapsed" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-3" role="navigation" aria-expanded="false">
+ <span class="menu-text">Development</span></a>
+          <a class="sidebar-item-toggle text-start collapsed" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-3" role="navigation" aria-expanded="false" aria-label="Toggle section">
+            <i class="bi bi-chevron-right ms-2"></i>
+          </a> 
+      </div>
+      <ul id="quarto-sidebar-section-3" class="collapse list-unstyled sidebar-section depth2 ">  
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../reports/dsBase-7.0.0-dev.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">7.0.0-dev</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../reports/dsBase-6.4.0-dev.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">6.4.0-dev</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../reports/dsBase-6.3.6-dev.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">6.3.6-dev</span></a>
+  </div>
+</li>
+      </ul>
+  </li>
+      </ul>
+  </li>
+        <li class="sidebar-item sidebar-item-section">
+      <div class="sidebar-item-container"> 
+            <a class="sidebar-item-text sidebar-link text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-4" role="navigation" aria-expanded="true">
+ <span class="menu-text">dsBaseClient</span></a>
+          <a class="sidebar-item-toggle text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-4" role="navigation" aria-expanded="true" aria-label="Toggle section">
+            <i class="bi bi-chevron-right ms-2"></i>
+          </a> 
+      </div>
+      <ul id="quarto-sidebar-section-4" class="collapse list-unstyled sidebar-section depth1 show">  
+          <li class="sidebar-item sidebar-item-section">
+      <div class="sidebar-item-container"> 
+            <a class="sidebar-item-text sidebar-link text-start collapsed" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-5" role="navigation" aria-expanded="false">
+ <span class="menu-text">Release</span></a>
+          <a class="sidebar-item-toggle text-start collapsed" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-5" role="navigation" aria-expanded="false" aria-label="Toggle section">
+            <i class="bi bi-chevron-right ms-2"></i>
+          </a> 
+      </div>
+      <ul id="quarto-sidebar-section-5" class="collapse list-unstyled sidebar-section depth2 ">  
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../reports/dsBaseClient-latest.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">latest</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../reports/dsBaseClient-6.3.5.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">6.3.5</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../reports/dsBaseClient-6.3.4.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">6.3.4</span></a>
+  </div>
+</li>
+      </ul>
+  </li>
+          <li class="sidebar-item sidebar-item-section">
+      <div class="sidebar-item-container"> 
+            <a class="sidebar-item-text sidebar-link text-start collapsed" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-6" role="navigation" aria-expanded="false">
+ <span class="menu-text">Development</span></a>
+          <a class="sidebar-item-toggle text-start collapsed" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-6" role="navigation" aria-expanded="false" aria-label="Toggle section">
+            <i class="bi bi-chevron-right ms-2"></i>
+          </a> 
+      </div>
+      <ul id="quarto-sidebar-section-6" class="collapse list-unstyled sidebar-section depth2 ">  
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../reports/dsBaseClient-6.3.6-dev.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">6.3.6-dev</span></a>
+  </div>
+</li>
+      </ul>
+  </li>
+      </ul>
+  </li>
+    </ul>
+    </div>
+</nav>
+<div id="quarto-sidebar-glass" class="quarto-sidebar-collapse-item" data-bs-toggle="collapse" data-bs-target=".quarto-sidebar-collapse-item"></div>
+<!-- margin-sidebar -->
+    
+<!-- main -->
+<main class="content" id="quarto-document-content">
+
+<header id="title-block-header" class="quarto-title-block default"><nav class="quarto-page-breadcrumbs quarto-title-breadcrumbs d-none d-lg-block" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item">dsBase</li><li class="breadcrumb-item"><a href="../reports/dsBase-latest.html">Release</a></li><li class="breadcrumb-item"><a href="../reports/dsBase-6.3.4.html">6.3.4</a></li></ol></nav>
+<div class="quarto-title">
+<h1 class="title">dsBase/6.3.4</h1>
+</div>
+
+
+
+<div class="quarto-title-meta">
+
+    
+  
+    
+  </div>
+  
+
+
+</header>
+
+
+<div class="cell">
+<div class="cell-output-display">
+<h3 class="anchored">Test type: arg</h3>
+<div class="reactable html-widget html-fill-item" id="htmlwidget-f768ec54878680c9b49c" style="width:auto;height:auto;"></div>
+<script type="application/json" data-for="htmlwidget-f768ec54878680c9b49c">{"x":{"tag":{"name":"Reactable","attribs":{"data":{"Function":["<a href=\"https://github.com/datashield/dsBase/blob/6.3.4/R/asIntegerDS.R\" target=\"_blank\">asIntegerDS<\/a>","<a href=\"https://github.com/datashield/dsBase/blob/6.3.4/R/asLogicalDS.R\" target=\"_blank\">asLogicalDS<\/a>","<a href=\"https://github.com/datashield/dsBase/blob/6.3.4/R/dataFrameFillDS.R\" target=\"_blank\">dataFrameFillDS<\/a>","<a href=\"https://github.com/datashield/dsBase/blob/6.3.4/R/dataFrameSortDS.R\" target=\"_blank\">dataFrameSortDS<\/a>","<a href=\"https://github.com/datashield/dsBase/blob/6.3.4/R/uniqueDS.R\" target=\"_blank\">uniqueDS<\/a>","OVERVIEW"],"Coverage":[100,100,93.33,77.78,100,94.22],"Test":["<a href=\"https://github.com/datashield/dsBase/blob/6.3.4/tests/testthat/test-arg-asIntegerDS.R\" target=\"_blank\">View<\/a>","<a href=\"https://github.com/datashield/dsBase/blob/6.3.4/tests/testthat/test-arg-asLogicalDS.R\" target=\"_blank\">View<\/a>","<a href=\"https://github.com/datashield/dsBase/blob/6.3.4/tests/testthat/test-arg-dataFrameFillDS.R\" target=\"_blank\">View<\/a>","<a href=\"https://github.com/datashield/dsBase/blob/6.3.4/tests/testthat/test-arg-dataFrameSortDS.R\" target=\"_blank\">View<\/a>","<a href=\"https://github.com/datashield/dsBase/blob/6.3.4/tests/testthat/test-arg-uniqueDS.R\" target=\"_blank\">View<\/a>",""],"tests":[1,3,4,1,4,13],"skipped":[0,0,0,0,0,0],"failures":[0,0,0,0,0,0],"errors":[0,0,0,0,0,0],"time":[0.05,0.082,0.032,0.015,0.041,0.22]},"columns":[{"id":"Function","name":"Function","type":"character","align":"left","html":true},{"id":"Coverage","name":"Coverage","type":"numeric","align":"center","style":[{"background":"#d4edda","fontWeight":"bold"},{"background":"#d4edda","fontWeight":"bold"},{"background":"#d4edda","fontWeight":"bold"},{"background":"#fff3cd","fontWeight":"bold"},{"background":"#d4edda","fontWeight":"bold"},{"background":"#d4edda","fontWeight":"bold"}]},{"id":"Test","name":"Test","type":"character","align":"center","html":true},{"id":"tests","name":"tests","type":"numeric","align":"center"},{"id":"skipped","name":"skipped","type":"numeric","align":"center"},{"id":"failures","name":"failures","type":"numeric","align":"center"},{"id":"errors","name":"errors","type":"numeric","align":"center"},{"id":"time","name":"time","type":"numeric","align":"center"}],"highlight":true,"bordered":true,"striped":true,"dataKey":"7cca7d84be0d7867b0951f30631e7e69"},"children":[]},"class":"reactR_markup"},"evals":[],"jsHooks":[]}</script>
+<br>
+<h3 class="anchored">Test type: disc</h3>
+<div class="reactable html-widget html-fill-item" id="htmlwidget-34c4148eddbd50858dca" style="width:auto;height:auto;"></div>
+<script type="application/json" data-for="htmlwidget-34c4148eddbd50858dca">{"x":{"tag":{"name":"Reactable","attribs":{"data":{"Function":["<a href=\"https://github.com/datashield/dsBase/blob/6.3.4/R/meanDS.R\" target=\"_blank\">meanDS<\/a>","<a href=\"https://github.com/datashield/dsBase/blob/6.3.4/R/varDS.R\" target=\"_blank\">varDS<\/a>","OVERVIEW"],"Coverage":[100,100,100],"Test":["<a href=\"https://github.com/datashield/dsBase/blob/6.3.4/tests/testthat/test-disc-meanDS.R\" target=\"_blank\">View<\/a>","<a href=\"https://github.com/datashield/dsBase/blob/6.3.4/tests/testthat/test-disc-varDS.R\" target=\"_blank\">View<\/a>",""],"tests":[1,1,2],"skipped":[0,0,0],"failures":[0,0,0],"errors":[0,0,0],"time":[0.018,0.018,0.036]},"columns":[{"id":"Function","name":"Function","type":"character","align":"left","html":true},{"id":"Coverage","name":"Coverage","type":"numeric","align":"center","style":[{"background":"#d4edda","fontWeight":"bold"},{"background":"#d4edda","fontWeight":"bold"},{"background":"#d4edda","fontWeight":"bold"}]},{"id":"Test","name":"Test","type":"character","align":"center","html":true},{"id":"tests","name":"tests","type":"numeric","align":"center"},{"id":"skipped","name":"skipped","type":"numeric","align":"center"},{"id":"failures","name":"failures","type":"numeric","align":"center"},{"id":"errors","name":"errors","type":"numeric","align":"center"},{"id":"time","name":"time","type":"numeric","align":"center"}],"highlight":true,"bordered":true,"striped":true,"dataKey":"c2425a94eb1b47ecec2e993e3df578bf"},"children":[]},"class":"reactR_markup"},"evals":[],"jsHooks":[]}</script>
+<br>
+<h3 class="anchored">Test type: perf</h3>
+<div class="reactable html-widget html-fill-item" id="htmlwidget-69c2847cb8acfb12949d" style="width:auto;height:auto;"></div>
+<script type="application/json" data-for="htmlwidget-69c2847cb8acfb12949d">{"x":{"tag":{"name":"Reactable","attribs":{"data":{"Function":["<a href=\"https://github.com/datashield/dsBase/blob/6.3.4/R/meanDS.R\" target=\"_blank\">meanDS<\/a>","<a href=\"https://github.com/datashield/dsBase/blob/6.3.4/R/varDS.R\" target=\"_blank\">varDS<\/a>","OVERVIEW"],"Coverage":[100,100,100],"Test":["<a href=\"https://github.com/datashield/dsBase/blob/6.3.4/tests/testthat/test-perf-meanDS.R\" target=\"_blank\">View<\/a>","<a href=\"https://github.com/datashield/dsBase/blob/6.3.4/tests/testthat/test-perf-varDS.R\" target=\"_blank\">View<\/a>",""],"tests":[1,1,2],"skipped":[1,1,2],"failures":[0,0,0],"errors":[0,0,0],"time":[0.008,0.026,0.034]},"columns":[{"id":"Function","name":"Function","type":"character","align":"left","html":true},{"id":"Coverage","name":"Coverage","type":"numeric","align":"center","style":[{"background":"#d4edda","fontWeight":"bold"},{"background":"#d4edda","fontWeight":"bold"},{"background":"#d4edda","fontWeight":"bold"}]},{"id":"Test","name":"Test","type":"character","align":"center","html":true},{"id":"tests","name":"tests","type":"numeric","align":"center"},{"id":"skipped","name":"skipped","type":"numeric","align":"center"},{"id":"failures","name":"failures","type":"numeric","align":"center"},{"id":"errors","name":"errors","type":"numeric","align":"center"},{"id":"time","name":"time","type":"numeric","align":"center"}],"highlight":true,"bordered":true,"striped":true,"dataKey":"cd81f232ce1b8e96ff4934feaa67b0ca"},"children":[]},"class":"reactR_markup"},"evals":[],"jsHooks":[]}</script>
+<br>
+<h3 class="anchored">Test type: smk</h3>
+<div class="reactable html-widget html-fill-item" id="htmlwidget-7ec7187ab155000d3f74" style="width:auto;height:auto;"></div>
+<script type="application/json" data-for="htmlwidget-7ec7187ab155000d3f74">{"x":{"tag":{"name":"Reactable","attribs":{"data":{"Function":["<a href=\"https://github.com/datashield/dsBase/blob/6.3.4/R/BooleDS.R\" target=\"_blank\">BooleDS<\/a>","<a href=\"https://github.com/datashield/dsBase/blob/6.3.4/R/absDS.R\" target=\"_blank\">absDS<\/a>","<a href=\"https://github.com/datashield/dsBase/blob/6.3.4/R/asCharacterDS.R\" target=\"_blank\">asCharacterDS<\/a>","<a href=\"https://github.com/datashield/dsBase/blob/6.3.4/R/asDataMatrixDS.R\" target=\"_blank\">asDataMatrixDS<\/a>","<a href=\"https://github.com/datashield/dsBase/blob/6.3.4/R/asFactorDS1.R\" target=\"_blank\">asFactorDS1<\/a>","<a href=\"https://github.com/datashield/dsBase/blob/6.3.4/R/asFactorDS2.R\" target=\"_blank\">asFactorDS2<\/a>","<a href=\"https://github.com/datashield/dsBase/blob/6.3.4/R/asFactorSimpleDS.R\" target=\"_blank\">asFactorSimpleDS<\/a>","<a href=\"https://github.com/datashield/dsBase/blob/6.3.4/R/asIntegerDS.R\" target=\"_blank\">asIntegerDS<\/a>","<a href=\"https://github.com/datashield/dsBase/blob/6.3.4/R/asListDS.R\" target=\"_blank\">asListDS<\/a>","<a href=\"https://github.com/datashield/dsBase/blob/6.3.4/R/asLogicalDS.R\" target=\"_blank\">asLogicalDS<\/a>","<a href=\"https://github.com/datashield/dsBase/blob/6.3.4/R/asMatrixDS.R\" target=\"_blank\">asMatrixDS<\/a>","<a href=\"https://github.com/datashield/dsBase/blob/6.3.4/R/asNumericDS.R\" target=\"_blank\">asNumericDS<\/a>","<a href=\"https://github.com/datashield/dsBase/blob/6.3.4/R/aucDS.R\" target=\"_blank\">aucDS<\/a>","<a href=\"https://github.com/datashield/dsBase/blob/6.3.4/R/bp_standardsDS.R\" target=\"_blank\">bp_standardsDS<\/a>","<a href=\"https://github.com/datashield/dsBase/blob/6.3.4/R/cDS.R\" target=\"_blank\">cDS<\/a>","<a href=\"https://github.com/datashield/dsBase/blob/6.3.4/R/cbindDS.R\" target=\"_blank\">cbindDS<\/a>","<a href=\"https://github.com/datashield/dsBase/blob/6.3.4/R/changeRefGroupDS.R\" target=\"_blank\">changeRefGroupDS<\/a>","<a href=\"https://github.com/datashield/dsBase/blob/6.3.4/R/checkNegValueDS.R\" target=\"_blank\">checkNegValueDS<\/a>","<a href=\"https://github.com/datashield/dsBase/blob/6.3.4/R/classDS.R\" target=\"_blank\">classDS<\/a>","<a href=\"https://github.com/datashield/dsBase/blob/6.3.4/R/colnamesDS.R\" target=\"_blank\">colnamesDS<\/a>","<a href=\"https://github.com/datashield/dsBase/blob/6.3.4/R/completeCasesDS.R\" target=\"_blank\">completeCasesDS<\/a>","<a href=\"https://github.com/datashield/dsBase/blob/6.3.4/R/corDS.R\" target=\"_blank\">corDS<\/a>","<a href=\"https://github.com/datashield/dsBase/blob/6.3.4/R/corTestDS.R\" target=\"_blank\">corTestDS<\/a>","<a href=\"https://github.com/datashield/dsBase/blob/6.3.4/R/covDS.R\" target=\"_blank\">covDS<\/a>","<a href=\"https://github.com/datashield/dsBase/blob/6.3.4/R/dataFrameDS.R\" target=\"_blank\">dataFrameDS<\/a>","<a href=\"https://github.com/datashield/dsBase/blob/6.3.4/R/dataFrameFillDS.R\" target=\"_blank\">dataFrameFillDS<\/a>","<a href=\"https://github.com/datashield/dsBase/blob/6.3.4/R/dataFrameSortDS.R\" target=\"_blank\">dataFrameSortDS<\/a>","<a href=\"https://github.com/datashield/dsBase/blob/6.3.4/R/dataFrameSubsetDS1.R\" target=\"_blank\">dataFrameSubsetDS1<\/a>","<a href=\"https://github.com/datashield/dsBase/blob/6.3.4/R/dataFrameSubsetDS2.R\" target=\"_blank\">dataFrameSubsetDS2<\/a>","<a href=\"https://github.com/datashield/dsBase/blob/6.3.4/R/densityGridDS.R\" target=\"_blank\">densityGridDS<\/a>","<a href=\"https://github.com/datashield/dsBase/blob/6.3.4/R/dimDS.R\" target=\"_blank\">dimDS<\/a>","<a href=\"https://github.com/datashield/dsBase/blob/6.3.4/R/extract.R\" target=\"_blank\">extract<\/a>","<a href=\"https://github.com/datashield/dsBase/blob/6.3.4/R/gamlssDS.R\" target=\"_blank\">gamlssDS<\/a>","<a href=\"https://github.com/datashield/dsBase/blob/6.3.4/R/getWGSRDS.R\" target=\"_blank\">getWGSRDS<\/a>","<a href=\"https://github.com/datashield/dsBase/blob/6.3.4/R/hetcorDS.R\" target=\"_blank\">hetcorDS<\/a>","<a href=\"https://github.com/datashield/dsBase/blob/6.3.4/R/igb_standardsDS.R\" target=\"_blank\">igb_standardsDS<\/a>","<a href=\"https://github.com/datashield/dsBase/blob/6.3.4/R/isNaDS.R\" target=\"_blank\">isNaDS<\/a>","<a href=\"https://github.com/datashield/dsBase/blob/6.3.4/R/isValidDS.R\" target=\"_blank\">isValidDS<\/a>","<a href=\"https://github.com/datashield/dsBase/blob/6.3.4/R/kurtosisDS1.R\" target=\"_blank\">kurtosisDS1<\/a>","<a href=\"https://github.com/datashield/dsBase/blob/6.3.4/R/kurtosisDS2.R\" target=\"_blank\">kurtosisDS2<\/a>","<a href=\"https://github.com/datashield/dsBase/blob/6.3.4/R/lengthDS.R\" target=\"_blank\">lengthDS<\/a>","<a href=\"https://github.com/datashield/dsBase/blob/6.3.4/R/levelsDS.R\" target=\"_blank\">levelsDS<\/a>","<a href=\"https://github.com/datashield/dsBase/blob/6.3.4/R/listDS.R\" target=\"_blank\">listDS<\/a>","<a href=\"https://github.com/datashield/dsBase/blob/6.3.4/R/listDisclosureSettingsDS.R\" target=\"_blank\">listDisclosureSettingsDS<\/a>","<a href=\"https://github.com/datashield/dsBase/blob/6.3.4/R/lsDS.R\" target=\"_blank\">lsDS<\/a>","<a href=\"https://github.com/datashield/dsBase/blob/6.3.4/R/meanDS.R\" target=\"_blank\">meanDS<\/a>","<a href=\"https://github.com/datashield/dsBase/blob/6.3.4/R/messageDS.R\" target=\"_blank\">messageDS<\/a>","<a href=\"https://github.com/datashield/dsBase/blob/6.3.4/R/metadataDS.R\" target=\"_blank\">metadataDS<\/a>","<a href=\"https://github.com/datashield/dsBase/blob/6.3.4/R/miceDS.R\" target=\"_blank\">miceDS<\/a>","<a href=\"https://github.com/datashield/dsBase/blob/6.3.4/R/minMaxRandDS.R\" target=\"_blank\">minMaxRandDS<\/a>","<a href=\"https://github.com/datashield/dsBase/blob/6.3.4/R/namesDS.R\" target=\"_blank\">namesDS<\/a>","<a href=\"https://github.com/datashield/dsBase/blob/6.3.4/R/numNaDS.R\" target=\"_blank\">numNaDS<\/a>","<a href=\"https://github.com/datashield/dsBase/blob/6.3.4/R/quantileMeanDS.R\" target=\"_blank\">quantileMeanDS<\/a>","<a href=\"https://github.com/datashield/dsBase/blob/6.3.4/R/rBinomDS.R\" target=\"_blank\">rBinomDS<\/a>","<a href=\"https://github.com/datashield/dsBase/blob/6.3.4/R/rNormDS.R\" target=\"_blank\">rNormDS<\/a>","<a href=\"https://github.com/datashield/dsBase/blob/6.3.4/R/rPoisDS.R\" target=\"_blank\">rPoisDS<\/a>","<a href=\"https://github.com/datashield/dsBase/blob/6.3.4/R/rUnifDS.R\" target=\"_blank\">rUnifDS<\/a>","<a href=\"https://github.com/datashield/dsBase/blob/6.3.4/R/rangeDS.R\" target=\"_blank\">rangeDS<\/a>","<a href=\"https://github.com/datashield/dsBase/blob/6.3.4/R/rbindDS.R\" target=\"_blank\">rbindDS<\/a>","<a href=\"https://github.com/datashield/dsBase/blob/6.3.4/R/recodeLevelsDS.R\" target=\"_blank\">recodeLevelsDS<\/a>","<a href=\"https://github.com/datashield/dsBase/blob/6.3.4/R/recodeValuesDS.R\" target=\"_blank\">recodeValuesDS<\/a>","<a href=\"https://github.com/datashield/dsBase/blob/6.3.4/R/replaceNaDS.R\" target=\"_blank\">replaceNaDS<\/a>","<a href=\"https://github.com/datashield/dsBase/blob/6.3.4/R/rmDS.R\" target=\"_blank\">rmDS<\/a>","<a href=\"https://github.com/datashield/dsBase/blob/6.3.4/R/rowColCalcDS.R\" target=\"_blank\">rowColCalcDS<\/a>","<a href=\"https://github.com/datashield/dsBase/blob/6.3.4/R/sampleDS.R\" target=\"_blank\">sampleDS<\/a>","<a href=\"https://github.com/datashield/dsBase/blob/6.3.4/R/seqDS.R\" target=\"_blank\">seqDS<\/a>","<a href=\"https://github.com/datashield/dsBase/blob/6.3.4/R/setFilterDS.R\" target=\"_blank\">setFilterDS<\/a>","<a href=\"https://github.com/datashield/dsBase/blob/6.3.4/R/setSeedDS.R\" target=\"_blank\">setSeedDS<\/a>","<a href=\"https://github.com/datashield/dsBase/blob/6.3.4/R/skewnessDS1.R\" target=\"_blank\">skewnessDS1<\/a>","<a href=\"https://github.com/datashield/dsBase/blob/6.3.4/R/skewnessDS2.R\" target=\"_blank\">skewnessDS2<\/a>","<a href=\"https://github.com/datashield/dsBase/blob/6.3.4/R/sqrtDS.R\" target=\"_blank\">sqrtDS<\/a>","<a href=\"https://github.com/datashield/dsBase/blob/6.3.4/R/subsetByClassDS.R\" target=\"_blank\">subsetByClassDS<\/a>","<a href=\"https://github.com/datashield/dsBase/blob/6.3.4/R/subsetDS.R\" target=\"_blank\">subsetDS<\/a>","<a href=\"https://github.com/datashield/dsBase/blob/6.3.4/R/tapplyDS.R\" target=\"_blank\">tapplyDS<\/a>","<a href=\"https://github.com/datashield/dsBase/blob/6.3.4/R/tapplyDS.assign.R\" target=\"_blank\">tapplyDS.assign<\/a>","<a href=\"https://github.com/datashield/dsBase/blob/6.3.4/R/testObjExistsDS.R\" target=\"_blank\">testObjExistsDS<\/a>","<a href=\"https://github.com/datashield/dsBase/blob/6.3.4/R/unListDS.R\" target=\"_blank\">unListDS<\/a>","<a href=\"https://github.com/datashield/dsBase/blob/6.3.4/R/uniqueDS.R\" target=\"_blank\">uniqueDS<\/a>","<a href=\"https://github.com/datashield/dsBase/blob/6.3.4/R/varDS.R\" target=\"_blank\">varDS<\/a>","<a href=\"https://github.com/datashield/dsBase/blob/6.3.4/R/vectorDS.R\" target=\"_blank\">vectorDS<\/a>","OVERVIEW"],"Coverage":[75,100,100,66.67,62.5,100,100,100,81.82,100,66.67,83.33,86.67,88.89,100,77.78,100,100,100,100,72.73,81.82,100,59.57,65.38,93.33,77.78,52.54,41.23,86.36,100,100,74.76,79.75,100,58.12,100,94.12,85,76.92,100,76.92,100,100,84.62,100,100,80,53.33,85.71,70.59,100,87.5,100,100,100,100,80,100,83.33,78.08,69.23,89.47,78.57,65.83,58.82,100,100,85,71.43,100,95.65,39.62,52.08,28.37,100,66.67,100,100,100,84.62],"Test":["<a href=\"https://github.com/datashield/dsBase/blob/6.3.4/tests/testthat/test-smk-BooleDS.R\" target=\"_blank\">View<\/a>","<a href=\"https://github.com/datashield/dsBase/blob/6.3.4/tests/testthat/test-smk-absDS.R\" target=\"_blank\">View<\/a>","<a href=\"https://github.com/datashield/dsBase/blob/6.3.4/tests/testthat/test-smk-asCharacterDS.R\" target=\"_blank\">View<\/a>","<a href=\"https://github.com/datashield/dsBase/blob/6.3.4/tests/testthat/test-smk-asDataMatrixDS.R\" target=\"_blank\">View<\/a>","<a href=\"https://github.com/datashield/dsBase/blob/6.3.4/tests/testthat/test-smk-asFactorDS1.R\" target=\"_blank\">View<\/a>","<a href=\"https://github.com/datashield/dsBase/blob/6.3.4/tests/testthat/test-smk-asFactorDS2.R\" target=\"_blank\">View<\/a>","<a href=\"https://github.com/datashield/dsBase/blob/6.3.4/tests/testthat/test-smk-asFactorSimpleDS.R\" target=\"_blank\">View<\/a>","<a href=\"https://github.com/datashield/dsBase/blob/6.3.4/tests/testthat/test-smk-asIntegerDS.R\" target=\"_blank\">View<\/a>","<a href=\"https://github.com/datashield/dsBase/blob/6.3.4/tests/testthat/test-smk-asListDS.R\" target=\"_blank\">View<\/a>","<a href=\"https://github.com/datashield/dsBase/blob/6.3.4/tests/testthat/test-smk-asLogicalDS.R\" target=\"_blank\">View<\/a>","<a href=\"https://github.com/datashield/dsBase/blob/6.3.4/tests/testthat/test-smk-asMatrixDS.R\" target=\"_blank\">View<\/a>","<a href=\"https://github.com/datashield/dsBase/blob/6.3.4/tests/testthat/test-smk-asNumericDS.R\" target=\"_blank\">View<\/a>","<a href=\"https://github.com/datashield/dsBase/blob/6.3.4/tests/testthat/test-smk-aucDS.R\" target=\"_blank\">View<\/a>","<a href=\"https://github.com/datashield/dsBase/blob/6.3.4/tests/testthat/test-smk-bp_standardsDS.R\" target=\"_blank\">View<\/a>","<a href=\"https://github.com/datashield/dsBase/blob/6.3.4/tests/testthat/test-smk-cDS.R\" target=\"_blank\">View<\/a>","<a href=\"https://github.com/datashield/dsBase/blob/6.3.4/tests/testthat/test-smk-cbindDS.R\" target=\"_blank\">View<\/a>","<a href=\"https://github.com/datashield/dsBase/blob/6.3.4/tests/testthat/test-smk-changeRefGroupDS.R\" target=\"_blank\">View<\/a>","<a href=\"https://github.com/datashield/dsBase/blob/6.3.4/tests/testthat/test-smk-checkNegValueDS.R\" target=\"_blank\">View<\/a>","<a href=\"https://github.com/datashield/dsBase/blob/6.3.4/tests/testthat/test-smk-classDS.R\" target=\"_blank\">View<\/a>","<a href=\"https://github.com/datashield/dsBase/blob/6.3.4/tests/testthat/test-smk-colnamesDS.R\" target=\"_blank\">View<\/a>","<a href=\"https://github.com/datashield/dsBase/blob/6.3.4/tests/testthat/test-smk-completeCasesDS.R\" target=\"_blank\">View<\/a>","<a href=\"https://github.com/datashield/dsBase/blob/6.3.4/tests/testthat/test-smk-corDS.R\" target=\"_blank\">View<\/a>","<a href=\"https://github.com/datashield/dsBase/blob/6.3.4/tests/testthat/test-smk-corTestDS.R\" target=\"_blank\">View<\/a>","<a href=\"https://github.com/datashield/dsBase/blob/6.3.4/tests/testthat/test-smk-covDS.R\" target=\"_blank\">View<\/a>","<a href=\"https://github.com/datashield/dsBase/blob/6.3.4/tests/testthat/test-smk-dataFrameDS.R\" target=\"_blank\">View<\/a>","<a href=\"https://github.com/datashield/dsBase/blob/6.3.4/tests/testthat/test-smk-dataFrameFillDS.R\" target=\"_blank\">View<\/a>","<a href=\"https://github.com/datashield/dsBase/blob/6.3.4/tests/testthat/test-smk-dataFrameSortDS.R\" target=\"_blank\">View<\/a>","<a href=\"https://github.com/datashield/dsBase/blob/6.3.4/tests/testthat/test-smk-dataFrameSubsetDS1.R\" target=\"_blank\">View<\/a>","<a href=\"https://github.com/datashield/dsBase/blob/6.3.4/tests/testthat/test-smk-dataFrameSubsetDS2.R\" target=\"_blank\">View<\/a>","<a href=\"https://github.com/datashield/dsBase/blob/6.3.4/tests/testthat/test-smk-densityGridDS.R\" target=\"_blank\">View<\/a>","<a href=\"https://github.com/datashield/dsBase/blob/6.3.4/tests/testthat/test-smk-dimDS.R\" target=\"_blank\">View<\/a>","<a href=\"https://github.com/datashield/dsBase/blob/6.3.4/tests/testthat/test-smk-extract.R\" target=\"_blank\">View<\/a>","<a href=\"https://github.com/datashield/dsBase/blob/6.3.4/tests/testthat/test-smk-gamlssDS.R\" target=\"_blank\">View<\/a>","<a href=\"https://github.com/datashield/dsBase/blob/6.3.4/tests/testthat/test-smk-getWGSRDS.R\" target=\"_blank\">View<\/a>","<a href=\"https://github.com/datashield/dsBase/blob/6.3.4/tests/testthat/test-smk-hetcorDS.R\" target=\"_blank\">View<\/a>","<a href=\"https://github.com/datashield/dsBase/blob/6.3.4/tests/testthat/test-smk-igb_standardsDS.R\" target=\"_blank\">View<\/a>","<a href=\"https://github.com/datashield/dsBase/blob/6.3.4/tests/testthat/test-smk-isNaDS.R\" target=\"_blank\">View<\/a>","<a href=\"https://github.com/datashield/dsBase/blob/6.3.4/tests/testthat/test-smk-isValidDS.R\" target=\"_blank\">View<\/a>","<a href=\"https://github.com/datashield/dsBase/blob/6.3.4/tests/testthat/test-smk-kurtosisDS1.R\" target=\"_blank\">View<\/a>","<a href=\"https://github.com/datashield/dsBase/blob/6.3.4/tests/testthat/test-smk-kurtosisDS2.R\" target=\"_blank\">View<\/a>","<a href=\"https://github.com/datashield/dsBase/blob/6.3.4/tests/testthat/test-smk-lengthDS.R\" target=\"_blank\">View<\/a>","<a href=\"https://github.com/datashield/dsBase/blob/6.3.4/tests/testthat/test-smk-levelsDS.R\" target=\"_blank\">View<\/a>","<a href=\"https://github.com/datashield/dsBase/blob/6.3.4/tests/testthat/test-smk-listDS.R\" target=\"_blank\">View<\/a>","<a href=\"https://github.com/datashield/dsBase/blob/6.3.4/tests/testthat/test-smk-listDisclosureSettingsDS.R\" target=\"_blank\">View<\/a>","<a href=\"https://github.com/datashield/dsBase/blob/6.3.4/tests/testthat/test-smk-lsDS.R\" target=\"_blank\">View<\/a>","<a href=\"https://github.com/datashield/dsBase/blob/6.3.4/tests/testthat/test-smk-meanDS.R\" target=\"_blank\">View<\/a>","<a href=\"https://github.com/datashield/dsBase/blob/6.3.4/tests/testthat/test-smk-messageDS.R\" target=\"_blank\">View<\/a>","<a href=\"https://github.com/datashield/dsBase/blob/6.3.4/tests/testthat/test-smk-metadataDS.R\" target=\"_blank\">View<\/a>","<a href=\"https://github.com/datashield/dsBase/blob/6.3.4/tests/testthat/test-smk-miceDS.R\" target=\"_blank\">View<\/a>","<a href=\"https://github.com/datashield/dsBase/blob/6.3.4/tests/testthat/test-smk-minMaxRandDS.R\" target=\"_blank\">View<\/a>","<a href=\"https://github.com/datashield/dsBase/blob/6.3.4/tests/testthat/test-smk-namesDS.R\" target=\"_blank\">View<\/a>","<a href=\"https://github.com/datashield/dsBase/blob/6.3.4/tests/testthat/test-smk-numNaDS.R\" target=\"_blank\">View<\/a>","<a href=\"https://github.com/datashield/dsBase/blob/6.3.4/tests/testthat/test-smk-quantileMeanDS.R\" target=\"_blank\">View<\/a>","<a href=\"https://github.com/datashield/dsBase/blob/6.3.4/tests/testthat/test-smk-rBinomDS.R\" target=\"_blank\">View<\/a>","<a href=\"https://github.com/datashield/dsBase/blob/6.3.4/tests/testthat/test-smk-rNormDS.R\" target=\"_blank\">View<\/a>","<a href=\"https://github.com/datashield/dsBase/blob/6.3.4/tests/testthat/test-smk-rPoisDS.R\" target=\"_blank\">View<\/a>","<a href=\"https://github.com/datashield/dsBase/blob/6.3.4/tests/testthat/test-smk-rUnifDS.R\" target=\"_blank\">View<\/a>","<a href=\"https://github.com/datashield/dsBase/blob/6.3.4/tests/testthat/test-smk-rangeDS.R\" target=\"_blank\">View<\/a>","<a href=\"https://github.com/datashield/dsBase/blob/6.3.4/tests/testthat/test-smk-rbindDS.R\" target=\"_blank\">View<\/a>","<a href=\"https://github.com/datashield/dsBase/blob/6.3.4/tests/testthat/test-smk-recodeLevelsDS.R\" target=\"_blank\">View<\/a>","<a href=\"https://github.com/datashield/dsBase/blob/6.3.4/tests/testthat/test-smk-recodeValuesDS.R\" target=\"_blank\">View<\/a>","<a href=\"https://github.com/datashield/dsBase/blob/6.3.4/tests/testthat/test-smk-replaceNaDS.R\" target=\"_blank\">View<\/a>","<a href=\"https://github.com/datashield/dsBase/blob/6.3.4/tests/testthat/test-smk-rmDS.R\" target=\"_blank\">View<\/a>","<a href=\"https://github.com/datashield/dsBase/blob/6.3.4/tests/testthat/test-smk-rowColCalcDS.R\" target=\"_blank\">View<\/a>","<a href=\"https://github.com/datashield/dsBase/blob/6.3.4/tests/testthat/test-smk-sampleDS.R\" target=\"_blank\">View<\/a>","<a href=\"https://github.com/datashield/dsBase/blob/6.3.4/tests/testthat/test-smk-seqDS.R\" target=\"_blank\">View<\/a>","<a href=\"https://github.com/datashield/dsBase/blob/6.3.4/tests/testthat/test-smk-setFilterDS.R\" target=\"_blank\">View<\/a>","<a href=\"https://github.com/datashield/dsBase/blob/6.3.4/tests/testthat/test-smk-setSeedDS.R\" target=\"_blank\">View<\/a>","<a href=\"https://github.com/datashield/dsBase/blob/6.3.4/tests/testthat/test-smk-skewnessDS1.R\" target=\"_blank\">View<\/a>","<a href=\"https://github.com/datashield/dsBase/blob/6.3.4/tests/testthat/test-smk-skewnessDS2.R\" target=\"_blank\">View<\/a>","<a href=\"https://github.com/datashield/dsBase/blob/6.3.4/tests/testthat/test-smk-sqrtDS.R\" target=\"_blank\">View<\/a>","<a href=\"https://github.com/datashield/dsBase/blob/6.3.4/tests/testthat/test-smk-subsetByClassDS.R\" target=\"_blank\">View<\/a>","<a href=\"https://github.com/datashield/dsBase/blob/6.3.4/tests/testthat/test-smk-subsetDS.R\" target=\"_blank\">View<\/a>","<a href=\"https://github.com/datashield/dsBase/blob/6.3.4/tests/testthat/test-smk-tapplyDS.R\" target=\"_blank\">View<\/a>","<a href=\"https://github.com/datashield/dsBase/blob/6.3.4/tests/testthat/test-smk-tapplyDS.assign.R\" target=\"_blank\">View<\/a>","<a href=\"https://github.com/datashield/dsBase/blob/6.3.4/tests/testthat/test-smk-testObjExistsDS.R\" target=\"_blank\">View<\/a>","<a href=\"https://github.com/datashield/dsBase/blob/6.3.4/tests/testthat/test-smk-unListDS.R\" target=\"_blank\">View<\/a>","<a href=\"https://github.com/datashield/dsBase/blob/6.3.4/tests/testthat/test-smk-uniqueDS.R\" target=\"_blank\">View<\/a>","<a href=\"https://github.com/datashield/dsBase/blob/6.3.4/tests/testthat/test-smk-varDS.R\" target=\"_blank\">View<\/a>","<a href=\"https://github.com/datashield/dsBase/blob/6.3.4/tests/testthat/test-smk-vectorDS.R\" target=\"_blank\">View<\/a>",""],"tests":[126,52,23,17,5,47,17,20,8,52,17,92,6,20,18,8,32,12,56,8,79,144,356,87,18,83,276,14,11,6,8,5,21,60,31,96,18,63,24,10,8,10,8,35,12,36,19,10,20,4,8,6,40,20,20,20,20,8,15,8,45,10,49,24,11,41,2,3,24,10,57,24,50,78,14,80,16,13,42,18,2984],"skipped":[0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0],"failures":[0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0],"errors":[0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,5,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,2,0,0,0,0,0,0,0,0,0,0,0,0,0,7],"time":[0.286,0.326,0.052,0.045,0.021,0.107,0.063,0.047,0.024,0.109,0.037,0.188,0.113,0.056,0.049,0.023,0.059,0.036,0.157,0.034,0.156,0.289,0.621,0.174,0.042,0.197,0.496,0.039,0.035,0.024,0.029,0.117,0.122,0.169,0.079,0.212,0.051,0.175,0.058,0.034,0.035,0.029,0.026,0.079,0.038,0.079,0.051,0.038,0.796,0.176,0.037,0.025,0.075,0.066,0.072,0.068,0.066,0.038,0.038,0.025,0.106,0.03,0.128,0.056,0.203,0.082,0.036,0.048,0.065,0.03,0.16,0.06,0.1,0.149,0.04,0.234,0.041,0.041,0.093,0.063,8.573]},"columns":[{"id":"Function","name":"Function","type":"character","align":"left","html":true},{"id":"Coverage","name":"Coverage","type":"numeric","align":"center","style":[{"background":"#fff3cd","fontWeight":"bold"},{"background":"#d4edda","fontWeight":"bold"},{"background":"#d4edda","fontWeight":"bold"},{"background":"#fff3cd","fontWeight":"bold"},{"background":"#fff3cd","fontWeight":"bold"},{"background":"#d4edda","fontWeight":"bold"},{"background":"#d4edda","fontWeight":"bold"},{"background":"#d4edda","fontWeight":"bold"},{"background":"#d4edda","fontWeight":"bold"},{"background":"#d4edda","fontWeight":"bold"},{"background":"#fff3cd","fontWeight":"bold"},{"background":"#d4edda","fontWeight":"bold"},{"background":"#d4edda","fontWeight":"bold"},{"background":"#d4edda","fontWeight":"bold"},{"background":"#d4edda","fontWeight":"bold"},{"background":"#fff3cd","fontWeight":"bold"},{"background":"#d4edda","fontWeight":"bold"},{"background":"#d4edda","fontWeight":"bold"},{"background":"#d4edda","fontWeight":"bold"},{"background":"#d4edda","fontWeight":"bold"},{"background":"#fff3cd","fontWeight":"bold"},{"background":"#d4edda","fontWeight":"bold"},{"background":"#d4edda","fontWeight":"bold"},{"background":"#f8d7da","fontWeight":"bold"},{"background":"#fff3cd","fontWeight":"bold"},{"background":"#d4edda","fontWeight":"bold"},{"background":"#fff3cd","fontWeight":"bold"},{"background":"#f8d7da","fontWeight":"bold"},{"background":"#f8d7da","fontWeight":"bold"},{"background":"#d4edda","fontWeight":"bold"},{"background":"#d4edda","fontWeight":"bold"},{"background":"#d4edda","fontWeight":"bold"},{"background":"#fff3cd","fontWeight":"bold"},{"background":"#fff3cd","fontWeight":"bold"},{"background":"#d4edda","fontWeight":"bold"},{"background":"#f8d7da","fontWeight":"bold"},{"background":"#d4edda","fontWeight":"bold"},{"background":"#d4edda","fontWeight":"bold"},{"background":"#d4edda","fontWeight":"bold"},{"background":"#fff3cd","fontWeight":"bold"},{"background":"#d4edda","fontWeight":"bold"},{"background":"#fff3cd","fontWeight":"bold"},{"background":"#d4edda","fontWeight":"bold"},{"background":"#d4edda","fontWeight":"bold"},{"background":"#d4edda","fontWeight":"bold"},{"background":"#d4edda","fontWeight":"bold"},{"background":"#d4edda","fontWeight":"bold"},{"background":"#d4edda","fontWeight":"bold"},{"background":"#f8d7da","fontWeight":"bold"},{"background":"#d4edda","fontWeight":"bold"},{"background":"#fff3cd","fontWeight":"bold"},{"background":"#d4edda","fontWeight":"bold"},{"background":"#d4edda","fontWeight":"bold"},{"background":"#d4edda","fontWeight":"bold"},{"background":"#d4edda","fontWeight":"bold"},{"background":"#d4edda","fontWeight":"bold"},{"background":"#d4edda","fontWeight":"bold"},{"background":"#d4edda","fontWeight":"bold"},{"background":"#d4edda","fontWeight":"bold"},{"background":"#d4edda","fontWeight":"bold"},{"background":"#fff3cd","fontWeight":"bold"},{"background":"#fff3cd","fontWeight":"bold"},{"background":"#d4edda","fontWeight":"bold"},{"background":"#fff3cd","fontWeight":"bold"},{"background":"#fff3cd","fontWeight":"bold"},{"background":"#f8d7da","fontWeight":"bold"},{"background":"#d4edda","fontWeight":"bold"},{"background":"#d4edda","fontWeight":"bold"},{"background":"#d4edda","fontWeight":"bold"},{"background":"#fff3cd","fontWeight":"bold"},{"background":"#d4edda","fontWeight":"bold"},{"background":"#d4edda","fontWeight":"bold"},{"background":"#f8d7da","fontWeight":"bold"},{"background":"#f8d7da","fontWeight":"bold"},{"background":"#f8d7da","fontWeight":"bold"},{"background":"#d4edda","fontWeight":"bold"},{"background":"#fff3cd","fontWeight":"bold"},{"background":"#d4edda","fontWeight":"bold"},{"background":"#d4edda","fontWeight":"bold"},{"background":"#d4edda","fontWeight":"bold"},{"background":"#d4edda","fontWeight":"bold"}]},{"id":"Test","name":"Test","type":"character","align":"center","html":true},{"id":"tests","name":"tests","type":"numeric","align":"center"},{"id":"skipped","name":"skipped","type":"numeric","align":"center"},{"id":"failures","name":"failures","type":"numeric","align":"center"},{"id":"errors","name":"errors","type":"numeric","align":"center"},{"id":"time","name":"time","type":"numeric","align":"center"}],"highlight":true,"bordered":true,"striped":true,"dataKey":"d86106dd12ec8f9248dcc1d068ca5bcf"},"children":[]},"class":"reactR_markup"},"evals":[],"jsHooks":[]}</script>
+<br>
+</div>
+</div>
+
+
+
+</main> <!-- /main -->
+<script id="quarto-html-after-body" type="application/javascript">
+  window.document.addEventListener("DOMContentLoaded", function (event) {
+    const icon = "";
+    const anchorJS = new window.AnchorJS();
+    anchorJS.options = {
+      placement: 'right',
+      icon: icon
+    };
+    anchorJS.add('.anchored');
+    const isCodeAnnotation = (el) => {
+      for (const clz of el.classList) {
+        if (clz.startsWith('code-annotation-')) {                     
+          return true;
+        }
+      }
+      return false;
+    }
+    const onCopySuccess = function(e) {
+      // button target
+      const button = e.trigger;
+      // don't keep focus
+      button.blur();
+      // flash "checked"
+      button.classList.add('code-copy-button-checked');
+      var currentTitle = button.getAttribute("title");
+      button.setAttribute("title", "Copied!");
+      let tooltip;
+      if (window.bootstrap) {
+        button.setAttribute("data-bs-toggle", "tooltip");
+        button.setAttribute("data-bs-placement", "left");
+        button.setAttribute("data-bs-title", "Copied!");
+        tooltip = new bootstrap.Tooltip(button, 
+          { trigger: "manual", 
+            customClass: "code-copy-button-tooltip",
+            offset: [0, -8]});
+        tooltip.show();    
+      }
+      setTimeout(function() {
+        if (tooltip) {
+          tooltip.hide();
+          button.removeAttribute("data-bs-title");
+          button.removeAttribute("data-bs-toggle");
+          button.removeAttribute("data-bs-placement");
+        }
+        button.setAttribute("title", currentTitle);
+        button.classList.remove('code-copy-button-checked');
+      }, 1000);
+      // clear code selection
+      e.clearSelection();
+    }
+    const getTextToCopy = function(trigger) {
+      const outerScaffold = trigger.parentElement.cloneNode(true);
+      const codeEl = outerScaffold.querySelector('code');
+      for (const childEl of codeEl.children) {
+        if (isCodeAnnotation(childEl)) {
+          childEl.remove();
+        }
+      }
+      return codeEl.innerText;
+    }
+    const clipboard = new window.ClipboardJS('.code-copy-button:not([data-in-quarto-modal])', {
+      text: getTextToCopy
+    });
+    clipboard.on('success', onCopySuccess);
+    if (window.document.getElementById('quarto-embedded-source-code-modal')) {
+      const clipboardModal = new window.ClipboardJS('.code-copy-button[data-in-quarto-modal]', {
+        text: getTextToCopy,
+        container: window.document.getElementById('quarto-embedded-source-code-modal')
+      });
+      clipboardModal.on('success', onCopySuccess);
+    }
+      var localhostRegex = new RegExp(/^(?:http|https):\/\/localhost\:?[0-9]*\//);
+      var mailtoRegex = new RegExp(/^mailto:/);
+        var filterRegex = new RegExp('/' + window.location.host + '/');
+      var isInternal = (href) => {
+          return filterRegex.test(href) || localhostRegex.test(href) || mailtoRegex.test(href);
+      }
+      // Inspect non-navigation links and adorn them if external
+     var links = window.document.querySelectorAll('a[href]:not(.nav-link):not(.navbar-brand):not(.toc-action):not(.sidebar-link):not(.sidebar-item-toggle):not(.pagination-link):not(.no-external):not([aria-hidden]):not(.dropdown-item):not(.quarto-navigation-tool):not(.about-link)');
+      for (var i=0; i<links.length; i++) {
+        const link = links[i];
+        if (!isInternal(link.href)) {
+          // undo the damage that might have been done by quarto-nav.js in the case of
+          // links that we want to consider external
+          if (link.dataset.originalHref !== undefined) {
+            link.href = link.dataset.originalHref;
+          }
+        }
+      }
+    function tippyHover(el, contentFn, onTriggerFn, onUntriggerFn) {
+      const config = {
+        allowHTML: true,
+        maxWidth: 500,
+        delay: 100,
+        arrow: false,
+        appendTo: function(el) {
+            return el.parentElement;
+        },
+        interactive: true,
+        interactiveBorder: 10,
+        theme: 'quarto',
+        placement: 'bottom-start',
+      };
+      if (contentFn) {
+        config.content = contentFn;
+      }
+      if (onTriggerFn) {
+        config.onTrigger = onTriggerFn;
+      }
+      if (onUntriggerFn) {
+        config.onUntrigger = onUntriggerFn;
+      }
+      window.tippy(el, config); 
+    }
+    const noterefs = window.document.querySelectorAll('a[role="doc-noteref"]');
+    for (var i=0; i<noterefs.length; i++) {
+      const ref = noterefs[i];
+      tippyHover(ref, function() {
+        // use id or data attribute instead here
+        let href = ref.getAttribute('data-footnote-href') || ref.getAttribute('href');
+        try { href = new URL(href).hash; } catch {}
+        const id = href.replace(/^#\/?/, "");
+        const note = window.document.getElementById(id);
+        if (note) {
+          return note.innerHTML;
+        } else {
+          return "";
+        }
+      });
+    }
+    const xrefs = window.document.querySelectorAll('a.quarto-xref');
+    const processXRef = (id, note) => {
+      // Strip column container classes
+      const stripColumnClz = (el) => {
+        el.classList.remove("page-full", "page-columns");
+        if (el.children) {
+          for (const child of el.children) {
+            stripColumnClz(child);
+          }
+        }
+      }
+      stripColumnClz(note)
+      if (id === null || id.startsWith('sec-')) {
+        // Special case sections, only their first couple elements
+        const container = document.createElement("div");
+        if (note.children && note.children.length > 2) {
+          container.appendChild(note.children[0].cloneNode(true));
+          for (let i = 1; i < note.children.length; i++) {
+            const child = note.children[i];
+            if (child.tagName === "P" && child.innerText === "") {
+              continue;
+            } else {
+              container.appendChild(child.cloneNode(true));
+              break;
+            }
+          }
+          if (window.Quarto?.typesetMath) {
+            window.Quarto.typesetMath(container);
+          }
+          return container.innerHTML
+        } else {
+          if (window.Quarto?.typesetMath) {
+            window.Quarto.typesetMath(note);
+          }
+          return note.innerHTML;
+        }
+      } else {
+        // Remove any anchor links if they are present
+        const anchorLink = note.querySelector('a.anchorjs-link');
+        if (anchorLink) {
+          anchorLink.remove();
+        }
+        if (window.Quarto?.typesetMath) {
+          window.Quarto.typesetMath(note);
+        }
+        if (note.classList.contains("callout")) {
+          return note.outerHTML;
+        } else {
+          return note.innerHTML;
+        }
+      }
+    }
+    for (var i=0; i<xrefs.length; i++) {
+      const xref = xrefs[i];
+      tippyHover(xref, undefined, function(instance) {
+        instance.disable();
+        let url = xref.getAttribute('href');
+        let hash = undefined; 
+        if (url.startsWith('#')) {
+          hash = url;
+        } else {
+          try { hash = new URL(url).hash; } catch {}
+        }
+        if (hash) {
+          const id = hash.replace(/^#\/?/, "");
+          const note = window.document.getElementById(id);
+          if (note !== null) {
+            try {
+              const html = processXRef(id, note.cloneNode(true));
+              instance.setContent(html);
+            } finally {
+              instance.enable();
+              instance.show();
+            }
+          } else {
+            // See if we can fetch this
+            fetch(url.split('#')[0])
+            .then(res => res.text())
+            .then(html => {
+              const parser = new DOMParser();
+              const htmlDoc = parser.parseFromString(html, "text/html");
+              const note = htmlDoc.getElementById(id);
+              if (note !== null) {
+                const html = processXRef(id, note);
+                instance.setContent(html);
+              } 
+            }).finally(() => {
+              instance.enable();
+              instance.show();
+            });
+          }
+        } else {
+          // See if we can fetch a full url (with no hash to target)
+          // This is a special case and we should probably do some content thinning / targeting
+          fetch(url)
+          .then(res => res.text())
+          .then(html => {
+            const parser = new DOMParser();
+            const htmlDoc = parser.parseFromString(html, "text/html");
+            const note = htmlDoc.querySelector('main.content');
+            if (note !== null) {
+              // This should only happen for chapter cross references
+              // (since there is no id in the URL)
+              // remove the first header
+              if (note.children.length > 0 && note.children[0].tagName === "HEADER") {
+                note.children[0].remove();
+              }
+              const html = processXRef(null, note);
+              instance.setContent(html);
+            } 
+          }).finally(() => {
+            instance.enable();
+            instance.show();
+          });
+        }
+      }, function(instance) {
+      });
+    }
+        let selectedAnnoteEl;
+        const selectorForAnnotation = ( cell, annotation) => {
+          let cellAttr = 'data-code-cell="' + cell + '"';
+          let lineAttr = 'data-code-annotation="' +  annotation + '"';
+          const selector = 'span[' + cellAttr + '][' + lineAttr + ']';
+          return selector;
+        }
+        const selectCodeLines = (annoteEl) => {
+          const doc = window.document;
+          const targetCell = annoteEl.getAttribute("data-target-cell");
+          const targetAnnotation = annoteEl.getAttribute("data-target-annotation");
+          const annoteSpan = window.document.querySelector(selectorForAnnotation(targetCell, targetAnnotation));
+          const lines = annoteSpan.getAttribute("data-code-lines").split(",");
+          const lineIds = lines.map((line) => {
+            return targetCell + "-" + line;
+          })
+          let top = null;
+          let height = null;
+          let parent = null;
+          if (lineIds.length > 0) {
+              //compute the position of the single el (top and bottom and make a div)
+              const el = window.document.getElementById(lineIds[0]);
+              top = el.offsetTop;
+              height = el.offsetHeight;
+              parent = el.parentElement.parentElement;
+            if (lineIds.length > 1) {
+              const lastEl = window.document.getElementById(lineIds[lineIds.length - 1]);
+              const bottom = lastEl.offsetTop + lastEl.offsetHeight;
+              height = bottom - top;
+            }
+            if (top !== null && height !== null && parent !== null) {
+              // cook up a div (if necessary) and position it 
+              let div = window.document.getElementById("code-annotation-line-highlight");
+              if (div === null) {
+                div = window.document.createElement("div");
+                div.setAttribute("id", "code-annotation-line-highlight");
+                div.style.position = 'absolute';
+                parent.appendChild(div);
+              }
+              div.style.top = top - 2 + "px";
+              div.style.height = height + 4 + "px";
+              div.style.left = 0;
+              let gutterDiv = window.document.getElementById("code-annotation-line-highlight-gutter");
+              if (gutterDiv === null) {
+                gutterDiv = window.document.createElement("div");
+                gutterDiv.setAttribute("id", "code-annotation-line-highlight-gutter");
+                gutterDiv.style.position = 'absolute';
+                const codeCell = window.document.getElementById(targetCell);
+                const gutter = codeCell.querySelector('.code-annotation-gutter');
+                gutter.appendChild(gutterDiv);
+              }
+              gutterDiv.style.top = top - 2 + "px";
+              gutterDiv.style.height = height + 4 + "px";
+            }
+            selectedAnnoteEl = annoteEl;
+          }
+        };
+        const unselectCodeLines = () => {
+          const elementsIds = ["code-annotation-line-highlight", "code-annotation-line-highlight-gutter"];
+          elementsIds.forEach((elId) => {
+            const div = window.document.getElementById(elId);
+            if (div) {
+              div.remove();
+            }
+          });
+          selectedAnnoteEl = undefined;
+        };
+          // Handle positioning of the toggle
+      window.addEventListener(
+        "resize",
+        throttle(() => {
+          elRect = undefined;
+          if (selectedAnnoteEl) {
+            selectCodeLines(selectedAnnoteEl);
+          }
+        }, 10)
+      );
+      function throttle(fn, ms) {
+      let throttle = false;
+      let timer;
+        return (...args) => {
+          if(!throttle) { // first call gets through
+              fn.apply(this, args);
+              throttle = true;
+          } else { // all the others get throttled
+              if(timer) clearTimeout(timer); // cancel #2
+              timer = setTimeout(() => {
+                fn.apply(this, args);
+                timer = throttle = false;
+              }, ms);
+          }
+        };
+      }
+        // Attach click handler to the DT
+        const annoteDls = window.document.querySelectorAll('dt[data-target-cell]');
+        for (const annoteDlNode of annoteDls) {
+          annoteDlNode.addEventListener('click', (event) => {
+            const clickedEl = event.target;
+            if (clickedEl !== selectedAnnoteEl) {
+              unselectCodeLines();
+              const activeEl = window.document.querySelector('dt[data-target-cell].code-annotation-active');
+              if (activeEl) {
+                activeEl.classList.remove('code-annotation-active');
+              }
+              selectCodeLines(clickedEl);
+              clickedEl.classList.add('code-annotation-active');
+            } else {
+              // Unselect the line
+              unselectCodeLines();
+              clickedEl.classList.remove('code-annotation-active');
+            }
+          });
+        }
+    const findCites = (el) => {
+      const parentEl = el.parentElement;
+      if (parentEl) {
+        const cites = parentEl.dataset.cites;
+        if (cites) {
+          return {
+            el,
+            cites: cites.split(' ')
+          };
+        } else {
+          return findCites(el.parentElement)
+        }
+      } else {
+        return undefined;
+      }
+    };
+    var bibliorefs = window.document.querySelectorAll('a[role="doc-biblioref"]');
+    for (var i=0; i<bibliorefs.length; i++) {
+      const ref = bibliorefs[i];
+      const citeInfo = findCites(ref);
+      if (citeInfo) {
+        tippyHover(citeInfo.el, function() {
+          var popup = window.document.createElement('div');
+          citeInfo.cites.forEach(function(cite) {
+            var citeDiv = window.document.createElement('div');
+            citeDiv.classList.add('hanging-indent');
+            citeDiv.classList.add('csl-entry');
+            var biblioDiv = window.document.getElementById('ref-' + cite);
+            if (biblioDiv) {
+              citeDiv.innerHTML = biblioDiv.innerHTML;
+            }
+            popup.appendChild(citeDiv);
+          });
+          return popup.innerHTML;
+        });
+      }
+    }
+  });
+  </script>
+</div> <!-- /content -->
+
+
+
+
+<script src="../site_libs/quarto-html/zenscroll-min.js"></script>
+</body></html>
