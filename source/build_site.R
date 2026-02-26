@@ -70,9 +70,12 @@ purrr::walk(seq_len(nrow(meta)), function(i) {
 # Build dynamic sidebar grouped by package
 sidebar_yaml <- c(
   "website:",
+  "  title: 'DataSHIELD Test Reports'",
   "  sidebar:",
+  "    logo: https://i0.wp.com/datashield.org/wp-content/uploads/2024/07/DS-logo-A4.png",
+  # "    logo-href: https://datashield.org",
   "    style: docked",
-  "    search: true",
+  "    search: false",
   "    contents:"
 )
 
@@ -82,19 +85,21 @@ for (pkg in unique(meta$pkg)) {
     glue::glue("      - section: \"{pkg}\""),
     "        contents:"
   )
-  versions <- meta$version[meta$pkg == pkg]
-
+  versions <- meta$version[meta$pkg == pkg] |> sort(decreasing = TRUE)
   for (v in versions) {
     sidebar_yaml <- c(
       sidebar_yaml,
-      glue::glue("          - reports/{pkg}-{v}.qmd")
+      glue::glue("          - text: '{v}'"),
+      glue::glue("            href: reports/{pkg}-{v}.qmd")
     )
   }
 }
 
+# load contents of base _quarto.yml
+quarto_yml <- readLines(file.path(SITE_DIR, "_quarto_template.yml"))
 writeLines(
-  sidebar_yaml,
-  file.path(SITE_DIR, "_sidebar.yml")
+  c(quarto_yml, sidebar_yaml),
+  con = file.path(SITE_DIR, "_quarto.yml")
 )
 
 # delete old OUTPUT_DIR
@@ -105,6 +110,6 @@ if (fs::dir_exists(OUTPUT_DIR)) {
 old_wd <- setwd(SITE_DIR)
 on.exit(setwd(old_wd), add = TRUE)
 
-system("quarto render", intern = FALSE)
+system("quarto render --no-cache", intern = FALSE)
 
 message("Website build complete! Output at: ", OUTPUT_DIR)
