@@ -307,7 +307,7 @@ jobs:
                 # to fix issue with mismatch in single quotes
                 options(encoding = "UTF-8")
                 Sys.setlocale("LC_CTYPE", "C")
-                testthat::test_package(Sys.getenv("PROJECT_NAME"), filter = Sys.getenv("TEST_FILTER"), reporter = multi_rep, stop_on_failure = FALSE);
+                testthat::test_package(Sys.getenv("PROJECT_NAME"), filter = Sys.getenv("COVERAGE_SHARD"), reporter = multi_rep, stop_on_failure = FALSE);
               }, error = function(e) {
                 warning(e);
               });
