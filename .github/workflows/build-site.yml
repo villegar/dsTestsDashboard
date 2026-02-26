@@ -93,7 +93,7 @@ jobs:
           (steps.changes.outputs.changed != 'true' ||
            steps.relevant_changes.outputs.changed != 'true')
         run: |
-          echo "No new relevant changes since last successful run. Skipping pkgdown build."
+          echo "No new relevant changes since last successful run. Skipping build."
           exit 0
 
       - uses: r-lib/actions/setup-pandoc@v2
