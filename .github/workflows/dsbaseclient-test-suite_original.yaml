@@ -1,0 +1,519 @@
+################################################################################
+# DataSHIELD GHA test suite - dsBaseClient
+# Matrix-driven from curated refs file (.github/dsbaseclient-refs.txt)
+################################################################################
+name: dsBaseClient tests' suite OG
+
+on:
+  # push:
+  schedule:
+    - cron: '0 0 * * 6'   # weekly
+    # - cron: '0 1 * * *'   # nightly
+  workflow_dispatch:
+
+env:
+  TARGET_REPOSITORY: datashield/dsBaseClient
+  PROJECT_NAME: dsBaseClient
+
+jobs:
+  set-matrix:
+    runs-on: ubuntu-latest
+    outputs:
+      matrix: ${{ steps.build.outputs.matrix }}
+    steps:
+      - uses: actions/checkout@v4
+
+      - name: Build matrix from file (.github/dsbaseclient-refs.txt)
+        id: build
+        run: |
+          if [ ! -f .github/dsbaseclient-refs.txt ]; then
+            echo "ERROR: .github/dsbaseclient-refs.txt not found."
+            exit 1
+          fi
+
+          FILE=".github/dsbaseclient-refs.txt"
+
+          REFS=$(grep -v '^\s*#' "$FILE" | grep -v '^\s*$' | awk -F= '
+            {
+              label=$1
+              ref=$2
+              dsdangerclient=$3
+              docker_image=$4
+              gsub(/^[ \t]+|[ \t]+$/, "", label)
+              gsub(/^[ \t]+|[ \t]+$/, "", ref)
+              gsub(/^[ \t]+|[ \t]+$/, "", dsdangerclient)
+              gsub(/^[ \t]+|[ \t]+$/, "", docker_image)
+              printf "{\"label\":\"%s\",\"ref\":\"%s\",\"dsdangerclient\":\"%s\",\"docker_image\":\"%s\"}\n",
+                      label, ref, dsdangerclient, docker_image
+            }
+          ' | jq -s -c '.')
+
+          # Define shards
+          SHARD_STRING="_|arg|datachk|disc-|discctrl|expt_bug|expt_dgr|expt-|math_bug|math_dgr|math-|perf|smk_bug|smk_dgr|smk_expt|smk-"
+          SHARDS=$(echo "$SHARD_STRING" | tr '|' '\n' | awk '{gsub(/"/,"\\\""); printf "\"%s\",",$0}' | sed 's/,$//')
+          SHARDS="[${SHARDS}]"
+
+          # Generate cross-product: each ref × each shard
+          MATRIX_JSON=$(jq -n --argjson refs "$REFS" --argjson shards "$SHARDS" '
+            [$refs[] as $r | $shards[] as $s |
+              {label: $r.label, ref: $r.ref, dsdangerclient: $r.dsdangerclient, docker_image: $r.docker_image, coverage_shard: $s}]
+          ')
+
+          {
+            echo "matrix<<EOF"
+            echo "$MATRIX_JSON"
+            echo "EOF"
+          } >> "$GITHUB_OUTPUT"
+
+  dsBaseClient_test_suite:
+    needs: set-matrix
+    runs-on: ubuntu-latest
+    timeout-minutes: 240
+    permissions:
+      contents: write
+
+    strategy:
+      fail-fast: false
+      max-parallel: 2
+      matrix:
+        include: ${{ fromJson(needs.set-matrix.outputs.matrix) }}
+
+    env:
+      REF_NAME: ${{ matrix.ref }}
+      REF_LABEL: ${{ matrix.label }}
+      REF_DSDANGERCLIENT: ${{ matrix.dsdangerclient }}
+      DOCKER_IMAGE: ${{ matrix.docker_image }}
+      TEST_FILTER: ${{ matrix.coverage_shard }}
+      COVERAGE_SHARD: ${{ matrix.coverage_shard }}
+      WORKFLOW_ID: ${{ github.run_id }}-${{ github.run_attempt }}-${{ matrix.ref }}
+      WORKFLOW_ID_SHARD: ${{ github.run_id }}-${{ github.run_attempt }}-${{ matrix.ref }}-shard-${{ matrix.coverage_shard }}
+      R_COVR_FIX_PARALLEL: false
+      TESTTHAT_CPUS: 1
+      R_MAX_VSIZE: 4Gb
+
+    steps:
+      - name: Checkout dsTestsDashboard
+        uses: actions/checkout@v4
+        with:
+          fetch-depth: 0
+
+      - name: Checkout dsBaseClient
+        uses: actions/checkout@v4
+        with:
+          repository: ${{ env.TARGET_REPOSITORY }}
+          token: ${{ github.token }}
+          ref: ${{ matrix.ref }}
+          fetch-depth: 0
+          path: dsBaseClient
+
+      - name: Install system dependencies
+        run: |
+          sudo apt-get update
+          sudo apt-get install -y \
+            libxml2-dev \
+            libcurl4-openssl-dev \
+            libssl-dev \
+            libgsl-dev \
+            libgit2-dev \
+            libharfbuzz-dev \
+            libfribidi-dev \
+            libmagick++-dev \
+            xml-twig-tools
+
+      - uses: r-lib/actions/setup-pandoc@v2
+
+      - uses: r-lib/actions/setup-r@v2
+        with:
+          r-version: release
+          http-user-agent: release
+          use-public-rspm: true
+
+      - uses: r-lib/actions/setup-r-dependencies@v2
+        with:
+          working-directory: dsBaseClient
+          dependencies: 'c("Imports", "Suggests")'
+          cache-version: 1
+          needs: check
+          extra-packages: |
+            cran::MolgenisArmadillo
+            cran::MolgenisAuth
+
+      - name: Install dsDangerClient and dependencies
+        run: |
+          echo "Installing dsDangerClient/$REF_DSDANGERCLIENT and dependencies"
+          R -e "install.packages('devtools')"  # Install devtools if it's not already installed
+          R -e "devtools::install_github('datashield/dsDangerClient', ref = '${{ matrix.dsdangerclient }}')"
+        env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+
+      - name: Install dsBaseClient explicitly
+        run: |
+          echo "Installing dsBaseClient after check"
+          R --vanilla -e "devtools::install('.')"
+        working-directory: dsBaseClient
+
+      - name: Generate dynamic docker-compose override to expose additional ports
+        run: |
+          SERVICE=$(docker compose -f docker-compose_armadillo.yml config --services | head -n 1)
+          echo "Detected service: $SERVICE"
+
+          cat > docker-compose.override.yml <<EOF
+          services:
+            $SERVICE:
+              ports:
+                - "8080:8080"
+                - "8443:8443"
+              image: $DOCKER_IMAGE
+          EOF
+        working-directory: dsBaseClient
+
+      - name: Start Armadillo
+        uses: nick-invision/retry@v3
+        with:
+          timeout_minutes: 5
+          max_attempts: 5
+          retry_on: error
+          command: |
+            cd dsBaseClient
+            echo "Cleaning old containers..."
+            docker ps -a || true
+
+            # stop any containers using 8080
+            docker ps -q --filter "publish=8080" | xargs -r docker stop || true
+
+            # remove dangling containers & networks from previous runs
+            docker container prune -f || true
+            docker network prune -f || true
+
+            # kill any process binding 8080 just in case
+            sudo lsof -i :8080 || true
+            sudo fuser -k 8080/tcp || true
+
+            # kill anything holding the ports
+            sudo fuser -k 8080/tcp || true
+
+            # clean any leftover compose stacks from previous failures
+            docker compose -f docker-compose_armadillo.yml down -v || true
+
+            # nuclear cleanup
+            docker ps -aq | xargs -r docker rm -f || true
+            docker network prune -f || true
+
+            # random sleep
+            for i in {1..5}; do
+              sleep $((1 + RANDOM % 20));
+            done
+
+            # start armadillo
+            docker compose -f docker-compose_armadillo.yml -f docker-compose.override.yml up -d
+
+      - name: Wait for Armadillo (HTTPS + API)
+        run: |
+          set -e
+
+          echo "Phase 1: Waiting for API (8080)..."
+          for i in {1..60}; do
+            if curl -s http://localhost:8080/packages > /dev/null; then
+              echo "API ready"
+              break
+            fi
+            sleep 5
+          done
+
+          echo "Phase 2: Waiting for HTTPS (8443 handshake)..."
+          for i in {1..60}; do
+            # Only test TLS handshake, not full response
+            if timeout 3 bash -c "</dev/tcp/127.0.0.1/8443" 2>/dev/null; then
+              echo "8443 socket accepting connections"
+              exit 0
+            fi
+            sleep 5
+          done
+
+          echo "ERROR: Armadillo never became ready"
+          docker compose -f docker-compose_armadillo.yml logs --tail=200
+          exit 1
+
+      - name: Install test datasets
+        run: |
+          R --vanilla -q -f "molgenis_armadillo-upload_testing_datasets.R"
+        working-directory: dsBaseClient/tests/testthat/data_files
+
+      - name: Install latest dsBase to Armadillo
+        run: |
+          set -e
+
+          echo "Looking for dsBase_* -permissive tarballs..."
+          ls -1 dsBase_*-permissive.tar.gz || true
+
+          # find latest version using version sort (-V handles X.Y.Z correctly)
+          LATEST_TARBALL=$(ls -1 dsBase_*-permissive.tar.gz 2>/dev/null | sort -V | tail -n 1)
+
+          if [ -z "$LATEST_TARBALL" ]; then
+            echo "❌ No dsBase_* -permissive.tar.gz file found in repo"
+            exit 1
+          fi
+
+          echo "✅ Latest dsBase package detected: $LATEST_TARBALL"
+
+          # extract version for logging
+          VERSION=$(echo "$LATEST_TARBALL" | sed -E 's/^dsBase_([0-9.]+)-permissive\.tar\.gz$/\1/')
+          echo "Installing dsBase version: $VERSION"
+
+          # check Armadillo API is reachable
+          curl -u admin:admin -X GET http://localhost:8080/packages
+
+          # install the latest tarball
+          curl -u admin:admin \
+            -H 'Content-Type: multipart/form-data' \
+            -F "file=@${LATEST_TARBALL}" \
+            -X POST http://localhost:8080/install-package
+
+          echo "Waiting for package registry refresh (no restart)..."
+          sleep 10
+
+          # just verify API still responds
+          curl -u admin:admin -X GET http://localhost:8080/packages
+
+          # whitelist dsBase (package name stays constant)
+          curl -u admin:admin -X POST http://localhost:8080/whitelist/dsBase
+
+          # install dsBase locally too
+          Rscript --vanilla -e 'options(repos = c(CRAN = "https://cran.rstudio.com")); install.packages(c("RANN", "reshape2", "polycor", "gamlss", "gamlss.dist", "mice", "childsds"), dependencies = TRUE)'
+          R CMD INSTALL $LATEST_TARBALL
+        working-directory: dsBaseClient
+
+      - name: Run tests and store in XML file
+        working-directory: dsBaseClient
+        continue-on-error: true
+        run: |
+          Rscript --vanilla -e '
+            out_dir <- file.path(getwd(), "logs");
+            dir.create(out_dir, recursive = TRUE, showWarnings = FALSE);
+
+            # devtools::reload();
+            library(dsBase);
+            library(dsBaseClient);
+
+            # define output paths
+            # test_results_xml <- file.path(out_dir, "test_results.xml");
+            test_results_xml <- file.path(out_dir, paste0("test_results_", Sys.getenv("COVERAGE_SHARD"), ".xml"));
+
+            cat("=== Running testthat directly (debug mode) ===\n");
+            cat("Working directory:", getwd(), "\n");
+            cat("R version:", R.version.string, "\n");
+            cat("Writing outputs to: ", out_dir, "\n");
+
+            # run tests using testthat and save results to XML
+            tryCatch({
+              library(testthat);
+              junit_rep <- testthat::JunitReporter$new(file = test_results_xml);
+              progress_rep <- testthat::ProgressReporter$new(max_failures = 999999);
+              multi_rep <- testthat::MultiReporter$new(reporters = list(progress_rep, junit_rep));
+              # to fix issue with missing default_driver for Armadillo
+              Sys.setenv(R_DEFAULT_DRIVER = "ArmadilloDriver");
+              options(default_driver = "ArmadilloDriver");
+              # to fix issue with mismatch in single quotes
+              options(encoding = "UTF-8")
+              Sys.setlocale("LC_CTYPE", "C")
+              testthat::test_package(Sys.getenv("PROJECT_NAME"), filter = Sys.getenv("TEST_FILTER"), reporter = multi_rep, stop_on_failure = FALSE);
+            }, error = function(e) {
+              warning(e);
+            });
+          '
+
+      - name: Run code coverage (sharded, memory-safe)
+        working-directory: dsBaseClient
+        continue-on-error: true
+        run: |
+          Rscript --vanilla -e '
+            out_dir <- file.path(getwd(), "logs")
+            dir.create(out_dir, recursive = TRUE, showWarnings = FALSE)
+
+            cat("=== SHARDED COVR RUN ===\n")
+            cat("Shard filter:", Sys.getenv("COVERAGE_SHARD"), "\n")
+
+            # hard memory + parallel protection
+            Sys.setenv(TESTTHAT_CPUS = 1)
+            Sys.setenv(R_COVR = "true")
+            Sys.setenv(COVR_FIX_PARALLEL = "true")
+            options(mc.cores = 1)
+
+            # load libraries
+            library(covr)
+            library(testthat)
+
+            # to fix issue with mismatch in single quotes
+            options(encoding = "UTF-8")
+            try(Sys.setlocale("LC_CTYPE", "C.UTF-8"), silent = TRUE)
+
+            # create new helper file
+            helper_lines <- c(
+              "# to fix issue with missing default_driver for Armadillo",
+              "Sys.setenv(R_DEFAULT_DRIVER = \"ArmadilloDriver\")",
+              "options(default_driver = \"ArmadilloDriver\")",
+              "# to fix issue with mismatch in single quotes",
+              "options(encoding = \"UTF-8\")",
+              "try(Sys.setlocale(\"LC_CTYPE\", \"C.UTF-8\"), silent = TRUE)"
+            )
+            writeLines(helper_lines, "tests/testthat/helper-armadillo-con.R", useBytes = TRUE)
+
+            # define output paths
+            coverage_xml <- file.path(out_dir, paste0("coverage_", Sys.getenv("COVERAGE_SHARD"), ".xml"))
+
+            # calculate coverage and store results
+            tryCatch({
+              # explicitly enumerate ONLY shard test files (critical for memory)
+              shard_tests <- testthat::find_test_scripts(
+                  path = "tests/testthat",
+                  filter = Sys.getenv("COVERAGE_SHARD")
+                )
+
+              cat("Shard tests:", length(shard_tests), "\n")
+
+              if (length(shard_tests) == 0) {
+                stop("No tests matched shard filter: ", Sys.getenv("COVERAGE_SHARD"))
+              }
+
+              # delete test files not part of the shard
+              all_tests <- testthat::find_test_scripts(path = "tests/testthat")
+              unlink(all_tests[!(all_tests %in% shard_tests)], force = TRUE)
+
+              coverage_result <- covr::package_coverage(
+                type = "tests",
+                quiet = FALSE,
+                clean = TRUE
+              )
+
+              # only keep functions with any coverage
+              idx <- coverage_result |>
+                sapply(\(x) getElement(x, "value") > 0)
+              coverage_result_filtered <- coverage_result[idx]
+
+              # generate coverage xml to be push to Codecov
+              if (length(coverage_result_filtered) == 0) {
+                message("No coverage for this shard, skipping XML generation.")
+              } else {
+                covr::to_cobertura(coverage_result_filtered, filename = coverage_xml)
+              }
+            }, error = function(e) {
+              cat("Coverage shard failed:", conditionMessage(e), "\n")
+              warning(e)
+            })
+          '
+
+      - name: Write versions to file
+        run: |
+          echo "ref:${{ env.REF_NAME }}" > ${{ env.WORKFLOW_ID_SHARD }}.txt
+          echo "ref_label:${{ env.REF_LABEL }}" >> ${{ env.WORKFLOW_ID_SHARD }}.txt
+          echo "os:$(lsb_release -ds)" >> ${{ env.WORKFLOW_ID_SHARD }}.txt
+          echo "R:$(R --version | head -n1)" >> ${{ env.WORKFLOW_ID_SHARD }}.txt
+          Rscript --vanilla -e 'sessionInfo()' >> session_info_${{ env.WORKFLOW_ID_SHARD }}.txt
+        working-directory: dsBaseClient/logs
+
+      - name: Upload logs artefact
+        if: success()
+        uses: actions/upload-artifact@v4
+        with:
+          name: logs-ref_${{ matrix.ref }}-label_${{ matrix.label }}-shard_${{ matrix.coverage_shard }}
+          path: dsBaseClient/logs
+          if-no-files-found: error
+
+      - name: Dump environment (on failure)
+        if: failure()
+        run: |
+          echo -e "\n#############################"
+          echo -e "ls /: ######################"
+          ls -al .
+          echo -e "\n#############################"
+          echo -e "lscpu: ######################"
+          lscpu
+          echo -e "\n#############################"
+          echo -e "memory: #####################"
+          free -m
+          echo -e "\n#############################"
+          echo -e "env: ########################"
+          env
+          echo -e "\n#############################"
+          echo -e "R sessionInfo(): ############"
+          R -e 'sessionInfo()'
+          sudo apt install tree -y
+          tree .
+
+  publish-results:
+    name: Publish aggregated results
+    needs: dsBaseClient_test_suite
+    runs-on: ubuntu-latest
+    permissions:
+      contents: write
+
+    steps:
+      - name: Checkout dsTestsDashboard
+        uses: actions/checkout@v4
+        with:
+          fetch-depth: 0
+
+      - name: Download all artefacts
+        uses: actions/download-artifact@v4
+        with:
+          path: artefacts
+
+      - name: Merge artefacts into dashboard structure
+        run: |
+          set -e
+
+          echo "Artefacts downloaded:"
+          ls -R artefacts || true
+
+          for dir in artefacts/logs-*; do
+            if [ -d "$dir" ]; then
+              BASENAME=$(basename "$dir")
+
+              # REF: between logs-ref_ and -label_
+              REF="${BASENAME#logs-ref_}"
+              REF="${REF%%-label_*}"
+
+              # LABEL: between -label_ and -shard_
+              LABEL="${BASENAME#*-label_}"
+              LABEL="${LABEL%%-shard_*}"
+
+              # SHARD: everything after -shard_ (preserve leading underscores)
+              if [[ "$BASENAME" == *"-shard_"* ]]; then
+                  SHARD="${BASENAME#*-shard_}"
+              else
+                  SHARD=""
+              fi
+
+              echo "Processing:"
+              echo "  ref:   $REF"
+              echo "  label: $LABEL"
+              echo "  shard: $SHARD"
+
+              WORKFLOW_ID="${{ github.run_id }}-${{ github.run_attempt }}-${REF}"
+              TARGET_DIR="logs/${{ env.PROJECT_NAME }}/${LABEL}/${WORKFLOW_ID}/"
+              mkdir -p "$TARGET_DIR"
+              cp -rv "$dir"/* "$TARGET_DIR" || true
+            fi
+          done
+        env:
+          PROJECT_NAME: ${{ env.PROJECT_NAME }}
+
+      - name: Commit and push once
+        run: |
+          rm -rf artefacts
+
+          git config user.email "github-actions[bot]@users.noreply.github.com"
+          git config user.name "github-actions[bot]"
+
+          # rebase instead of pull to avoid merge commits
+          git pull --rebase origin main || true
+
+          git add .
+
+          if git diff --cached --quiet; then
+            echo "No changes to commit"
+            exit 0
+          fi
+
+          git commit -m "Aggregated dsBaseClient results @ ${{ github.run_id }}-${{ github.run_attempt }}"
+          git push origin main
