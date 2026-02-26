@@ -49,7 +49,7 @@ jobs:
           ' | jq -s -c '.')
 
           # Define shards
-          SHARD_STRING="_-|datachk-|smk-|arg-|disc-|perf-|smk_expt-|expt-|math-"
+          SHARD_STRING="*"
           SHARDS=$(echo "$SHARD_STRING" | tr '|' '\n' | awk '{gsub(/"/,"\\\""); printf "\"%s\",",$0}' | sed 's/,$//')
           SHARDS="[${SHARDS}]"
 
