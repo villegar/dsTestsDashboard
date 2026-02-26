@@ -1,0 +1,53 @@
+---
+format:
+  html:
+    theme: cosmo
+---
+
+```{r}
+#| echo: false
+#| warning: false
+#| message: false
+#| output: asis
+
+cat(glue::glue("
+<a href='https://datashield.org'><img src='https://i0.wp.com/datashield.org/wp-content/uploads/2024/07/DS-logo-A4.png' alt='DataSHIELD logo' align='right' height=100px/></a>
+<h1>DataSHIELD Test Reports</h1>
+<p>DataSHIELD is an infrastructure and series of R packages that enables the remote and non-disclosive analysis of sensitive research data. DataSHIELD has been used with real world and consented research data for over 10 years.</p>
+<p>The following are auto-generated reports for testing key DataSHIELD R packages.</p>
+<p><bf>Last updated:</bf> {Sys.Date()} @ {format(Sys.time(), '%H:%M:%S')}
+\n\n"))
+
+cat("## Available Reports\n\n")
+
+reports <- fs::dir_ls("reports", glob = "*.qmd")
+
+if (length(reports) == 0) {
+  cat("No reports available.\n")
+} else {
+  reports_tbl <- tibble::tibble(
+    filepath = reports
+  ) |>
+    dplyr::mutate(
+      # extract package
+      package = basename(reports) |>
+        stringr::str_extract("^[^-]*"),
+      version = basename(reports) |>
+        stringr::str_remove("^[^-]*-") |>
+        stringr::str_remove(".qmd$")
+    )
+  
+  for (p in unique(reports_tbl$package)) {
+    cat(" - ", p, "\n")
+    reports_tbl_sub <- reports_tbl |>
+      dplyr::filter(package == p)
+    for (v in seq_len(nrow(reports_tbl_sub))) {
+      cat(sprintf("\t- [%s](%s)\n", reports_tbl_sub$version[v], reports_tbl_sub$filepath[v]))
+    }
+  }
+  # for (r in reports) {
+  #   name <- fs::path_ext_remove(fs::path_file(r))
+  #   cat(sprintf("- [%s](%s)\n", name, r))
+  # }
+}
+```
