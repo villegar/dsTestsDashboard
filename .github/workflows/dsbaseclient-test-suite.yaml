@@ -281,7 +281,7 @@ jobs:
             echo "=== Running shard: $shard ==="
             export COVERAGE_SHARD="$shard"
 
-            for f in tests/testthat/test-$COVERAGE_SHARD.R; do
+            for f in tests/testthat/test-$COVERAGE_SHARD*.R; do
               export FILE="$f"
               Rscript --vanilla -e '
                 out_dir <- file.path(getwd(), "logs");
@@ -336,7 +336,7 @@ jobs:
           for shard in $SHARDS; do
             export COVERAGE_SHARD="$shard"
 
-            for f in tests/testthat/test-$COVERAGE_SHARD.R; do
+            for f in tests/testthat_og/test-$COVERAGE_SHARD*.R; do
               export FILE="$f"
 
               Rscript --vanilla -e '
