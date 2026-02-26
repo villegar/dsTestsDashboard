@@ -5,7 +5,7 @@
 name: dsBase tests' suite
 
 on:
-  push:
+  # push:
   schedule:
     - cron: '0 0 * * 0'   # weekly
     # - cron: '0 1 * * *'   # nightly
