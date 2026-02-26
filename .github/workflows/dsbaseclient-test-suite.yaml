@@ -275,7 +275,7 @@ jobs:
         continue-on-error: true
         run: |
           # Define shards
-          SHARDS="_ arg datachk disc- discctrl expt_bug expt_dgr expt- math_bug math_dgr math- perf smk_bug smk_dgr smk_expt smk-"
+          SHARDS="_- arg datachk disc- discctrl expt_bug expt_dgr expt- math_bug math_dgr math- perf smk_bug smk_dgr smk_expt smk-"
 
           for shard in $SHARDS; do
             echo "=== Running shard: $shard ==="
@@ -292,6 +292,9 @@ jobs:
               cat("Working directory:", getwd(), "\n");
               cat("R version:", R.version.string, "\n");
               cat("Writing outputs to: ", test_results_xml, "\n");
+
+              oopt <- options(datashield.errors.print = TRUE)
+              on.exit(options(oopt), add = TRUE)
 
               # run tests using testthat and save results to XML
               tryCatch({
@@ -318,7 +321,7 @@ jobs:
         continue-on-error: true
         run: |
           # Define shards
-          SHARDS="_ arg datachk disc- discctrl expt_bug expt_dgr expt- math_bug math_dgr math- perf smk_bug smk_dgr smk_expt smk-"
+          SHARDS="_- arg datachk disc- discctrl expt_bug expt_dgr expt- math_bug math_dgr math- perf smk_bug smk_dgr smk_expt smk-"
 
           # make a copy of the test directory
           cp -ra tests/testthat tests/testthat_og
@@ -336,6 +339,9 @@ jobs:
               # make a copy of `tests/testthat_og`
               unlink("tests/testthat", recursive = TRUE, force = TRUE)
               system("cp -rav tests/testthat_og tests/testthat")
+
+              oopt <- options(datashield.errors.print = TRUE)
+              on.exit(options(oopt), add = TRUE)
 
               # hard memory + parallel protection
               Sys.setenv(TESTTHAT_CPUS = 1)
