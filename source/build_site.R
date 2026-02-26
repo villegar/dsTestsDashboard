@@ -86,12 +86,42 @@ for (pkg in unique(meta$pkg)) {
     "        contents:"
   )
   versions <- meta$version[meta$pkg == pkg] |> sort(decreasing = TRUE)
-  for (v in versions) {
+  is_dev <- grepl("dev|rc|beta|alpha", versions, ignore.case = TRUE)
+  release_versions <- versions[!is_dev]
+  dev_versions <- versions[is_dev]
+
+  # ---- RELEASE SECTION ----
+  if (length(release_versions) > 0) {
     sidebar_yaml <- c(
       sidebar_yaml,
-      glue::glue("          - text: '{v}'"),
-      glue::glue("            href: reports/{pkg}-{v}.qmd")
+      "          - section: \"Release\"",
+      "            contents:"
     )
+
+    for (v in sort(release_versions, decreasing = TRUE)) {
+      sidebar_yaml <- c(
+        sidebar_yaml,
+        glue::glue("              - text: \"{v}\""),
+        glue::glue("                href: reports/{pkg}-{v}.qmd")
+      )
+    }
+  }
+
+  # ---- DEVELOPMENT SECTION ----
+  if (length(dev_versions) > 0) {
+    sidebar_yaml <- c(
+      sidebar_yaml,
+      "          - section: \"Development\"",
+      "            contents:"
+    )
+
+    for (v in sort(dev_versions, decreasing = TRUE)) {
+      sidebar_yaml <- c(
+        sidebar_yaml,
+        glue::glue("              - text: \"{v}\""),
+        glue::glue("                href: reports/{pkg}-{v}.qmd")
+      )
+    }
   }
 }
 
