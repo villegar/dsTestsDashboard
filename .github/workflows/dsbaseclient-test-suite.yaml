@@ -139,86 +139,62 @@ jobs:
           R --vanilla -e "devtools::install('.')"
         working-directory: dsBaseClient
 
-      - name: Generate dynamic docker-compose override to expose additional ports
-        run: |
-          SERVICE=$(docker compose -f docker-compose_armadillo.yml config --services | head -n 1)
-          echo "Detected service: $SERVICE"
-
-          cat > docker-compose.override.yml <<EOF
-          services:
-            $SERVICE:
-              ports:
-                - "8080:8080"
-                - "8443:8443"
-              image: $DOCKER_IMAGE
-          EOF
-        working-directory: dsBaseClient
-
       - name: Start Armadillo
-        uses: nick-invision/retry@v3
-        with:
-          timeout_minutes: 5
-          max_attempts: 5
-          retry_on: error
-          command: |
-            cd dsBaseClient
-            echo "Cleaning old containers..."
-            docker ps -a || true
+        run: |
+          cd dsBaseClient
 
-            # stop any containers using 8080
-            docker ps -q --filter "publish=8080" | xargs -r docker stop || true
+          # Pick a random high port (avoids collisions)
+          API_PORT=$(shuf -i 20000-45000 -n 1)
 
-            # remove dangling containers & networks from previous runs
-            docker container prune -f || true
-            docker network prune -f || true
+          echo "API_PORT=$API_PORT" >> $GITHUB_ENV
+          echo "Using host port: $API_PORT"
 
-            # kill any process binding 8080 just in case
-            sudo lsof -i :8080 || true
-            sudo fuser -k 8080/tcp || true
+          # update Docker compose
+          COMPOSE_FILE="docker-compose_armadillo.yml"
+          sed -i -E "s/- 8080:8080$/- ${API_PORT}:8080/" "$COMPOSE_FILE"
 
-            # kill anything holding the ports
-            sudo fuser -k 8080/tcp || true
+          docker compose -f docker-compose_armadillo.yml up -d
 
-            # clean any leftover compose stacks from previous failures
-            docker compose -f docker-compose_armadillo.yml down -v || true
+          docker ps
 
-            # nuclear cleanup
-            docker ps -aq | xargs -r docker rm -f || true
-            docker network prune -f || true
+      - name: Create stable localhost:8080 proxy to random container port
+        run: |
+          sudo apt-get update
+          sudo apt-get install -y socat
 
-            # random sleep
-            for i in {1..5}; do
-              sleep $((1 + RANDOM % 20));
-            done
+          echo "Forwarding localhost:8080 -> localhost:${API_PORT}"
 
-            # start armadillo
-            docker compose -f docker-compose_armadillo.yml -f docker-compose.override.yml up -d
+          # Kill anything using 8080 (rare but safe)
+          sudo fuser -k 8080/tcp || true
 
-      - name: Wait for Armadillo (HTTPS + API)
+          # Start background TCP proxy
+          nohup socat TCP-LISTEN:8080,reuseaddr,fork TCP:127.0.0.1:${API_PORT} >/tmp/socat.log 2>&1 &
+
+          # Give socat time to bind
+          sleep 3
+
+          echo "Proxy listening on:"
+          lsof -i :8080 || true
+
+      - name: Wait for Armadillo
         run: |
           set -e
+          export COMPOSE_PROJECT_NAME=${{ env.COMPOSE_PROJECT_NAME }}
 
-          echo "Phase 1: Waiting for API (8080)..."
+          echo "Waiting for Armadillo API on localhost:8080 (proxy -> ${API_PORT})..."
+
           for i in {1..60}; do
             if curl -s http://localhost:8080/packages > /dev/null; then
               echo "API ready"
-              break
-            fi
-            sleep 5
-          done
-
-          echo "Phase 2: Waiting for HTTPS (8443 handshake)..."
-          for i in {1..60}; do
-            # Only test TLS handshake, not full response
-            if timeout 3 bash -c "</dev/tcp/127.0.0.1/8443" 2>/dev/null; then
-              echo "8443 socket accepting connections"
               exit 0
             fi
             sleep 5
           done
 
           echo "ERROR: Armadillo never became ready"
-          docker compose -f docker-compose_armadillo.yml logs --tail=200
+          docker compose -f docker-compose_armadillo.yml -f docker-compose.override.yml logs --tail=300
+          echo "---- SOCAT LOG ----"
+          cat /tmp/socat.log || true
           exit 1
 
       - name: Install test datasets
@@ -293,11 +269,6 @@ jobs:
                   sub(pattern = ".R$", replacement = "")
                 test_results_xml <- file.path(out_dir, paste0("test_results_", suffix, ".xml"));
 
-                cat("=== Running testthat directly (debug mode) ===\n");
-                cat("Working directory:", getwd(), "\n");
-                cat("R version:", R.version.string, "\n");
-                cat("Writing outputs to: ", test_results_xml, "\n");
-
                 oopt <- options(datashield.errors.print = TRUE)
                 on.exit(options(oopt), add = TRUE)
 
@@ -315,7 +286,6 @@ jobs:
                   options(encoding = "UTF-8")
                   try(Sys.setlocale("LC_CTYPE", "C.UTF-8"), silent = TRUE)
                   testthat::test_file(Sys.getenv("FILE"), reporter = multi_rep, stop_on_failure = FALSE)
-                  # testthat::test_package(Sys.getenv("PROJECT_NAME"), filter = Sys.getenv("COVERAGE_SHARD"), reporter = multi_rep, stop_on_failure = FALSE)
                 }, error = function(e) {
                   cat("Coverage shard failed:", conditionMessage(e), "\n")
                   warning(e)
