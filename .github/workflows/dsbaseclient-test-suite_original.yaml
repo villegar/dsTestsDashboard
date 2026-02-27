@@ -49,7 +49,7 @@ jobs:
           ' | jq -s -c '.')
 
           # Define shards
-          SHARD_STRING="_|arg|datachk|disc-|discctrl|expt_bug|expt_dgr|expt-|math_bug|math_dgr|math-|perf|smk_bug|smk_dgr|smk_expt|smk-"
+          SHARD_STRING="_-|arg|datachk|disc-|discctrl|expt_bug|expt_dgr|expt-|math_bug|math_dgr|math-|perf|smk_bug|smk_dgr|smk_expt|smk-"
           SHARDS=$(echo "$SHARD_STRING" | tr '|' '\n' | awk '{gsub(/"/,"\\\""); printf "\"%s\",",$0}' | sed 's/,$//')
           SHARDS="[${SHARDS}]"
 
@@ -74,7 +74,7 @@ jobs:
 
     strategy:
       fail-fast: false
-      max-parallel: 2
+      max-parallel: 4
       matrix:
         include: ${{ fromJson(needs.set-matrix.outputs.matrix) }}
 
@@ -170,7 +170,7 @@ jobs:
       - name: Start Armadillo
         uses: nick-invision/retry@v3
         with:
-          timeout_minutes: 5
+          timeout_minutes: 10
           max_attempts: 5
           retry_on: error
           command: |
