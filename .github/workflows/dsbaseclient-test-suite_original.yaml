@@ -178,6 +178,12 @@ jobs:
               image: $DOCKER_IMAGE
           EOF
 
+          # Install yq if not already
+          sudo apt-get update && sudo apt-get install -y yq
+
+          # Remove ports from armadillo service
+          yq eval 'del(.services.armadillo.ports)' -i docker-compose_armadillo.yml
+
           # check new Docker config
           docker compose -f docker-compose_armadillo.yml -f docker-compose.override.yml config
         working-directory: dsBaseClient
