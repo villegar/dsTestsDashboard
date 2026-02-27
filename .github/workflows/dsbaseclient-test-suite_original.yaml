@@ -193,10 +193,11 @@ jobs:
           # Start background TCP proxy
           nohup socat TCP-LISTEN:8080,reuseaddr,fork TCP:127.0.0.1:${API_PORT} >/tmp/socat.log 2>&1 &
 
-          sleep 2
+          # Give socat time to bind
+          sleep 3
 
           echo "Proxy listening on:"
-          lsof -i :8080
+          lsof -i :8080 || true
 
       - name: Wait for Armadillo
         run: |
