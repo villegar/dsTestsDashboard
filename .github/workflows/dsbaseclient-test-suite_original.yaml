@@ -170,6 +170,9 @@ jobs:
                 - "${API_PORT}:8080"
               image: $DOCKER_IMAGE
           EOF
+
+          # check new Docker config
+          docker compose -f docker-compose_armadillo.yml -f docker-compose.override.yml config
         working-directory: dsBaseClient
 
       - name: Start Armadillo
