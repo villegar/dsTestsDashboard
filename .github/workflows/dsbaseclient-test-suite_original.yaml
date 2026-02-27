@@ -156,7 +156,7 @@ jobs:
       - name: Generate docker-compose override with random port
         run: |
           # Detect the service containing "armadillo"
-          SERVICE=$(docker compose -f docker-compose_armadillo.yml config --services | grep -i "armadillo")
+          # SERVICE=$(docker compose -f docker-compose_armadillo.yml config --services | grep -i "armadillo")
 
           # Fail early if not found
           if [ -z "$SERVICE" ]; then
@@ -172,7 +172,7 @@ jobs:
 
           cat > docker-compose.override.yml <<EOF
           services:
-            $SERVICE:
+            armadillo:
               ports:
                 - "${API_PORT}:8080"
               image: $DOCKER_IMAGE
