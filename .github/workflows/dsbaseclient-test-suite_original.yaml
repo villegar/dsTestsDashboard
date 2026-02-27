@@ -155,8 +155,6 @@ jobs:
 
       - name: Generate docker-compose override with random port
         run: |
-          SERVICE=$(docker compose -f docker-compose_armadillo.yml config --services | head -n 1)
-
           # Pick a random high port (avoids collisions)
           API_PORT=$(shuf -i 20000-45000 -n 1)
 
@@ -165,7 +163,7 @@ jobs:
 
           cat > docker-compose.override.yml <<EOF
           services:
-            $SERVICE:
+            armadillo:
               ports:
                 - "${API_PORT}:8080"
               image: $DOCKER_IMAGE
