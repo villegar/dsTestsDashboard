@@ -1,0 +1,143 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<testsuites>
+  <testsuite name="smk_expt-ds.mean" timestamp="2026-02-27T19:12:15Z" hostname="runnervmnay03" tests="0" skipped="0" failures="0" errors="0" time="0"/>
+  <testsuite name="ds.mean::smk_expt::type=combine" timestamp="2026-02-27T19:12:25Z" hostname="runnervmnay03" tests="1" skipped="0" failures="0" errors="0" time="13.97">
+    <testcase time="13.97" classname="ds.mean_smk_expt_type_combine" name="mean_values_combine_"/>
+  </testsuite>
+  <testsuite name="ds.mean::smk_expt::type=split" timestamp="2026-02-27T19:12:29Z" hostname="runnervmnay03" tests="1" skipped="0" failures="0" errors="0" time="0.255">
+    <testcase time="0.254999999999999" classname="ds.mean_smk_expt_type_split" name="mean_values_split_"/>
+  </testsuite>
+  <testsuite name="ds.mean::smk_expt::type=both" timestamp="2026-02-27T19:12:29Z" hostname="runnervmnay03" tests="1" skipped="0" failures="0" errors="0" time="0.232">
+    <testcase time="0.231999999999999" classname="ds.mean_smk_expt_type_both" name="mean_values_both_"/>
+  </testsuite>
+  <testsuite name="ds.mean::smk_expt::type=combine" timestamp="2026-02-27T19:12:29Z" hostname="runnervmnay03" tests="1" skipped="1" failures="0" errors="0" time="0.006">
+    <testcase time="0.00600000000000023" classname="ds.mean_smk_expt_type_combine" name="mean_values_combine_">
+      <skipped message="Reason: empty test ('test-smk_expt-ds.mean.R:43:1')"/>
+    </testcase>
+  </testsuite>
+  <testsuite name="ds.mean::smk_expt::type=split" timestamp="2026-02-27T19:12:29Z" hostname="runnervmnay03" tests="1" skipped="1" failures="0" errors="0" time="0.041">
+    <testcase time="0.0410000000000004" classname="ds.mean_smk_expt_type_split" name="mean_values_split_">
+      <skipped message="Reason: empty test ('test-smk_expt-ds.mean.R:50:1')"/>
+    </testcase>
+  </testsuite>
+  <testsuite name="ds.mean::smk_expt::type=both" timestamp="2026-02-27T19:12:29Z" hostname="runnervmnay03" tests="1" skipped="1" failures="0" errors="0" time="0.027">
+    <testcase time="0.027000000000001" classname="ds.mean_smk_expt_type_both" name="mean_values_both_">
+      <skipped message="Reason: empty test ('test-smk_expt-ds.mean.R:57:1')"/>
+    </testcase>
+  </testsuite>
+  <testsuite name="ds.mean::smk_expt::type=combine" timestamp="2026-02-27T19:12:29Z" hostname="runnervmnay03" tests="1" skipped="0" failures="0" errors="0" time="0.205">
+    <testcase time="0.204999999999998" classname="ds.mean_smk_expt_type_combine" name="mean_values_combine_"/>
+  </testsuite>
+  <testsuite name="ds.mean::smk_expt::type=split" timestamp="2026-02-27T19:12:29Z" hostname="runnervmnay03" tests="1" skipped="0" failures="0" errors="0" time="0.203">
+    <testcase time="0.203000000000003" classname="ds.mean_smk_expt_type_split" name="mean_values_split_"/>
+  </testsuite>
+  <testsuite name="ds.mean::smk_expt::type=both" timestamp="2026-02-27T19:12:30Z" hostname="runnervmnay03" tests="1" skipped="0" failures="0" errors="0" time="0.199">
+    <testcase time="0.198999999999998" classname="ds.mean_smk_expt_type_both" name="mean_values_both_"/>
+  </testsuite>
+  <testsuite name="ds.mean::smk_expt::type=combine" timestamp="2026-02-27T19:12:30Z" hostname="runnervmnay03" tests="1" skipped="0" failures="0" errors="0" time="0.202">
+    <testcase time="0.202000000000002" classname="ds.mean_smk_expt_type_combine" name="mean_values_combine_"/>
+  </testsuite>
+  <testsuite name="ds.mean::smk_expt::type=split" timestamp="2026-02-27T19:12:30Z" hostname="runnervmnay03" tests="1" skipped="0" failures="0" errors="0" time="0.196">
+    <testcase time="0.195999999999998" classname="ds.mean_smk_expt_type_split" name="mean_values_split_"/>
+  </testsuite>
+  <testsuite name="ds.mean::smk_expt::type=both" timestamp="2026-02-27T19:12:30Z" hostname="runnervmnay03" tests="1" skipped="0" failures="0" errors="0" time="0.192">
+    <testcase time="0.192" classname="ds.mean_smk_expt_type_both" name="mean_values_both_"/>
+  </testsuite>
+  <testsuite name="ds.mean::smk_expt::type=combine" timestamp="2026-02-27T19:12:30Z" hostname="runnervmnay03" tests="1" skipped="0" failures="0" errors="0" time="0.188">
+    <testcase time="0.188000000000002" classname="ds.mean_smk_expt_type_combine" name="mean_values_combine_"/>
+  </testsuite>
+  <testsuite name="ds.mean::smk_expt::type=split" timestamp="2026-02-27T19:12:31Z" hostname="runnervmnay03" tests="1" skipped="0" failures="0" errors="0" time="0.193">
+    <testcase time="0.192999999999998" classname="ds.mean_smk_expt_type_split" name="mean_values_split_"/>
+  </testsuite>
+  <testsuite name="ds.mean::smk_expt::type=both" timestamp="2026-02-27T19:12:31Z" hostname="runnervmnay03" tests="1" skipped="0" failures="0" errors="0" time="0.2">
+    <testcase time="0.199999999999999" classname="ds.mean_smk_expt_type_both" name="mean_values_both_"/>
+  </testsuite>
+  <testsuite name="ds.mean::smk_expt::type=combine" timestamp="2026-02-27T19:12:31Z" hostname="runnervmnay03" tests="1" skipped="0" failures="0" errors="0" time="1.038">
+    <testcase time="1.038" classname="ds.mean_smk_expt_type_combine" name="mean_values_combine_"/>
+  </testsuite>
+  <testsuite name="ds.mean::smk_expt::type=split" timestamp="2026-02-27T19:12:32Z" hostname="runnervmnay03" tests="1" skipped="0" failures="0" errors="0" time="1.039">
+    <testcase time="1.039" classname="ds.mean_smk_expt_type_split" name="mean_values_split_"/>
+  </testsuite>
+  <testsuite name="ds.mean::smk_expt::type=both" timestamp="2026-02-27T19:12:33Z" hostname="runnervmnay03" tests="1" skipped="0" failures="0" errors="0" time="1.058">
+    <testcase time="1.058" classname="ds.mean_smk_expt_type_both" name="mean_values_both_"/>
+  </testsuite>
+  <testsuite name="ds.mean::smk_expt::type=combine" timestamp="2026-02-27T19:12:34Z" hostname="runnervmnay03" tests="1" skipped="0" failures="0" errors="0" time="0.973">
+    <testcase time="0.972999999999999" classname="ds.mean_smk_expt_type_combine" name="mean_values_combine_"/>
+  </testsuite>
+  <testsuite name="ds.mean::smk_expt::type=split" timestamp="2026-02-27T19:12:35Z" hostname="runnervmnay03" tests="1" skipped="0" failures="0" errors="0" time="1.044">
+    <testcase time="1.044" classname="ds.mean_smk_expt_type_split" name="mean_values_split_"/>
+  </testsuite>
+  <testsuite name="ds.mean::smk_expt::type=both" timestamp="2026-02-27T19:12:36Z" hostname="runnervmnay03" tests="1" skipped="0" failures="0" errors="0" time="0.965">
+    <testcase time="0.965" classname="ds.mean_smk_expt_type_both" name="mean_values_both_"/>
+  </testsuite>
+  <testsuite name="ds.mean::smk_expt::type=combine" timestamp="2026-02-27T19:12:37Z" hostname="runnervmnay03" tests="1" skipped="0" failures="0" errors="0" time="1.006">
+    <testcase time="1.006" classname="ds.mean_smk_expt_type_combine" name="mean_values_combine_"/>
+  </testsuite>
+  <testsuite name="ds.mean::smk_expt::type=split" timestamp="2026-02-27T19:12:38Z" hostname="runnervmnay03" tests="1" skipped="0" failures="0" errors="0" time="0.988">
+    <testcase time="0.988" classname="ds.mean_smk_expt_type_split" name="mean_values_split_"/>
+  </testsuite>
+  <testsuite name="ds.mean::smk_expt::type=both" timestamp="2026-02-27T19:12:39Z" hostname="runnervmnay03" tests="1" skipped="0" failures="0" errors="0" time="1.03">
+    <testcase time="1.03" classname="ds.mean_smk_expt_type_both" name="mean_values_both_"/>
+  </testsuite>
+  <testsuite name="ds.mean::smk_expt::type=combine" timestamp="2026-02-27T19:12:40Z" hostname="runnervmnay03" tests="1" skipped="0" failures="0" errors="0" time="0.985">
+    <testcase time="0.984999999999999" classname="ds.mean_smk_expt_type_combine" name="mean_values_combine_"/>
+  </testsuite>
+  <testsuite name="ds.mean::smk_expt::type=split" timestamp="2026-02-27T19:12:41Z" hostname="runnervmnay03" tests="1" skipped="0" failures="0" errors="0" time="1.024">
+    <testcase time="1.024" classname="ds.mean_smk_expt_type_split" name="mean_values_split_"/>
+  </testsuite>
+  <testsuite name="ds.mean::smk_expt::type=both" timestamp="2026-02-27T19:12:42Z" hostname="runnervmnay03" tests="1" skipped="0" failures="0" errors="0" time="1">
+    <testcase time="1" classname="ds.mean_smk_expt_type_both" name="mean_values_both_"/>
+  </testsuite>
+  <testsuite name="ds.mean::smk_expt::type=combine" timestamp="2026-02-27T19:12:43Z" hostname="runnervmnay03" tests="1" skipped="0" failures="0" errors="0" time="0.985">
+    <testcase time="0.984999999999999" classname="ds.mean_smk_expt_type_combine" name="mean_values_combine_"/>
+  </testsuite>
+  <testsuite name="ds.mean::smk_expt::type=split" timestamp="2026-02-27T19:12:44Z" hostname="runnervmnay03" tests="1" skipped="0" failures="0" errors="0" time="1.022">
+    <testcase time="1.022" classname="ds.mean_smk_expt_type_split" name="mean_values_split_"/>
+  </testsuite>
+  <testsuite name="ds.mean::smk_expt::type=both" timestamp="2026-02-27T19:12:45Z" hostname="runnervmnay03" tests="1" skipped="0" failures="0" errors="0" time="1.021">
+    <testcase time="1.021" classname="ds.mean_smk_expt_type_both" name="mean_values_both_"/>
+  </testsuite>
+  <testsuite name="ds.mean::smk_expt::type=combine" timestamp="2026-02-27T19:12:46Z" hostname="runnervmnay03" tests="1" skipped="0" failures="0" errors="0" time="0.965">
+    <testcase time="0.964999999999996" classname="ds.mean_smk_expt_type_combine" name="mean_values_combine_"/>
+  </testsuite>
+  <testsuite name="ds.mean::smk_expt::type=split" timestamp="2026-02-27T19:12:47Z" hostname="runnervmnay03" tests="1" skipped="0" failures="0" errors="0" time="1">
+    <testcase time="1" classname="ds.mean_smk_expt_type_split" name="mean_values_split_"/>
+  </testsuite>
+  <testsuite name="ds.mean::smk_expt::type=both" timestamp="2026-02-27T19:12:48Z" hostname="runnervmnay03" tests="1" skipped="0" failures="0" errors="0" time="1.002">
+    <testcase time="1.002" classname="ds.mean_smk_expt_type_both" name="mean_values_both_"/>
+  </testsuite>
+  <testsuite name="smk_expt-ds.ranksSecure" timestamp="2026-02-27T19:12:49Z" hostname="runnervmnay03" tests="0" skipped="0" failures="0" errors="0" time="0"/>
+  <testsuite name="ds.ranksSecure::smk_expt::setup" timestamp="2026-02-27T19:12:49Z" hostname="runnervmnay03" tests="3" skipped="0" failures="0" errors="0" time="8.005">
+    <testcase time="8.002" classname="ds.ranksSecure_smk_expt_setup" name="setup"/>
+    <testcase time="0.00199999999999534" classname="ds.ranksSecure_smk_expt_setup" name="setup"/>
+    <testcase time="0.00100000000000477" classname="ds.ranksSecure_smk_expt_setup" name="setup"/>
+  </testsuite>
+  <testsuite name="ds.ranksSecure::smk_expt::continous, without NAs, all positive" timestamp="2026-02-27T19:12:57Z" hostname="runnervmnay03" tests="6" skipped="0" failures="0" errors="0" time="10.252">
+    <testcase time="0.848999999999997" classname="ds.ranksSecure_smk_expt_continous_without_NAs_all_positive" name="continous_without_NAs_all_positive"/>
+    <testcase time="0.323" classname="ds.ranksSecure_smk_expt_continous_without_NAs_all_positive" name="continous_without_NAs_all_positive"/>
+    <testcase time="0.00200000000000244" classname="ds.ranksSecure_smk_expt_continous_without_NAs_all_positive" name="continous_without_NAs_all_positive"/>
+    <testcase time="0.00300000000000011" classname="ds.ranksSecure_smk_expt_continous_without_NAs_all_positive" name="continous_without_NAs_all_positive"/>
+    <testcase time="0.00199999999999534" classname="ds.ranksSecure_smk_expt_continous_without_NAs_all_positive" name="continous_without_NAs_all_positive"/>
+    <testcase time="9.073" classname="ds.ranksSecure_smk_expt_continous_without_NAs_all_positive" name="continous_without_NAs_all_positive"/>
+  </testsuite>
+  <testsuite name="ds.ranksSecure::smk_expt::continous, without NAs, with negative" timestamp="2026-02-27T19:13:07Z" hostname="runnervmnay03" tests="6" skipped="0" failures="0" errors="0" time="10.38">
+    <testcase time="0.827000000000005" classname="ds.ranksSecure_smk_expt_continous_without_NAs_with_negative" name="continous_without_NAs_with_negative"/>
+    <testcase time="0.373999999999995" classname="ds.ranksSecure_smk_expt_continous_without_NAs_with_negative" name="continous_without_NAs_with_negative"/>
+    <testcase time="0.00200000000000244" classname="ds.ranksSecure_smk_expt_continous_without_NAs_with_negative" name="continous_without_NAs_with_negative"/>
+    <testcase time="0.000999999999997669" classname="ds.ranksSecure_smk_expt_continous_without_NAs_with_negative" name="continous_without_NAs_with_negative"/>
+    <testcase time="0.00200000000000244" classname="ds.ranksSecure_smk_expt_continous_without_NAs_with_negative" name="continous_without_NAs_with_negative"/>
+    <testcase time="9.17399999999999" classname="ds.ranksSecure_smk_expt_continous_without_NAs_with_negative" name="continous_without_NAs_with_negative"/>
+  </testsuite>
+  <testsuite name="ds.ranksSecure::smk_expt::continous, with NAs, all positive" timestamp="2026-02-27T19:13:18Z" hostname="runnervmnay03" tests="1" skipped="0" failures="0" errors="0" time="9.288">
+    <testcase time="9.28800000000001" classname="ds.ranksSecure_smk_expt_continous_with_NAs_all_positive" name="continous_with_NAs_all_positive"/>
+  </testsuite>
+  <testsuite name="ds.ranksSecure::smk_expt::continous, with NAs, with negative" timestamp="2026-02-27T19:13:27Z" hostname="runnervmnay03" tests="1" skipped="0" failures="0" errors="0" time="9.02">
+    <testcase time="9.02" classname="ds.ranksSecure_smk_expt_continous_with_NAs_with_negative" name="continous_with_NAs_with_negative"/>
+  </testsuite>
+  <testsuite name="ds.ranksSecure::smk_expt::shutdown" timestamp="2026-02-27T19:13:36Z" hostname="runnervmnay03" tests="3" skipped="0" failures="0" errors="0" time="0.175">
+    <testcase time="0.173000000000002" classname="ds.ranksSecure_smk_expt_shutdown" name="setup"/>
+    <testcase time="0.000999999999990564" classname="ds.ranksSecure_smk_expt_shutdown" name="setup"/>
+    <testcase time="0.00100000000000477" classname="ds.ranksSecure_smk_expt_shutdown" name="setup"/>
+  </testsuite>
+  <testsuite name="ds.ranksSecure::smk_expt::done" timestamp="2026-02-27T19:13:37Z" hostname="runnervmnay03" tests="0" skipped="0" failures="0" errors="0" time="0"/>
+</testsuites>
