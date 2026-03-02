@@ -1,0 +1,507 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<testsuites>
+  <testsuite name="expt_dgr-ds.dataFrameSort" timestamp="2026-03-02T11:49:55Z" hostname="runnervmnay03" tests="0" skipped="0" failures="0" errors="0" time="0"/>
+  <testsuite name="ds.dataFrameSort::expt_dgr::setup" timestamp="2026-03-02T11:49:56Z" hostname="runnervmnay03" tests="0" skipped="0" failures="0" errors="0" time="0"/>
+  <testsuite name="ds.dataFrameSort::expt_dgr::multiple::correct_parameter_class" timestamp="2026-03-02T11:49:56Z" hostname="runnervmnay03" tests="1" skipped="1" failures="0" errors="0" time="28.802">
+    <testcase time="28.802" classname="ds.dataFrameSort_expt_dgr_multiple_correct_parameter_class" name="all_datasets">
+      <skipped message="Reason: empty test ('test-expt_dgr-ds.dataFrameSort.R:25:1')"/>
+    </testcase>
+  </testsuite>
+  <testsuite name="ds.dataFrameSort::expt_dgr::single::correct_parameter_class" timestamp="2026-03-02T11:50:24Z" hostname="runnervmnay03" tests="1" skipped="1" failures="0" errors="0" time="4.766">
+    <testcase time="4.766" classname="ds.dataFrameSort_expt_dgr_single_correct_parameter_class" name="dataset_2">
+      <skipped message="Reason: empty test ('test-expt_dgr-ds.dataFrameSort.R:44:1')"/>
+    </testcase>
+  </testsuite>
+  <testsuite name="ds.dataFrameSort::expt_dgr::multiple::incorrect_parameter_class" timestamp="2026-03-02T11:50:29Z" hostname="runnervmnay03" tests="7" skipped="0" failures="0" errors="0" time="11.302">
+    <testcase time="7.75" classname="ds.dataFrameSort_expt_dgr_multiple_incorrect_parameter_class" name="all_datasets"/>
+    <testcase time="0.524000000000001" classname="ds.dataFrameSort_expt_dgr_multiple_incorrect_parameter_class" name="all_datasets"/>
+    <testcase time="0.329999999999998" classname="ds.dataFrameSort_expt_dgr_multiple_incorrect_parameter_class" name="all_datasets"/>
+    <testcase time="0.329000000000001" classname="ds.dataFrameSort_expt_dgr_multiple_incorrect_parameter_class" name="all_datasets"/>
+    <testcase time="0.329000000000001" classname="ds.dataFrameSort_expt_dgr_multiple_incorrect_parameter_class" name="all_datasets"/>
+    <testcase time="1.75" classname="ds.dataFrameSort_expt_dgr_multiple_incorrect_parameter_class" name="all_datasets"/>
+    <testcase time="0.289999999999999" classname="ds.dataFrameSort_expt_dgr_multiple_incorrect_parameter_class" name="all_datasets"/>
+  </testsuite>
+  <testsuite name="ds.dataFrameSort::expt_dgr::single::incorrect_parameter_class" timestamp="2026-03-02T11:50:40Z" hostname="runnervmnay03" tests="7" skipped="0" failures="0" errors="0" time="4.106">
+    <testcase time="3.034" classname="ds.dataFrameSort_expt_dgr_single_incorrect_parameter_class" name="dataset_2"/>
+    <testcase time="0.116" classname="ds.dataFrameSort_expt_dgr_single_incorrect_parameter_class" name="dataset_2"/>
+    <testcase time="0.171999999999997" classname="ds.dataFrameSort_expt_dgr_single_incorrect_parameter_class" name="dataset_2"/>
+    <testcase time="0.115000000000002" classname="ds.dataFrameSort_expt_dgr_single_incorrect_parameter_class" name="dataset_2"/>
+    <testcase time="0.170999999999999" classname="ds.dataFrameSort_expt_dgr_single_incorrect_parameter_class" name="dataset_2"/>
+    <testcase time="0.363" classname="ds.dataFrameSort_expt_dgr_single_incorrect_parameter_class" name="dataset_2"/>
+    <testcase time="0.134999999999998" classname="ds.dataFrameSort_expt_dgr_single_incorrect_parameter_class" name="dataset_2"/>
+  </testsuite>
+  <testsuite name="ds.dataFrameSort::expt_dgr::multiple::df::creation" timestamp="2026-03-02T11:50:44Z" hostname="runnervmnay03" tests="77" skipped="0" failures="0" errors="0" time="27.997">
+    <testcase time="9.363" classname="ds.dataFrameSort_expt_dgr_multiple_df_creation" name="all_datasets"/>
+    <testcase time="0.00300000000000011" classname="ds.dataFrameSort_expt_dgr_multiple_df_creation" name="all_datasets"/>
+    <testcase time="0.00300000000000011" classname="ds.dataFrameSort_expt_dgr_multiple_df_creation" name="all_datasets"/>
+    <testcase time="0.00200000000000244" classname="ds.dataFrameSort_expt_dgr_multiple_df_creation" name="all_datasets"/>
+    <testcase time="0.00199999999999534" classname="ds.dataFrameSort_expt_dgr_multiple_df_creation" name="all_datasets"/>
+    <testcase time="0.00200000000000244" classname="ds.dataFrameSort_expt_dgr_multiple_df_creation" name="all_datasets"/>
+    <testcase time="0.000999999999997669" classname="ds.dataFrameSort_expt_dgr_multiple_df_creation" name="all_datasets"/>
+    <testcase time="1.845" classname="ds.dataFrameSort_expt_dgr_multiple_df_creation" name="all_datasets"/>
+    <testcase time="0.00400000000000489" classname="ds.dataFrameSort_expt_dgr_multiple_df_creation" name="all_datasets"/>
+    <testcase time="0.00399999999999778" classname="ds.dataFrameSort_expt_dgr_multiple_df_creation" name="all_datasets"/>
+    <testcase time="0.00399999999999778" classname="ds.dataFrameSort_expt_dgr_multiple_df_creation" name="all_datasets"/>
+    <testcase time="0.00200000000000244" classname="ds.dataFrameSort_expt_dgr_multiple_df_creation" name="all_datasets"/>
+    <testcase time="0.00200000000000244" classname="ds.dataFrameSort_expt_dgr_multiple_df_creation" name="all_datasets"/>
+    <testcase time="0.00300000000000011" classname="ds.dataFrameSort_expt_dgr_multiple_df_creation" name="all_datasets"/>
+    <testcase time="1.85999999999999" classname="ds.dataFrameSort_expt_dgr_multiple_df_creation" name="all_datasets"/>
+    <testcase time="0.00300000000000011" classname="ds.dataFrameSort_expt_dgr_multiple_df_creation" name="all_datasets"/>
+    <testcase time="0.00300000000000011" classname="ds.dataFrameSort_expt_dgr_multiple_df_creation" name="all_datasets"/>
+    <testcase time="0.00300000000000011" classname="ds.dataFrameSort_expt_dgr_multiple_df_creation" name="all_datasets"/>
+    <testcase time="0.00100000000000477" classname="ds.dataFrameSort_expt_dgr_multiple_df_creation" name="all_datasets"/>
+    <testcase time="0.00199999999999534" classname="ds.dataFrameSort_expt_dgr_multiple_df_creation" name="all_datasets"/>
+    <testcase time="0.00100000000000477" classname="ds.dataFrameSort_expt_dgr_multiple_df_creation" name="all_datasets"/>
+    <testcase time="1.854" classname="ds.dataFrameSort_expt_dgr_multiple_df_creation" name="all_datasets"/>
+    <testcase time="0.00300000000000011" classname="ds.dataFrameSort_expt_dgr_multiple_df_creation" name="all_datasets"/>
+    <testcase time="0.00300000000000011" classname="ds.dataFrameSort_expt_dgr_multiple_df_creation" name="all_datasets"/>
+    <testcase time="0.00199999999999534" classname="ds.dataFrameSort_expt_dgr_multiple_df_creation" name="all_datasets"/>
+    <testcase time="0.00200000000000955" classname="ds.dataFrameSort_expt_dgr_multiple_df_creation" name="all_datasets"/>
+    <testcase time="0.000999999999990564" classname="ds.dataFrameSort_expt_dgr_multiple_df_creation" name="all_datasets"/>
+    <testcase time="0.00100000000000477" classname="ds.dataFrameSort_expt_dgr_multiple_df_creation" name="all_datasets"/>
+    <testcase time="1.83999999999999" classname="ds.dataFrameSort_expt_dgr_multiple_df_creation" name="all_datasets"/>
+    <testcase time="0.00400000000000489" classname="ds.dataFrameSort_expt_dgr_multiple_df_creation" name="all_datasets"/>
+    <testcase time="0.00199999999999534" classname="ds.dataFrameSort_expt_dgr_multiple_df_creation" name="all_datasets"/>
+    <testcase time="0.00300000000000011" classname="ds.dataFrameSort_expt_dgr_multiple_df_creation" name="all_datasets"/>
+    <testcase time="0.00200000000000955" classname="ds.dataFrameSort_expt_dgr_multiple_df_creation" name="all_datasets"/>
+    <testcase time="0.000999999999990564" classname="ds.dataFrameSort_expt_dgr_multiple_df_creation" name="all_datasets"/>
+    <testcase time="0.00200000000000955" classname="ds.dataFrameSort_expt_dgr_multiple_df_creation" name="all_datasets"/>
+    <testcase time="1.816" classname="ds.dataFrameSort_expt_dgr_multiple_df_creation" name="all_datasets"/>
+    <testcase time="0.00300000000000011" classname="ds.dataFrameSort_expt_dgr_multiple_df_creation" name="all_datasets"/>
+    <testcase time="0.00300000000000011" classname="ds.dataFrameSort_expt_dgr_multiple_df_creation" name="all_datasets"/>
+    <testcase time="0.00199999999999534" classname="ds.dataFrameSort_expt_dgr_multiple_df_creation" name="all_datasets"/>
+    <testcase time="0.00199999999999534" classname="ds.dataFrameSort_expt_dgr_multiple_df_creation" name="all_datasets"/>
+    <testcase time="0.00200000000000955" classname="ds.dataFrameSort_expt_dgr_multiple_df_creation" name="all_datasets"/>
+    <testcase time="0.000999999999990564" classname="ds.dataFrameSort_expt_dgr_multiple_df_creation" name="all_datasets"/>
+    <testcase time="1.855" classname="ds.dataFrameSort_expt_dgr_multiple_df_creation" name="all_datasets"/>
+    <testcase time="0.00400000000000489" classname="ds.dataFrameSort_expt_dgr_multiple_df_creation" name="all_datasets"/>
+    <testcase time="0.00300000000000011" classname="ds.dataFrameSort_expt_dgr_multiple_df_creation" name="all_datasets"/>
+    <testcase time="0.00199999999999534" classname="ds.dataFrameSort_expt_dgr_multiple_df_creation" name="all_datasets"/>
+    <testcase time="0.00199999999999534" classname="ds.dataFrameSort_expt_dgr_multiple_df_creation" name="all_datasets"/>
+    <testcase time="0.00200000000000955" classname="ds.dataFrameSort_expt_dgr_multiple_df_creation" name="all_datasets"/>
+    <testcase time="0.000999999999990564" classname="ds.dataFrameSort_expt_dgr_multiple_df_creation" name="all_datasets"/>
+    <testcase time="1.88300000000001" classname="ds.dataFrameSort_expt_dgr_multiple_df_creation" name="all_datasets"/>
+    <testcase time="0.00300000000000011" classname="ds.dataFrameSort_expt_dgr_multiple_df_creation" name="all_datasets"/>
+    <testcase time="0.00300000000000011" classname="ds.dataFrameSort_expt_dgr_multiple_df_creation" name="all_datasets"/>
+    <testcase time="0.00300000000000011" classname="ds.dataFrameSort_expt_dgr_multiple_df_creation" name="all_datasets"/>
+    <testcase time="0.000999999999990564" classname="ds.dataFrameSort_expt_dgr_multiple_df_creation" name="all_datasets"/>
+    <testcase time="0.00200000000000955" classname="ds.dataFrameSort_expt_dgr_multiple_df_creation" name="all_datasets"/>
+    <testcase time="0.000999999999990564" classname="ds.dataFrameSort_expt_dgr_multiple_df_creation" name="all_datasets"/>
+    <testcase time="1.86200000000001" classname="ds.dataFrameSort_expt_dgr_multiple_df_creation" name="all_datasets"/>
+    <testcase time="0.00300000000000011" classname="ds.dataFrameSort_expt_dgr_multiple_df_creation" name="all_datasets"/>
+    <testcase time="0.00300000000000011" classname="ds.dataFrameSort_expt_dgr_multiple_df_creation" name="all_datasets"/>
+    <testcase time="0.00300000000000011" classname="ds.dataFrameSort_expt_dgr_multiple_df_creation" name="all_datasets"/>
+    <testcase time="0.00199999999999534" classname="ds.dataFrameSort_expt_dgr_multiple_df_creation" name="all_datasets"/>
+    <testcase time="0.00100000000000477" classname="ds.dataFrameSort_expt_dgr_multiple_df_creation" name="all_datasets"/>
+    <testcase time="0.00199999999999534" classname="ds.dataFrameSort_expt_dgr_multiple_df_creation" name="all_datasets"/>
+    <testcase time="1.806" classname="ds.dataFrameSort_expt_dgr_multiple_df_creation" name="all_datasets"/>
+    <testcase time="0.00300000000000011" classname="ds.dataFrameSort_expt_dgr_multiple_df_creation" name="all_datasets"/>
+    <testcase time="0.00400000000000489" classname="ds.dataFrameSort_expt_dgr_multiple_df_creation" name="all_datasets"/>
+    <testcase time="0.00300000000000011" classname="ds.dataFrameSort_expt_dgr_multiple_df_creation" name="all_datasets"/>
+    <testcase time="0.000999999999990564" classname="ds.dataFrameSort_expt_dgr_multiple_df_creation" name="all_datasets"/>
+    <testcase time="0.00200000000000955" classname="ds.dataFrameSort_expt_dgr_multiple_df_creation" name="all_datasets"/>
+    <testcase time="0.000999999999990564" classname="ds.dataFrameSort_expt_dgr_multiple_df_creation" name="all_datasets"/>
+    <testcase time="1.85900000000001" classname="ds.dataFrameSort_expt_dgr_multiple_df_creation" name="all_datasets"/>
+    <testcase time="0.00399999999999068" classname="ds.dataFrameSort_expt_dgr_multiple_df_creation" name="all_datasets"/>
+    <testcase time="0.00300000000000011" classname="ds.dataFrameSort_expt_dgr_multiple_df_creation" name="all_datasets"/>
+    <testcase time="0.00300000000000011" classname="ds.dataFrameSort_expt_dgr_multiple_df_creation" name="all_datasets"/>
+    <testcase time="0.00100000000000477" classname="ds.dataFrameSort_expt_dgr_multiple_df_creation" name="all_datasets"/>
+    <testcase time="0.00199999999999534" classname="ds.dataFrameSort_expt_dgr_multiple_df_creation" name="all_datasets"/>
+    <testcase time="0.00200000000000955" classname="ds.dataFrameSort_expt_dgr_multiple_df_creation" name="all_datasets"/>
+  </testsuite>
+  <testsuite name="ds.dataFrameSort::expt_dgr::single::df::creation" timestamp="2026-03-02T11:51:12Z" hostname="runnervmnay03" tests="33" skipped="0" failures="0" errors="0" time="9.963">
+    <testcase time="3.66199999999999" classname="ds.dataFrameSort_expt_dgr_single_df_creation" name="dataset_3"/>
+    <testcase time="0.00300000000000011" classname="ds.dataFrameSort_expt_dgr_single_df_creation" name="dataset_3"/>
+    <testcase time="0.00100000000000477" classname="ds.dataFrameSort_expt_dgr_single_df_creation" name="dataset_3"/>
+    <testcase time="0.584999999999994" classname="ds.dataFrameSort_expt_dgr_single_df_creation" name="dataset_3"/>
+    <testcase time="0.00300000000000011" classname="ds.dataFrameSort_expt_dgr_single_df_creation" name="dataset_3"/>
+    <testcase time="0.00200000000000955" classname="ds.dataFrameSort_expt_dgr_single_df_creation" name="dataset_3"/>
+    <testcase time="0.629999999999995" classname="ds.dataFrameSort_expt_dgr_single_df_creation" name="dataset_3"/>
+    <testcase time="0.00300000000000011" classname="ds.dataFrameSort_expt_dgr_single_df_creation" name="dataset_3"/>
+    <testcase time="0.00199999999999534" classname="ds.dataFrameSort_expt_dgr_single_df_creation" name="dataset_3"/>
+    <testcase time="0.626000000000005" classname="ds.dataFrameSort_expt_dgr_single_df_creation" name="dataset_3"/>
+    <testcase time="0.00400000000000489" classname="ds.dataFrameSort_expt_dgr_single_df_creation" name="dataset_3"/>
+    <testcase time="0.00300000000000011" classname="ds.dataFrameSort_expt_dgr_single_df_creation" name="dataset_3"/>
+    <testcase time="0.625" classname="ds.dataFrameSort_expt_dgr_single_df_creation" name="dataset_3"/>
+    <testcase time="0.00300000000000011" classname="ds.dataFrameSort_expt_dgr_single_df_creation" name="dataset_3"/>
+    <testcase time="0.000999999999990564" classname="ds.dataFrameSort_expt_dgr_single_df_creation" name="dataset_3"/>
+    <testcase time="0.624000000000009" classname="ds.dataFrameSort_expt_dgr_single_df_creation" name="dataset_3"/>
+    <testcase time="0.00300000000000011" classname="ds.dataFrameSort_expt_dgr_single_df_creation" name="dataset_3"/>
+    <testcase time="0.000999999999990564" classname="ds.dataFrameSort_expt_dgr_single_df_creation" name="dataset_3"/>
+    <testcase time="0.680000000000007" classname="ds.dataFrameSort_expt_dgr_single_df_creation" name="dataset_3"/>
+    <testcase time="0.00399999999999068" classname="ds.dataFrameSort_expt_dgr_single_df_creation" name="dataset_3"/>
+    <testcase time="0.00100000000000477" classname="ds.dataFrameSort_expt_dgr_single_df_creation" name="dataset_3"/>
+    <testcase time="0.588000000000008" classname="ds.dataFrameSort_expt_dgr_single_df_creation" name="dataset_3"/>
+    <testcase time="0.00399999999999068" classname="ds.dataFrameSort_expt_dgr_single_df_creation" name="dataset_3"/>
+    <testcase time="0.00100000000000477" classname="ds.dataFrameSort_expt_dgr_single_df_creation" name="dataset_3"/>
+    <testcase time="0.632999999999996" classname="ds.dataFrameSort_expt_dgr_single_df_creation" name="dataset_3"/>
+    <testcase time="0.00400000000000489" classname="ds.dataFrameSort_expt_dgr_single_df_creation" name="dataset_3"/>
+    <testcase time="0.00100000000000477" classname="ds.dataFrameSort_expt_dgr_single_df_creation" name="dataset_3"/>
+    <testcase time="0.622" classname="ds.dataFrameSort_expt_dgr_single_df_creation" name="dataset_3"/>
+    <testcase time="0.00300000000000011" classname="ds.dataFrameSort_expt_dgr_single_df_creation" name="dataset_3"/>
+    <testcase time="0.000999999999990564" classname="ds.dataFrameSort_expt_dgr_single_df_creation" name="dataset_3"/>
+    <testcase time="0.635000000000005" classname="ds.dataFrameSort_expt_dgr_single_df_creation" name="dataset_3"/>
+    <testcase time="0.00300000000000011" classname="ds.dataFrameSort_expt_dgr_single_df_creation" name="dataset_3"/>
+    <testcase time="0.00199999999999534" classname="ds.dataFrameSort_expt_dgr_single_df_creation" name="dataset_3"/>
+  </testsuite>
+  <testsuite name="ds.dataFrameSort::expt_dgr::multiple::numeric::ascending" timestamp="2026-03-02T11:51:22Z" hostname="runnervmnay03" tests="7" skipped="0" failures="0" errors="1" time="9.142">
+    <testcase time="9.09400000000001" classname="ds.dataFrameSort_expt_dgr_multiple_numeric_ascending" name="all_datasets"/>
+    <testcase time="0.00199999999999534" classname="ds.dataFrameSort_expt_dgr_multiple_numeric_ascending" name="all_datasets"/>
+    <testcase time="0.00100000000000477" classname="ds.dataFrameSort_expt_dgr_multiple_numeric_ascending" name="all_datasets"/>
+    <testcase time="0.000999999999990564" classname="ds.dataFrameSort_expt_dgr_multiple_numeric_ascending" name="all_datasets"/>
+    <testcase time="0.00200000000000955" classname="ds.dataFrameSort_expt_dgr_multiple_numeric_ascending" name="all_datasets"/>
+    <testcase time="0.000999999999990564" classname="ds.dataFrameSort_expt_dgr_multiple_numeric_ascending" name="all_datasets"/>
+    <testcase time="0.0409999999999968" classname="ds.dataFrameSort_expt_dgr_multiple_numeric_ascending" name="all_datasets">
+      <error type="error" message="Error: There are some DataSHIELD errors, list them with datashield.errors() ('test-expt_dgr-ds.dataFrameSort.R:135:13')">Error: There are some DataSHIELD errors, list them with datashield.errors()
+Backtrace:
+    x
+ 1. \-global .test.data.frame.sorting(...) at test-expt_dgr-ds.dataFrameSort.R:135:13
+ 2.   \-dsDangerClient::ds.DANGERdfEXTRACT(df.created, datasources = ds.test_env$connections)
+ 3.     \-DSI::datashield.aggregate(datasources, calltext)
+ 4.       \-DSI:::.handle_errors(errors.print)
+ 5.         \-DSI:::.checkLastErrors()
+ 6.           \-cli::cli_abort(...)
+ 7.             \-rlang::abort(...)</error>
+    </testcase>
+  </testsuite>
+  <testsuite name="ds.dataFrameSort::expt_dgr::single::numeric::ascending" timestamp="2026-03-02T11:51:32Z" hostname="runnervmnay03" tests="3" skipped="0" failures="0" errors="1" time="3.609">
+    <testcase time="3.584" classname="ds.dataFrameSort_expt_dgr_single_numeric_ascending" name="dataset_1"/>
+    <testcase time="0.00200000000000955" classname="ds.dataFrameSort_expt_dgr_single_numeric_ascending" name="dataset_1"/>
+    <testcase time="0.0229999999999961" classname="ds.dataFrameSort_expt_dgr_single_numeric_ascending" name="dataset_1">
+      <error type="error" message="Error: There are some DataSHIELD errors, list them with datashield.errors() ('test-expt_dgr-ds.dataFrameSort.R:156:13')">Error: There are some DataSHIELD errors, list them with datashield.errors()
+Backtrace:
+    x
+ 1. \-global .test.data.frame.sorting(...) at test-expt_dgr-ds.dataFrameSort.R:156:13
+ 2.   \-dsDangerClient::ds.DANGERdfEXTRACT(df.created, datasources = ds.test_env$connections)
+ 3.     \-DSI::datashield.aggregate(datasources, calltext)
+ 4.       \-DSI:::.handle_errors(errors.print)
+ 5.         \-DSI:::.checkLastErrors()
+ 6.           \-cli::cli_abort(...)
+ 7.             \-rlang::abort(...)</error>
+    </testcase>
+  </testsuite>
+  <testsuite name="ds.dataFrameSort::expt_dgr::multiple::numeric::descending" timestamp="2026-03-02T11:51:35Z" hostname="runnervmnay03" tests="7" skipped="0" failures="0" errors="1" time="9.22">
+    <testcase time="9.17099999999999" classname="ds.dataFrameSort_expt_dgr_multiple_numeric_descending" name="all_datasets"/>
+    <testcase time="0.00200000000000955" classname="ds.dataFrameSort_expt_dgr_multiple_numeric_descending" name="all_datasets"/>
+    <testcase time="0.000999999999990564" classname="ds.dataFrameSort_expt_dgr_multiple_numeric_descending" name="all_datasets"/>
+    <testcase time="0.00200000000000955" classname="ds.dataFrameSort_expt_dgr_multiple_numeric_descending" name="all_datasets"/>
+    <testcase time="0.000999999999990564" classname="ds.dataFrameSort_expt_dgr_multiple_numeric_descending" name="all_datasets"/>
+    <testcase time="0.00100000000000477" classname="ds.dataFrameSort_expt_dgr_multiple_numeric_descending" name="all_datasets"/>
+    <testcase time="0.0420000000000016" classname="ds.dataFrameSort_expt_dgr_multiple_numeric_descending" name="all_datasets">
+      <error type="error" message="Error: There are some DataSHIELD errors, list them with datashield.errors() ('test-expt_dgr-ds.dataFrameSort.R:177:13')">Error: There are some DataSHIELD errors, list them with datashield.errors()
+Backtrace:
+    x
+ 1. \-global .test.data.frame.sorting(...) at test-expt_dgr-ds.dataFrameSort.R:177:13
+ 2.   \-dsDangerClient::ds.DANGERdfEXTRACT(df.created, datasources = ds.test_env$connections)
+ 3.     \-DSI::datashield.aggregate(datasources, calltext)
+ 4.       \-DSI:::.handle_errors(errors.print)
+ 5.         \-DSI:::.checkLastErrors()
+ 6.           \-cli::cli_abort(...)
+ 7.             \-rlang::abort(...)</error>
+    </testcase>
+  </testsuite>
+  <testsuite name="ds.dataFrameSort::expt_dgr::single::numeric::descending" timestamp="2026-03-02T11:51:44Z" hostname="runnervmnay03" tests="3" skipped="0" failures="0" errors="1" time="3.586">
+    <testcase time="3.56099999999999" classname="ds.dataFrameSort_expt_dgr_single_numeric_descending" name="dataset_1"/>
+    <testcase time="0.00200000000000955" classname="ds.dataFrameSort_expt_dgr_single_numeric_descending" name="dataset_1"/>
+    <testcase time="0.0229999999999961" classname="ds.dataFrameSort_expt_dgr_single_numeric_descending" name="dataset_1">
+      <error type="error" message="Error: There are some DataSHIELD errors, list them with datashield.errors() ('test-expt_dgr-ds.dataFrameSort.R:200:13')">Error: There are some DataSHIELD errors, list them with datashield.errors()
+Backtrace:
+    x
+ 1. \-global .test.data.frame.sorting(...) at test-expt_dgr-ds.dataFrameSort.R:200:13
+ 2.   \-dsDangerClient::ds.DANGERdfEXTRACT(df.created, datasources = ds.test_env$connections)
+ 3.     \-DSI::datashield.aggregate(datasources, calltext)
+ 4.       \-DSI:::.handle_errors(errors.print)
+ 5.         \-DSI:::.checkLastErrors()
+ 6.           \-cli::cli_abort(...)
+ 7.             \-rlang::abort(...)</error>
+    </testcase>
+  </testsuite>
+  <testsuite name="ds.dataFrameSort::expt_dgr::multiple::alphabetic::ascending" timestamp="2026-03-02T11:51:48Z" hostname="runnervmnay03" tests="1" skipped="1" failures="0" errors="0" time="0.037">
+    <testcase time="0.0370000000000061" classname="ds.dataFrameSort_expt_dgr_multiple_alphabetic_ascending" name="all_datasets">
+      <skipped message="Reason: empty test ('test-expt_dgr-ds.dataFrameSort.R:218:1')"/>
+    </testcase>
+  </testsuite>
+  <testsuite name="ds.dataFrameSort::expt_dgr::single::alphabetic::ascending" timestamp="2026-03-02T11:51:48Z" hostname="runnervmnay03" tests="1" skipped="1" failures="0" errors="0" time="0.014">
+    <testcase time="0.0139999999999958" classname="ds.dataFrameSort_expt_dgr_single_alphabetic_ascending" name="dataset_2">
+      <skipped message="Reason: empty test ('test-expt_dgr-ds.dataFrameSort.R:246:1')"/>
+    </testcase>
+  </testsuite>
+  <testsuite name="ds.dataFrameSort::expt_dgr::multiple::alphabetic::descending" timestamp="2026-03-02T11:51:48Z" hostname="runnervmnay03" tests="1" skipped="1" failures="0" errors="0" time="0.014">
+    <testcase time="0.0139999999999958" classname="ds.dataFrameSort_expt_dgr_multiple_alphabetic_descending" name="all_datasets">
+      <skipped message="Reason: empty test ('test-expt_dgr-ds.dataFrameSort.R:274:1')"/>
+    </testcase>
+  </testsuite>
+  <testsuite name="ds.dataFrameSort::expt_dgr::single::alphabetic::descending" timestamp="2026-03-02T11:51:48Z" hostname="runnervmnay03" tests="1" skipped="1" failures="0" errors="0" time="0.013">
+    <testcase time="0.0130000000000052" classname="ds.dataFrameSort_expt_dgr_single_alphabetic_descending" name="dataset_3">
+      <skipped message="Reason: empty test ('test-expt_dgr-ds.dataFrameSort.R:300:1')"/>
+    </testcase>
+  </testsuite>
+  <testsuite name="ds.dataFrameSort::expt_dgr::shutdown" timestamp="2026-03-02T11:51:48Z" hostname="runnervmnay03" tests="0" skipped="0" failures="0" errors="0" time="0"/>
+  <testsuite name="ds.dataFrameSort::expt_dgr::done" timestamp="2026-03-02T11:51:48Z" hostname="runnervmnay03" tests="0" skipped="0" failures="0" errors="0" time="0"/>
+  <testsuite name="expt_dgr-ds.dataFrameSubset" timestamp="2026-03-02T11:51:48Z" hostname="runnervmnay03" tests="0" skipped="0" failures="0" errors="0" time="0"/>
+  <testsuite name="ds.dataFrameSubset::expt_dgr::setup" timestamp="2026-03-02T11:51:48Z" hostname="runnervmnay03" tests="0" skipped="0" failures="0" errors="0" time="0"/>
+  <testsuite name="ds.dataFrameSubset::expt_dgr::multiple::parameter_class" timestamp="2026-03-02T11:51:48Z" hostname="runnervmnay03" tests="6" skipped="0" failures="0" errors="0" time="11.828">
+    <testcase time="9.995" classname="ds.dataFrameSubset_expt_dgr_multiple_parameter_class" name="all_datasets"/>
+    <testcase time="0.286999999999992" classname="ds.dataFrameSubset_expt_dgr_multiple_parameter_class" name="all_datasets"/>
+    <testcase time="0.328000000000003" classname="ds.dataFrameSubset_expt_dgr_multiple_parameter_class" name="all_datasets"/>
+    <testcase time="0.316000000000003" classname="ds.dataFrameSubset_expt_dgr_multiple_parameter_class" name="all_datasets"/>
+    <testcase time="0.588999999999999" classname="ds.dataFrameSubset_expt_dgr_multiple_parameter_class" name="all_datasets"/>
+    <testcase time="0.313000000000002" classname="ds.dataFrameSubset_expt_dgr_multiple_parameter_class" name="all_datasets"/>
+  </testsuite>
+  <testsuite name="ds.dataFrameSubset::expt_dgr::single::parameter_class" timestamp="2026-03-02T11:52:00Z" hostname="runnervmnay03" tests="6" skipped="0" failures="0" errors="0" time="4.056">
+    <testcase time="3.31699999999999" classname="ds.dataFrameSubset_expt_dgr_single_parameter_class" name="dataset_1"/>
+    <testcase time="0.113" classname="ds.dataFrameSubset_expt_dgr_single_parameter_class" name="dataset_1"/>
+    <testcase time="0.114000000000004" classname="ds.dataFrameSubset_expt_dgr_single_parameter_class" name="dataset_1"/>
+    <testcase time="0.114000000000004" classname="ds.dataFrameSubset_expt_dgr_single_parameter_class" name="dataset_1"/>
+    <testcase time="0.282999999999987" classname="ds.dataFrameSubset_expt_dgr_single_parameter_class" name="dataset_1"/>
+    <testcase time="0.115000000000009" classname="ds.dataFrameSubset_expt_dgr_single_parameter_class" name="dataset_1"/>
+  </testsuite>
+  <testsuite name="ds.dataFrameSubset::expt_dgr::multiple::all_columns" timestamp="2026-03-02T11:52:04Z" hostname="runnervmnay03" tests="48" skipped="0" failures="0" errors="0" time="19.644">
+    <testcase time="9.50399999999999" classname="ds.dataFrameSubset_expt_dgr_multiple_all_columns" name="all_datasets"/>
+    <testcase time="0.00200000000000955" classname="ds.dataFrameSubset_expt_dgr_multiple_all_columns" name="all_datasets"/>
+    <testcase time="0.0029999999999859" classname="ds.dataFrameSubset_expt_dgr_multiple_all_columns" name="all_datasets"/>
+    <testcase time="0.00300000000001432" classname="ds.dataFrameSubset_expt_dgr_multiple_all_columns" name="all_datasets"/>
+    <testcase time="0.00100000000000477" classname="ds.dataFrameSubset_expt_dgr_multiple_all_columns" name="all_datasets"/>
+    <testcase time="0.00199999999998113" classname="ds.dataFrameSubset_expt_dgr_multiple_all_columns" name="all_datasets"/>
+    <testcase time="0.00100000000000477" classname="ds.dataFrameSubset_expt_dgr_multiple_all_columns" name="all_datasets"/>
+    <testcase time="0.00200000000000955" classname="ds.dataFrameSubset_expt_dgr_multiple_all_columns" name="all_datasets"/>
+    <testcase time="2.06799999999998" classname="ds.dataFrameSubset_expt_dgr_multiple_all_columns" name="all_datasets"/>
+    <testcase time="0.00300000000001432" classname="ds.dataFrameSubset_expt_dgr_multiple_all_columns" name="all_datasets"/>
+    <testcase time="0.0029999999999859" classname="ds.dataFrameSubset_expt_dgr_multiple_all_columns" name="all_datasets"/>
+    <testcase time="0.00300000000001432" classname="ds.dataFrameSubset_expt_dgr_multiple_all_columns" name="all_datasets"/>
+    <testcase time="0.00100000000000477" classname="ds.dataFrameSubset_expt_dgr_multiple_all_columns" name="all_datasets"/>
+    <testcase time="0.00199999999998113" classname="ds.dataFrameSubset_expt_dgr_multiple_all_columns" name="all_datasets"/>
+    <testcase time="0.00100000000000477" classname="ds.dataFrameSubset_expt_dgr_multiple_all_columns" name="all_datasets"/>
+    <testcase time="0.00200000000000955" classname="ds.dataFrameSubset_expt_dgr_multiple_all_columns" name="all_datasets"/>
+    <testcase time="1.98699999999999" classname="ds.dataFrameSubset_expt_dgr_multiple_all_columns" name="all_datasets"/>
+    <testcase time="0.0029999999999859" classname="ds.dataFrameSubset_expt_dgr_multiple_all_columns" name="all_datasets"/>
+    <testcase time="0.00300000000001432" classname="ds.dataFrameSubset_expt_dgr_multiple_all_columns" name="all_datasets"/>
+    <testcase time="0.0029999999999859" classname="ds.dataFrameSubset_expt_dgr_multiple_all_columns" name="all_datasets"/>
+    <testcase time="0.00100000000000477" classname="ds.dataFrameSubset_expt_dgr_multiple_all_columns" name="all_datasets"/>
+    <testcase time="0.00200000000000955" classname="ds.dataFrameSubset_expt_dgr_multiple_all_columns" name="all_datasets"/>
+    <testcase time="0.00100000000000477" classname="ds.dataFrameSubset_expt_dgr_multiple_all_columns" name="all_datasets"/>
+    <testcase time="0.00199999999998113" classname="ds.dataFrameSubset_expt_dgr_multiple_all_columns" name="all_datasets"/>
+    <testcase time="2.05600000000001" classname="ds.dataFrameSubset_expt_dgr_multiple_all_columns" name="all_datasets"/>
+    <testcase time="0.00300000000001432" classname="ds.dataFrameSubset_expt_dgr_multiple_all_columns" name="all_datasets"/>
+    <testcase time="0.0029999999999859" classname="ds.dataFrameSubset_expt_dgr_multiple_all_columns" name="all_datasets"/>
+    <testcase time="0.00300000000001432" classname="ds.dataFrameSubset_expt_dgr_multiple_all_columns" name="all_datasets"/>
+    <testcase time="0.000999999999976353" classname="ds.dataFrameSubset_expt_dgr_multiple_all_columns" name="all_datasets"/>
+    <testcase time="0.00200000000000955" classname="ds.dataFrameSubset_expt_dgr_multiple_all_columns" name="all_datasets"/>
+    <testcase time="0.00100000000000477" classname="ds.dataFrameSubset_expt_dgr_multiple_all_columns" name="all_datasets"/>
+    <testcase time="0.00200000000000955" classname="ds.dataFrameSubset_expt_dgr_multiple_all_columns" name="all_datasets"/>
+    <testcase time="1.99099999999999" classname="ds.dataFrameSubset_expt_dgr_multiple_all_columns" name="all_datasets"/>
+    <testcase time="0.00300000000001432" classname="ds.dataFrameSubset_expt_dgr_multiple_all_columns" name="all_datasets"/>
+    <testcase time="0.0029999999999859" classname="ds.dataFrameSubset_expt_dgr_multiple_all_columns" name="all_datasets"/>
+    <testcase time="0.00300000000001432" classname="ds.dataFrameSubset_expt_dgr_multiple_all_columns" name="all_datasets"/>
+    <testcase time="0.00199999999998113" classname="ds.dataFrameSubset_expt_dgr_multiple_all_columns" name="all_datasets"/>
+    <testcase time="0.00100000000000477" classname="ds.dataFrameSubset_expt_dgr_multiple_all_columns" name="all_datasets"/>
+    <testcase time="0.00200000000000955" classname="ds.dataFrameSubset_expt_dgr_multiple_all_columns" name="all_datasets"/>
+    <testcase time="0.00100000000000477" classname="ds.dataFrameSubset_expt_dgr_multiple_all_columns" name="all_datasets"/>
+    <testcase time="1.94799999999998" classname="ds.dataFrameSubset_expt_dgr_multiple_all_columns" name="all_datasets"/>
+    <testcase time="0.0040000000000191" classname="ds.dataFrameSubset_expt_dgr_multiple_all_columns" name="all_datasets"/>
+    <testcase time="0.0029999999999859" classname="ds.dataFrameSubset_expt_dgr_multiple_all_columns" name="all_datasets"/>
+    <testcase time="0.00300000000001432" classname="ds.dataFrameSubset_expt_dgr_multiple_all_columns" name="all_datasets"/>
+    <testcase time="0.000999999999976353" classname="ds.dataFrameSubset_expt_dgr_multiple_all_columns" name="all_datasets"/>
+    <testcase time="0.00200000000000955" classname="ds.dataFrameSubset_expt_dgr_multiple_all_columns" name="all_datasets"/>
+    <testcase time="0.00200000000000955" classname="ds.dataFrameSubset_expt_dgr_multiple_all_columns" name="all_datasets"/>
+    <testcase time="0.00100000000000477" classname="ds.dataFrameSubset_expt_dgr_multiple_all_columns" name="all_datasets"/>
+  </testsuite>
+  <testsuite name="ds.dataFrameSubset::expt_dgr::single::all_columns" timestamp="2026-03-02T11:52:24Z" hostname="runnervmnay03" tests="24" skipped="0" failures="0" errors="0" time="7.87">
+    <testcase time="3.78799999999998" classname="ds.dataFrameSubset_expt_dgr_single_all_columns" name="dataset_2"/>
+    <testcase time="0.00300000000001432" classname="ds.dataFrameSubset_expt_dgr_single_all_columns" name="dataset_2"/>
+    <testcase time="0.00199999999998113" classname="ds.dataFrameSubset_expt_dgr_single_all_columns" name="dataset_2"/>
+    <testcase time="0.00100000000000477" classname="ds.dataFrameSubset_expt_dgr_single_all_columns" name="dataset_2"/>
+    <testcase time="0.841000000000008" classname="ds.dataFrameSubset_expt_dgr_single_all_columns" name="dataset_2"/>
+    <testcase time="0.0029999999999859" classname="ds.dataFrameSubset_expt_dgr_single_all_columns" name="dataset_2"/>
+    <testcase time="0.00200000000000955" classname="ds.dataFrameSubset_expt_dgr_single_all_columns" name="dataset_2"/>
+    <testcase time="0.00100000000000477" classname="ds.dataFrameSubset_expt_dgr_single_all_columns" name="dataset_2"/>
+    <testcase time="0.799999999999983" classname="ds.dataFrameSubset_expt_dgr_single_all_columns" name="dataset_2"/>
+    <testcase time="0.00300000000001432" classname="ds.dataFrameSubset_expt_dgr_single_all_columns" name="dataset_2"/>
+    <testcase time="0.00200000000000955" classname="ds.dataFrameSubset_expt_dgr_single_all_columns" name="dataset_2"/>
+    <testcase time="0.000999999999976353" classname="ds.dataFrameSubset_expt_dgr_single_all_columns" name="dataset_2"/>
+    <testcase time="0.781000000000006" classname="ds.dataFrameSubset_expt_dgr_single_all_columns" name="dataset_2"/>
+    <testcase time="0.00300000000001432" classname="ds.dataFrameSubset_expt_dgr_single_all_columns" name="dataset_2"/>
+    <testcase time="0.00100000000000477" classname="ds.dataFrameSubset_expt_dgr_single_all_columns" name="dataset_2"/>
+    <testcase time="0.00199999999998113" classname="ds.dataFrameSubset_expt_dgr_single_all_columns" name="dataset_2"/>
+    <testcase time="0.783000000000015" classname="ds.dataFrameSubset_expt_dgr_single_all_columns" name="dataset_2"/>
+    <testcase time="0.0029999999999859" classname="ds.dataFrameSubset_expt_dgr_single_all_columns" name="dataset_2"/>
+    <testcase time="0.00100000000000477" classname="ds.dataFrameSubset_expt_dgr_single_all_columns" name="dataset_2"/>
+    <testcase time="0.00200000000000955" classname="ds.dataFrameSubset_expt_dgr_single_all_columns" name="dataset_2"/>
+    <testcase time="0.84099999999998" classname="ds.dataFrameSubset_expt_dgr_single_all_columns" name="dataset_2"/>
+    <testcase time="0.00300000000001432" classname="ds.dataFrameSubset_expt_dgr_single_all_columns" name="dataset_2"/>
+    <testcase time="0.00200000000000955" classname="ds.dataFrameSubset_expt_dgr_single_all_columns" name="dataset_2"/>
+    <testcase time="0.000999999999976353" classname="ds.dataFrameSubset_expt_dgr_single_all_columns" name="dataset_2"/>
+  </testsuite>
+  <testsuite name="ds.dataFrameSubset::expt_dgr::multiple::all_columns::subset_by_rows" timestamp="2026-03-02T11:52:31Z" hostname="runnervmnay03" tests="40" skipped="0" failures="0" errors="0" time="37.465">
+    <testcase time="9.661" classname="ds.dataFrameSubset_expt_dgr_multiple_all_columns_subset_by_rows" name="all_datasets"/>
+    <testcase time="0.104000000000013" classname="ds.dataFrameSubset_expt_dgr_multiple_all_columns_subset_by_rows" name="all_datasets"/>
+    <testcase time="0.171999999999997" classname="ds.dataFrameSubset_expt_dgr_multiple_all_columns_subset_by_rows" name="all_datasets"/>
+    <testcase time="0.688999999999993" classname="ds.dataFrameSubset_expt_dgr_multiple_all_columns_subset_by_rows" name="all_datasets"/>
+    <testcase time="2.06400000000002" classname="ds.dataFrameSubset_expt_dgr_multiple_all_columns_subset_by_rows" name="all_datasets"/>
+    <testcase time="0.164999999999992" classname="ds.dataFrameSubset_expt_dgr_multiple_all_columns_subset_by_rows" name="all_datasets"/>
+    <testcase time="0.162999999999982" classname="ds.dataFrameSubset_expt_dgr_multiple_all_columns_subset_by_rows" name="all_datasets"/>
+    <testcase time="0.646000000000015" classname="ds.dataFrameSubset_expt_dgr_multiple_all_columns_subset_by_rows" name="all_datasets"/>
+    <testcase time="2.14500000000001" classname="ds.dataFrameSubset_expt_dgr_multiple_all_columns_subset_by_rows" name="all_datasets"/>
+    <testcase time="0.163999999999987" classname="ds.dataFrameSubset_expt_dgr_multiple_all_columns_subset_by_rows" name="all_datasets"/>
+    <testcase time="0.168000000000006" classname="ds.dataFrameSubset_expt_dgr_multiple_all_columns_subset_by_rows" name="all_datasets"/>
+    <testcase time="0.675999999999988" classname="ds.dataFrameSubset_expt_dgr_multiple_all_columns_subset_by_rows" name="all_datasets"/>
+    <testcase time="1.94900000000001" classname="ds.dataFrameSubset_expt_dgr_multiple_all_columns_subset_by_rows" name="all_datasets"/>
+    <testcase time="0.163999999999987" classname="ds.dataFrameSubset_expt_dgr_multiple_all_columns_subset_by_rows" name="all_datasets"/>
+    <testcase time="0.168000000000006" classname="ds.dataFrameSubset_expt_dgr_multiple_all_columns_subset_by_rows" name="all_datasets"/>
+    <testcase time="0.674999999999983" classname="ds.dataFrameSubset_expt_dgr_multiple_all_columns_subset_by_rows" name="all_datasets"/>
+    <testcase time="1.99700000000001" classname="ds.dataFrameSubset_expt_dgr_multiple_all_columns_subset_by_rows" name="all_datasets"/>
+    <testcase time="0.133999999999986" classname="ds.dataFrameSubset_expt_dgr_multiple_all_columns_subset_by_rows" name="all_datasets"/>
+    <testcase time="0.163000000000011" classname="ds.dataFrameSubset_expt_dgr_multiple_all_columns_subset_by_rows" name="all_datasets"/>
+    <testcase time="0.685000000000002" classname="ds.dataFrameSubset_expt_dgr_multiple_all_columns_subset_by_rows" name="all_datasets"/>
+    <testcase time="1.922" classname="ds.dataFrameSubset_expt_dgr_multiple_all_columns_subset_by_rows" name="all_datasets"/>
+    <testcase time="0.162000000000006" classname="ds.dataFrameSubset_expt_dgr_multiple_all_columns_subset_by_rows" name="all_datasets"/>
+    <testcase time="0.162000000000006" classname="ds.dataFrameSubset_expt_dgr_multiple_all_columns_subset_by_rows" name="all_datasets"/>
+    <testcase time="0.644999999999982" classname="ds.dataFrameSubset_expt_dgr_multiple_all_columns_subset_by_rows" name="all_datasets"/>
+    <testcase time="2.00800000000001" classname="ds.dataFrameSubset_expt_dgr_multiple_all_columns_subset_by_rows" name="all_datasets"/>
+    <testcase time="0.163999999999987" classname="ds.dataFrameSubset_expt_dgr_multiple_all_columns_subset_by_rows" name="all_datasets"/>
+    <testcase time="0.165999999999997" classname="ds.dataFrameSubset_expt_dgr_multiple_all_columns_subset_by_rows" name="all_datasets"/>
+    <testcase time="0.635000000000019" classname="ds.dataFrameSubset_expt_dgr_multiple_all_columns_subset_by_rows" name="all_datasets"/>
+    <testcase time="2.001" classname="ds.dataFrameSubset_expt_dgr_multiple_all_columns_subset_by_rows" name="all_datasets"/>
+    <testcase time="0.163999999999987" classname="ds.dataFrameSubset_expt_dgr_multiple_all_columns_subset_by_rows" name="all_datasets"/>
+    <testcase time="0.164999999999992" classname="ds.dataFrameSubset_expt_dgr_multiple_all_columns_subset_by_rows" name="all_datasets"/>
+    <testcase time="0.682000000000016" classname="ds.dataFrameSubset_expt_dgr_multiple_all_columns_subset_by_rows" name="all_datasets"/>
+    <testcase time="1.93799999999999" classname="ds.dataFrameSubset_expt_dgr_multiple_all_columns_subset_by_rows" name="all_datasets"/>
+    <testcase time="0.163000000000011" classname="ds.dataFrameSubset_expt_dgr_multiple_all_columns_subset_by_rows" name="all_datasets"/>
+    <testcase time="0.121999999999986" classname="ds.dataFrameSubset_expt_dgr_multiple_all_columns_subset_by_rows" name="all_datasets"/>
+    <testcase time="0.688999999999993" classname="ds.dataFrameSubset_expt_dgr_multiple_all_columns_subset_by_rows" name="all_datasets"/>
+    <testcase time="1.96000000000001" classname="ds.dataFrameSubset_expt_dgr_multiple_all_columns_subset_by_rows" name="all_datasets"/>
+    <testcase time="0.12700000000001" classname="ds.dataFrameSubset_expt_dgr_multiple_all_columns_subset_by_rows" name="all_datasets"/>
+    <testcase time="0.163999999999987" classname="ds.dataFrameSubset_expt_dgr_multiple_all_columns_subset_by_rows" name="all_datasets"/>
+    <testcase time="0.674000000000007" classname="ds.dataFrameSubset_expt_dgr_multiple_all_columns_subset_by_rows" name="all_datasets"/>
+  </testsuite>
+  <testsuite name="ds.dataFrameSubset::expt_dgr::single::all_columns::subset_by_rows" timestamp="2026-03-02T11:53:09Z" hostname="runnervmnay03" tests="20" skipped="0" failures="0" errors="0" time="10.634">
+    <testcase time="3.495" classname="ds.dataFrameSubset_expt_dgr_single_all_columns_subset_by_rows" name="dataset_3"/>
+    <testcase time="0.236999999999995" classname="ds.dataFrameSubset_expt_dgr_single_all_columns_subset_by_rows" name="dataset_3"/>
+    <testcase time="0.556000000000012" classname="ds.dataFrameSubset_expt_dgr_single_all_columns_subset_by_rows" name="dataset_3"/>
+    <testcase time="0.231999999999999" classname="ds.dataFrameSubset_expt_dgr_single_all_columns_subset_by_rows" name="dataset_3"/>
+    <testcase time="0.507999999999981" classname="ds.dataFrameSubset_expt_dgr_single_all_columns_subset_by_rows" name="dataset_3"/>
+    <testcase time="0.228000000000009" classname="ds.dataFrameSubset_expt_dgr_single_all_columns_subset_by_rows" name="dataset_3"/>
+    <testcase time="0.514999999999986" classname="ds.dataFrameSubset_expt_dgr_single_all_columns_subset_by_rows" name="dataset_3"/>
+    <testcase time="0.228000000000009" classname="ds.dataFrameSubset_expt_dgr_single_all_columns_subset_by_rows" name="dataset_3"/>
+    <testcase time="0.551999999999992" classname="ds.dataFrameSubset_expt_dgr_single_all_columns_subset_by_rows" name="dataset_3"/>
+    <testcase time="0.233000000000004" classname="ds.dataFrameSubset_expt_dgr_single_all_columns_subset_by_rows" name="dataset_3"/>
+    <testcase time="0.549000000000007" classname="ds.dataFrameSubset_expt_dgr_single_all_columns_subset_by_rows" name="dataset_3"/>
+    <testcase time="0.228000000000009" classname="ds.dataFrameSubset_expt_dgr_single_all_columns_subset_by_rows" name="dataset_3"/>
+    <testcase time="0.550999999999988" classname="ds.dataFrameSubset_expt_dgr_single_all_columns_subset_by_rows" name="dataset_3"/>
+    <testcase time="0.229000000000013" classname="ds.dataFrameSubset_expt_dgr_single_all_columns_subset_by_rows" name="dataset_3"/>
+    <testcase time="0.554000000000002" classname="ds.dataFrameSubset_expt_dgr_single_all_columns_subset_by_rows" name="dataset_3"/>
+    <testcase time="0.226999999999975" classname="ds.dataFrameSubset_expt_dgr_single_all_columns_subset_by_rows" name="dataset_3"/>
+    <testcase time="0.510000000000019" classname="ds.dataFrameSubset_expt_dgr_single_all_columns_subset_by_rows" name="dataset_3"/>
+    <testcase time="0.228000000000009" classname="ds.dataFrameSubset_expt_dgr_single_all_columns_subset_by_rows" name="dataset_3"/>
+    <testcase time="0.547999999999973" classname="ds.dataFrameSubset_expt_dgr_single_all_columns_subset_by_rows" name="dataset_3"/>
+    <testcase time="0.225999999999999" classname="ds.dataFrameSubset_expt_dgr_single_all_columns_subset_by_rows" name="dataset_3"/>
+  </testsuite>
+  <testsuite name="ds.dataFrameSubset::expt_dgr::multiple::subset_by_rows_columns" timestamp="2026-03-02T11:53:20Z" hostname="runnervmnay03" tests="7" skipped="0" failures="0" errors="1" time="11.975">
+    <testcase time="10.553" classname="ds.dataFrameSubset_expt_dgr_multiple_subset_by_rows_columns" name="all_datasets"/>
+    <testcase time="0.351999999999975" classname="ds.dataFrameSubset_expt_dgr_multiple_subset_by_rows_columns" name="all_datasets"/>
+    <testcase time="0.162000000000006" classname="ds.dataFrameSubset_expt_dgr_multiple_subset_by_rows_columns" name="all_datasets"/>
+    <testcase time="0.347000000000008" classname="ds.dataFrameSubset_expt_dgr_multiple_subset_by_rows_columns" name="all_datasets"/>
+    <testcase time="0.163000000000011" classname="ds.dataFrameSubset_expt_dgr_multiple_subset_by_rows_columns" name="all_datasets"/>
+    <testcase time="0.353999999999985" classname="ds.dataFrameSubset_expt_dgr_multiple_subset_by_rows_columns" name="all_datasets"/>
+    <testcase time="0.0440000000000111" classname="ds.dataFrameSubset_expt_dgr_multiple_subset_by_rows_columns" name="all_datasets">
+      <error type="error" message="Error: There are some DataSHIELD errors, list them with datashield.errors() ('test-expt_dgr-ds.dataFrameSubset.R:131:13')">Error: There are some DataSHIELD errors, list them with datashield.errors()
+Backtrace:
+    x
+ 1. \-global subset.by.rows.cols(...) at test-expt_dgr-ds.dataFrameSubset.R:131:13
+ 2.   \-dsDangerClient::ds.DANGERdfEXTRACT(df.created, datasources = ds.test_env$connections)
+ 3.     \-DSI::datashield.aggregate(datasources, calltext)
+ 4.       \-DSI:::.handle_errors(errors.print)
+ 5.         \-DSI:::.checkLastErrors()
+ 6.           \-cli::cli_abort(...)
+ 7.             \-rlang::abort(...)</error>
+    </testcase>
+  </testsuite>
+  <testsuite name="ds.dataFrameSubset::expt_dgr::single::subset_by_rows_columns" timestamp="2026-03-02T11:53:32Z" hostname="runnervmnay03" tests="3" skipped="0" failures="0" errors="1" time="3.839">
+    <testcase time="3.69499999999999" classname="ds.dataFrameSubset_expt_dgr_single_subset_by_rows_columns" name="dataset_1"/>
+    <testcase time="0.120000000000005" classname="ds.dataFrameSubset_expt_dgr_single_subset_by_rows_columns" name="dataset_1"/>
+    <testcase time="0.0240000000000009" classname="ds.dataFrameSubset_expt_dgr_single_subset_by_rows_columns" name="dataset_1">
+      <error type="error" message="Error: There are some DataSHIELD errors, list them with datashield.errors() ('test-expt_dgr-ds.dataFrameSubset.R:150:13')">Error: There are some DataSHIELD errors, list them with datashield.errors()
+Backtrace:
+    x
+ 1. \-global subset.by.rows.cols(...) at test-expt_dgr-ds.dataFrameSubset.R:150:13
+ 2.   \-dsDangerClient::ds.DANGERdfEXTRACT(df.created, datasources = ds.test_env$connections)
+ 3.     \-DSI::datashield.aggregate(datasources, calltext)
+ 4.       \-DSI:::.handle_errors(errors.print)
+ 5.         \-DSI:::.checkLastErrors()
+ 6.           \-cli::cli_abort(...)
+ 7.             \-rlang::abort(...)</error>
+    </testcase>
+  </testsuite>
+  <testsuite name="ds.dataFrameSubset::expt_dgr::multiple::subset_by_rows_columns" timestamp="2026-03-02T11:53:35Z" hostname="runnervmnay03" tests="7" skipped="0" failures="0" errors="1" time="11.907">
+    <testcase time="10.516" classname="ds.dataFrameSubset_expt_dgr_multiple_subset_by_rows_columns" name="all_datasets"/>
+    <testcase time="0.352000000000004" classname="ds.dataFrameSubset_expt_dgr_multiple_subset_by_rows_columns" name="all_datasets"/>
+    <testcase time="0.163999999999987" classname="ds.dataFrameSubset_expt_dgr_multiple_subset_by_rows_columns" name="all_datasets"/>
+    <testcase time="0.360000000000014" classname="ds.dataFrameSubset_expt_dgr_multiple_subset_by_rows_columns" name="all_datasets"/>
+    <testcase time="0.165999999999997" classname="ds.dataFrameSubset_expt_dgr_multiple_subset_by_rows_columns" name="all_datasets"/>
+    <testcase time="0.310000000000002" classname="ds.dataFrameSubset_expt_dgr_multiple_subset_by_rows_columns" name="all_datasets"/>
+    <testcase time="0.0389999999999873" classname="ds.dataFrameSubset_expt_dgr_multiple_subset_by_rows_columns" name="all_datasets">
+      <error type="error" message="Error: There are some DataSHIELD errors, list them with datashield.errors() ('test-expt_dgr-ds.dataFrameSubset.R:170:13')">Error: There are some DataSHIELD errors, list them with datashield.errors()
+Backtrace:
+    x
+ 1. \-global subset.by.rows.cols(...) at test-expt_dgr-ds.dataFrameSubset.R:170:13
+ 2.   \-dsDangerClient::ds.DANGERdfEXTRACT(df.created, datasources = ds.test_env$connections)
+ 3.     \-DSI::datashield.aggregate(datasources, calltext)
+ 4.       \-DSI:::.handle_errors(errors.print)
+ 5.         \-DSI:::.checkLastErrors()
+ 6.           \-cli::cli_abort(...)
+ 7.             \-rlang::abort(...)</error>
+    </testcase>
+  </testsuite>
+  <testsuite name="ds.dataFrameSubset::expt_dgr::single::subset_by_rows_columns" timestamp="2026-03-02T11:53:47Z" hostname="runnervmnay03" tests="3" skipped="0" failures="0" errors="1" time="3.814">
+    <testcase time="3.67100000000002" classname="ds.dataFrameSubset_expt_dgr_single_subset_by_rows_columns" name="dataset_2"/>
+    <testcase time="0.119999999999976" classname="ds.dataFrameSubset_expt_dgr_single_subset_by_rows_columns" name="dataset_2"/>
+    <testcase time="0.0230000000000246" classname="ds.dataFrameSubset_expt_dgr_single_subset_by_rows_columns" name="dataset_2">
+      <error type="error" message="Error: There are some DataSHIELD errors, list them with datashield.errors() ('test-expt_dgr-ds.dataFrameSubset.R:188:13')">Error: There are some DataSHIELD errors, list them with datashield.errors()
+Backtrace:
+    x
+ 1. \-global subset.by.rows.cols(...) at test-expt_dgr-ds.dataFrameSubset.R:188:13
+ 2.   \-dsDangerClient::ds.DANGERdfEXTRACT(df.created, datasources = ds.test_env$connections)
+ 3.     \-DSI::datashield.aggregate(datasources, calltext)
+ 4.       \-DSI:::.handle_errors(errors.print)
+ 5.         \-DSI:::.checkLastErrors()
+ 6.           \-cli::cli_abort(...)
+ 7.             \-rlang::abort(...)</error>
+    </testcase>
+  </testsuite>
+  <testsuite name="ds.dataFrameSubset::expt_dgr::multiple::all_rows_subset_by_columns" timestamp="2026-03-02T11:53:51Z" hostname="runnervmnay03" tests="7" skipped="0" failures="0" errors="1" time="11.532">
+    <testcase time="10.151" classname="ds.dataFrameSubset_expt_dgr_multiple_all_rows_subset_by_columns" name="all_datasets"/>
+    <testcase time="0.349999999999994" classname="ds.dataFrameSubset_expt_dgr_multiple_all_rows_subset_by_columns" name="all_datasets"/>
+    <testcase time="0.166000000000025" classname="ds.dataFrameSubset_expt_dgr_multiple_all_rows_subset_by_columns" name="all_datasets"/>
+    <testcase time="0.349999999999994" classname="ds.dataFrameSubset_expt_dgr_multiple_all_rows_subset_by_columns" name="all_datasets"/>
+    <testcase time="0.163999999999987" classname="ds.dataFrameSubset_expt_dgr_multiple_all_rows_subset_by_columns" name="all_datasets"/>
+    <testcase time="0.312000000000012" classname="ds.dataFrameSubset_expt_dgr_multiple_all_rows_subset_by_columns" name="all_datasets"/>
+    <testcase time="0.0389999999999873" classname="ds.dataFrameSubset_expt_dgr_multiple_all_rows_subset_by_columns" name="all_datasets">
+      <error type="error" message="Error: There are some DataSHIELD errors, list them with datashield.errors() ('test-expt_dgr-ds.dataFrameSubset.R:206:13')">Error: There are some DataSHIELD errors, list them with datashield.errors()
+Backtrace:
+    x
+ 1. \-global subset.by.cols("D", "INTEGER", 1:4, TRUE, "subset.server", local.df.list) at test-expt_dgr-ds.dataFrameSubset.R:206:13
+ 2.   \-dsDangerClient::ds.DANGERdfEXTRACT(df.created, datasources = ds.test_env$connections)
+ 3.     \-DSI::datashield.aggregate(datasources, calltext)
+ 4.       \-DSI:::.handle_errors(errors.print)
+ 5.         \-DSI:::.checkLastErrors()
+ 6.           \-cli::cli_abort(...)
+ 7.             \-rlang::abort(...)</error>
+    </testcase>
+  </testsuite>
+  <testsuite name="ds.dataFrameSubset::expt_dgr::multiple::all_rows_subset_by_columns" timestamp="2026-03-02T11:54:03Z" hostname="runnervmnay03" tests="3" skipped="0" failures="0" errors="1" time="3.919">
+    <testcase time="3.77200000000002" classname="ds.dataFrameSubset_expt_dgr_multiple_all_rows_subset_by_columns" name="dataset_3"/>
+    <testcase time="0.12299999999999" classname="ds.dataFrameSubset_expt_dgr_multiple_all_rows_subset_by_columns" name="dataset_3"/>
+    <testcase time="0.0240000000000009" classname="ds.dataFrameSubset_expt_dgr_multiple_all_rows_subset_by_columns" name="dataset_3">
+      <error type="error" message="Error: There are some DataSHIELD errors, list them with datashield.errors() ('test-expt_dgr-ds.dataFrameSubset.R:218:13')">Error: There are some DataSHIELD errors, list them with datashield.errors()
+Backtrace:
+    x
+ 1. \-global subset.by.cols("D", "INTEGER", 1:4, TRUE, "subset.server", local.df.list) at test-expt_dgr-ds.dataFrameSubset.R:218:13
+ 2.   \-dsDangerClient::ds.DANGERdfEXTRACT(df.created, datasources = ds.test_env$connections)
+ 3.     \-DSI::datashield.aggregate(datasources, calltext)
+ 4.       \-DSI:::.handle_errors(errors.print)
+ 5.         \-DSI:::.checkLastErrors()
+ 6.           \-cli::cli_abort(...)
+ 7.             \-rlang::abort(...)</error>
+    </testcase>
+  </testsuite>
+</testsuites>
