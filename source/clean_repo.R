@@ -44,10 +44,9 @@ conf_files |>
   })
 # commit changes
 system('git add -A')
-system(sprintf(
-  'git commit -m "Delete old directories not in the config files"',
-  days_old
-))
+system(
+  'git commit -m "Delete old directories not in the config files!"'
+)
 
 # - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
 # DELETE OLD LOGS ------------------
