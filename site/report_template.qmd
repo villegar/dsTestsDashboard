@@ -90,6 +90,7 @@ output <- htmltools::tagList(
         compact = FALSE,
         bordered = TRUE,
         striped = TRUE,
+        pagination = FALSE,
         defaultColDef = reactable::colDef(align = "center"),
         columns = list(
           Function = reactable::colDef(html = TRUE, align = "left"),
