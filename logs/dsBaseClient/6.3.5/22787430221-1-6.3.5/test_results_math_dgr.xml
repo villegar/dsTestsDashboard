@@ -1,0 +1,45 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<testsuites>
+  <testsuite name="math_dgr-ds.dataFrameSort" timestamp="2026-03-07T00:50:50Z" hostname="runnervm0kj6c" tests="2" skipped="2" failures="0" errors="0" time="10.693">
+    <testcase time="7.971" classname="math_dgr_ds.dataFrameSort" name="server_set_in_local_set">
+      <skipped message="Reason: empty test ('test-math_dgr-ds.dataFrameSort.R:26:1')"/>
+    </testcase>
+    <testcase time="2.722" classname="math_dgr_ds.dataFrameSort" name="server_set_in_local_set">
+      <skipped message="Reason: empty test ('test-math_dgr-ds.dataFrameSort.R:48:1')"/>
+    </testcase>
+  </testsuite>
+  <testsuite name="math_dgr-ds.dataFrameSubset" timestamp="2026-03-07T00:51:01Z" hostname="runnervm0kj6c" tests="2" skipped="2" failures="0" errors="0" time="8.853">
+    <testcase time="6.264" classname="math_dgr_ds.dataFrameSubset" name="server_set_in_local_set">
+      <skipped message="Reason: empty test ('test-math_dgr-ds.dataFrameSubset.R:26:1')"/>
+    </testcase>
+    <testcase time="2.589" classname="math_dgr_ds.dataFrameSubset" name="server_set_in_local_set">
+      <skipped message="Reason: empty test ('test-math_dgr-ds.dataFrameSubset.R:44:1')"/>
+    </testcase>
+  </testsuite>
+  <testsuite name="math_dgr-ds.skewness" timestamp="2026-03-07T00:51:09Z" hostname="runnervm0kj6c" tests="2" skipped="0" failures="0" errors="2" time="16.08">
+    <testcase time="9.215" classname="math_dgr_ds.skewness" name="skewness_0_mode_median_mean_or_skewness_0_mean_median_mode">
+      <error type="error" message="Error: There are some DataSHIELD errors, list them with datashield.errors() ('test-math_dgr-ds.skewness.R:20:3')">Error: There are some DataSHIELD errors, list them with datashield.errors()
+Backtrace:
+    x
+ 1. \-global .test.skewness.mean.median.mode("D$INTEGER", method = 1) at test-math_dgr-ds.skewness.R:20:3
+ 2.   \-dsDangerClient::ds.DANGERprint(variable.name)
+ 3.     \-DSI::datashield.aggregate(datasources, calltext)
+ 4.       \-DSI:::.handle_errors(errors.print)
+ 5.         \-DSI:::.checkLastErrors()
+ 6.           \-cli::cli_abort(...)
+ 7.             \-rlang::abort(...)</error>
+    </testcase>
+    <testcase time="6.865" classname="math_dgr_ds.skewness" name="skewness_0_Q3_Q2_Q2_Q1_or_skewness_0_Q3_Q2_Q2_Q1">
+      <error type="error" message="Error: There are some DataSHIELD errors, list them with datashield.errors() ('test-math_dgr-ds.skewness.R:36:3')">Error: There are some DataSHIELD errors, list them with datashield.errors()
+Backtrace:
+    x
+ 1. \-global .test.skewness.Q1.Q2.Q3("D$INTEGER", method = 1) at test-math_dgr-ds.skewness.R:36:3
+ 2.   \-dsDangerClient::ds.DANGERprint(variable.name)
+ 3.     \-DSI::datashield.aggregate(datasources, calltext)
+ 4.       \-DSI:::.handle_errors(errors.print)
+ 5.         \-DSI:::.checkLastErrors()
+ 6.           \-cli::cli_abort(...)
+ 7.             \-rlang::abort(...)</error>
+    </testcase>
+  </testsuite>
+</testsuites>
