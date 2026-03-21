@@ -1,0 +1,103 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<testsuites>
+  <testsuite name="perf-conndisconn" timestamp="2026-03-21T01:25:19Z" hostname="runnervm46oaq" tests="0" skipped="0" failures="0" errors="0" time="0"/>
+  <testsuite name="conndisconn::perf::setup" timestamp="2026-03-21T01:25:19Z" hostname="runnervm46oaq" tests="0" skipped="0" failures="0" errors="0" time="0"/>
+  <testsuite name="conndisconn::perf::simple0" timestamp="2026-03-21T01:25:29Z" hostname="runnervm46oaq" tests="2" skipped="0" failures="0" errors="0" time="130.719">
+    <testcase time="130.701" classname="conndisconn_perf_simple0" name="simple_connect_disconnect_performance"/>
+    <testcase time="0.0180000000000007" classname="conndisconn_perf_simple0" name="simple_connect_disconnect_performance"/>
+  </testsuite>
+  <testsuite name="conndisconn::perf::shutdown" timestamp="2026-03-21T01:27:29Z" hostname="runnervm46oaq" tests="0" skipped="0" failures="0" errors="0" time="0"/>
+  <testsuite name="conndisconn::perf::done" timestamp="2026-03-21T01:27:29Z" hostname="runnervm46oaq" tests="0" skipped="0" failures="0" errors="0" time="0"/>
+  <testsuite name="perf-ds.abs" timestamp="2026-03-21T01:27:29Z" hostname="runnervm46oaq" tests="0" skipped="0" failures="0" errors="0" time="0"/>
+  <testsuite name="ds.abs::perf::setup" timestamp="2026-03-21T01:27:29Z" hostname="runnervm46oaq" tests="0" skipped="0" failures="0" errors="0" time="0"/>
+  <testsuite name="ds.abs::perf:0" timestamp="2026-03-21T01:27:37Z" hostname="runnervm46oaq" tests="2" skipped="0" failures="0" errors="0" time="38.086">
+    <testcase time="38.085" classname="ds.abs_perf_0" name="combine_performance"/>
+    <testcase time="0.00100000000000477" classname="ds.abs_perf_0" name="combine_performance"/>
+  </testsuite>
+  <testsuite name="ds.abs::perf::shutdown" timestamp="2026-03-21T01:28:07Z" hostname="runnervm46oaq" tests="0" skipped="0" failures="0" errors="0" time="0"/>
+  <testsuite name="ds.abs::perf::done" timestamp="2026-03-21T01:28:07Z" hostname="runnervm46oaq" tests="0" skipped="0" failures="0" errors="0" time="0"/>
+  <testsuite name="perf-ds.asInteger" timestamp="2026-03-21T01:28:07Z" hostname="runnervm46oaq" tests="0" skipped="0" failures="0" errors="0" time="0"/>
+  <testsuite name="ds.asInteger::perf::setup" timestamp="2026-03-21T01:28:07Z" hostname="runnervm46oaq" tests="0" skipped="0" failures="0" errors="0" time="0"/>
+  <testsuite name="ds.asInteger::perf:0" timestamp="2026-03-21T01:28:15Z" hostname="runnervm46oaq" tests="2" skipped="0" failures="0" errors="0" time="37.61">
+    <testcase time="37.609" classname="ds.asInteger_perf_0" name="combine_performance"/>
+    <testcase time="0.00100000000000477" classname="ds.asInteger_perf_0" name="combine_performance"/>
+  </testsuite>
+  <testsuite name="ds.asInteger::perf::shutdown" timestamp="2026-03-21T01:28:45Z" hostname="runnervm46oaq" tests="0" skipped="0" failures="0" errors="0" time="0"/>
+  <testsuite name="ds.asInteger::perf::done" timestamp="2026-03-21T01:28:45Z" hostname="runnervm46oaq" tests="0" skipped="0" failures="0" errors="0" time="0"/>
+  <testsuite name="perf-ds.asList" timestamp="2026-03-21T01:28:45Z" hostname="runnervm46oaq" tests="0" skipped="0" failures="0" errors="0" time="0"/>
+  <testsuite name="ds.asList::perf::setup" timestamp="2026-03-21T01:28:45Z" hostname="runnervm46oaq" tests="0" skipped="0" failures="0" errors="0" time="0"/>
+  <testsuite name="ds.asList::perf:0" timestamp="2026-03-21T01:28:52Z" hostname="runnervm46oaq" tests="2" skipped="0" failures="0" errors="0" time="37.499">
+    <testcase time="37.498" classname="ds.asList_perf_0" name="combine_performance"/>
+    <testcase time="0.00100000000000477" classname="ds.asList_perf_0" name="combine_performance"/>
+  </testsuite>
+  <testsuite name="ds.asList::perf::shutdown" timestamp="2026-03-21T01:29:22Z" hostname="runnervm46oaq" tests="0" skipped="0" failures="0" errors="0" time="0"/>
+  <testsuite name="ds.asList::perf::done" timestamp="2026-03-21T01:29:23Z" hostname="runnervm46oaq" tests="0" skipped="0" failures="0" errors="0" time="0"/>
+  <testsuite name="perf-ds.asNumeric" timestamp="2026-03-21T01:29:23Z" hostname="runnervm46oaq" tests="0" skipped="0" failures="0" errors="0" time="0"/>
+  <testsuite name="ds.asNumeric::perf::setup" timestamp="2026-03-21T01:29:23Z" hostname="runnervm46oaq" tests="0" skipped="0" failures="0" errors="0" time="0"/>
+  <testsuite name="ds.asNumeric::perf:0" timestamp="2026-03-21T01:29:30Z" hostname="runnervm46oaq" tests="2" skipped="0" failures="0" errors="0" time="37.81">
+    <testcase time="37.809" classname="ds.asNumeric_perf_0" name="combine_performance"/>
+    <testcase time="0.000999999999976353" classname="ds.asNumeric_perf_0" name="combine_performance"/>
+  </testsuite>
+  <testsuite name="ds.asNumeric::perf::shutdown" timestamp="2026-03-21T01:30:00Z" hostname="runnervm46oaq" tests="0" skipped="0" failures="0" errors="0" time="0"/>
+  <testsuite name="ds.asNumeric::perf::done" timestamp="2026-03-21T01:30:00Z" hostname="runnervm46oaq" tests="0" skipped="0" failures="0" errors="0" time="0"/>
+  <testsuite name="perf-ds.assign" timestamp="2026-03-21T01:30:00Z" hostname="runnervm46oaq" tests="0" skipped="0" failures="0" errors="0" time="0"/>
+  <testsuite name="ds.assign::perf::setup" timestamp="2026-03-21T01:30:00Z" hostname="runnervm46oaq" tests="0" skipped="0" failures="0" errors="0" time="0"/>
+  <testsuite name="ds.assign::perf::0" timestamp="2026-03-21T01:30:08Z" hostname="runnervm46oaq" tests="2" skipped="0" failures="0" errors="0" time="37.488">
+    <testcase time="37.487" classname="ds.assign_perf_0" name="performance"/>
+    <testcase time="0.000999999999976353" classname="ds.assign_perf_0" name="performance"/>
+  </testsuite>
+  <testsuite name="ds.assign::perf::shutdown" timestamp="2026-03-21T01:30:38Z" hostname="runnervm46oaq" tests="0" skipped="0" failures="0" errors="0" time="0"/>
+  <testsuite name="ds.assign::perf::done" timestamp="2026-03-21T01:30:38Z" hostname="runnervm46oaq" tests="0" skipped="0" failures="0" errors="0" time="0"/>
+  <testsuite name="perf-ds.class" timestamp="2026-03-21T01:30:38Z" hostname="runnervm46oaq" tests="0" skipped="0" failures="0" errors="0" time="0"/>
+  <testsuite name="ds.class::perf::setup" timestamp="2026-03-21T01:30:38Z" hostname="runnervm46oaq" tests="0" skipped="0" failures="0" errors="0" time="0"/>
+  <testsuite name="ds.class::perf::combine:0" timestamp="2026-03-21T01:30:45Z" hostname="runnervm46oaq" tests="2" skipped="0" failures="0" errors="0" time="37.424">
+    <testcase time="37.423" classname="ds.class_perf_combine_0" name="combine_performance"/>
+    <testcase time="0.000999999999976353" classname="ds.class_perf_combine_0" name="combine_performance"/>
+  </testsuite>
+  <testsuite name="ds.class::perf::shutdown" timestamp="2026-03-21T01:31:15Z" hostname="runnervm46oaq" tests="0" skipped="0" failures="0" errors="0" time="0"/>
+  <testsuite name="ds.class::perf::done" timestamp="2026-03-21T01:31:15Z" hostname="runnervm46oaq" tests="0" skipped="0" failures="0" errors="0" time="0"/>
+  <testsuite name="perf-ds.colnames" timestamp="2026-03-21T01:31:15Z" hostname="runnervm46oaq" tests="0" skipped="0" failures="0" errors="0" time="0"/>
+  <testsuite name="ds.colnames::perf::setup" timestamp="2026-03-21T01:31:15Z" hostname="runnervm46oaq" tests="0" skipped="0" failures="0" errors="0" time="0"/>
+  <testsuite name="ds.colnames::perf:0" timestamp="2026-03-21T01:31:22Z" hostname="runnervm46oaq" tests="2" skipped="0" failures="0" errors="0" time="37.389">
+    <testcase time="37.388" classname="ds.colnames_perf_0" name="combine_performance"/>
+    <testcase time="0.000999999999976353" classname="ds.colnames_perf_0" name="combine_performance"/>
+  </testsuite>
+  <testsuite name="ds.colnames::perf::shutdown" timestamp="2026-03-21T01:31:52Z" hostname="runnervm46oaq" tests="0" skipped="0" failures="0" errors="0" time="0"/>
+  <testsuite name="ds.colnames::perf::done" timestamp="2026-03-21T01:31:53Z" hostname="runnervm46oaq" tests="0" skipped="0" failures="0" errors="0" time="0"/>
+  <testsuite name="perf-ds.exists" timestamp="2026-03-21T01:31:53Z" hostname="runnervm46oaq" tests="0" skipped="0" failures="0" errors="0" time="0"/>
+  <testsuite name="ds.exists::perf::setup" timestamp="2026-03-21T01:31:53Z" hostname="runnervm46oaq" tests="0" skipped="0" failures="0" errors="0" time="0"/>
+  <testsuite name="ds.exists::perf::combine:0" timestamp="2026-03-21T01:32:00Z" hostname="runnervm46oaq" tests="2" skipped="0" failures="0" errors="0" time="37.442">
+    <testcase time="37.441" classname="ds.exists_perf_combine_0" name="combine_performance"/>
+    <testcase time="0.000999999999976353" classname="ds.exists_perf_combine_0" name="combine_performance"/>
+  </testsuite>
+  <testsuite name="ds.exists::perf::shutdown" timestamp="2026-03-21T01:32:30Z" hostname="runnervm46oaq" tests="0" skipped="0" failures="0" errors="0" time="0"/>
+  <testsuite name="ds.exists::perf::done" timestamp="2026-03-21T01:32:30Z" hostname="runnervm46oaq" tests="0" skipped="0" failures="0" errors="0" time="0"/>
+  <testsuite name="perf-ds.length" timestamp="2026-03-21T01:32:30Z" hostname="runnervm46oaq" tests="0" skipped="0" failures="0" errors="0" time="0"/>
+  <testsuite name="ds.length::perf::setup" timestamp="2026-03-21T01:32:30Z" hostname="runnervm46oaq" tests="0" skipped="0" failures="0" errors="0" time="0"/>
+  <testsuite name="ds.length::perf::combine:0" timestamp="2026-03-21T01:32:37Z" hostname="runnervm46oaq" tests="2" skipped="0" failures="0" errors="0" time="37.397">
+    <testcase time="37.396" classname="ds.length_perf_combine_0" name="combine_performance"/>
+    <testcase time="0.000999999999976353" classname="ds.length_perf_combine_0" name="combine_performance"/>
+  </testsuite>
+  <testsuite name="ds.length::perf::shutdown" timestamp="2026-03-21T01:33:07Z" hostname="runnervm46oaq" tests="0" skipped="0" failures="0" errors="0" time="0"/>
+  <testsuite name="ds.length::perf::done" timestamp="2026-03-21T01:33:08Z" hostname="runnervm46oaq" tests="0" skipped="0" failures="0" errors="0" time="0"/>
+  <testsuite name="perf-ds.mean" timestamp="2026-03-21T01:33:08Z" hostname="runnervm46oaq" tests="0" skipped="0" failures="0" errors="0" time="0"/>
+  <testsuite name="ds.mean::perf::setup" timestamp="2026-03-21T01:33:08Z" hostname="runnervm46oaq" tests="0" skipped="0" failures="0" errors="0" time="0"/>
+  <testsuite name="ds.mean::perf::combine:0" timestamp="2026-03-21T01:33:15Z" hostname="runnervm46oaq" tests="2" skipped="0" failures="0" errors="0" time="37.39">
+    <testcase time="37.389" classname="ds.mean_perf_combine_0" name="combine_performance"/>
+    <testcase time="0.0010000000000332" classname="ds.mean_perf_combine_0" name="combine_performance"/>
+  </testsuite>
+  <testsuite name="ds.mean::perf::split:0" timestamp="2026-03-21T01:33:45Z" hostname="runnervm46oaq" tests="2" skipped="0" failures="0" errors="0" time="30.022">
+    <testcase time="30.021" classname="ds.mean_perf_split_0" name="split_performance"/>
+    <testcase time="0.000999999999976353" classname="ds.mean_perf_split_0" name="split_performance"/>
+  </testsuite>
+  <testsuite name="ds.mean::perf::shutdown" timestamp="2026-03-21T01:34:15Z" hostname="runnervm46oaq" tests="0" skipped="0" failures="0" errors="0" time="0"/>
+  <testsuite name="ds.mean::perf::done" timestamp="2026-03-21T01:34:15Z" hostname="runnervm46oaq" tests="0" skipped="0" failures="0" errors="0" time="0"/>
+  <testsuite name="perf-void" timestamp="2026-03-21T01:34:15Z" hostname="runnervm46oaq" tests="0" skipped="0" failures="0" errors="0" time="0"/>
+  <testsuite name="void::perf::void::setup" timestamp="2026-03-21T01:34:15Z" hostname="runnervm46oaq" tests="0" skipped="0" failures="0" errors="0" time="0"/>
+  <testsuite name="void::perf::void::0" timestamp="2026-03-21T01:34:15Z" hostname="runnervm46oaq" tests="2" skipped="0" failures="0" errors="0" time="60.19">
+    <testcase time="60.1890000000001" classname="void_perf_void_0" name="simple_void_performance"/>
+    <testcase time="0.000999999999976353" classname="void_perf_void_0" name="simple_void_performance"/>
+  </testsuite>
+  <testsuite name="void::perf::void::shutdown" timestamp="2026-03-21T01:35:15Z" hostname="runnervm46oaq" tests="0" skipped="0" failures="0" errors="0" time="0"/>
+  <testsuite name="void::perf::void::done" timestamp="2026-03-21T01:35:15Z" hostname="runnervm46oaq" tests="0" skipped="0" failures="0" errors="0" time="0"/>
+</testsuites>
