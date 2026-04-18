@@ -1,0 +1,1332 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<testsuites>
+  <testsuite name="discctrl-ds.Boole" timestamp="2026-04-18T00:28:24Z" hostname="runnervmeorf1" tests="14" skipped="0" failures="12" errors="0" time="12.497">
+    <testcase time="10.653" classname="discctrl_ds.Boole" name="setup">
+      <failure type="failure" message="Expected `study.current.variables$objects.found` to have the same values as `expected.variables`. ('test-discctrl-ds.Boole.R:21:5')">Expected `study.current.variables$objects.found` to have the same values as `expected.variables`.
+Actual: "D", "read_datashield_inst", "to_df"
+Expected: "D"
+Needs: "read_datashield_inst", "to_df"
+Backtrace:
+    x
+ 1. \-global ds_expect_variables(c("D")) at test-discctrl-ds.Boole.R:21:5
+ 2.   \-testthat::expect_setequal(...)</failure>
+    </testcase>
+    <testcase time="0.0650000000000013" classname="discctrl_ds.Boole" name="setup"/>
+    <testcase time="0.00999999999999979" classname="discctrl_ds.Boole" name="setup"/>
+    <testcase time="1.364" classname="discctrl_ds.Boole" name="simple_rep">
+      <failure type="failure" message="Expected `ds.Boole(&quot;D$LAB_TSC&quot;, &quot;D$LAB_TRIG&quot;, &quot;==&quot;)` to throw a error. ('test-discctrl-ds.Boole.R:29:5')">Expected `ds.Boole("D$LAB_TSC", "D$LAB_TRIG", "==")` to throw a error.</failure>
+    </testcase>
+    <testcase time="0.0379999999999985" classname="discctrl_ds.Boole" name="simple_rep">
+      <failure type="failure" message="Expected `res_errors` to have length 3. ('test-discctrl-ds.Boole.R:33:5')">Expected `res_errors` to have length 3.
+Actual length: 0.</failure>
+    </testcase>
+    <testcase time="0.0150000000000006" classname="discctrl_ds.Boole" name="simple_rep">
+      <failure type="failure" message="Expected `res_errors$sim1` to have length 1. ('test-discctrl-ds.Boole.R:34:5')">Expected `res_errors$sim1` to have length 1.
+Actual length: 0.</failure>
+    </testcase>
+    <testcase time="0.0150000000000006" classname="discctrl_ds.Boole" name="simple_rep">
+      <failure type="failure" message="Expected `res_errors$sim1` to equal &quot;Command 'BooleDS(\&quot;D$LAB_TSC\&quot;, \&quot;D$LAB_TRIG\&quot;, 1, \&quot;NA\&quot;, TRUE)' failed on 'sim1': Error while evaluating 'is.null(base::assign('boole.newobj', value={dsBase::BooleDS(\&quot;D$LAB_TSC\&quot;, \&quot;D$LAB_TRIG\&quot;, 1, \&quot;NA\&quot;, TRUE)}))' -&gt; Error in checkPermissivePrivacyControlLevel() : \n  BLOCKED: The server is running in 'non-permissive' mode which has caused this method to be blocked\n&quot;. ('test-discctrl-ds.Boole.R:35:5')">Expected `res_errors$sim1` to equal "Command 'BooleDS(\"D$LAB_TSC\", \"D$LAB_TRIG\", 1, \"NA\", TRUE)' failed on 'sim1': Error while evaluating 'is.null(base::assign('boole.newobj', value={dsBase::BooleDS(\"D$LAB_TSC\", \"D$LAB_TRIG\", 1, \"NA\", TRUE)}))' -&gt; Error in checkPermissivePrivacyControlLevel() : \n  BLOCKED: The server is running in 'non-permissive' mode which has caused this method to be blocked\n".
+Differences:
+target is NULL, current is character</failure>
+    </testcase>
+    <testcase time="0.0149999999999988" classname="discctrl_ds.Boole" name="simple_rep">
+      <failure type="failure" message="Expected `res_errors$sim2` to have length 1. ('test-discctrl-ds.Boole.R:36:5')">Expected `res_errors$sim2` to have length 1.
+Actual length: 0.</failure>
+    </testcase>
+    <testcase time="0.0140000000000011" classname="discctrl_ds.Boole" name="simple_rep">
+      <failure type="failure" message="Expected `res_errors$sim2` to equal &quot;Command 'BooleDS(\&quot;D$LAB_TSC\&quot;, \&quot;D$LAB_TRIG\&quot;, 1, \&quot;NA\&quot;, TRUE)' failed on 'sim2': Error while evaluating 'is.null(base::assign('boole.newobj', value={dsBase::BooleDS(\&quot;D$LAB_TSC\&quot;, \&quot;D$LAB_TRIG\&quot;, 1, \&quot;NA\&quot;, TRUE)}))' -&gt; Error in checkPermissivePrivacyControlLevel() : \n  BLOCKED: The server is running in 'non-permissive' mode which has caused this method to be blocked\n&quot;. ('test-discctrl-ds.Boole.R:37:5')">Expected `res_errors$sim2` to equal "Command 'BooleDS(\"D$LAB_TSC\", \"D$LAB_TRIG\", 1, \"NA\", TRUE)' failed on 'sim2': Error while evaluating 'is.null(base::assign('boole.newobj', value={dsBase::BooleDS(\"D$LAB_TSC\", \"D$LAB_TRIG\", 1, \"NA\", TRUE)}))' -&gt; Error in checkPermissivePrivacyControlLevel() : \n  BLOCKED: The server is running in 'non-permissive' mode which has caused this method to be blocked\n".
+Differences:
+target is NULL, current is character</failure>
+    </testcase>
+    <testcase time="0.0149999999999988" classname="discctrl_ds.Boole" name="simple_rep">
+      <failure type="failure" message="Expected `res_errors$sim3` to have length 1. ('test-discctrl-ds.Boole.R:38:5')">Expected `res_errors$sim3` to have length 1.
+Actual length: 0.</failure>
+    </testcase>
+    <testcase time="0.0140000000000011" classname="discctrl_ds.Boole" name="simple_rep">
+      <failure type="failure" message="Expected `res_errors$sim3` to equal &quot;Command 'BooleDS(\&quot;D$LAB_TSC\&quot;, \&quot;D$LAB_TRIG\&quot;, 1, \&quot;NA\&quot;, TRUE)' failed on 'sim3': Error while evaluating 'is.null(base::assign('boole.newobj', value={dsBase::BooleDS(\&quot;D$LAB_TSC\&quot;, \&quot;D$LAB_TRIG\&quot;, 1, \&quot;NA\&quot;, TRUE)}))' -&gt; Error in checkPermissivePrivacyControlLevel() : \n  BLOCKED: The server is running in 'non-permissive' mode which has caused this method to be blocked\n&quot;. ('test-discctrl-ds.Boole.R:39:5')">Expected `res_errors$sim3` to equal "Command 'BooleDS(\"D$LAB_TSC\", \"D$LAB_TRIG\", 1, \"NA\", TRUE)' failed on 'sim3': Error while evaluating 'is.null(base::assign('boole.newobj', value={dsBase::BooleDS(\"D$LAB_TSC\", \"D$LAB_TRIG\", 1, \"NA\", TRUE)}))' -&gt; Error in checkPermissivePrivacyControlLevel() : \n  BLOCKED: The server is running in 'non-permissive' mode which has caused this method to be blocked\n".
+Differences:
+target is NULL, current is character</failure>
+    </testcase>
+    <testcase time="0.239000000000001" classname="discctrl_ds.Boole" name="shutdown">
+      <failure type="failure" message="Expected `study.current.variables$objects.found` to have the same values as `expected.variables`. ('test-discctrl-ds.Boole.R:49:5')">Expected `study.current.variables$objects.found` to have the same values as `expected.variables`.
+Actual: "boole.newobj", "D", "read_datashield_inst", "to_df"
+Expected: "D"
+Needs: "boole.newobj", "read_datashield_inst", "to_df"
+Backtrace:
+    x
+ 1. \-global ds_expect_variables(c("D")) at test-discctrl-ds.Boole.R:49:5
+ 2.   \-testthat::expect_setequal(...)</failure>
+    </testcase>
+    <testcase time="0.0199999999999996" classname="discctrl_ds.Boole" name="shutdown">
+      <failure type="failure" message="Expected `study.current.variables$objects.found` to have the same values as `expected.variables`. ('test-discctrl-ds.Boole.R:49:5')">Expected `study.current.variables$objects.found` to have the same values as `expected.variables`.
+Actual: "boole.newobj", "D"
+Expected: "D"
+Needs: "boole.newobj"
+Backtrace:
+    x
+ 1. \-global ds_expect_variables(c("D")) at test-discctrl-ds.Boole.R:49:5
+ 2.   \-testthat::expect_setequal(...)</failure>
+    </testcase>
+    <testcase time="0.0199999999999996" classname="discctrl_ds.Boole" name="shutdown">
+      <failure type="failure" message="Expected `study.current.variables$objects.found` to have the same values as `expected.variables`. ('test-discctrl-ds.Boole.R:49:5')">Expected `study.current.variables$objects.found` to have the same values as `expected.variables`.
+Actual: "boole.newobj", "D"
+Expected: "D"
+Needs: "boole.newobj"
+Backtrace:
+    x
+ 1. \-global ds_expect_variables(c("D")) at test-discctrl-ds.Boole.R:49:5
+ 2.   \-testthat::expect_setequal(...)</failure>
+    </testcase>
+  </testsuite>
+  <testsuite name="discctrl-ds.c" timestamp="2026-04-18T00:28:37Z" hostname="runnervmeorf1" tests="14" skipped="0" failures="11" errors="0" time="7.961">
+    <testcase time="6.763" classname="discctrl_ds.c" name="setup"/>
+    <testcase time="0.00199999999999889" classname="discctrl_ds.c" name="setup"/>
+    <testcase time="0.00100000000000122" classname="discctrl_ds.c" name="setup"/>
+    <testcase time="0.827000000000002" classname="discctrl_ds.c" name="simple_c">
+      <failure type="failure" message="Expected `ds.c(&quot;D$GENDER&quot;)` to throw a error. ('test-discctrl-ds.c.R:29:5')">Expected `ds.c("D$GENDER")` to throw a error.</failure>
+    </testcase>
+    <testcase time="0.014999999999997" classname="discctrl_ds.c" name="simple_c">
+      <failure type="failure" message="Expected `res_errors` to have length 3. ('test-discctrl-ds.c.R:33:5')">Expected `res_errors` to have length 3.
+Actual length: 0.</failure>
+    </testcase>
+    <testcase time="0.0150000000000006" classname="discctrl_ds.c" name="simple_c">
+      <failure type="failure" message="Expected `res_errors$sim1` to have length 1. ('test-discctrl-ds.c.R:34:5')">Expected `res_errors$sim1` to have length 1.
+Actual length: 0.</failure>
+    </testcase>
+    <testcase time="0.0160000000000018" classname="discctrl_ds.c" name="simple_c">
+      <failure type="failure" message="Expected `res_errors$sim1` to equal &quot;Command 'cDS(list(D$GENDER))' failed on 'sim1': Error while evaluating 'is.null(base::assign('c.newobj', value={dsBase::cDS(base::list(D$GENDER))}))' -&gt; Error in checkPermissivePrivacyControlLevel() : \n  BLOCKED: The server is running in 'non-permissive' mode which has caused this method to be blocked\n&quot;. ('test-discctrl-ds.c.R:35:5')">Expected `res_errors$sim1` to equal "Command 'cDS(list(D$GENDER))' failed on 'sim1': Error while evaluating 'is.null(base::assign('c.newobj', value={dsBase::cDS(base::list(D$GENDER))}))' -&gt; Error in checkPermissivePrivacyControlLevel() : \n  BLOCKED: The server is running in 'non-permissive' mode which has caused this method to be blocked\n".
+Differences:
+target is NULL, current is character</failure>
+    </testcase>
+    <testcase time="0.0150000000000006" classname="discctrl_ds.c" name="simple_c">
+      <failure type="failure" message="Expected `res_errors$sim2` to have length 1. ('test-discctrl-ds.c.R:36:5')">Expected `res_errors$sim2` to have length 1.
+Actual length: 0.</failure>
+    </testcase>
+    <testcase time="0.0150000000000006" classname="discctrl_ds.c" name="simple_c">
+      <failure type="failure" message="Expected `res_errors$sim2` to equal &quot;Command 'cDS(list(D$GENDER))' failed on 'sim2': Error while evaluating 'is.null(base::assign('c.newobj', value={dsBase::cDS(base::list(D$GENDER))}))' -&gt; Error in checkPermissivePrivacyControlLevel() : \n  BLOCKED: The server is running in 'non-permissive' mode which has caused this method to be blocked\n&quot;. ('test-discctrl-ds.c.R:37:5')">Expected `res_errors$sim2` to equal "Command 'cDS(list(D$GENDER))' failed on 'sim2': Error while evaluating 'is.null(base::assign('c.newobj', value={dsBase::cDS(base::list(D$GENDER))}))' -&gt; Error in checkPermissivePrivacyControlLevel() : \n  BLOCKED: The server is running in 'non-permissive' mode which has caused this method to be blocked\n".
+Differences:
+target is NULL, current is character</failure>
+    </testcase>
+    <testcase time="0.0189999999999984" classname="discctrl_ds.c" name="simple_c">
+      <failure type="failure" message="Expected `res_errors$sim3` to have length 1. ('test-discctrl-ds.c.R:38:5')">Expected `res_errors$sim3` to have length 1.
+Actual length: 0.</failure>
+    </testcase>
+    <testcase time="0.0150000000000006" classname="discctrl_ds.c" name="simple_c">
+      <failure type="failure" message="Expected `res_errors$sim3` to equal &quot;Command 'cDS(list(D$GENDER))' failed on 'sim3': Error while evaluating 'is.null(base::assign('c.newobj', value={dsBase::cDS(base::list(D$GENDER))}))' -&gt; Error in checkPermissivePrivacyControlLevel() : \n  BLOCKED: The server is running in 'non-permissive' mode which has caused this method to be blocked\n&quot;. ('test-discctrl-ds.c.R:39:5')">Expected `res_errors$sim3` to equal "Command 'cDS(list(D$GENDER))' failed on 'sim3': Error while evaluating 'is.null(base::assign('c.newobj', value={dsBase::cDS(base::list(D$GENDER))}))' -&gt; Error in checkPermissivePrivacyControlLevel() : \n  BLOCKED: The server is running in 'non-permissive' mode which has caused this method to be blocked\n".
+Differences:
+target is NULL, current is character</failure>
+    </testcase>
+    <testcase time="0.216999999999999" classname="discctrl_ds.c" name="shutdown">
+      <failure type="failure" message="Expected `study.current.variables$objects.found` to have the same values as `expected.variables`. ('test-discctrl-ds.c.R:49:5')">Expected `study.current.variables$objects.found` to have the same values as `expected.variables`.
+Actual: "c.newobj", "D"
+Expected: "D"
+Needs: "c.newobj"
+Backtrace:
+    x
+ 1. \-global ds_expect_variables(c("D")) at test-discctrl-ds.c.R:49:5
+ 2.   \-testthat::expect_setequal(...)</failure>
+    </testcase>
+    <testcase time="0.0210000000000008" classname="discctrl_ds.c" name="shutdown">
+      <failure type="failure" message="Expected `study.current.variables$objects.found` to have the same values as `expected.variables`. ('test-discctrl-ds.c.R:49:5')">Expected `study.current.variables$objects.found` to have the same values as `expected.variables`.
+Actual: "c.newobj", "D"
+Expected: "D"
+Needs: "c.newobj"
+Backtrace:
+    x
+ 1. \-global ds_expect_variables(c("D")) at test-discctrl-ds.c.R:49:5
+ 2.   \-testthat::expect_setequal(...)</failure>
+    </testcase>
+    <testcase time="0.0199999999999996" classname="discctrl_ds.c" name="shutdown">
+      <failure type="failure" message="Expected `study.current.variables$objects.found` to have the same values as `expected.variables`. ('test-discctrl-ds.c.R:49:5')">Expected `study.current.variables$objects.found` to have the same values as `expected.variables`.
+Actual: "c.newobj", "D"
+Expected: "D"
+Needs: "c.newobj"
+Backtrace:
+    x
+ 1. \-global ds_expect_variables(c("D")) at test-discctrl-ds.c.R:49:5
+ 2.   \-testthat::expect_setequal(...)</failure>
+    </testcase>
+  </testsuite>
+  <testsuite name="discctrl-ds.cbind" timestamp="2026-04-18T00:28:45Z" hostname="runnervmeorf1" tests="10" skipped="0" failures="5" errors="0" time="7.472">
+    <testcase time="6.578" classname="discctrl_ds.cbind" name="setup"/>
+    <testcase time="0.00200000000000244" classname="discctrl_ds.cbind" name="setup"/>
+    <testcase time="0.00199999999999889" classname="discctrl_ds.cbind" name="setup"/>
+    <testcase time="0.594000000000001" classname="discctrl_ds.cbind" name="simple_c">
+      <failure type="failure" message="Expected `ds.cbind(x = &quot;D&quot;, DataSHIELD.checks = TRUE, datasources = ds.test_env$connections[1])` to throw a error. ('test-discctrl-ds.cbind.R:29:5')">Expected `ds.cbind(x = "D", DataSHIELD.checks = TRUE, datasources = ds.test_env$connections[1])` to throw a error.</failure>
+    </testcase>
+    <testcase time="0.0159999999999982" classname="discctrl_ds.cbind" name="simple_c">
+      <failure type="failure" message="Expected `res_errors` to have length 1. ('test-discctrl-ds.cbind.R:33:5')">Expected `res_errors` to have length 1.
+Actual length: 0.</failure>
+    </testcase>
+    <testcase time="0.0160000000000018" classname="discctrl_ds.cbind" name="simple_c">
+      <failure type="failure" message="Expected `res_errors$sim1` to have length 1. ('test-discctrl-ds.cbind.R:34:5')">Expected `res_errors$sim1` to have length 1.
+Actual length: 0.</failure>
+    </testcase>
+    <testcase time="0.0159999999999982" classname="discctrl_ds.cbind" name="simple_c">
+      <failure type="failure" message="Expected `res_errors$sim1` to equal &quot;Command 'cbindDS(\&quot;D\&quot;, \&quot;GENDER,PM_BMI_CATEGORICAL\&quot;)' failed on 'sim1': Error while evaluating 'is.null(base::assign('cbind.newobj', value={dsBase::cbindDS(\&quot;D\&quot;, \&quot;GENDER,PM_BMI_CATEGORICAL\&quot;)}))' -&gt; Error in checkPermissivePrivacyControlLevel() : \n  BLOCKED: The server is running in 'non-permissive' mode which has caused this method to be blocked\n&quot;. ('test-discctrl-ds.cbind.R:35:5')">Expected `res_errors$sim1` to equal "Command 'cbindDS(\"D\", \"GENDER,PM_BMI_CATEGORICAL\")' failed on 'sim1': Error while evaluating 'is.null(base::assign('cbind.newobj', value={dsBase::cbindDS(\"D\", \"GENDER,PM_BMI_CATEGORICAL\")}))' -&gt; Error in checkPermissivePrivacyControlLevel() : \n  BLOCKED: The server is running in 'non-permissive' mode which has caused this method to be blocked\n".
+Differences:
+target is NULL, current is character</failure>
+    </testcase>
+    <testcase time="0.222000000000001" classname="discctrl_ds.cbind" name="shutdown">
+      <failure type="failure" message="Expected `study.current.variables$objects.found` to have the same values as `expected.variables`. ('test-discctrl-ds.cbind.R:45:5')">Expected `study.current.variables$objects.found` to have the same values as `expected.variables`.
+Actual: "cbind.newobj", "D"
+Expected: "D"
+Needs: "cbind.newobj"
+Backtrace:
+    x
+ 1. \-global ds_expect_variables(c("D")) at test-discctrl-ds.cbind.R:45:5
+ 2.   \-testthat::expect_setequal(...)</failure>
+    </testcase>
+    <testcase time="0.0239999999999974" classname="discctrl_ds.cbind" name="shutdown"/>
+    <testcase time="0.00200000000000244" classname="discctrl_ds.cbind" name="shutdown"/>
+  </testsuite>
+  <testsuite name="discctrl-ds.dataFrame" timestamp="2026-04-18T00:28:53Z" hostname="runnervmeorf1" tests="10" skipped="0" failures="1" errors="0" time="8.501">
+    <testcase time="6.614" classname="discctrl_ds.dataFrame" name="setup"/>
+    <testcase time="0.00200000000000244" classname="discctrl_ds.dataFrame" name="setup"/>
+    <testcase time="0.000999999999997669" classname="discctrl_ds.dataFrame" name="setup"/>
+    <testcase time="1.651" classname="discctrl_ds.dataFrame" name="simple_c"/>
+    <testcase time="0.00199999999999534" classname="discctrl_ds.dataFrame" name="simple_c"/>
+    <testcase time="0.00200000000000244" classname="discctrl_ds.dataFrame" name="simple_c"/>
+    <testcase time="0.0120000000000005" classname="discctrl_ds.dataFrame" name="simple_c">
+      <failure type="failure" message="Expected `res_errors$sim1` to equal &quot;Command 'dataFrameDS(\&quot;LAB_TSC,LAB_HDL\&quot;, NULL, FALSE, TRUE, \&quot;LAB_TSC,LAB_HDL\&quot;, \n    TRUE, FALSE)' failed on 'sim1': Error while evaluating 'is.null(base::assign('dataframe.newobj', value={dsBase::dataFrameDS(\&quot;LAB_TSC,LAB_HDL\&quot;, NULL, FALSE, TRUE, \&quot;LAB_TSC,LAB_HDL\&quot;, TRUE, FALSE)}))' -&gt; Error in checkPermissivePrivacyControlLevel() : \n  BLOCKED: The server is running in 'non-permissive' mode which has caused this method to be blocked\n&quot;. ('test-discctrl-ds.dataFrame.R:39:5')">Expected `res_errors$sim1` to equal "Command 'dataFrameDS(\"LAB_TSC,LAB_HDL\", NULL, FALSE, TRUE, \"LAB_TSC,LAB_HDL\", \n    TRUE, FALSE)' failed on 'sim1': Error while evaluating 'is.null(base::assign('dataframe.newobj', value={dsBase::dataFrameDS(\"LAB_TSC,LAB_HDL\", NULL, FALSE, TRUE, \"LAB_TSC,LAB_HDL\", TRUE, FALSE)}))' -&gt; Error in checkPermissivePrivacyControlLevel() : \n  BLOCKED: The server is running in 'non-permissive' mode which has caused this method to be blocked\n".
+Differences:
+1/1 mismatches
+x[1]: "Command 'dsBase::dataFrameDS(\"LAB_TSC,LAB_HDL\", NULL, FALSE, TRUE, \"LA
+x[1]: B_TSC,LAB_HDL\", TRUE, FALSE)' failed on sim1: Error whilst evaluating 'is
+x[1]: .null(base::assign('dataframe.newobj', value={dsBase::dataFrameDS(\"LAB_TS
+x[1]: C,LAB_HDL\", NULL, FALSE, TRUE, \"LAB_TSC,LAB_HDL\", TRUE, FALSE)}))' &lt;U+2
+x[1]: 192&gt; Error in names(x) &lt;- value : \n  'names' attribute [2] must be the...
+y[1]: "Command 'dataFrameDS(\"LAB_TSC,LAB_HDL\", NULL, FALSE, TRUE, \"LAB_TSC,LA
+y[1]: B_HDL\", \n    TRUE, FALSE)' failed on 'sim1': Error while evaluating 'is.
+y[1]: null(base::assign('dataframe.newobj', value={dsBase::dataFrameDS(\"LAB_TSC
+y[1]: ,LAB_HDL\", NULL, FALSE, TRUE, \"LAB_TSC,LAB_HDL\", TRUE, FALSE)}))' -&gt; Er
+y[1]: ror in checkPermissivePrivacyControlLevel() : \n  BLOCKED: The server i...</failure>
+    </testcase>
+    <testcase time="0.213999999999999" classname="discctrl_ds.dataFrame" name="shutdown"/>
+    <testcase time="0.000999999999997669" classname="discctrl_ds.dataFrame" name="shutdown"/>
+    <testcase time="0.00200000000000244" classname="discctrl_ds.dataFrame" name="shutdown"/>
+  </testsuite>
+  <testsuite name="discctrl-ds.dataFrameSort" timestamp="2026-04-18T00:29:01Z" hostname="runnervmeorf1" tests="14" skipped="0" failures="3" errors="0" time="7.188">
+    <testcase time="6.598" classname="discctrl_ds.dataFrameSort" name="setup"/>
+    <testcase time="0.00199999999999534" classname="discctrl_ds.dataFrameSort" name="setup"/>
+    <testcase time="0.00100000000000477" classname="discctrl_ds.dataFrameSort" name="setup"/>
+    <testcase time="0.347000000000001" classname="discctrl_ds.dataFrameSort" name="simple_c"/>
+    <testcase time="0.000999999999997669" classname="discctrl_ds.dataFrameSort" name="simple_c"/>
+    <testcase time="0.00200000000000244" classname="discctrl_ds.dataFrameSort" name="simple_c"/>
+    <testcase time="0.00499999999999545" classname="discctrl_ds.dataFrameSort" name="simple_c">
+      <failure type="failure" message="Expected `res_errors$sim1` to equal &quot;Command 'dataFrameSortDS(\&quot;D\&quot;, \&quot;PM_BMI_CATEGORICAL\&quot;, FALSE, \&quot;default\&quot;)' failed on 'sim1': Error while evaluating 'is.null(base::assign('sorted_df', value={dsBase::dataFrameSortDS(\&quot;D\&quot;, \&quot;PM_BMI_CATEGORICAL\&quot;, FALSE, \&quot;default\&quot;)}))' -&gt; Error in checkPermissivePrivacyControlLevel() : \n  BLOCKED: The server is running in 'non-permissive' mode which has caused this method to be blocked\n&quot;. ('test-discctrl-ds.dataFrameSort.R:35:5')">Expected `res_errors$sim1` to equal "Command 'dataFrameSortDS(\"D\", \"PM_BMI_CATEGORICAL\", FALSE, \"default\")' failed on 'sim1': Error while evaluating 'is.null(base::assign('sorted_df', value={dsBase::dataFrameSortDS(\"D\", \"PM_BMI_CATEGORICAL\", FALSE, \"default\")}))' -&gt; Error in checkPermissivePrivacyControlLevel() : \n  BLOCKED: The server is running in 'non-permissive' mode which has caused this method to be blocked\n".
+Differences:
+1/1 mismatches
+x[1]: "Command 'dsBase::dataFrameSortDS(\"D\", \"PM_BMI_CATEGORICAL\", FALSE, \"
+x[1]: default\")' failed on sim1: Error whilst evaluating 'is.null(base::assign(
+x[1]: 'sorted_df', value={dsBase::dataFrameSortDS(\"D\", \"PM_BMI_CATEGORICAL\",
+x[1]:  FALSE, \"default\")}))' &lt;U+2192&gt; Error in eval(parse(text = sort.key.name
+x[1]: ), envir = parent.frame()) : \n  object 'PM_BMI_CATEGORICAL' not found\n"
+y[1]: "Command 'dataFrameSortDS(\"D\", \"PM_BMI_CATEGORICAL\", FALSE, \"default\
+y[1]: ")' failed on 'sim1': Error while evaluating 'is.null(base::assign('sorted
+y[1]: _df', value={dsBase::dataFrameSortDS(\"D\", \"PM_BMI_CATEGORICAL\", FALSE,
+y[1]:  \"default\")}))' -&gt; Error in checkPermissivePrivacyControlLevel() : \n  B
+y[1]: LOCKED: The server is running in 'non-permissive' mode which has caused...</failure>
+    </testcase>
+    <testcase time="0.0110000000000028" classname="discctrl_ds.dataFrameSort" name="simple_c"/>
+    <testcase time="0.00399999999999778" classname="discctrl_ds.dataFrameSort" name="simple_c">
+      <failure type="failure" message="Expected `res_errors$sim2` to equal &quot;Command 'dataFrameSortDS(\&quot;D\&quot;, \&quot;PM_BMI_CATEGORICAL\&quot;, FALSE, \&quot;default\&quot;)' failed on 'sim2': Error while evaluating 'is.null(base::assign('sorted_df', value={dsBase::dataFrameSortDS(\&quot;D\&quot;, \&quot;PM_BMI_CATEGORICAL\&quot;, FALSE, \&quot;default\&quot;)}))' -&gt; Error in checkPermissivePrivacyControlLevel() : \n  BLOCKED: The server is running in 'non-permissive' mode which has caused this method to be blocked\n&quot;. ('test-discctrl-ds.dataFrameSort.R:37:5')">Expected `res_errors$sim2` to equal "Command 'dataFrameSortDS(\"D\", \"PM_BMI_CATEGORICAL\", FALSE, \"default\")' failed on 'sim2': Error while evaluating 'is.null(base::assign('sorted_df', value={dsBase::dataFrameSortDS(\"D\", \"PM_BMI_CATEGORICAL\", FALSE, \"default\")}))' -&gt; Error in checkPermissivePrivacyControlLevel() : \n  BLOCKED: The server is running in 'non-permissive' mode which has caused this method to be blocked\n".
+Differences:
+1/1 mismatches
+x[1]: "Command 'dsBase::dataFrameSortDS(\"D\", \"PM_BMI_CATEGORICAL\", FALSE, \"
+x[1]: default\")' failed on sim2: Error whilst evaluating 'is.null(base::assign(
+x[1]: 'sorted_df', value={dsBase::dataFrameSortDS(\"D\", \"PM_BMI_CATEGORICAL\",
+x[1]:  FALSE, \"default\")}))' &lt;U+2192&gt; Error in eval(parse(text = sort.key.name
+x[1]: ), envir = parent.frame()) : \n  object 'PM_BMI_CATEGORICAL' not found\n"
+y[1]: "Command 'dataFrameSortDS(\"D\", \"PM_BMI_CATEGORICAL\", FALSE, \"default\
+y[1]: ")' failed on 'sim2': Error while evaluating 'is.null(base::assign('sorted
+y[1]: _df', value={dsBase::dataFrameSortDS(\"D\", \"PM_BMI_CATEGORICAL\", FALSE,
+y[1]:  \"default\")}))' -&gt; Error in checkPermissivePrivacyControlLevel() : \n  B
+y[1]: LOCKED: The server is running in 'non-permissive' mode which has caused...</failure>
+    </testcase>
+    <testcase time="0.0110000000000028" classname="discctrl_ds.dataFrameSort" name="simple_c"/>
+    <testcase time="0.00499999999999545" classname="discctrl_ds.dataFrameSort" name="simple_c">
+      <failure type="failure" message="Expected `res_errors$sim3` to equal &quot;Command 'dataFrameSortDS(\&quot;D\&quot;, \&quot;PM_BMI_CATEGORICAL\&quot;, FALSE, \&quot;default\&quot;)' failed on 'sim3': Error while evaluating 'is.null(base::assign('sorted_df', value={dsBase::dataFrameSortDS(\&quot;D\&quot;, \&quot;PM_BMI_CATEGORICAL\&quot;, FALSE, \&quot;default\&quot;)}))' -&gt; Error in checkPermissivePrivacyControlLevel() : \n  BLOCKED: The server is running in 'non-permissive' mode which has caused this method to be blocked\n&quot;. ('test-discctrl-ds.dataFrameSort.R:39:5')">Expected `res_errors$sim3` to equal "Command 'dataFrameSortDS(\"D\", \"PM_BMI_CATEGORICAL\", FALSE, \"default\")' failed on 'sim3': Error while evaluating 'is.null(base::assign('sorted_df', value={dsBase::dataFrameSortDS(\"D\", \"PM_BMI_CATEGORICAL\", FALSE, \"default\")}))' -&gt; Error in checkPermissivePrivacyControlLevel() : \n  BLOCKED: The server is running in 'non-permissive' mode which has caused this method to be blocked\n".
+Differences:
+1/1 mismatches
+x[1]: "Command 'dsBase::dataFrameSortDS(\"D\", \"PM_BMI_CATEGORICAL\", FALSE, \"
+x[1]: default\")' failed on sim3: Error whilst evaluating 'is.null(base::assign(
+x[1]: 'sorted_df', value={dsBase::dataFrameSortDS(\"D\", \"PM_BMI_CATEGORICAL\",
+x[1]:  FALSE, \"default\")}))' &lt;U+2192&gt; Error in eval(parse(text = sort.key.name
+x[1]: ), envir = parent.frame()) : \n  object 'PM_BMI_CATEGORICAL' not found\n"
+y[1]: "Command 'dataFrameSortDS(\"D\", \"PM_BMI_CATEGORICAL\", FALSE, \"default\
+y[1]: ")' failed on 'sim3': Error while evaluating 'is.null(base::assign('sorted
+y[1]: _df', value={dsBase::dataFrameSortDS(\"D\", \"PM_BMI_CATEGORICAL\", FALSE,
+y[1]:  \"default\")}))' -&gt; Error in checkPermissivePrivacyControlLevel() : \n  B
+y[1]: LOCKED: The server is running in 'non-permissive' mode which has caused...</failure>
+    </testcase>
+    <testcase time="0.197000000000003" classname="discctrl_ds.dataFrameSort" name="shutdown"/>
+    <testcase time="0.00200000000000244" classname="discctrl_ds.dataFrameSort" name="shutdown"/>
+    <testcase time="0.00199999999999534" classname="discctrl_ds.dataFrameSort" name="shutdown"/>
+  </testsuite>
+  <testsuite name="discctrl-ds.dataFrameSubset" timestamp="2026-04-18T00:29:08Z" hostname="runnervmeorf1" tests="14" skipped="0" failures="3" errors="0" time="6.971">
+    <testcase time="6.407" classname="discctrl_ds.dataFrameSubset" name="setup"/>
+    <testcase time="0.000999999999997669" classname="discctrl_ds.dataFrameSubset" name="setup"/>
+    <testcase time="0.00200000000000244" classname="discctrl_ds.dataFrameSubset" name="setup"/>
+    <testcase time="0.314" classname="discctrl_ds.dataFrameSubset" name="simple_c"/>
+    <testcase time="0.00199999999999534" classname="discctrl_ds.dataFrameSubset" name="simple_c"/>
+    <testcase time="0.00200000000000244" classname="discctrl_ds.dataFrameSubset" name="simple_c"/>
+    <testcase time="0.00500000000000256" classname="discctrl_ds.dataFrameSubset" name="simple_c">
+      <failure type="failure" message="Expected `res_errors$sim1` to equal &quot;Command 'dataFrameSubsetDS1(\&quot;D\&quot;, \&quot;D$LAB_TSC\&quot;, \&quot;D$LAB_HDL\&quot;, 2, NULL, NULL, \n    FALSE)' failed on 'sim1': Error while evaluating 'dsBase::dataFrameSubsetDS1(\&quot;D\&quot;, \&quot;D$LAB_TSC\&quot;, \&quot;D$LAB_HDL\&quot;, 2, NULL, NULL, FALSE)' -&gt; Error in checkPermissivePrivacyControlLevel() : \n  BLOCKED: The server is running in 'non-permissive' mode which has caused this method to be blocked\n&quot;. ('test-discctrl-ds.dataFrameSubset.R:35:5')">Expected `res_errors$sim1` to equal "Command 'dataFrameSubsetDS1(\"D\", \"D$LAB_TSC\", \"D$LAB_HDL\", 2, NULL, NULL, \n    FALSE)' failed on 'sim1': Error while evaluating 'dsBase::dataFrameSubsetDS1(\"D\", \"D$LAB_TSC\", \"D$LAB_HDL\", 2, NULL, NULL, FALSE)' -&gt; Error in checkPermissivePrivacyControlLevel() : \n  BLOCKED: The server is running in 'non-permissive' mode which has caused this method to be blocked\n".
+Differences:
+1/1 mismatches
+x[1]: "Command 'NA' failed on sim1: Error whilst evaluating 'dsBase::dataFrameSu
+x[1]: bsetDS1(\"D\", \"D$LAB_TSC\", \"D$LAB_HDL\", 2, NULL, NULL, FALSE)' &lt;U+219
+x[1]: 2&gt; Error : FAILED: V[i] must of length equal to column length of df to be 
+x[1]: subsetted\n"
+y[1]: "Command 'dataFrameSubsetDS1(\"D\", \"D$LAB_TSC\", \"D$LAB_HDL\", 2, NULL,
+y[1]:  NULL, \n    FALSE)' failed on 'sim1': Error while evaluating 'dsBase::dat
+y[1]: aFrameSubsetDS1(\"D\", \"D$LAB_TSC\", \"D$LAB_HDL\", 2, NULL, NULL, FALSE)
+y[1]: ' -&gt; Error in checkPermissivePrivacyControlLevel() : \n  BLOCKED: The serv
+y[1]: er is running in 'non-permissive' mode which has caused this method to ...</failure>
+    </testcase>
+    <testcase time="0.0109999999999957" classname="discctrl_ds.dataFrameSubset" name="simple_c"/>
+    <testcase time="0.00500000000000256" classname="discctrl_ds.dataFrameSubset" name="simple_c">
+      <failure type="failure" message="Expected `res_errors$sim2` to equal &quot;Command 'dataFrameSubsetDS1(\&quot;D\&quot;, \&quot;D$LAB_TSC\&quot;, \&quot;D$LAB_HDL\&quot;, 2, NULL, NULL, \n    FALSE)' failed on 'sim2': Error while evaluating 'dsBase::dataFrameSubsetDS1(\&quot;D\&quot;, \&quot;D$LAB_TSC\&quot;, \&quot;D$LAB_HDL\&quot;, 2, NULL, NULL, FALSE)' -&gt; Error in checkPermissivePrivacyControlLevel() : \n  BLOCKED: The server is running in 'non-permissive' mode which has caused this method to be blocked\n&quot;. ('test-discctrl-ds.dataFrameSubset.R:37:5')">Expected `res_errors$sim2` to equal "Command 'dataFrameSubsetDS1(\"D\", \"D$LAB_TSC\", \"D$LAB_HDL\", 2, NULL, NULL, \n    FALSE)' failed on 'sim2': Error while evaluating 'dsBase::dataFrameSubsetDS1(\"D\", \"D$LAB_TSC\", \"D$LAB_HDL\", 2, NULL, NULL, FALSE)' -&gt; Error in checkPermissivePrivacyControlLevel() : \n  BLOCKED: The server is running in 'non-permissive' mode which has caused this method to be blocked\n".
+Differences:
+1/1 mismatches
+x[1]: "Command 'NA' failed on sim2: Error whilst evaluating 'dsBase::dataFrameSu
+x[1]: bsetDS1(\"D\", \"D$LAB_TSC\", \"D$LAB_HDL\", 2, NULL, NULL, FALSE)' &lt;U+219
+x[1]: 2&gt; Error : FAILED: V[i] must of length equal to column length of df to be 
+x[1]: subsetted\n"
+y[1]: "Command 'dataFrameSubsetDS1(\"D\", \"D$LAB_TSC\", \"D$LAB_HDL\", 2, NULL,
+y[1]:  NULL, \n    FALSE)' failed on 'sim2': Error while evaluating 'dsBase::dat
+y[1]: aFrameSubsetDS1(\"D\", \"D$LAB_TSC\", \"D$LAB_HDL\", 2, NULL, NULL, FALSE)
+y[1]: ' -&gt; Error in checkPermissivePrivacyControlLevel() : \n  BLOCKED: The serv
+y[1]: er is running in 'non-permissive' mode which has caused this method to ...</failure>
+    </testcase>
+    <testcase time="0.0120000000000005" classname="discctrl_ds.dataFrameSubset" name="simple_c"/>
+    <testcase time="0.00500000000000256" classname="discctrl_ds.dataFrameSubset" name="simple_c">
+      <failure type="failure" message="Expected `res_errors$sim3` to equal &quot;Command 'dataFrameSubsetDS1(\&quot;D\&quot;, \&quot;D$LAB_TSC\&quot;, \&quot;D$LAB_HDL\&quot;, 2, NULL, NULL, \n    FALSE)' failed on 'sim3': Error while evaluating 'dsBase::dataFrameSubsetDS1(\&quot;D\&quot;, \&quot;D$LAB_TSC\&quot;, \&quot;D$LAB_HDL\&quot;, 2, NULL, NULL, FALSE)' -&gt; Error in checkPermissivePrivacyControlLevel() : \n  BLOCKED: The server is running in 'non-permissive' mode which has caused this method to be blocked\n&quot;. ('test-discctrl-ds.dataFrameSubset.R:39:5')">Expected `res_errors$sim3` to equal "Command 'dataFrameSubsetDS1(\"D\", \"D$LAB_TSC\", \"D$LAB_HDL\", 2, NULL, NULL, \n    FALSE)' failed on 'sim3': Error while evaluating 'dsBase::dataFrameSubsetDS1(\"D\", \"D$LAB_TSC\", \"D$LAB_HDL\", 2, NULL, NULL, FALSE)' -&gt; Error in checkPermissivePrivacyControlLevel() : \n  BLOCKED: The server is running in 'non-permissive' mode which has caused this method to be blocked\n".
+Differences:
+1/1 mismatches
+x[1]: "Command 'NA' failed on sim3: Error whilst evaluating 'dsBase::dataFrameSu
+x[1]: bsetDS1(\"D\", \"D$LAB_TSC\", \"D$LAB_HDL\", 2, NULL, NULL, FALSE)' &lt;U+219
+x[1]: 2&gt; Error : FAILED: V[i] must of length equal to column length of df to be 
+x[1]: subsetted\n"
+y[1]: "Command 'dataFrameSubsetDS1(\"D\", \"D$LAB_TSC\", \"D$LAB_HDL\", 2, NULL,
+y[1]:  NULL, \n    FALSE)' failed on 'sim3': Error while evaluating 'dsBase::dat
+y[1]: aFrameSubsetDS1(\"D\", \"D$LAB_TSC\", \"D$LAB_HDL\", 2, NULL, NULL, FALSE)
+y[1]: ' -&gt; Error in checkPermissivePrivacyControlLevel() : \n  BLOCKED: The serv
+y[1]: er is running in 'non-permissive' mode which has caused this method to ...</failure>
+    </testcase>
+    <testcase time="0.201999999999998" classname="discctrl_ds.dataFrameSubset" name="shutdown"/>
+    <testcase time="0.000999999999997669" classname="discctrl_ds.dataFrameSubset" name="shutdown"/>
+    <testcase time="0.00200000000000244" classname="discctrl_ds.dataFrameSubset" name="shutdown"/>
+  </testsuite>
+  <testsuite name="discctrl-ds.dmtC2S" timestamp="2026-04-18T00:29:15Z" hostname="runnervmeorf1" tests="14" skipped="0" failures="11" errors="0" time="7.085">
+    <testcase time="6.383" classname="discctrl_ds.dmtC2S" name="setup"/>
+    <testcase time="0.00200000000000244" classname="discctrl_ds.dmtC2S" name="setup"/>
+    <testcase time="0.000999999999997669" classname="discctrl_ds.dmtC2S" name="setup"/>
+    <testcase time="0.340000000000003" classname="discctrl_ds.dmtC2S" name="simple_dmtC2S">
+      <failure type="failure" message="Expected `ds.dmtC2S(dfdata = cdf)` to throw a error. ('test-discctrl-ds.dmtC2S.R:33:5')">Expected `ds.dmtC2S(dfdata = cdf)` to throw a error.</failure>
+    </testcase>
+    <testcase time="0.0150000000000006" classname="discctrl_ds.dmtC2S" name="simple_dmtC2S">
+      <failure type="failure" message="Expected `res_errors` to have length 3. ('test-discctrl-ds.dmtC2S.R:37:5')">Expected `res_errors` to have length 3.
+Actual length: 0.</failure>
+    </testcase>
+    <testcase time="0.0150000000000006" classname="discctrl_ds.dmtC2S" name="simple_dmtC2S">
+      <failure type="failure" message="Expected `res_errors$sim1` to have length 1. ('test-discctrl-ds.dmtC2S.R:38:5')">Expected `res_errors$sim1` to have length 1.
+Actual length: 0.</failure>
+    </testcase>
+    <testcase time="0.0150000000000006" classname="discctrl_ds.dmtC2S" name="simple_dmtC2S">
+      <failure type="failure" message="Expected `res_errors$sim1` to equal &quot;Command 'dmtC2SDS(\&quot;1,2,2,3\&quot;, \&quot;DF\&quot;, \&quot;clientside.dmt\&quot;, \&quot;2\&quot;, \&quot;2\&quot;, \&quot;c.1..2.,c.2..3.\&quot;, \n    \&quot;numeric,numeric\&quot;, FALSE)' failed on 'sim1': Error while evaluating 'is.null(base::assign('dmt.copied.C2S', value={dsBase::dmtC2SDS(\&quot;1,2,2,3\&quot;, \&quot;DF\&quot;, \&quot;clientside.dmt\&quot;, \&quot;2\&quot;, \&quot;2\&quot;, \&quot;c.1..2.,c.2..3.\&quot;, \&quot;numeric,numeric\&quot;, FALSE)}))' -&gt; Error in checkPermissivePrivacyControlLevel() : \n  BLOCKED: The server is running in 'non-permissive' mode which has caused this method to be blocked\n&quot;. ('test-discctrl-ds.dmtC2S.R:39:5')">Expected `res_errors$sim1` to equal "Command 'dmtC2SDS(\"1,2,2,3\", \"DF\", \"clientside.dmt\", \"2\", \"2\", \"c.1..2.,c.2..3.\", \n    \"numeric,numeric\", FALSE)' failed on 'sim1': Error while evaluating 'is.null(base::assign('dmt.copied.C2S', value={dsBase::dmtC2SDS(\"1,2,2,3\", \"DF\", \"clientside.dmt\", \"2\", \"2\", \"c.1..2.,c.2..3.\", \"numeric,numeric\", FALSE)}))' -&gt; Error in checkPermissivePrivacyControlLevel() : \n  BLOCKED: The server is running in 'non-permissive' mode which has caused this method to be blocked\n".
+Differences:
+target is NULL, current is character</failure>
+    </testcase>
+    <testcase time="0.0140000000000029" classname="discctrl_ds.dmtC2S" name="simple_dmtC2S">
+      <failure type="failure" message="Expected `res_errors$sim2` to have length 1. ('test-discctrl-ds.dmtC2S.R:40:5')">Expected `res_errors$sim2` to have length 1.
+Actual length: 0.</failure>
+    </testcase>
+    <testcase time="0.0159999999999982" classname="discctrl_ds.dmtC2S" name="simple_dmtC2S">
+      <failure type="failure" message="Expected `res_errors$sim2` to equal &quot;Command 'dmtC2SDS(\&quot;1,2,2,3\&quot;, \&quot;DF\&quot;, \&quot;clientside.dmt\&quot;, \&quot;2\&quot;, \&quot;2\&quot;, \&quot;c.1..2.,c.2..3.\&quot;, \n    \&quot;numeric,numeric\&quot;, FALSE)' failed on 'sim2': Error while evaluating 'is.null(base::assign('dmt.copied.C2S', value={dsBase::dmtC2SDS(\&quot;1,2,2,3\&quot;, \&quot;DF\&quot;, \&quot;clientside.dmt\&quot;, \&quot;2\&quot;, \&quot;2\&quot;, \&quot;c.1..2.,c.2..3.\&quot;, \&quot;numeric,numeric\&quot;, FALSE)}))' -&gt; Error in checkPermissivePrivacyControlLevel() : \n  BLOCKED: The server is running in 'non-permissive' mode which has caused this method to be blocked\n&quot;. ('test-discctrl-ds.dmtC2S.R:41:5')">Expected `res_errors$sim2` to equal "Command 'dmtC2SDS(\"1,2,2,3\", \"DF\", \"clientside.dmt\", \"2\", \"2\", \"c.1..2.,c.2..3.\", \n    \"numeric,numeric\", FALSE)' failed on 'sim2': Error while evaluating 'is.null(base::assign('dmt.copied.C2S', value={dsBase::dmtC2SDS(\"1,2,2,3\", \"DF\", \"clientside.dmt\", \"2\", \"2\", \"c.1..2.,c.2..3.\", \"numeric,numeric\", FALSE)}))' -&gt; Error in checkPermissivePrivacyControlLevel() : \n  BLOCKED: The server is running in 'non-permissive' mode which has caused this method to be blocked\n".
+Differences:
+target is NULL, current is character</failure>
+    </testcase>
+    <testcase time="0.0139999999999958" classname="discctrl_ds.dmtC2S" name="simple_dmtC2S">
+      <failure type="failure" message="Expected `res_errors$sim3` to have length 1. ('test-discctrl-ds.dmtC2S.R:42:5')">Expected `res_errors$sim3` to have length 1.
+Actual length: 0.</failure>
+    </testcase>
+    <testcase time="0.0160000000000053" classname="discctrl_ds.dmtC2S" name="simple_dmtC2S">
+      <failure type="failure" message="Expected `res_errors$sim3` to equal &quot;Command 'dmtC2SDS(\&quot;1,2,2,3\&quot;, \&quot;DF\&quot;, \&quot;clientside.dmt\&quot;, \&quot;2\&quot;, \&quot;2\&quot;, \&quot;c.1..2.,c.2..3.\&quot;, \n    \&quot;numeric,numeric\&quot;, FALSE)' failed on 'sim3': Error while evaluating 'is.null(base::assign('dmt.copied.C2S', value={dsBase::dmtC2SDS(\&quot;1,2,2,3\&quot;, \&quot;DF\&quot;, \&quot;clientside.dmt\&quot;, \&quot;2\&quot;, \&quot;2\&quot;, \&quot;c.1..2.,c.2..3.\&quot;, \&quot;numeric,numeric\&quot;, FALSE)}))' -&gt; Error in checkPermissivePrivacyControlLevel() : \n  BLOCKED: The server is running in 'non-permissive' mode which has caused this method to be blocked\n&quot;. ('test-discctrl-ds.dmtC2S.R:43:5')">Expected `res_errors$sim3` to equal "Command 'dmtC2SDS(\"1,2,2,3\", \"DF\", \"clientside.dmt\", \"2\", \"2\", \"c.1..2.,c.2..3.\", \n    \"numeric,numeric\", FALSE)' failed on 'sim3': Error while evaluating 'is.null(base::assign('dmt.copied.C2S', value={dsBase::dmtC2SDS(\"1,2,2,3\", \"DF\", \"clientside.dmt\", \"2\", \"2\", \"c.1..2.,c.2..3.\", \"numeric,numeric\", FALSE)}))' -&gt; Error in checkPermissivePrivacyControlLevel() : \n  BLOCKED: The server is running in 'non-permissive' mode which has caused this method to be blocked\n".
+Differences:
+target is NULL, current is character</failure>
+    </testcase>
+    <testcase time="0.216000000000001" classname="discctrl_ds.dmtC2S" name="shutdown">
+      <failure type="failure" message="Expected `study.current.variables$objects.found` to have the same values as `expected.variables`. ('test-discctrl-ds.dmtC2S.R:53:5')">Expected `study.current.variables$objects.found` to have the same values as `expected.variables`.
+Actual: "D", "dmt.copied.C2S"
+Expected: "D"
+Needs: "dmt.copied.C2S"
+Backtrace:
+    x
+ 1. \-global ds_expect_variables(c("D")) at test-discctrl-ds.dmtC2S.R:53:5
+ 2.   \-testthat::expect_setequal(...)</failure>
+    </testcase>
+    <testcase time="0.0189999999999984" classname="discctrl_ds.dmtC2S" name="shutdown">
+      <failure type="failure" message="Expected `study.current.variables$objects.found` to have the same values as `expected.variables`. ('test-discctrl-ds.dmtC2S.R:53:5')">Expected `study.current.variables$objects.found` to have the same values as `expected.variables`.
+Actual: "D", "dmt.copied.C2S"
+Expected: "D"
+Needs: "dmt.copied.C2S"
+Backtrace:
+    x
+ 1. \-global ds_expect_variables(c("D")) at test-discctrl-ds.dmtC2S.R:53:5
+ 2.   \-testthat::expect_setequal(...)</failure>
+    </testcase>
+    <testcase time="0.0189999999999984" classname="discctrl_ds.dmtC2S" name="shutdown">
+      <failure type="failure" message="Expected `study.current.variables$objects.found` to have the same values as `expected.variables`. ('test-discctrl-ds.dmtC2S.R:53:5')">Expected `study.current.variables$objects.found` to have the same values as `expected.variables`.
+Actual: "D", "dmt.copied.C2S"
+Expected: "D"
+Needs: "dmt.copied.C2S"
+Backtrace:
+    x
+ 1. \-global ds_expect_variables(c("D")) at test-discctrl-ds.dmtC2S.R:53:5
+ 2.   \-testthat::expect_setequal(...)</failure>
+    </testcase>
+  </testsuite>
+  <testsuite name="discctrl-ds.levels" timestamp="2026-04-18T00:29:22Z" hostname="runnervmeorf1" tests="14" skipped="0" failures="8" errors="0" time="7.373">
+    <testcase time="6.50299999999999" classname="discctrl_ds.levels" name="setup"/>
+    <testcase time="0.00200000000000955" classname="discctrl_ds.levels" name="setup"/>
+    <testcase time="0.00199999999999534" classname="discctrl_ds.levels" name="setup"/>
+    <testcase time="0.542000000000002" classname="discctrl_ds.levels" name="simple_levels">
+      <failure type="failure" message="Expected `ds.levels(&quot;D$GENDER&quot;)` to throw a error. ('test-discctrl-ds.levels.R:29:5')">Expected `ds.levels("D$GENDER")` to throw a error.</failure>
+    </testcase>
+    <testcase time="0.0289999999999964" classname="discctrl_ds.levels" name="simple_levels">
+      <failure type="failure" message="Expected `res_errors` to have length 3. ('test-discctrl-ds.levels.R:33:5')">Expected `res_errors` to have length 3.
+Actual length: 0.</failure>
+    </testcase>
+    <testcase time="0.0150000000000006" classname="discctrl_ds.levels" name="simple_levels">
+      <failure type="failure" message="Expected `res_errors$sim1` to have length 1. ('test-discctrl-ds.levels.R:34:5')">Expected `res_errors$sim1` to have length 1.
+Actual length: 0.</failure>
+    </testcase>
+    <testcase time="0.01400000000001" classname="discctrl_ds.levels" name="simple_levels">
+      <failure type="failure" message="Expected `res_errors$sim1` to equal &quot;Command 'levelsDS(D$GENDER)' failed on 'sim1': Error while evaluating 'dsBase::levelsDS(D$GENDER)' -&gt; Error in checkPermissivePrivacyControlLevel() : \n  BLOCKED: The server is running in 'non-permissive' mode which has caused this method to be blocked\n&quot;. ('test-discctrl-ds.levels.R:35:5')">Expected `res_errors$sim1` to equal "Command 'levelsDS(D$GENDER)' failed on 'sim1': Error while evaluating 'dsBase::levelsDS(D$GENDER)' -&gt; Error in checkPermissivePrivacyControlLevel() : \n  BLOCKED: The server is running in 'non-permissive' mode which has caused this method to be blocked\n".
+Differences:
+target is NULL, current is character</failure>
+    </testcase>
+    <testcase time="0.0150000000000006" classname="discctrl_ds.levels" name="simple_levels">
+      <failure type="failure" message="Expected `res_errors$sim2` to have length 1. ('test-discctrl-ds.levels.R:36:5')">Expected `res_errors$sim2` to have length 1.
+Actual length: 0.</failure>
+    </testcase>
+    <testcase time="0.0139999999999958" classname="discctrl_ds.levels" name="simple_levels">
+      <failure type="failure" message="Expected `res_errors$sim2` to equal &quot;Command 'levelsDS(D$GENDER)' failed on 'sim2': Error while evaluating 'dsBase::levelsDS(D$GENDER)' -&gt; Error in checkPermissivePrivacyControlLevel() : \n  BLOCKED: The server is running in 'non-permissive' mode which has caused this method to be blocked\n&quot;. ('test-discctrl-ds.levels.R:37:5')">Expected `res_errors$sim2` to equal "Command 'levelsDS(D$GENDER)' failed on 'sim2': Error while evaluating 'dsBase::levelsDS(D$GENDER)' -&gt; Error in checkPermissivePrivacyControlLevel() : \n  BLOCKED: The server is running in 'non-permissive' mode which has caused this method to be blocked\n".
+Differences:
+target is NULL, current is character</failure>
+    </testcase>
+    <testcase time="0.0139999999999958" classname="discctrl_ds.levels" name="simple_levels">
+      <failure type="failure" message="Expected `res_errors$sim3` to have length 1. ('test-discctrl-ds.levels.R:38:5')">Expected `res_errors$sim3` to have length 1.
+Actual length: 0.</failure>
+    </testcase>
+    <testcase time="0.0150000000000006" classname="discctrl_ds.levels" name="simple_levels">
+      <failure type="failure" message="Expected `res_errors$sim3` to equal &quot;Command 'levelsDS(D$GENDER)' failed on 'sim3': Error while evaluating 'dsBase::levelsDS(D$GENDER)' -&gt; Error in checkPermissivePrivacyControlLevel() : \n  BLOCKED: The server is running in 'non-permissive' mode which has caused this method to be blocked\n&quot;. ('test-discctrl-ds.levels.R:39:5')">Expected `res_errors$sim3` to equal "Command 'levelsDS(D$GENDER)' failed on 'sim3': Error while evaluating 'dsBase::levelsDS(D$GENDER)' -&gt; Error in checkPermissivePrivacyControlLevel() : \n  BLOCKED: The server is running in 'non-permissive' mode which has caused this method to be blocked\n".
+Differences:
+target is NULL, current is character</failure>
+    </testcase>
+    <testcase time="0.204999999999998" classname="discctrl_ds.levels" name="shutdown"/>
+    <testcase time="0.00200000000000955" classname="discctrl_ds.levels" name="shutdown"/>
+    <testcase time="0.000999999999990564" classname="discctrl_ds.levels" name="shutdown"/>
+  </testsuite>
+  <testsuite name="discctrl-ds.ns" timestamp="2026-04-18T00:29:30Z" hostname="runnervmeorf1" tests="14" skipped="0" failures="8" errors="0" time="7.062">
+    <testcase time="6.38000000000001" classname="discctrl_ds.ns" name="setup"/>
+    <testcase time="0.00199999999999534" classname="discctrl_ds.ns" name="setup"/>
+    <testcase time="0.00199999999999534" classname="discctrl_ds.ns" name="setup"/>
+    <testcase time="0.353000000000009" classname="discctrl_ds.ns" name="ns"/>
+    <testcase time="0.00499999999999545" classname="discctrl_ds.ns" name="ns">
+      <failure type="failure" message="Expected `res_errors` to have length 3. ('test-discctrl-ds.ns.R:33:5')">Expected `res_errors` to have length 3.
+Actual length: 1.</failure>
+    </testcase>
+    <testcase time="0.0159999999999911" classname="discctrl_ds.ns" name="ns">
+      <failure type="failure" message="Expected `res_errors$sim1` to have length 1. ('test-discctrl-ds.ns.R:34:5')">Expected `res_errors$sim1` to have length 1.
+Actual length: 0.</failure>
+    </testcase>
+    <testcase time="0.01400000000001" classname="discctrl_ds.ns" name="ns">
+      <failure type="failure" message="Expected `res_errors$sim1` to equal &quot;Command 'nsDS(\&quot;D$PM_BMI_CONTINUOUS\&quot;, NULL, c(8, 9, 10, 12, 25, 35), FALSE, \n    NULL)' failed on 'sim1': Error while evaluating 'is.null(base::assign('nsDS', value={dsBase::nsDS(\&quot;D$PM_BMI_CONTINUOUS\&quot;, NULL, dsBase::vectorDS(8, 9, 10, 12, 25, 35), FALSE, NULL)}))' -&gt; Error in checkPermissivePrivacyControlLevel() : \n  BLOCKED: The server is running in 'non-permissive' mode which has caused this method to be blocked\n&quot;. ('test-discctrl-ds.ns.R:35:5')">Expected `res_errors$sim1` to equal "Command 'nsDS(\"D$PM_BMI_CONTINUOUS\", NULL, c(8, 9, 10, 12, 25, 35), FALSE, \n    NULL)' failed on 'sim1': Error while evaluating 'is.null(base::assign('nsDS', value={dsBase::nsDS(\"D$PM_BMI_CONTINUOUS\", NULL, dsBase::vectorDS(8, 9, 10, 12, 25, 35), FALSE, NULL)}))' -&gt; Error in checkPermissivePrivacyControlLevel() : \n  BLOCKED: The server is running in 'non-permissive' mode which has caused this method to be blocked\n".
+Differences:
+target is NULL, current is character</failure>
+    </testcase>
+    <testcase time="0.01400000000001" classname="discctrl_ds.ns" name="ns">
+      <failure type="failure" message="Expected `res_errors$sim2` to have length 1. ('test-discctrl-ds.ns.R:36:5')">Expected `res_errors$sim2` to have length 1.
+Actual length: 0.</failure>
+    </testcase>
+    <testcase time="0.0150000000000006" classname="discctrl_ds.ns" name="ns">
+      <failure type="failure" message="Expected `res_errors$sim2` to equal &quot;Command 'nsDS(\&quot;D$PM_BMI_CONTINUOUS\&quot;, NULL, c(8, 9, 10, 12, 25, 35), FALSE, \n    NULL)' failed on 'sim2': Error while evaluating 'is.null(base::assign('nsDS', value={dsBase::nsDS(\&quot;D$PM_BMI_CONTINUOUS\&quot;, NULL, dsBase::vectorDS(8, 9, 10, 12, 25, 35), FALSE, NULL)}))' -&gt; Error in checkPermissivePrivacyControlLevel() : \n  BLOCKED: The server is running in 'non-permissive' mode which has caused this method to be blocked\n&quot;. ('test-discctrl-ds.ns.R:37:5')">Expected `res_errors$sim2` to equal "Command 'nsDS(\"D$PM_BMI_CONTINUOUS\", NULL, c(8, 9, 10, 12, 25, 35), FALSE, \n    NULL)' failed on 'sim2': Error while evaluating 'is.null(base::assign('nsDS', value={dsBase::nsDS(\"D$PM_BMI_CONTINUOUS\", NULL, dsBase::vectorDS(8, 9, 10, 12, 25, 35), FALSE, NULL)}))' -&gt; Error in checkPermissivePrivacyControlLevel() : \n  BLOCKED: The server is running in 'non-permissive' mode which has caused this method to be blocked\n".
+Differences:
+target is NULL, current is character</failure>
+    </testcase>
+    <testcase time="0.0109999999999957" classname="discctrl_ds.ns" name="ns"/>
+    <testcase time="0.00499999999999545" classname="discctrl_ds.ns" name="ns">
+      <failure type="failure" message="Expected `res_errors$sim3` to equal &quot;Command 'nsDS(\&quot;D$PM_BMI_CONTINUOUS\&quot;, NULL, c(8, 9, 10, 12, 25, 35), FALSE, \n    NULL)' failed on 'sim3': Error while evaluating 'is.null(base::assign('nsDS', value={dsBase::nsDS(\&quot;D$PM_BMI_CONTINUOUS\&quot;, NULL, dsBase::vectorDS(8, 9, 10, 12, 25, 35), FALSE, NULL)}))' -&gt; Error in checkPermissivePrivacyControlLevel() : \n  BLOCKED: The server is running in 'non-permissive' mode which has caused this method to be blocked\n&quot;. ('test-discctrl-ds.ns.R:39:5')">Expected `res_errors$sim3` to equal "Command 'nsDS(\"D$PM_BMI_CONTINUOUS\", NULL, c(8, 9, 10, 12, 25, 35), FALSE, \n    NULL)' failed on 'sim3': Error while evaluating 'is.null(base::assign('nsDS', value={dsBase::nsDS(\"D$PM_BMI_CONTINUOUS\", NULL, dsBase::vectorDS(8, 9, 10, 12, 25, 35), FALSE, NULL)}))' -&gt; Error in checkPermissivePrivacyControlLevel() : \n  BLOCKED: The server is running in 'non-permissive' mode which has caused this method to be blocked\n".
+Differences:
+1/1 mismatches
+x[1]: "Command 'dsBase::nsDS(\"D$PM_BMI_CONTINUOUS\", NULL, dsBase::vectorDS(8, 
+x[1]: 9, 10, 12, 25, 35), FALSE, NULL)' failed on sim3: Error whilst evaluating 
+x[1]: 'is.null(base::assign('nsDS', value={dsBase::nsDS(\"D$PM_BMI_CONTINUOUS\",
+x[1]:  NULL, dsBase::vectorDS(8, 9, 10, 12, 25, 35), FALSE, NULL)}))' &lt;U+2192&gt; E
+x[1]: rror : One of the spline segments has less than 3 observations. Please ...
+y[1]: "Command 'nsDS(\"D$PM_BMI_CONTINUOUS\", NULL, c(8, 9, 10, 12, 25, 35), FAL
+y[1]: SE, \n    NULL)' failed on 'sim3': Error while evaluating 'is.null(base::a
+y[1]: ssign('nsDS', value={dsBase::nsDS(\"D$PM_BMI_CONTINUOUS\", NULL, dsBase::v
+y[1]: ectorDS(8, 9, 10, 12, 25, 35), FALSE, NULL)}))' -&gt; Error in checkPermissiv
+y[1]: ePrivacyControlLevel() : \n  BLOCKED: The server is running in 'non-per...</failure>
+    </testcase>
+    <testcase time="0.207999999999998" classname="discctrl_ds.ns" name="shutdown">
+      <failure type="failure" message="Expected `study.current.variables$objects.found` to have the same values as `expected.variables`. ('test-discctrl-ds.ns.R:49:5')">Expected `study.current.variables$objects.found` to have the same values as `expected.variables`.
+Actual: "D", "nsDS"
+Expected: "D"
+Needs: "nsDS"
+Backtrace:
+    x
+ 1. \-global ds_expect_variables(c("D")) at test-discctrl-ds.ns.R:49:5
+ 2.   \-testthat::expect_setequal(...)</failure>
+    </testcase>
+    <testcase time="0.0200000000000102" classname="discctrl_ds.ns" name="shutdown">
+      <failure type="failure" message="Expected `study.current.variables$objects.found` to have the same values as `expected.variables`. ('test-discctrl-ds.ns.R:49:5')">Expected `study.current.variables$objects.found` to have the same values as `expected.variables`.
+Actual: "D", "nsDS"
+Expected: "D"
+Needs: "nsDS"
+Backtrace:
+    x
+ 1. \-global ds_expect_variables(c("D")) at test-discctrl-ds.ns.R:49:5
+ 2.   \-testthat::expect_setequal(...)</failure>
+    </testcase>
+    <testcase time="0.0169999999999959" classname="discctrl_ds.ns" name="shutdown"/>
+  </testsuite>
+  <testsuite name="discctrl-ds.rbind" timestamp="2026-04-18T00:29:37Z" hostname="runnervmeorf1" tests="14" skipped="0" failures="11" errors="0" time="8.162">
+    <testcase time="6.435" classname="discctrl_ds.rbind" name="setup"/>
+    <testcase time="0.00199999999999534" classname="discctrl_ds.rbind" name="setup"/>
+    <testcase time="0.00200000000000955" classname="discctrl_ds.rbind" name="setup"/>
+    <testcase time="1.38199999999999" classname="discctrl_ds.rbind" name="simple_c">
+      <failure type="failure" message="Expected `ds.rbind(...)` to throw a error. ('test-discctrl-ds.rbind.R:29:5')">Expected `ds.rbind(...)` to throw a error.</failure>
+    </testcase>
+    <testcase time="0.0150000000000006" classname="discctrl_ds.rbind" name="simple_c">
+      <failure type="failure" message="Expected `res_errors` to have length 3. ('test-discctrl-ds.rbind.R:33:5')">Expected `res_errors` to have length 3.
+Actual length: 0.</failure>
+    </testcase>
+    <testcase time="0.0139999999999958" classname="discctrl_ds.rbind" name="simple_c">
+      <failure type="failure" message="Expected `res_errors$survival1` to have length 1. ('test-discctrl-ds.rbind.R:34:5')">Expected `res_errors$survival1` to have length 1.
+Actual length: 0.</failure>
+    </testcase>
+    <testcase time="0.01400000000001" classname="discctrl_ds.rbind" name="simple_c">
+      <failure type="failure" message="Expected `res_errors$survival1` to equal &quot;Command 'rbindDS(\&quot;D$survtime,D$time.id,D$female,D$age.60\&quot;, \&quot;D$survtime,D$time.id,D$female,D$age.60\&quot;)' failed on 'survival1': Error while evaluating 'is.null(base::assign('rbind_newobj', value={dsBase::rbindDS(\&quot;D$survtime,D$time.id,D$female,D$age.60\&quot;, \&quot;D$survtime,D$time.id,D$female,D$age.60\&quot;)}))' -&gt; Error in checkPermissivePrivacyControlLevel() : \n  BLOCKED: The server is running in 'non-permissive' mode which has caused this method to be blocked\n&quot;. ('test-discctrl-ds.rbind.R:35:5')">Expected `res_errors$survival1` to equal "Command 'rbindDS(\"D$survtime,D$time.id,D$female,D$age.60\", \"D$survtime,D$time.id,D$female,D$age.60\")' failed on 'survival1': Error while evaluating 'is.null(base::assign('rbind_newobj', value={dsBase::rbindDS(\"D$survtime,D$time.id,D$female,D$age.60\", \"D$survtime,D$time.id,D$female,D$age.60\")}))' -&gt; Error in checkPermissivePrivacyControlLevel() : \n  BLOCKED: The server is running in 'non-permissive' mode which has caused this method to be blocked\n".
+Differences:
+target is NULL, current is character</failure>
+    </testcase>
+    <testcase time="0.0139999999999958" classname="discctrl_ds.rbind" name="simple_c">
+      <failure type="failure" message="Expected `res_errors$survival2` to have length 1. ('test-discctrl-ds.rbind.R:36:5')">Expected `res_errors$survival2` to have length 1.
+Actual length: 0.</failure>
+    </testcase>
+    <testcase time="0.0139999999999958" classname="discctrl_ds.rbind" name="simple_c">
+      <failure type="failure" message="Expected `res_errors$survival2` to equal &quot;Command 'rbindDS(\&quot;D$survtime,D$time.id,D$female,D$age.60\&quot;, \&quot;D$survtime,D$time.id,D$female,D$age.60\&quot;)' failed on 'survival2': Error while evaluating 'is.null(base::assign('rbind_newobj', value={dsBase::rbindDS(\&quot;D$survtime,D$time.id,D$female,D$age.60\&quot;, \&quot;D$survtime,D$time.id,D$female,D$age.60\&quot;)}))' -&gt; Error in checkPermissivePrivacyControlLevel() : \n  BLOCKED: The server is running in 'non-permissive' mode which has caused this method to be blocked\n&quot;. ('test-discctrl-ds.rbind.R:37:5')">Expected `res_errors$survival2` to equal "Command 'rbindDS(\"D$survtime,D$time.id,D$female,D$age.60\", \"D$survtime,D$time.id,D$female,D$age.60\")' failed on 'survival2': Error while evaluating 'is.null(base::assign('rbind_newobj', value={dsBase::rbindDS(\"D$survtime,D$time.id,D$female,D$age.60\", \"D$survtime,D$time.id,D$female,D$age.60\")}))' -&gt; Error in checkPermissivePrivacyControlLevel() : \n  BLOCKED: The server is running in 'non-permissive' mode which has caused this method to be blocked\n".
+Differences:
+target is NULL, current is character</failure>
+    </testcase>
+    <testcase time="0.01400000000001" classname="discctrl_ds.rbind" name="simple_c">
+      <failure type="failure" message="Expected `res_errors$survival3` to have length 1. ('test-discctrl-ds.rbind.R:38:5')">Expected `res_errors$survival3` to have length 1.
+Actual length: 0.</failure>
+    </testcase>
+    <testcase time="0.0150000000000006" classname="discctrl_ds.rbind" name="simple_c">
+      <failure type="failure" message="Expected `res_errors$survival3` to equal &quot;Command 'rbindDS(\&quot;D$survtime,D$time.id,D$female,D$age.60\&quot;, \&quot;D$survtime,D$time.id,D$female,D$age.60\&quot;)' failed on 'survival3': Error while evaluating 'is.null(base::assign('rbind_newobj', value={dsBase::rbindDS(\&quot;D$survtime,D$time.id,D$female,D$age.60\&quot;, \&quot;D$survtime,D$time.id,D$female,D$age.60\&quot;)}))' -&gt; Error in checkPermissivePrivacyControlLevel() : \n  BLOCKED: The server is running in 'non-permissive' mode which has caused this method to be blocked\n&quot;. ('test-discctrl-ds.rbind.R:39:5')">Expected `res_errors$survival3` to equal "Command 'rbindDS(\"D$survtime,D$time.id,D$female,D$age.60\", \"D$survtime,D$time.id,D$female,D$age.60\")' failed on 'survival3': Error while evaluating 'is.null(base::assign('rbind_newobj', value={dsBase::rbindDS(\"D$survtime,D$time.id,D$female,D$age.60\", \"D$survtime,D$time.id,D$female,D$age.60\")}))' -&gt; Error in checkPermissivePrivacyControlLevel() : \n  BLOCKED: The server is running in 'non-permissive' mode which has caused this method to be blocked\n".
+Differences:
+target is NULL, current is character</failure>
+    </testcase>
+    <testcase time="0.199999999999989" classname="discctrl_ds.rbind" name="shutdown">
+      <failure type="failure" message="Expected `study.current.variables$objects.found` to have the same values as `expected.variables`. ('test-discctrl-ds.rbind.R:49:5')">Expected `study.current.variables$objects.found` to have the same values as `expected.variables`.
+Actual: "D", "rbind_newobj"
+Expected: "D"
+Needs: "rbind_newobj"
+Backtrace:
+    x
+ 1. \-global ds_expect_variables(c("D")) at test-discctrl-ds.rbind.R:49:5
+ 2.   \-testthat::expect_setequal(...)</failure>
+    </testcase>
+    <testcase time="0.0200000000000102" classname="discctrl_ds.rbind" name="shutdown">
+      <failure type="failure" message="Expected `study.current.variables$objects.found` to have the same values as `expected.variables`. ('test-discctrl-ds.rbind.R:49:5')">Expected `study.current.variables$objects.found` to have the same values as `expected.variables`.
+Actual: "D", "rbind_newobj"
+Expected: "D"
+Needs: "rbind_newobj"
+Backtrace:
+    x
+ 1. \-global ds_expect_variables(c("D")) at test-discctrl-ds.rbind.R:49:5
+ 2.   \-testthat::expect_setequal(...)</failure>
+    </testcase>
+    <testcase time="0.0210000000000008" classname="discctrl_ds.rbind" name="shutdown">
+      <failure type="failure" message="Expected `study.current.variables$objects.found` to have the same values as `expected.variables`. ('test-discctrl-ds.rbind.R:49:5')">Expected `study.current.variables$objects.found` to have the same values as `expected.variables`.
+Actual: "D", "rbind_newobj"
+Expected: "D"
+Needs: "rbind_newobj"
+Backtrace:
+    x
+ 1. \-global ds_expect_variables(c("D")) at test-discctrl-ds.rbind.R:49:5
+ 2.   \-testthat::expect_setequal(...)</failure>
+    </testcase>
+  </testsuite>
+  <testsuite name="discctrl-ds.rBinom" timestamp="2026-04-18T00:29:45Z" hostname="runnervmeorf1" tests="10" skipped="0" failures="7" errors="0" time="7.709">
+    <testcase time="6.547" classname="discctrl_ds.rBinom" name="setup"/>
+    <testcase time="0.00199999999999534" classname="discctrl_ds.rBinom" name="setup"/>
+    <testcase time="0.00199999999999534" classname="discctrl_ds.rBinom" name="setup"/>
+    <testcase time="0.864000000000004" classname="discctrl_ds.rBinom" name="simple_c">
+      <failure type="failure" message="Expected `ds.rBinom(...)` to throw a error. ('test-discctrl-ds.rBinom.R:29:5')">Expected `ds.rBinom(...)` to throw a error.</failure>
+    </testcase>
+    <testcase time="0.0150000000000006" classname="discctrl_ds.rBinom" name="simple_c">
+      <failure type="failure" message="Expected `res_errors` to have length 1. ('test-discctrl-ds.rBinom.R:33:5')">Expected `res_errors` to have length 1.
+Actual length: 0.</failure>
+    </testcase>
+    <testcase time="0.0160000000000053" classname="discctrl_ds.rBinom" name="simple_c">
+      <failure type="failure" message="Expected `res_errors$sim1` to have length 1. ('test-discctrl-ds.rBinom.R:34:5')">Expected `res_errors$sim1` to have length 1.
+Actual length: 0.</failure>
+    </testcase>
+    <testcase time="0.0150000000000006" classname="discctrl_ds.rBinom" name="simple_c">
+      <failure type="failure" message="Expected `res_errors$sim1` to equal &quot;Command 'setSeedDS(27)' failed on 'sim1': Error while evaluating 'dsBase::setSeedDS(27)' -&gt; Error in checkPermissivePrivacyControlLevel() : \n  BLOCKED: The server is running in 'non-permissive' mode which has caused this method to be blocked\n&quot;. ('test-discctrl-ds.rBinom.R:35:5')">Expected `res_errors$sim1` to equal "Command 'setSeedDS(27)' failed on 'sim1': Error while evaluating 'dsBase::setSeedDS(27)' -&gt; Error in checkPermissivePrivacyControlLevel() : \n  BLOCKED: The server is running in 'non-permissive' mode which has caused this method to be blocked\n".
+Differences:
+target is NULL, current is character</failure>
+    </testcase>
+    <testcase time="0.207999999999998" classname="discctrl_ds.rBinom" name="shutdown">
+      <failure type="failure" message="Expected `study.current.variables$objects.found` to have the same values as `expected.variables`. ('test-discctrl-ds.rBinom.R:45:5')">Expected `study.current.variables$objects.found` to have the same values as `expected.variables`.
+Actual: "binom_dist", "D"
+Expected: "D"
+Needs: "binom_dist"
+Backtrace:
+    x
+ 1. \-global ds_expect_variables(c("D")) at test-discctrl-ds.rBinom.R:45:5
+ 2.   \-testthat::expect_setequal(...)</failure>
+    </testcase>
+    <testcase time="0.019999999999996" classname="discctrl_ds.rBinom" name="shutdown">
+      <failure type="failure" message="Expected `study.current.variables$objects.found` to have the same values as `expected.variables`. ('test-discctrl-ds.rBinom.R:45:5')">Expected `study.current.variables$objects.found` to have the same values as `expected.variables`.
+Actual: "binom_dist", "D"
+Expected: "D"
+Needs: "binom_dist"
+Backtrace:
+    x
+ 1. \-global ds_expect_variables(c("D")) at test-discctrl-ds.rBinom.R:45:5
+ 2.   \-testthat::expect_setequal(...)</failure>
+    </testcase>
+    <testcase time="0.019999999999996" classname="discctrl_ds.rBinom" name="shutdown">
+      <failure type="failure" message="Expected `study.current.variables$objects.found` to have the same values as `expected.variables`. ('test-discctrl-ds.rBinom.R:45:5')">Expected `study.current.variables$objects.found` to have the same values as `expected.variables`.
+Actual: "binom_dist", "D"
+Expected: "D"
+Needs: "binom_dist"
+Backtrace:
+    x
+ 1. \-global ds_expect_variables(c("D")) at test-discctrl-ds.rBinom.R:45:5
+ 2.   \-testthat::expect_setequal(...)</failure>
+    </testcase>
+  </testsuite>
+  <testsuite name="discctrl-ds.recodeLevels" timestamp="2026-04-18T00:29:53Z" hostname="runnervmeorf1" tests="15" skipped="0" failures="11" errors="0" time="7.671">
+    <testcase time="6.39400000000001" classname="discctrl_ds.recodeLevels" name="setup"/>
+    <testcase time="0.00199999999999534" classname="discctrl_ds.recodeLevels" name="setup"/>
+    <testcase time="0.00100000000000477" classname="discctrl_ds.recodeLevels" name="setup"/>
+    <testcase time="0.917000000000002" classname="discctrl_ds.recodeLevels" name="simple_recodeLevels"/>
+    <testcase time="0.00600000000000023" classname="discctrl_ds.recodeLevels" name="simple_recodeLevels">
+      <failure type="failure" message="Expected `expect_warning(...)` to throw a error. ('test-discctrl-ds.recodeLevels.R:29:5')">Expected `expect_warning(...)` to throw a error.</failure>
+    </testcase>
+    <testcase time="0.0150000000000006" classname="discctrl_ds.recodeLevels" name="simple_recodeLevels">
+      <failure type="failure" message="Expected `res_errors` to have length 3. ('test-discctrl-ds.recodeLevels.R:33:5')">Expected `res_errors` to have length 3.
+Actual length: 0.</failure>
+    </testcase>
+    <testcase time="0.0150000000000006" classname="discctrl_ds.recodeLevels" name="simple_recodeLevels">
+      <failure type="failure" message="Expected `res_errors$sim1` to have length 1. ('test-discctrl-ds.recodeLevels.R:34:5')">Expected `res_errors$sim1` to have length 1.
+Actual length: 0.</failure>
+    </testcase>
+    <testcase time="0.0150000000000006" classname="discctrl_ds.recodeLevels" name="simple_recodeLevels">
+      <failure type="failure" message="Expected `res_errors$sim1` to equal &quot;Command 'levelsDS(D$PM_BMI_CATEGORICAL)' failed on 'sim1': Error while evaluating 'dsBase::levelsDS(D$PM_BMI_CATEGORICAL)' -&gt; Error in checkPermissivePrivacyControlLevel() : \n  BLOCKED: The server is running in 'non-permissive' mode which has caused this method to be blocked\n&quot;. ('test-discctrl-ds.recodeLevels.R:35:5')">Expected `res_errors$sim1` to equal "Command 'levelsDS(D$PM_BMI_CATEGORICAL)' failed on 'sim1': Error while evaluating 'dsBase::levelsDS(D$PM_BMI_CATEGORICAL)' -&gt; Error in checkPermissivePrivacyControlLevel() : \n  BLOCKED: The server is running in 'non-permissive' mode which has caused this method to be blocked\n".
+Differences:
+target is NULL, current is character</failure>
+    </testcase>
+    <testcase time="0.019999999999996" classname="discctrl_ds.recodeLevels" name="simple_recodeLevels">
+      <failure type="failure" message="Expected `res_errors$sim2` to have length 1. ('test-discctrl-ds.recodeLevels.R:36:5')">Expected `res_errors$sim2` to have length 1.
+Actual length: 0.</failure>
+    </testcase>
+    <testcase time="0.0139999999999958" classname="discctrl_ds.recodeLevels" name="simple_recodeLevels">
+      <failure type="failure" message="Expected `res_errors$sim2` to equal &quot;Command 'levelsDS(D$PM_BMI_CATEGORICAL)' failed on 'sim2': Error while evaluating 'dsBase::levelsDS(D$PM_BMI_CATEGORICAL)' -&gt; Error in checkPermissivePrivacyControlLevel() : \n  BLOCKED: The server is running in 'non-permissive' mode which has caused this method to be blocked\n&quot;. ('test-discctrl-ds.recodeLevels.R:37:5')">Expected `res_errors$sim2` to equal "Command 'levelsDS(D$PM_BMI_CATEGORICAL)' failed on 'sim2': Error while evaluating 'dsBase::levelsDS(D$PM_BMI_CATEGORICAL)' -&gt; Error in checkPermissivePrivacyControlLevel() : \n  BLOCKED: The server is running in 'non-permissive' mode which has caused this method to be blocked\n".
+Differences:
+target is NULL, current is character</failure>
+    </testcase>
+    <testcase time="0.0150000000000006" classname="discctrl_ds.recodeLevels" name="simple_recodeLevels">
+      <failure type="failure" message="Expected `res_errors$sim3` to have length 1. ('test-discctrl-ds.recodeLevels.R:38:5')">Expected `res_errors$sim3` to have length 1.
+Actual length: 0.</failure>
+    </testcase>
+    <testcase time="0.0150000000000006" classname="discctrl_ds.recodeLevels" name="simple_recodeLevels">
+      <failure type="failure" message="Expected `res_errors$sim3` to equal &quot;Command 'levelsDS(D$PM_BMI_CATEGORICAL)' failed on 'sim3': Error while evaluating 'dsBase::levelsDS(D$PM_BMI_CATEGORICAL)' -&gt; Error in checkPermissivePrivacyControlLevel() : \n  BLOCKED: The server is running in 'non-permissive' mode which has caused this method to be blocked\n&quot;. ('test-discctrl-ds.recodeLevels.R:39:5')">Expected `res_errors$sim3` to equal "Command 'levelsDS(D$PM_BMI_CATEGORICAL)' failed on 'sim3': Error while evaluating 'dsBase::levelsDS(D$PM_BMI_CATEGORICAL)' -&gt; Error in checkPermissivePrivacyControlLevel() : \n  BLOCKED: The server is running in 'non-permissive' mode which has caused this method to be blocked\n".
+Differences:
+target is NULL, current is character</failure>
+    </testcase>
+    <testcase time="0.201999999999998" classname="discctrl_ds.recodeLevels" name="shutdown">
+      <failure type="failure" message="Expected `study.current.variables$objects.found` to have the same values as `expected.variables`. ('test-discctrl-ds.recodeLevels.R:49:5')">Expected `study.current.variables$objects.found` to have the same values as `expected.variables`.
+Actual: "bmi_new", "D"
+Expected: "D"
+Needs: "bmi_new"
+Backtrace:
+    x
+ 1. \-global ds_expect_variables(c("D")) at test-discctrl-ds.recodeLevels.R:49:5
+ 2.   \-testthat::expect_setequal(...)</failure>
+    </testcase>
+    <testcase time="0.0200000000000102" classname="discctrl_ds.recodeLevels" name="shutdown">
+      <failure type="failure" message="Expected `study.current.variables$objects.found` to have the same values as `expected.variables`. ('test-discctrl-ds.recodeLevels.R:49:5')">Expected `study.current.variables$objects.found` to have the same values as `expected.variables`.
+Actual: "bmi_new", "D"
+Expected: "D"
+Needs: "bmi_new"
+Backtrace:
+    x
+ 1. \-global ds_expect_variables(c("D")) at test-discctrl-ds.recodeLevels.R:49:5
+ 2.   \-testthat::expect_setequal(...)</failure>
+    </testcase>
+    <testcase time="0.019999999999996" classname="discctrl_ds.recodeLevels" name="shutdown">
+      <failure type="failure" message="Expected `study.current.variables$objects.found` to have the same values as `expected.variables`. ('test-discctrl-ds.recodeLevels.R:49:5')">Expected `study.current.variables$objects.found` to have the same values as `expected.variables`.
+Actual: "bmi_new", "D"
+Expected: "D"
+Needs: "bmi_new"
+Backtrace:
+    x
+ 1. \-global ds_expect_variables(c("D")) at test-discctrl-ds.recodeLevels.R:49:5
+ 2.   \-testthat::expect_setequal(...)</failure>
+    </testcase>
+  </testsuite>
+  <testsuite name="discctrl-ds.recodeValues" timestamp="2026-04-18T00:30:00Z" hostname="runnervmeorf1" tests="14" skipped="0" failures="11" errors="0" time="7.821">
+    <testcase time="6.636" classname="discctrl_ds.recodeValues" name="setup"/>
+    <testcase time="0.00100000000000477" classname="discctrl_ds.recodeValues" name="setup"/>
+    <testcase time="0.00199999999999534" classname="discctrl_ds.recodeValues" name="setup"/>
+    <testcase time="0.835999999999999" classname="discctrl_ds.recodeValues" name="simple_recodeValues">
+      <failure type="failure" message="Expected `ds.recodeValues(...)` to throw a error. ('test-discctrl-ds.recodeValues.R:29:5')">Expected `ds.recodeValues(...)` to throw a error.</failure>
+    </testcase>
+    <testcase time="0.0150000000000006" classname="discctrl_ds.recodeValues" name="simple_recodeValues">
+      <failure type="failure" message="Expected `res_errors` to have length 3. ('test-discctrl-ds.recodeValues.R:33:5')">Expected `res_errors` to have length 3.
+Actual length: 0.</failure>
+    </testcase>
+    <testcase time="0.0150000000000006" classname="discctrl_ds.recodeValues" name="simple_recodeValues">
+      <failure type="failure" message="Expected `res_errors$survival1` to have length 1. ('test-discctrl-ds.recodeValues.R:34:5')">Expected `res_errors$survival1` to have length 1.
+Actual length: 0.</failure>
+    </testcase>
+    <testcase time="0.0150000000000006" classname="discctrl_ds.recodeValues" name="simple_recodeValues">
+      <failure type="failure" message="Expected `res_errors$survival1` to equal &quot;Command 'recodeValuesDS(\&quot;D$survtime\&quot;, \&quot;0,1\&quot;, \&quot;-10,10\&quot;, NULL)' failed on 'survival1': Error while evaluating 'is.null(base::assign('recodevalues_newobj', value={dsBase::recodeValuesDS(\&quot;D$survtime\&quot;, \&quot;0,1\&quot;, \&quot;-10,10\&quot;, NULL)}))' -&gt; Error in checkPermissivePrivacyControlLevel() : \n  BLOCKED: The server is running in 'non-permissive' mode which has caused this method to be blocked\n&quot;. ('test-discctrl-ds.recodeValues.R:35:5')">Expected `res_errors$survival1` to equal "Command 'recodeValuesDS(\"D$survtime\", \"0,1\", \"-10,10\", NULL)' failed on 'survival1': Error while evaluating 'is.null(base::assign('recodevalues_newobj', value={dsBase::recodeValuesDS(\"D$survtime\", \"0,1\", \"-10,10\", NULL)}))' -&gt; Error in checkPermissivePrivacyControlLevel() : \n  BLOCKED: The server is running in 'non-permissive' mode which has caused this method to be blocked\n".
+Differences:
+target is NULL, current is character</failure>
+    </testcase>
+    <testcase time="0.0200000000000102" classname="discctrl_ds.recodeValues" name="simple_recodeValues">
+      <failure type="failure" message="Expected `res_errors$survival2` to have length 1. ('test-discctrl-ds.recodeValues.R:36:5')">Expected `res_errors$survival2` to have length 1.
+Actual length: 0.</failure>
+    </testcase>
+    <testcase time="0.0149999999999864" classname="discctrl_ds.recodeValues" name="simple_recodeValues">
+      <failure type="failure" message="Expected `res_errors$survival2` to equal &quot;Command 'recodeValuesDS(\&quot;D$survtime\&quot;, \&quot;0,1\&quot;, \&quot;-10,10\&quot;, NULL)' failed on 'survival2': Error while evaluating 'is.null(base::assign('recodevalues_newobj', value={dsBase::recodeValuesDS(\&quot;D$survtime\&quot;, \&quot;0,1\&quot;, \&quot;-10,10\&quot;, NULL)}))' -&gt; Error in checkPermissivePrivacyControlLevel() : \n  BLOCKED: The server is running in 'non-permissive' mode which has caused this method to be blocked\n&quot;. ('test-discctrl-ds.recodeValues.R:37:5')">Expected `res_errors$survival2` to equal "Command 'recodeValuesDS(\"D$survtime\", \"0,1\", \"-10,10\", NULL)' failed on 'survival2': Error while evaluating 'is.null(base::assign('recodevalues_newobj', value={dsBase::recodeValuesDS(\"D$survtime\", \"0,1\", \"-10,10\", NULL)}))' -&gt; Error in checkPermissivePrivacyControlLevel() : \n  BLOCKED: The server is running in 'non-permissive' mode which has caused this method to be blocked\n".
+Differences:
+target is NULL, current is character</failure>
+    </testcase>
+    <testcase time="0.0130000000000052" classname="discctrl_ds.recodeValues" name="simple_recodeValues">
+      <failure type="failure" message="Expected `res_errors$survival3` to have length 1. ('test-discctrl-ds.recodeValues.R:38:5')">Expected `res_errors$survival3` to have length 1.
+Actual length: 0.</failure>
+    </testcase>
+    <testcase time="0.0150000000000006" classname="discctrl_ds.recodeValues" name="simple_recodeValues">
+      <failure type="failure" message="Expected `res_errors$survival3` to equal &quot;Command 'recodeValuesDS(\&quot;D$survtime\&quot;, \&quot;0,1\&quot;, \&quot;-10,10\&quot;, NULL)' failed on 'survival3': Error while evaluating 'is.null(base::assign('recodevalues_newobj', value={dsBase::recodeValuesDS(\&quot;D$survtime\&quot;, \&quot;0,1\&quot;, \&quot;-10,10\&quot;, NULL)}))' -&gt; Error in checkPermissivePrivacyControlLevel() : \n  BLOCKED: The server is running in 'non-permissive' mode which has caused this method to be blocked\n&quot;. ('test-discctrl-ds.recodeValues.R:39:5')">Expected `res_errors$survival3` to equal "Command 'recodeValuesDS(\"D$survtime\", \"0,1\", \"-10,10\", NULL)' failed on 'survival3': Error while evaluating 'is.null(base::assign('recodevalues_newobj', value={dsBase::recodeValuesDS(\"D$survtime\", \"0,1\", \"-10,10\", NULL)}))' -&gt; Error in checkPermissivePrivacyControlLevel() : \n  BLOCKED: The server is running in 'non-permissive' mode which has caused this method to be blocked\n".
+Differences:
+target is NULL, current is character</failure>
+    </testcase>
+    <testcase time="0.198000000000008" classname="discctrl_ds.recodeValues" name="shutdown">
+      <failure type="failure" message="Expected `study.current.variables$objects.found` to have the same values as `expected.variables`. ('test-discctrl-ds.recodeValues.R:49:5')">Expected `study.current.variables$objects.found` to have the same values as `expected.variables`.
+Actual: "D", "recodevalues_newobj"
+Expected: "D"
+Needs: "recodevalues_newobj"
+Backtrace:
+    x
+ 1. \-global ds_expect_variables(c("D")) at test-discctrl-ds.recodeValues.R:49:5
+ 2.   \-testthat::expect_setequal(...)</failure>
+    </testcase>
+    <testcase time="0.0209999999999866" classname="discctrl_ds.recodeValues" name="shutdown">
+      <failure type="failure" message="Expected `study.current.variables$objects.found` to have the same values as `expected.variables`. ('test-discctrl-ds.recodeValues.R:49:5')">Expected `study.current.variables$objects.found` to have the same values as `expected.variables`.
+Actual: "D", "recodevalues_newobj"
+Expected: "D"
+Needs: "recodevalues_newobj"
+Backtrace:
+    x
+ 1. \-global ds_expect_variables(c("D")) at test-discctrl-ds.recodeValues.R:49:5
+ 2.   \-testthat::expect_setequal(...)</failure>
+    </testcase>
+    <testcase time="0.0190000000000055" classname="discctrl_ds.recodeValues" name="shutdown">
+      <failure type="failure" message="Expected `study.current.variables$objects.found` to have the same values as `expected.variables`. ('test-discctrl-ds.recodeValues.R:49:5')">Expected `study.current.variables$objects.found` to have the same values as `expected.variables`.
+Actual: "D", "recodevalues_newobj"
+Expected: "D"
+Needs: "recodevalues_newobj"
+Backtrace:
+    x
+ 1. \-global ds_expect_variables(c("D")) at test-discctrl-ds.recodeValues.R:49:5
+ 2.   \-testthat::expect_setequal(...)</failure>
+    </testcase>
+  </testsuite>
+  <testsuite name="discctrl-ds.rep" timestamp="2026-04-18T00:30:08Z" hostname="runnervmeorf1" tests="14" skipped="0" failures="11" errors="0" time="7.52">
+    <testcase time="6.587" classname="discctrl_ds.rep" name="setup"/>
+    <testcase time="0.00199999999999534" classname="discctrl_ds.rep" name="setup"/>
+    <testcase time="0.00100000000000477" classname="discctrl_ds.rep" name="setup"/>
+    <testcase time="0.584000000000003" classname="discctrl_ds.rep" name="simple_rep">
+      <failure type="failure" message="Expected `ds.rep(&quot;D$survtime&quot;)` to throw a error. ('test-discctrl-ds.rep.R:29:5')">Expected `ds.rep("D$survtime")` to throw a error.</failure>
+    </testcase>
+    <testcase time="0.0150000000000006" classname="discctrl_ds.rep" name="simple_rep">
+      <failure type="failure" message="Expected `res_errors` to have length 3. ('test-discctrl-ds.rep.R:33:5')">Expected `res_errors` to have length 3.
+Actual length: 0.</failure>
+    </testcase>
+    <testcase time="0.0150000000000006" classname="discctrl_ds.rep" name="simple_rep">
+      <failure type="failure" message="Expected `res_errors$survival1` to have length 1. ('test-discctrl-ds.rep.R:34:5')">Expected `res_errors$survival1` to have length 1.
+Actual length: 0.</failure>
+    </testcase>
+    <testcase time="0.0150000000000006" classname="discctrl_ds.rep" name="simple_rep">
+      <failure type="failure" message="Expected `res_errors$survival1` to equal &quot;Command 'repDS(x1.transmit = \&quot;D$survtime\&quot;, times.transmit = \&quot;NA\&quot;, length.out.transmit = \&quot;NA\&quot;, \n    each.transmit = \&quot;1\&quot;, x1.includes.characters = FALSE, source.x1 = \&quot;clientside\&quot;, \n    source.times = NULL, source.length.out = NULL, source.each = NULL)' failed on 'survival1': Error while evaluating 'is.null(base::assign('seq.vect', value={dsBase::repDS(x1.transmit = \&quot;D$survtime\&quot;, times.transmit = \&quot;NA\&quot;, length.out.transmit = \&quot;NA\&quot;, each.transmit = \&quot;1\&quot;, x1.includes.characters = FALSE, source.x1 = \&quot;clientside\&quot;, source.times = NULL, source.length.out = NULL, source.each = NULL)}))' -&gt; Error in checkPermissivePrivacyControlLevel() : \n  BLOCKED: The server is running in 'non-permissive' mode which has caused this method to be blocked\n&quot;. ('test-discctrl-ds.rep.R:35:5')">Expected `res_errors$survival1` to equal "Command 'repDS(x1.transmit = \"D$survtime\", times.transmit = \"NA\", length.out.transmit = \"NA\", \n    each.transmit = \"1\", x1.includes.characters = FALSE, source.x1 = \"clientside\", \n    source.times = NULL, source.length.out = NULL, source.each = NULL)' failed on 'survival1': Error while evaluating 'is.null(base::assign('seq.vect', value={dsBase::repDS(x1.transmit = \"D$survtime\", times.transmit = \"NA\", length.out.transmit = \"NA\", each.transmit = \"1\", x1.includes.characters = FALSE, source.x1 = \"clientside\", source.times = NULL, source.length.out = NULL, source.each = NULL)}))' -&gt; Error in checkPermissivePrivacyControlLevel() : \n  BLOCKED: The server is running in 'non-permissive' mode which has caused this method to be blocked\n".
+Differences:
+target is NULL, current is character</failure>
+    </testcase>
+    <testcase time="0.0139999999999958" classname="discctrl_ds.rep" name="simple_rep">
+      <failure type="failure" message="Expected `res_errors$survival2` to have length 1. ('test-discctrl-ds.rep.R:36:5')">Expected `res_errors$survival2` to have length 1.
+Actual length: 0.</failure>
+    </testcase>
+    <testcase time="0.0210000000000008" classname="discctrl_ds.rep" name="simple_rep">
+      <failure type="failure" message="Expected `res_errors$survival2` to equal &quot;Command 'repDS(x1.transmit = \&quot;D$survtime\&quot;, times.transmit = \&quot;NA\&quot;, length.out.transmit = \&quot;NA\&quot;, \n    each.transmit = \&quot;1\&quot;, x1.includes.characters = FALSE, source.x1 = \&quot;clientside\&quot;, \n    source.times = NULL, source.length.out = NULL, source.each = NULL)' failed on 'survival2': Error while evaluating 'is.null(base::assign('seq.vect', value={dsBase::repDS(x1.transmit = \&quot;D$survtime\&quot;, times.transmit = \&quot;NA\&quot;, length.out.transmit = \&quot;NA\&quot;, each.transmit = \&quot;1\&quot;, x1.includes.characters = FALSE, source.x1 = \&quot;clientside\&quot;, source.times = NULL, source.length.out = NULL, source.each = NULL)}))' -&gt; Error in checkPermissivePrivacyControlLevel() : \n  BLOCKED: The server is running in 'non-permissive' mode which has caused this method to be blocked\n&quot;. ('test-discctrl-ds.rep.R:37:5')">Expected `res_errors$survival2` to equal "Command 'repDS(x1.transmit = \"D$survtime\", times.transmit = \"NA\", length.out.transmit = \"NA\", \n    each.transmit = \"1\", x1.includes.characters = FALSE, source.x1 = \"clientside\", \n    source.times = NULL, source.length.out = NULL, source.each = NULL)' failed on 'survival2': Error while evaluating 'is.null(base::assign('seq.vect', value={dsBase::repDS(x1.transmit = \"D$survtime\", times.transmit = \"NA\", length.out.transmit = \"NA\", each.transmit = \"1\", x1.includes.characters = FALSE, source.x1 = \"clientside\", source.times = NULL, source.length.out = NULL, source.each = NULL)}))' -&gt; Error in checkPermissivePrivacyControlLevel() : \n  BLOCKED: The server is running in 'non-permissive' mode which has caused this method to be blocked\n".
+Differences:
+target is NULL, current is character</failure>
+    </testcase>
+    <testcase time="0.0139999999999958" classname="discctrl_ds.rep" name="simple_rep">
+      <failure type="failure" message="Expected `res_errors$survival3` to have length 1. ('test-discctrl-ds.rep.R:38:5')">Expected `res_errors$survival3` to have length 1.
+Actual length: 0.</failure>
+    </testcase>
+    <testcase time="0.0150000000000006" classname="discctrl_ds.rep" name="simple_rep">
+      <failure type="failure" message="Expected `res_errors$survival3` to equal &quot;Command 'repDS(x1.transmit = \&quot;D$survtime\&quot;, times.transmit = \&quot;NA\&quot;, length.out.transmit = \&quot;NA\&quot;, \n    each.transmit = \&quot;1\&quot;, x1.includes.characters = FALSE, source.x1 = \&quot;clientside\&quot;, \n    source.times = NULL, source.length.out = NULL, source.each = NULL)' failed on 'survival3': Error while evaluating 'is.null(base::assign('seq.vect', value={dsBase::repDS(x1.transmit = \&quot;D$survtime\&quot;, times.transmit = \&quot;NA\&quot;, length.out.transmit = \&quot;NA\&quot;, each.transmit = \&quot;1\&quot;, x1.includes.characters = FALSE, source.x1 = \&quot;clientside\&quot;, source.times = NULL, source.length.out = NULL, source.each = NULL)}))' -&gt; Error in checkPermissivePrivacyControlLevel() : \n  BLOCKED: The server is running in 'non-permissive' mode which has caused this method to be blocked\n&quot;. ('test-discctrl-ds.rep.R:39:5')">Expected `res_errors$survival3` to equal "Command 'repDS(x1.transmit = \"D$survtime\", times.transmit = \"NA\", length.out.transmit = \"NA\", \n    each.transmit = \"1\", x1.includes.characters = FALSE, source.x1 = \"clientside\", \n    source.times = NULL, source.length.out = NULL, source.each = NULL)' failed on 'survival3': Error while evaluating 'is.null(base::assign('seq.vect', value={dsBase::repDS(x1.transmit = \"D$survtime\", times.transmit = \"NA\", length.out.transmit = \"NA\", each.transmit = \"1\", x1.includes.characters = FALSE, source.x1 = \"clientside\", source.times = NULL, source.length.out = NULL, source.each = NULL)}))' -&gt; Error in checkPermissivePrivacyControlLevel() : \n  BLOCKED: The server is running in 'non-permissive' mode which has caused this method to be blocked\n".
+Differences:
+target is NULL, current is character</failure>
+    </testcase>
+    <testcase time="0.195999999999998" classname="discctrl_ds.rep" name="shutdown">
+      <failure type="failure" message="Expected `study.current.variables$objects.found` to have the same values as `expected.variables`. ('test-discctrl-ds.rep.R:49:5')">Expected `study.current.variables$objects.found` to have the same values as `expected.variables`.
+Actual: "D", "seq.vect"
+Expected: "D"
+Needs: "seq.vect"
+Backtrace:
+    x
+ 1. \-global ds_expect_variables(c("D")) at test-discctrl-ds.rep.R:49:5
+ 2.   \-testthat::expect_setequal(...)</failure>
+    </testcase>
+    <testcase time="0.0210000000000008" classname="discctrl_ds.rep" name="shutdown">
+      <failure type="failure" message="Expected `study.current.variables$objects.found` to have the same values as `expected.variables`. ('test-discctrl-ds.rep.R:49:5')">Expected `study.current.variables$objects.found` to have the same values as `expected.variables`.
+Actual: "D", "seq.vect"
+Expected: "D"
+Needs: "seq.vect"
+Backtrace:
+    x
+ 1. \-global ds_expect_variables(c("D")) at test-discctrl-ds.rep.R:49:5
+ 2.   \-testthat::expect_setequal(...)</failure>
+    </testcase>
+    <testcase time="0.019999999999996" classname="discctrl_ds.rep" name="shutdown">
+      <failure type="failure" message="Expected `study.current.variables$objects.found` to have the same values as `expected.variables`. ('test-discctrl-ds.rep.R:49:5')">Expected `study.current.variables$objects.found` to have the same values as `expected.variables`.
+Actual: "D", "seq.vect"
+Expected: "D"
+Needs: "seq.vect"
+Backtrace:
+    x
+ 1. \-global ds_expect_variables(c("D")) at test-discctrl-ds.rep.R:49:5
+ 2.   \-testthat::expect_setequal(...)</failure>
+    </testcase>
+  </testsuite>
+  <testsuite name="discctrl-ds.reShape" timestamp="2026-04-18T00:30:16Z" hostname="runnervmeorf1" tests="14" skipped="0" failures="11" errors="0" time="7.746">
+    <testcase time="6.47" classname="discctrl_ds.reShape" name="setup"/>
+    <testcase time="0.00100000000000477" classname="discctrl_ds.reShape" name="setup"/>
+    <testcase time="0.00199999999999534" classname="discctrl_ds.reShape" name="setup"/>
+    <testcase time="0.925000000000011" classname="discctrl_ds.reShape" name="simple_reShape">
+      <failure type="failure" message="Expected `ds.reShape(...)` to throw a error. ('test-discctrl-ds.reShape.R:29:5')">Expected `ds.reShape(...)` to throw a error.</failure>
+    </testcase>
+    <testcase time="0.0150000000000006" classname="discctrl_ds.reShape" name="simple_reShape">
+      <failure type="failure" message="Expected `res_errors` to have length 3. ('test-discctrl-ds.reShape.R:33:5')">Expected `res_errors` to have length 3.
+Actual length: 0.</failure>
+    </testcase>
+    <testcase time="0.0150000000000006" classname="discctrl_ds.reShape" name="simple_reShape">
+      <failure type="failure" message="Expected `res_errors$survival1` to have length 1. ('test-discctrl-ds.reShape.R:34:5')">Expected `res_errors$survival1` to have length 1.
+Actual length: 0.</failure>
+    </testcase>
+    <testcase time="0.0150000000000006" classname="discctrl_ds.reShape" name="simple_reShape">
+      <failure type="failure" message="Expected `res_errors$survival1` to equal &quot;Command 'reShapeDS(\&quot;D\&quot;, NULL, \&quot;age.60\&quot;, \&quot;time.id\&quot;, \&quot;id\&quot;, NULL, \&quot;wide\&quot;, \n    \&quot;.\&quot;)' failed on 'survival1': Error while evaluating 'is.null(base::assign('reshape1_obj', value={dsBase::reShapeDS(\&quot;D\&quot;, NULL, \&quot;age.60\&quot;, \&quot;time.id\&quot;, \&quot;id\&quot;, NULL, \&quot;wide\&quot;, \&quot;.\&quot;)}))' -&gt; Error in checkPermissivePrivacyControlLevel() : \n  BLOCKED: The server is running in 'non-permissive' mode which has caused this method to be blocked\n&quot;. ('test-discctrl-ds.reShape.R:35:5')">Expected `res_errors$survival1` to equal "Command 'reShapeDS(\"D\", NULL, \"age.60\", \"time.id\", \"id\", NULL, \"wide\", \n    \".\")' failed on 'survival1': Error while evaluating 'is.null(base::assign('reshape1_obj', value={dsBase::reShapeDS(\"D\", NULL, \"age.60\", \"time.id\", \"id\", NULL, \"wide\", \".\")}))' -&gt; Error in checkPermissivePrivacyControlLevel() : \n  BLOCKED: The server is running in 'non-permissive' mode which has caused this method to be blocked\n".
+Differences:
+target is NULL, current is character</failure>
+    </testcase>
+    <testcase time="0.0139999999999958" classname="discctrl_ds.reShape" name="simple_reShape">
+      <failure type="failure" message="Expected `res_errors$survival2` to have length 1. ('test-discctrl-ds.reShape.R:36:5')">Expected `res_errors$survival2` to have length 1.
+Actual length: 0.</failure>
+    </testcase>
+    <testcase time="0.0210000000000008" classname="discctrl_ds.reShape" name="simple_reShape">
+      <failure type="failure" message="Expected `res_errors$survival2` to equal &quot;Command 'reShapeDS(\&quot;D\&quot;, NULL, \&quot;age.60\&quot;, \&quot;time.id\&quot;, \&quot;id\&quot;, NULL, \&quot;wide\&quot;, \n    \&quot;.\&quot;)' failed on 'survival2': Error while evaluating 'is.null(base::assign('reshape1_obj', value={dsBase::reShapeDS(\&quot;D\&quot;, NULL, \&quot;age.60\&quot;, \&quot;time.id\&quot;, \&quot;id\&quot;, NULL, \&quot;wide\&quot;, \&quot;.\&quot;)}))' -&gt; Error in checkPermissivePrivacyControlLevel() : \n  BLOCKED: The server is running in 'non-permissive' mode which has caused this method to be blocked\n&quot;. ('test-discctrl-ds.reShape.R:37:5')">Expected `res_errors$survival2` to equal "Command 'reShapeDS(\"D\", NULL, \"age.60\", \"time.id\", \"id\", NULL, \"wide\", \n    \".\")' failed on 'survival2': Error while evaluating 'is.null(base::assign('reshape1_obj', value={dsBase::reShapeDS(\"D\", NULL, \"age.60\", \"time.id\", \"id\", NULL, \"wide\", \".\")}))' -&gt; Error in checkPermissivePrivacyControlLevel() : \n  BLOCKED: The server is running in 'non-permissive' mode which has caused this method to be blocked\n".
+Differences:
+target is NULL, current is character</failure>
+    </testcase>
+    <testcase time="0.0150000000000006" classname="discctrl_ds.reShape" name="simple_reShape">
+      <failure type="failure" message="Expected `res_errors$survival3` to have length 1. ('test-discctrl-ds.reShape.R:38:5')">Expected `res_errors$survival3` to have length 1.
+Actual length: 0.</failure>
+    </testcase>
+    <testcase time="0.0139999999999958" classname="discctrl_ds.reShape" name="simple_reShape">
+      <failure type="failure" message="Expected `res_errors$survival3` to equal &quot;Command 'reShapeDS(\&quot;D\&quot;, NULL, \&quot;age.60\&quot;, \&quot;time.id\&quot;, \&quot;id\&quot;, NULL, \&quot;wide\&quot;, \n    \&quot;.\&quot;)' failed on 'survival3': Error while evaluating 'is.null(base::assign('reshape1_obj', value={dsBase::reShapeDS(\&quot;D\&quot;, NULL, \&quot;age.60\&quot;, \&quot;time.id\&quot;, \&quot;id\&quot;, NULL, \&quot;wide\&quot;, \&quot;.\&quot;)}))' -&gt; Error in checkPermissivePrivacyControlLevel() : \n  BLOCKED: The server is running in 'non-permissive' mode which has caused this method to be blocked\n&quot;. ('test-discctrl-ds.reShape.R:39:5')">Expected `res_errors$survival3` to equal "Command 'reShapeDS(\"D\", NULL, \"age.60\", \"time.id\", \"id\", NULL, \"wide\", \n    \".\")' failed on 'survival3': Error while evaluating 'is.null(base::assign('reshape1_obj', value={dsBase::reShapeDS(\"D\", NULL, \"age.60\", \"time.id\", \"id\", NULL, \"wide\", \".\")}))' -&gt; Error in checkPermissivePrivacyControlLevel() : \n  BLOCKED: The server is running in 'non-permissive' mode which has caused this method to be blocked\n".
+Differences:
+target is NULL, current is character</failure>
+    </testcase>
+    <testcase time="0.200000000000003" classname="discctrl_ds.reShape" name="shutdown">
+      <failure type="failure" message="Expected `study.current.variables$objects.found` to have the same values as `expected.variables`. ('test-discctrl-ds.reShape.R:49:5')">Expected `study.current.variables$objects.found` to have the same values as `expected.variables`.
+Actual: "D", "reshape1_obj"
+Expected: "D"
+Needs: "reshape1_obj"
+Backtrace:
+    x
+ 1. \-global ds_expect_variables(c("D")) at test-discctrl-ds.reShape.R:49:5
+ 2.   \-testthat::expect_setequal(...)</failure>
+    </testcase>
+    <testcase time="0.019999999999996" classname="discctrl_ds.reShape" name="shutdown">
+      <failure type="failure" message="Expected `study.current.variables$objects.found` to have the same values as `expected.variables`. ('test-discctrl-ds.reShape.R:49:5')">Expected `study.current.variables$objects.found` to have the same values as `expected.variables`.
+Actual: "D", "reshape1_obj"
+Expected: "D"
+Needs: "reshape1_obj"
+Backtrace:
+    x
+ 1. \-global ds_expect_variables(c("D")) at test-discctrl-ds.reShape.R:49:5
+ 2.   \-testthat::expect_setequal(...)</failure>
+    </testcase>
+    <testcase time="0.0190000000000055" classname="discctrl_ds.reShape" name="shutdown">
+      <failure type="failure" message="Expected `study.current.variables$objects.found` to have the same values as `expected.variables`. ('test-discctrl-ds.reShape.R:49:5')">Expected `study.current.variables$objects.found` to have the same values as `expected.variables`.
+Actual: "D", "reshape1_obj"
+Expected: "D"
+Needs: "reshape1_obj"
+Backtrace:
+    x
+ 1. \-global ds_expect_variables(c("D")) at test-discctrl-ds.reShape.R:49:5
+ 2.   \-testthat::expect_setequal(...)</failure>
+    </testcase>
+  </testsuite>
+  <testsuite name="discctrl-ds.rNorm" timestamp="2026-04-18T00:30:23Z" hostname="runnervmeorf1" tests="10" skipped="0" failures="7" errors="0" time="7.612">
+    <testcase time="6.434" classname="discctrl_ds.rNorm" name="setup"/>
+    <testcase time="0.00199999999999534" classname="discctrl_ds.rNorm" name="setup"/>
+    <testcase time="0.00100000000000477" classname="discctrl_ds.rNorm" name="setup"/>
+    <testcase time="0.882000000000005" classname="discctrl_ds.rNorm" name="simple_c">
+      <failure type="failure" message="Expected `ds.rNorm(...)` to throw a error. ('test-discctrl-ds.rNorm.R:29:5')">Expected `ds.rNorm(...)` to throw a error.</failure>
+    </testcase>
+    <testcase time="0.0159999999999911" classname="discctrl_ds.rNorm" name="simple_c">
+      <failure type="failure" message="Expected `res_errors` to have length 1. ('test-discctrl-ds.rNorm.R:33:5')">Expected `res_errors` to have length 1.
+Actual length: 0.</failure>
+    </testcase>
+    <testcase time="0.0150000000000148" classname="discctrl_ds.rNorm" name="simple_c">
+      <failure type="failure" message="Expected `res_errors$sim1` to have length 1. ('test-discctrl-ds.rNorm.R:34:5')">Expected `res_errors$sim1` to have length 1.
+Actual length: 0.</failure>
+    </testcase>
+    <testcase time="0.0149999999999864" classname="discctrl_ds.rNorm" name="simple_c">
+      <failure type="failure" message="Expected `res_errors$sim1` to equal &quot;Command 'setSeedDS(27)' failed on 'sim1': Error while evaluating 'dsBase::setSeedDS(27)' -&gt; Error in checkPermissivePrivacyControlLevel() : \n  BLOCKED: The server is running in 'non-permissive' mode which has caused this method to be blocked\n&quot;. ('test-discctrl-ds.rNorm.R:35:5')">Expected `res_errors$sim1` to equal "Command 'setSeedDS(27)' failed on 'sim1': Error while evaluating 'dsBase::setSeedDS(27)' -&gt; Error in checkPermissivePrivacyControlLevel() : \n  BLOCKED: The server is running in 'non-permissive' mode which has caused this method to be blocked\n".
+Differences:
+target is NULL, current is character</failure>
+    </testcase>
+    <testcase time="0.207999999999998" classname="discctrl_ds.rNorm" name="shutdown">
+      <failure type="failure" message="Expected `study.current.variables$objects.found` to have the same values as `expected.variables`. ('test-discctrl-ds.rNorm.R:45:5')">Expected `study.current.variables$objects.found` to have the same values as `expected.variables`.
+Actual: "D", "norm_dist"
+Expected: "D"
+Needs: "norm_dist"
+Backtrace:
+    x
+ 1. \-global ds_expect_variables(c("D")) at test-discctrl-ds.rNorm.R:45:5
+ 2.   \-testthat::expect_setequal(...)</failure>
+    </testcase>
+    <testcase time="0.0200000000000102" classname="discctrl_ds.rNorm" name="shutdown">
+      <failure type="failure" message="Expected `study.current.variables$objects.found` to have the same values as `expected.variables`. ('test-discctrl-ds.rNorm.R:45:5')">Expected `study.current.variables$objects.found` to have the same values as `expected.variables`.
+Actual: "D", "norm_dist"
+Expected: "D"
+Needs: "norm_dist"
+Backtrace:
+    x
+ 1. \-global ds_expect_variables(c("D")) at test-discctrl-ds.rNorm.R:45:5
+ 2.   \-testthat::expect_setequal(...)</failure>
+    </testcase>
+    <testcase time="0.0190000000000055" classname="discctrl_ds.rNorm" name="shutdown">
+      <failure type="failure" message="Expected `study.current.variables$objects.found` to have the same values as `expected.variables`. ('test-discctrl-ds.rNorm.R:45:5')">Expected `study.current.variables$objects.found` to have the same values as `expected.variables`.
+Actual: "D", "norm_dist"
+Expected: "D"
+Needs: "norm_dist"
+Backtrace:
+    x
+ 1. \-global ds_expect_variables(c("D")) at test-discctrl-ds.rNorm.R:45:5
+ 2.   \-testthat::expect_setequal(...)</failure>
+    </testcase>
+  </testsuite>
+  <testsuite name="discctrl-ds.rPois" timestamp="2026-04-18T00:30:31Z" hostname="runnervmeorf1" tests="10" skipped="0" failures="7" errors="0" time="7.574">
+    <testcase time="6.41199999999998" classname="discctrl_ds.rPois" name="setup"/>
+    <testcase time="0.00200000000000955" classname="discctrl_ds.rPois" name="setup"/>
+    <testcase time="0.00100000000000477" classname="discctrl_ds.rPois" name="setup"/>
+    <testcase time="0.865999999999985" classname="discctrl_ds.rPois" name="simple_c">
+      <failure type="failure" message="Expected `ds.rPois(samp.size = 50, lambda = 1, newobj = &quot;pois_dist&quot;, seed.as.integer = 27)` to throw a error. ('test-discctrl-ds.rPois.R:29:5')">Expected `ds.rPois(samp.size = 50, lambda = 1, newobj = "pois_dist", seed.as.integer = 27)` to throw a error.</failure>
+    </testcase>
+    <testcase time="0.0160000000000196" classname="discctrl_ds.rPois" name="simple_c">
+      <failure type="failure" message="Expected `res_errors` to have length 1. ('test-discctrl-ds.rPois.R:33:5')">Expected `res_errors` to have length 1.
+Actual length: 0.</failure>
+    </testcase>
+    <testcase time="0.0159999999999911" classname="discctrl_ds.rPois" name="simple_c">
+      <failure type="failure" message="Expected `res_errors$sim1` to have length 1. ('test-discctrl-ds.rPois.R:34:5')">Expected `res_errors$sim1` to have length 1.
+Actual length: 0.</failure>
+    </testcase>
+    <testcase time="0.0159999999999911" classname="discctrl_ds.rPois" name="simple_c">
+      <failure type="failure" message="Expected `res_errors$sim1` to equal &quot;Command 'setSeedDS(27)' failed on 'sim1': Error while evaluating 'dsBase::setSeedDS(27)' -&gt; Error in checkPermissivePrivacyControlLevel() : \n  BLOCKED: The server is running in 'non-permissive' mode which has caused this method to be blocked\n&quot;. ('test-discctrl-ds.rPois.R:35:5')">Expected `res_errors$sim1` to equal "Command 'setSeedDS(27)' failed on 'sim1': Error while evaluating 'dsBase::setSeedDS(27)' -&gt; Error in checkPermissivePrivacyControlLevel() : \n  BLOCKED: The server is running in 'non-permissive' mode which has caused this method to be blocked\n".
+Differences:
+target is NULL, current is character</failure>
+    </testcase>
+    <testcase time="0.204000000000008" classname="discctrl_ds.rPois" name="shutdown">
+      <failure type="failure" message="Expected `study.current.variables$objects.found` to have the same values as `expected.variables`. ('test-discctrl-ds.rPois.R:45:5')">Expected `study.current.variables$objects.found` to have the same values as `expected.variables`.
+Actual: "D", "pois_dist"
+Expected: "D"
+Needs: "pois_dist"
+Backtrace:
+    x
+ 1. \-global ds_expect_variables(c("D")) at test-discctrl-ds.rPois.R:45:5
+ 2.   \-testthat::expect_setequal(...)</failure>
+    </testcase>
+    <testcase time="0.0209999999999866" classname="discctrl_ds.rPois" name="shutdown">
+      <failure type="failure" message="Expected `study.current.variables$objects.found` to have the same values as `expected.variables`. ('test-discctrl-ds.rPois.R:45:5')">Expected `study.current.variables$objects.found` to have the same values as `expected.variables`.
+Actual: "D", "pois_dist"
+Expected: "D"
+Needs: "pois_dist"
+Backtrace:
+    x
+ 1. \-global ds_expect_variables(c("D")) at test-discctrl-ds.rPois.R:45:5
+ 2.   \-testthat::expect_setequal(...)</failure>
+    </testcase>
+    <testcase time="0.0200000000000102" classname="discctrl_ds.rPois" name="shutdown">
+      <failure type="failure" message="Expected `study.current.variables$objects.found` to have the same values as `expected.variables`. ('test-discctrl-ds.rPois.R:45:5')">Expected `study.current.variables$objects.found` to have the same values as `expected.variables`.
+Actual: "D", "pois_dist"
+Expected: "D"
+Needs: "pois_dist"
+Backtrace:
+    x
+ 1. \-global ds_expect_variables(c("D")) at test-discctrl-ds.rPois.R:45:5
+ 2.   \-testthat::expect_setequal(...)</failure>
+    </testcase>
+  </testsuite>
+  <testsuite name="discctrl-ds.rUnif" timestamp="2026-04-18T00:30:39Z" hostname="runnervmeorf1" tests="10" skipped="0" failures="7" errors="0" time="7.456">
+    <testcase time="6.304" classname="discctrl_ds.rUnif" name="setup"/>
+    <testcase time="0.00100000000000477" classname="discctrl_ds.rUnif" name="setup"/>
+    <testcase time="0.00200000000000955" classname="discctrl_ds.rUnif" name="setup"/>
+    <testcase time="0.887999999999977" classname="discctrl_ds.rUnif" name="simple_c">
+      <failure type="failure" message="Expected `ds.rUnif(...)` to throw a error. ('test-discctrl-ds.rUnif.R:29:5')">Expected `ds.rUnif(...)` to throw a error.</failure>
+    </testcase>
+    <testcase time="0.0150000000000148" classname="discctrl_ds.rUnif" name="simple_c">
+      <failure type="failure" message="Expected `res_errors` to have length 1. ('test-discctrl-ds.rUnif.R:33:5')">Expected `res_errors` to have length 1.
+Actual length: 0.</failure>
+    </testcase>
+    <testcase time="0.0159999999999911" classname="discctrl_ds.rUnif" name="simple_c">
+      <failure type="failure" message="Expected `res_errors$sim1` to have length 1. ('test-discctrl-ds.rUnif.R:34:5')">Expected `res_errors$sim1` to have length 1.
+Actual length: 0.</failure>
+    </testcase>
+    <testcase time="0.0159999999999911" classname="discctrl_ds.rUnif" name="simple_c">
+      <failure type="failure" message="Expected `res_errors$sim1` to equal &quot;Command 'setSeedDS(27)' failed on 'sim1': Error while evaluating 'dsBase::setSeedDS(27)' -&gt; Error in checkPermissivePrivacyControlLevel() : \n  BLOCKED: The server is running in 'non-permissive' mode which has caused this method to be blocked\n&quot;. ('test-discctrl-ds.rUnif.R:35:5')">Expected `res_errors$sim1` to equal "Command 'setSeedDS(27)' failed on 'sim1': Error while evaluating 'dsBase::setSeedDS(27)' -&gt; Error in checkPermissivePrivacyControlLevel() : \n  BLOCKED: The server is running in 'non-permissive' mode which has caused this method to be blocked\n".
+Differences:
+target is NULL, current is character</failure>
+    </testcase>
+    <testcase time="0.173000000000002" classname="discctrl_ds.rUnif" name="shutdown">
+      <failure type="failure" message="Expected `study.current.variables$objects.found` to have the same values as `expected.variables`. ('test-discctrl-ds.rUnif.R:45:5')">Expected `study.current.variables$objects.found` to have the same values as `expected.variables`.
+Actual: "D", "unif_dist"
+Expected: "D"
+Needs: "unif_dist"
+Backtrace:
+    x
+ 1. \-global ds_expect_variables(c("D")) at test-discctrl-ds.rUnif.R:45:5
+ 2.   \-testthat::expect_setequal(...)</failure>
+    </testcase>
+    <testcase time="0.0200000000000102" classname="discctrl_ds.rUnif" name="shutdown">
+      <failure type="failure" message="Expected `study.current.variables$objects.found` to have the same values as `expected.variables`. ('test-discctrl-ds.rUnif.R:45:5')">Expected `study.current.variables$objects.found` to have the same values as `expected.variables`.
+Actual: "D", "unif_dist"
+Expected: "D"
+Needs: "unif_dist"
+Backtrace:
+    x
+ 1. \-global ds_expect_variables(c("D")) at test-discctrl-ds.rUnif.R:45:5
+ 2.   \-testthat::expect_setequal(...)</failure>
+    </testcase>
+    <testcase time="0.021000000000015" classname="discctrl_ds.rUnif" name="shutdown">
+      <failure type="failure" message="Expected `study.current.variables$objects.found` to have the same values as `expected.variables`. ('test-discctrl-ds.rUnif.R:45:5')">Expected `study.current.variables$objects.found` to have the same values as `expected.variables`.
+Actual: "D", "unif_dist"
+Expected: "D"
+Needs: "unif_dist"
+Backtrace:
+    x
+ 1. \-global ds_expect_variables(c("D")) at test-discctrl-ds.rUnif.R:45:5
+ 2.   \-testthat::expect_setequal(...)</failure>
+    </testcase>
+  </testsuite>
+  <testsuite name="discctrl-ds.sample" timestamp="2026-04-18T00:30:46Z" hostname="runnervmeorf1" tests="10" skipped="0" failures="7" errors="0" time="7.787">
+    <testcase time="6.61999999999998" classname="discctrl_ds.sample" name="setup"/>
+    <testcase time="0.00100000000000477" classname="discctrl_ds.sample" name="setup"/>
+    <testcase time="0.00100000000000477" classname="discctrl_ds.sample" name="setup"/>
+    <testcase time="0.863" classname="discctrl_ds.sample" name="simple_c">
+      <failure type="failure" message="Expected `ds.sample(x = &quot;D&quot;, size = 20, seed.as.integer = 27)` to throw a error. ('test-discctrl-ds.sample.R:29:5')">Expected `ds.sample(x = "D", size = 20, seed.as.integer = 27)` to throw a error.</failure>
+    </testcase>
+    <testcase time="0.0159999999999911" classname="discctrl_ds.sample" name="simple_c">
+      <failure type="failure" message="Expected `res_errors` to have length 1. ('test-discctrl-ds.sample.R:33:5')">Expected `res_errors` to have length 1.
+Actual length: 0.</failure>
+    </testcase>
+    <testcase time="0.0160000000000196" classname="discctrl_ds.sample" name="simple_c">
+      <failure type="failure" message="Expected `res_errors$sim1` to have length 1. ('test-discctrl-ds.sample.R:34:5')">Expected `res_errors$sim1` to have length 1.
+Actual length: 0.</failure>
+    </testcase>
+    <testcase time="0.0169999999999959" classname="discctrl_ds.sample" name="simple_c">
+      <failure type="failure" message="Expected `res_errors$sim1` to equal &quot;Command 'setSeedDS(27)' failed on 'sim1': Error while evaluating 'dsBase::setSeedDS(27)' -&gt; Error in checkPermissivePrivacyControlLevel() : \n  BLOCKED: The server is running in 'non-permissive' mode which has caused this method to be blocked\n&quot;. ('test-discctrl-ds.sample.R:35:5')">Expected `res_errors$sim1` to equal "Command 'setSeedDS(27)' failed on 'sim1': Error while evaluating 'dsBase::setSeedDS(27)' -&gt; Error in checkPermissivePrivacyControlLevel() : \n  BLOCKED: The server is running in 'non-permissive' mode which has caused this method to be blocked\n".
+Differences:
+target is NULL, current is character</failure>
+    </testcase>
+    <testcase time="0.20999999999998" classname="discctrl_ds.sample" name="shutdown">
+      <failure type="failure" message="Expected `study.current.variables$objects.found` to have the same values as `expected.variables`. ('test-discctrl-ds.sample.R:45:5')">Expected `study.current.variables$objects.found` to have the same values as `expected.variables`.
+Actual: "D", "newobj.sample"
+Expected: "D"
+Needs: "newobj.sample"
+Backtrace:
+    x
+ 1. \-global ds_expect_variables(c("D")) at test-discctrl-ds.sample.R:45:5
+ 2.   \-testthat::expect_setequal(...)</failure>
+    </testcase>
+    <testcase time="0.0220000000000198" classname="discctrl_ds.sample" name="shutdown">
+      <failure type="failure" message="Expected `study.current.variables$objects.found` to have the same values as `expected.variables`. ('test-discctrl-ds.sample.R:45:5')">Expected `study.current.variables$objects.found` to have the same values as `expected.variables`.
+Actual: "D", "newobj.sample"
+Expected: "D"
+Needs: "newobj.sample"
+Backtrace:
+    x
+ 1. \-global ds_expect_variables(c("D")) at test-discctrl-ds.sample.R:45:5
+ 2.   \-testthat::expect_setequal(...)</failure>
+    </testcase>
+    <testcase time="0.0209999999999866" classname="discctrl_ds.sample" name="shutdown">
+      <failure type="failure" message="Expected `study.current.variables$objects.found` to have the same values as `expected.variables`. ('test-discctrl-ds.sample.R:45:5')">Expected `study.current.variables$objects.found` to have the same values as `expected.variables`.
+Actual: "D", "newobj.sample"
+Expected: "D"
+Needs: "newobj.sample"
+Backtrace:
+    x
+ 1. \-global ds_expect_variables(c("D")) at test-discctrl-ds.sample.R:45:5
+ 2.   \-testthat::expect_setequal(...)</failure>
+    </testcase>
+  </testsuite>
+  <testsuite name="discctrl-ds.seq" timestamp="2026-04-18T00:30:54Z" hostname="runnervmeorf1" tests="14" skipped="0" failures="11" errors="0" time="7.803">
+    <testcase time="6.726" classname="discctrl_ds.seq" name="setup"/>
+    <testcase time="0.00200000000000955" classname="discctrl_ds.seq" name="setup"/>
+    <testcase time="0.00200000000000955" classname="discctrl_ds.seq" name="setup"/>
+    <testcase time="0.70999999999998" classname="discctrl_ds.seq" name="simple_rep">
+      <failure type="failure" message="Expected `ds.seq(...)` to throw a error. ('test-discctrl-ds.seq.R:29:5')">Expected `ds.seq(...)` to throw a error.</failure>
+    </testcase>
+    <testcase time="0.0160000000000196" classname="discctrl_ds.seq" name="simple_rep">
+      <failure type="failure" message="Expected `res_errors` to have length 3. ('test-discctrl-ds.seq.R:33:5')">Expected `res_errors` to have length 3.
+Actual length: 0.</failure>
+    </testcase>
+    <testcase time="0.0159999999999911" classname="discctrl_ds.seq" name="simple_rep">
+      <failure type="failure" message="Expected `res_errors$survival1` to have length 1. ('test-discctrl-ds.seq.R:34:5')">Expected `res_errors$survival1` to have length 1.
+Actual length: 0.</failure>
+    </testcase>
+    <testcase time="0.0169999999999959" classname="discctrl_ds.seq" name="simple_rep">
+      <failure type="failure" message="Expected `res_errors$survival1` to equal &quot;Command 'seqDS(\&quot;1\&quot;, NULL, \&quot;1\&quot;, \&quot;10\&quot;, NULL)' failed on 'survival1': Error while evaluating 'is.null(base::assign('obj1', value={dsBase::seqDS(\&quot;1\&quot;, NULL, \&quot;1\&quot;, \&quot;10\&quot;, NULL)}))' -&gt; Error in checkPermissivePrivacyControlLevel() : \n  BLOCKED: The server is running in 'non-permissive' mode which has caused this method to be blocked\n&quot;. ('test-discctrl-ds.seq.R:35:5')">Expected `res_errors$survival1` to equal "Command 'seqDS(\"1\", NULL, \"1\", \"10\", NULL)' failed on 'survival1': Error while evaluating 'is.null(base::assign('obj1', value={dsBase::seqDS(\"1\", NULL, \"1\", \"10\", NULL)}))' -&gt; Error in checkPermissivePrivacyControlLevel() : \n  BLOCKED: The server is running in 'non-permissive' mode which has caused this method to be blocked\n".
+Differences:
+target is NULL, current is character</failure>
+    </testcase>
+    <testcase time="0.0159999999999911" classname="discctrl_ds.seq" name="simple_rep">
+      <failure type="failure" message="Expected `res_errors$survival2` to have length 1. ('test-discctrl-ds.seq.R:36:5')">Expected `res_errors$survival2` to have length 1.
+Actual length: 0.</failure>
+    </testcase>
+    <testcase time="0.0160000000000196" classname="discctrl_ds.seq" name="simple_rep">
+      <failure type="failure" message="Expected `res_errors$survival2` to equal &quot;Command 'seqDS(\&quot;1\&quot;, NULL, \&quot;1\&quot;, \&quot;10\&quot;, NULL)' failed on 'survival2': Error while evaluating 'is.null(base::assign('obj1', value={dsBase::seqDS(\&quot;1\&quot;, NULL, \&quot;1\&quot;, \&quot;10\&quot;, NULL)}))' -&gt; Error in checkPermissivePrivacyControlLevel() : \n  BLOCKED: The server is running in 'non-permissive' mode which has caused this method to be blocked\n&quot;. ('test-discctrl-ds.seq.R:37:5')">Expected `res_errors$survival2` to equal "Command 'seqDS(\"1\", NULL, \"1\", \"10\", NULL)' failed on 'survival2': Error while evaluating 'is.null(base::assign('obj1', value={dsBase::seqDS(\"1\", NULL, \"1\", \"10\", NULL)}))' -&gt; Error in checkPermissivePrivacyControlLevel() : \n  BLOCKED: The server is running in 'non-permissive' mode which has caused this method to be blocked\n".
+Differences:
+target is NULL, current is character</failure>
+    </testcase>
+    <testcase time="0.0219999999999914" classname="discctrl_ds.seq" name="simple_rep">
+      <failure type="failure" message="Expected `res_errors$survival3` to have length 1. ('test-discctrl-ds.seq.R:38:5')">Expected `res_errors$survival3` to have length 1.
+Actual length: 0.</failure>
+    </testcase>
+    <testcase time="0.0149999999999864" classname="discctrl_ds.seq" name="simple_rep">
+      <failure type="failure" message="Expected `res_errors$survival3` to equal &quot;Command 'seqDS(\&quot;1\&quot;, NULL, \&quot;1\&quot;, \&quot;10\&quot;, NULL)' failed on 'survival3': Error while evaluating 'is.null(base::assign('obj1', value={dsBase::seqDS(\&quot;1\&quot;, NULL, \&quot;1\&quot;, \&quot;10\&quot;, NULL)}))' -&gt; Error in checkPermissivePrivacyControlLevel() : \n  BLOCKED: The server is running in 'non-permissive' mode which has caused this method to be blocked\n&quot;. ('test-discctrl-ds.seq.R:39:5')">Expected `res_errors$survival3` to equal "Command 'seqDS(\"1\", NULL, \"1\", \"10\", NULL)' failed on 'survival3': Error while evaluating 'is.null(base::assign('obj1', value={dsBase::seqDS(\"1\", NULL, \"1\", \"10\", NULL)}))' -&gt; Error in checkPermissivePrivacyControlLevel() : \n  BLOCKED: The server is running in 'non-permissive' mode which has caused this method to be blocked\n".
+Differences:
+target is NULL, current is character</failure>
+    </testcase>
+    <testcase time="0.201999999999998" classname="discctrl_ds.seq" name="shutdown">
+      <failure type="failure" message="Expected `study.current.variables$objects.found` to have the same values as `expected.variables`. ('test-discctrl-ds.seq.R:49:5')">Expected `study.current.variables$objects.found` to have the same values as `expected.variables`.
+Actual: "D", "obj1"
+Expected: "D"
+Needs: "obj1"
+Backtrace:
+    x
+ 1. \-global ds_expect_variables(c("D")) at test-discctrl-ds.seq.R:49:5
+ 2.   \-testthat::expect_setequal(...)</failure>
+    </testcase>
+    <testcase time="0.021000000000015" classname="discctrl_ds.seq" name="shutdown">
+      <failure type="failure" message="Expected `study.current.variables$objects.found` to have the same values as `expected.variables`. ('test-discctrl-ds.seq.R:49:5')">Expected `study.current.variables$objects.found` to have the same values as `expected.variables`.
+Actual: "D", "obj1"
+Expected: "D"
+Needs: "obj1"
+Backtrace:
+    x
+ 1. \-global ds_expect_variables(c("D")) at test-discctrl-ds.seq.R:49:5
+ 2.   \-testthat::expect_setequal(...)</failure>
+    </testcase>
+    <testcase time="0.0219999999999914" classname="discctrl_ds.seq" name="shutdown">
+      <failure type="failure" message="Expected `study.current.variables$objects.found` to have the same values as `expected.variables`. ('test-discctrl-ds.seq.R:49:5')">Expected `study.current.variables$objects.found` to have the same values as `expected.variables`.
+Actual: "D", "obj1"
+Expected: "D"
+Needs: "obj1"
+Backtrace:
+    x
+ 1. \-global ds_expect_variables(c("D")) at test-discctrl-ds.seq.R:49:5
+ 2.   \-testthat::expect_setequal(...)</failure>
+    </testcase>
+  </testsuite>
+  <testsuite name="discctrl-ds.setSeed" timestamp="2026-04-18T00:31:02Z" hostname="runnervmeorf1" tests="14" skipped="0" failures="8" errors="0" time="6.839">
+    <testcase time="6.34200000000001" classname="discctrl_ds.setSeed" name="setup"/>
+    <testcase time="0.00199999999998113" classname="discctrl_ds.setSeed" name="setup"/>
+    <testcase time="0.00200000000000955" classname="discctrl_ds.setSeed" name="setup"/>
+    <testcase time="0.187000000000012" classname="discctrl_ds.setSeed" name="simple_c">
+      <failure type="failure" message="Expected `ds.setSeed(4321)` to throw a error. ('test-discctrl-ds.setSeed.R:29:5')">Expected `ds.setSeed(4321)` to throw a error.</failure>
+    </testcase>
+    <testcase time="0.0149999999999864" classname="discctrl_ds.setSeed" name="simple_c">
+      <failure type="failure" message="Expected `res_errors` to have length 3. ('test-discctrl-ds.setSeed.R:33:5')">Expected `res_errors` to have length 3.
+Actual length: 0.</failure>
+    </testcase>
+    <testcase time="0.01400000000001" classname="discctrl_ds.setSeed" name="simple_c">
+      <failure type="failure" message="Expected `res_errors$sim1` to have length 1. ('test-discctrl-ds.setSeed.R:34:5')">Expected `res_errors$sim1` to have length 1.
+Actual length: 0.</failure>
+    </testcase>
+    <testcase time="0.0149999999999864" classname="discctrl_ds.setSeed" name="simple_c">
+      <failure type="failure" message="Expected `res_errors$sim1` to equal &quot;Command 'setSeedDS(4321)' failed on 'sim1': Error while evaluating 'dsBase::setSeedDS(4321)' -&gt; Error in checkPermissivePrivacyControlLevel() : \n  BLOCKED: The server is running in 'non-permissive' mode which has caused this method to be blocked\n&quot;. ('test-discctrl-ds.setSeed.R:35:5')">Expected `res_errors$sim1` to equal "Command 'setSeedDS(4321)' failed on 'sim1': Error while evaluating 'dsBase::setSeedDS(4321)' -&gt; Error in checkPermissivePrivacyControlLevel() : \n  BLOCKED: The server is running in 'non-permissive' mode which has caused this method to be blocked\n".
+Differences:
+target is NULL, current is character</failure>
+    </testcase>
+    <testcase time="0.01400000000001" classname="discctrl_ds.setSeed" name="simple_c">
+      <failure type="failure" message="Expected `res_errors$sim2` to have length 1. ('test-discctrl-ds.setSeed.R:36:5')">Expected `res_errors$sim2` to have length 1.
+Actual length: 0.</failure>
+    </testcase>
+    <testcase time="0.0149999999999864" classname="discctrl_ds.setSeed" name="simple_c">
+      <failure type="failure" message="Expected `res_errors$sim2` to equal &quot;Command 'setSeedDS(4321)' failed on 'sim2': Error while evaluating 'dsBase::setSeedDS(4321)' -&gt; Error in checkPermissivePrivacyControlLevel() : \n  BLOCKED: The server is running in 'non-permissive' mode which has caused this method to be blocked\n&quot;. ('test-discctrl-ds.setSeed.R:37:5')">Expected `res_errors$sim2` to equal "Command 'setSeedDS(4321)' failed on 'sim2': Error while evaluating 'dsBase::setSeedDS(4321)' -&gt; Error in checkPermissivePrivacyControlLevel() : \n  BLOCKED: The server is running in 'non-permissive' mode which has caused this method to be blocked\n".
+Differences:
+target is NULL, current is character</failure>
+    </testcase>
+    <testcase time="0.01400000000001" classname="discctrl_ds.setSeed" name="simple_c">
+      <failure type="failure" message="Expected `res_errors$sim3` to have length 1. ('test-discctrl-ds.setSeed.R:38:5')">Expected `res_errors$sim3` to have length 1.
+Actual length: 0.</failure>
+    </testcase>
+    <testcase time="0.0150000000000148" classname="discctrl_ds.setSeed" name="simple_c">
+      <failure type="failure" message="Expected `res_errors$sim3` to equal &quot;Command 'setSeedDS(4321)' failed on 'sim3': Error while evaluating 'dsBase::setSeedDS(4321)' -&gt; Error in checkPermissivePrivacyControlLevel() : \n  BLOCKED: The server is running in 'non-permissive' mode which has caused this method to be blocked\n&quot;. ('test-discctrl-ds.setSeed.R:39:5')">Expected `res_errors$sim3` to equal "Command 'setSeedDS(4321)' failed on 'sim3': Error while evaluating 'dsBase::setSeedDS(4321)' -&gt; Error in checkPermissivePrivacyControlLevel() : \n  BLOCKED: The server is running in 'non-permissive' mode which has caused this method to be blocked\n".
+Differences:
+target is NULL, current is character</failure>
+    </testcase>
+    <testcase time="0.200999999999993" classname="discctrl_ds.setSeed" name="shutdown"/>
+    <testcase time="0.00199999999998113" classname="discctrl_ds.setSeed" name="shutdown"/>
+    <testcase time="0.00100000000000477" classname="discctrl_ds.setSeed" name="shutdown"/>
+  </testsuite>
+  <testsuite name="discctrl-ds.subset" timestamp="2026-04-18T00:31:08Z" hostname="runnervmeorf1" tests="11" skipped="0" failures="7" errors="0" time="7.35">
+    <testcase time="6.392" classname="discctrl_ds.subset" name="setup"/>
+    <testcase time="0.00200000000000955" classname="discctrl_ds.subset" name="setup"/>
+    <testcase time="0.00200000000000955" classname="discctrl_ds.subset" name="setup"/>
+    <testcase time="0.659999999999997" classname="discctrl_ds.subset" name="simple_subset"/>
+    <testcase time="0.00499999999999545" classname="discctrl_ds.subset" name="simple_subset">
+      <failure type="failure" message="Expected `expect_warning(...)` to throw a error. ('test-discctrl-ds.subset.R:29:5')">Expected `expect_warning(...)` to throw a error.</failure>
+    </testcase>
+    <testcase time="0.0159999999999911" classname="discctrl_ds.subset" name="simple_subset">
+      <failure type="failure" message="Expected `res_errors` to have length 1. ('test-discctrl-ds.subset.R:33:5')">Expected `res_errors` to have length 1.
+Actual length: 0.</failure>
+    </testcase>
+    <testcase time="0.0150000000000148" classname="discctrl_ds.subset" name="simple_subset">
+      <failure type="failure" message="Expected `res_errors$sim1` to have length 1. ('test-discctrl-ds.subset.R:34:5')">Expected `res_errors$sim1` to have length 1.
+Actual length: 0.</failure>
+    </testcase>
+    <testcase time="0.0149999999999864" classname="discctrl_ds.subset" name="simple_subset">
+      <failure type="failure" message="Expected `res_errors$sim1` to equal &quot;Command 'subsetDS(\&quot;D\&quot;, FALSE, 1:50, c(1, 2))' failed on 'sim1': Error while evaluating 'is.null(base::assign('subD', value={dsBase::subsetDS(\&quot;D\&quot;, FALSE, 1:50, dsBase::vectorDS(1, 2))}))' -&gt; Error in checkPermissivePrivacyControlLevel() : \n  BLOCKED: The server is running in 'non-permissive' mode which has caused this method to be blocked\n&quot;. ('test-discctrl-ds.subset.R:35:5')">Expected `res_errors$sim1` to equal "Command 'subsetDS(\"D\", FALSE, 1:50, c(1, 2))' failed on 'sim1': Error while evaluating 'is.null(base::assign('subD', value={dsBase::subsetDS(\"D\", FALSE, 1:50, dsBase::vectorDS(1, 2))}))' -&gt; Error in checkPermissivePrivacyControlLevel() : \n  BLOCKED: The server is running in 'non-permissive' mode which has caused this method to be blocked\n".
+Differences:
+target is NULL, current is character</failure>
+    </testcase>
+    <testcase time="0.201999999999998" classname="discctrl_ds.subset" name="shutdown">
+      <failure type="failure" message="Expected `study.current.variables$objects.found` to have the same values as `expected.variables`. ('test-discctrl-ds.subset.R:45:5')">Expected `study.current.variables$objects.found` to have the same values as `expected.variables`.
+Actual: "D", "subD"
+Expected: "D"
+Needs: "subD"
+Backtrace:
+    x
+ 1. \-global ds_expect_variables(c("D")) at test-discctrl-ds.subset.R:45:5
+ 2.   \-testthat::expect_setequal(...)</failure>
+    </testcase>
+    <testcase time="0.0200000000000102" classname="discctrl_ds.subset" name="shutdown">
+      <failure type="failure" message="Expected `study.current.variables$objects.found` to have the same values as `expected.variables`. ('test-discctrl-ds.subset.R:45:5')">Expected `study.current.variables$objects.found` to have the same values as `expected.variables`.
+Actual: "D", "subD"
+Expected: "D"
+Needs: "subD"
+Backtrace:
+    x
+ 1. \-global ds_expect_variables(c("D")) at test-discctrl-ds.subset.R:45:5
+ 2.   \-testthat::expect_setequal(...)</failure>
+    </testcase>
+    <testcase time="0.021000000000015" classname="discctrl_ds.subset" name="shutdown">
+      <failure type="failure" message="Expected `study.current.variables$objects.found` to have the same values as `expected.variables`. ('test-discctrl-ds.subset.R:45:5')">Expected `study.current.variables$objects.found` to have the same values as `expected.variables`.
+Actual: "D", "subD"
+Expected: "D"
+Needs: "subD"
+Backtrace:
+    x
+ 1. \-global ds_expect_variables(c("D")) at test-discctrl-ds.subset.R:45:5
+ 2.   \-testthat::expect_setequal(...)</failure>
+    </testcase>
+  </testsuite>
+  <testsuite name="discctrl-ds.subsetByClass" timestamp="2026-04-18T00:31:16Z" hostname="runnervmeorf1" tests="15" skipped="0" failures="11" errors="0" time="8.157">
+    <testcase time="6.39299999999997" classname="discctrl_ds.subsetByClass" name="setup"/>
+    <testcase time="0.00200000000000955" classname="discctrl_ds.subsetByClass" name="setup"/>
+    <testcase time="0.00100000000000477" classname="discctrl_ds.subsetByClass" name="setup"/>
+    <testcase time="1.41900000000001" classname="discctrl_ds.subsetByClass" name="simple_subsetByClass"/>
+    <testcase time="0.00399999999999068" classname="discctrl_ds.subsetByClass" name="simple_subsetByClass">
+      <failure type="failure" message="Expected `expect_warning(...)` to throw a error. ('test-discctrl-ds.subsetByClass.R:29:5')">Expected `expect_warning(...)` to throw a error.</failure>
+    </testcase>
+    <testcase time="0.0149999999999864" classname="discctrl_ds.subsetByClass" name="simple_subsetByClass">
+      <failure type="failure" message="Expected `res_errors` to have length 3. ('test-discctrl-ds.subsetByClass.R:33:5')">Expected `res_errors` to have length 3.
+Actual length: 0.</failure>
+    </testcase>
+    <testcase time="0.01400000000001" classname="discctrl_ds.subsetByClass" name="simple_subsetByClass">
+      <failure type="failure" message="Expected `res_errors$sim1` to have length 1. ('test-discctrl-ds.subsetByClass.R:34:5')">Expected `res_errors$sim1` to have length 1.
+Actual length: 0.</failure>
+    </testcase>
+    <testcase time="0.01400000000001" classname="discctrl_ds.subsetByClass" name="simple_subsetByClass">
+      <failure type="failure" message="Expected `res_errors$sim1` to equal &quot;Command 'subsetByClassDS('D')' failed on 'sim1': Error while evaluating 'is.null(base::assign('subclasses1', value={dsBase::subsetByClassDS('D')}))' -&gt; Error in checkPermissivePrivacyControlLevel() : \n  BLOCKED: The server is running in 'non-permissive' mode which has caused this method to be blocked\n&quot;. ('test-discctrl-ds.subsetByClass.R:35:5')">Expected `res_errors$sim1` to equal "Command 'subsetByClassDS('D')' failed on 'sim1': Error while evaluating 'is.null(base::assign('subclasses1', value={dsBase::subsetByClassDS('D')}))' -&gt; Error in checkPermissivePrivacyControlLevel() : \n  BLOCKED: The server is running in 'non-permissive' mode which has caused this method to be blocked\n".
+Differences:
+target is NULL, current is character</failure>
+    </testcase>
+    <testcase time="0.0139999999999816" classname="discctrl_ds.subsetByClass" name="simple_subsetByClass">
+      <failure type="failure" message="Expected `res_errors$sim2` to have length 1. ('test-discctrl-ds.subsetByClass.R:36:5')">Expected `res_errors$sim2` to have length 1.
+Actual length: 0.</failure>
+    </testcase>
+    <testcase time="0.01400000000001" classname="discctrl_ds.subsetByClass" name="simple_subsetByClass">
+      <failure type="failure" message="Expected `res_errors$sim2` to equal &quot;Command 'subsetByClassDS('D')' failed on 'sim2': Error while evaluating 'is.null(base::assign('subclasses1', value={dsBase::subsetByClassDS('D')}))' -&gt; Error in checkPermissivePrivacyControlLevel() : \n  BLOCKED: The server is running in 'non-permissive' mode which has caused this method to be blocked\n&quot;. ('test-discctrl-ds.subsetByClass.R:37:5')">Expected `res_errors$sim2` to equal "Command 'subsetByClassDS('D')' failed on 'sim2': Error while evaluating 'is.null(base::assign('subclasses1', value={dsBase::subsetByClassDS('D')}))' -&gt; Error in checkPermissivePrivacyControlLevel() : \n  BLOCKED: The server is running in 'non-permissive' mode which has caused this method to be blocked\n".
+Differences:
+target is NULL, current is character</failure>
+    </testcase>
+    <testcase time="0.01400000000001" classname="discctrl_ds.subsetByClass" name="simple_subsetByClass">
+      <failure type="failure" message="Expected `res_errors$sim3` to have length 1. ('test-discctrl-ds.subsetByClass.R:38:5')">Expected `res_errors$sim3` to have length 1.
+Actual length: 0.</failure>
+    </testcase>
+    <testcase time="0.0149999999999864" classname="discctrl_ds.subsetByClass" name="simple_subsetByClass">
+      <failure type="failure" message="Expected `res_errors$sim3` to equal &quot;Command 'subsetByClassDS('D')' failed on 'sim3': Error while evaluating 'is.null(base::assign('subclasses1', value={dsBase::subsetByClassDS('D')}))' -&gt; Error in checkPermissivePrivacyControlLevel() : \n  BLOCKED: The server is running in 'non-permissive' mode which has caused this method to be blocked\n&quot;. ('test-discctrl-ds.subsetByClass.R:39:5')">Expected `res_errors$sim3` to equal "Command 'subsetByClassDS('D')' failed on 'sim3': Error while evaluating 'is.null(base::assign('subclasses1', value={dsBase::subsetByClassDS('D')}))' -&gt; Error in checkPermissivePrivacyControlLevel() : \n  BLOCKED: The server is running in 'non-permissive' mode which has caused this method to be blocked\n".
+Differences:
+target is NULL, current is character</failure>
+    </testcase>
+    <testcase time="0.197000000000003" classname="discctrl_ds.subsetByClass" name="shutdown">
+      <failure type="failure" message="Expected `study.current.variables$objects.found` to have the same values as `expected.variables`. ('test-discctrl-ds.subsetByClass.R:49:5')">Expected `study.current.variables$objects.found` to have the same values as `expected.variables`.
+Actual: "D", "subclasses1"
+Expected: "D"
+Needs: "subclasses1"
+Backtrace:
+    x
+ 1. \-global ds_expect_variables(c("D")) at test-discctrl-ds.subsetByClass.R:49:5
+ 2.   \-testthat::expect_setequal(...)</failure>
+    </testcase>
+    <testcase time="0.021000000000015" classname="discctrl_ds.subsetByClass" name="shutdown">
+      <failure type="failure" message="Expected `study.current.variables$objects.found` to have the same values as `expected.variables`. ('test-discctrl-ds.subsetByClass.R:49:5')">Expected `study.current.variables$objects.found` to have the same values as `expected.variables`.
+Actual: "D", "subclasses1"
+Expected: "D"
+Needs: "subclasses1"
+Backtrace:
+    x
+ 1. \-global ds_expect_variables(c("D")) at test-discctrl-ds.subsetByClass.R:49:5
+ 2.   \-testthat::expect_setequal(...)</failure>
+    </testcase>
+    <testcase time="0.0199999999999818" classname="discctrl_ds.subsetByClass" name="shutdown">
+      <failure type="failure" message="Expected `study.current.variables$objects.found` to have the same values as `expected.variables`. ('test-discctrl-ds.subsetByClass.R:49:5')">Expected `study.current.variables$objects.found` to have the same values as `expected.variables`.
+Actual: "D", "subclasses1"
+Expected: "D"
+Needs: "subclasses1"
+Backtrace:
+    x
+ 1. \-global ds_expect_variables(c("D")) at test-discctrl-ds.subsetByClass.R:49:5
+ 2.   \-testthat::expect_setequal(...)</failure>
+    </testcase>
+  </testsuite>
+</testsuites>

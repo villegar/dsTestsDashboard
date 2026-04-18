@@ -1,0 +1,34 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<testsuites>
+  <testsuite name="smk_bug-ds.listOpals" timestamp="2026-04-18T01:35:04Z" hostname="runnervmeorf1" tests="0" skipped="0" failures="0" errors="0" time="0"/>
+  <testsuite name="ds.listOpals::smk::check results" timestamp="2026-04-18T01:35:14Z" hostname="runnervmeorf1" tests="2" skipped="0" failures="1" errors="0" time="10.468">
+    <testcase time="10.416" classname="ds.listOpals_smk_check_results" name="check_results">
+      <system-out>'ds.listOpals' is deprecated.
+Use 'DSI::datashield.connections' instead.
+See help("Deprecated")
+Backtrace:
+    x
+ 1. +-testthat::expect_message(res &lt;- ds.listOpals(), message, fixed = TRUE) at test-smk_bug-ds.listOpals.R:26:5
+ 2. | \-testthat:::quasi_capture(enquo(object), label, capture_messages)
+ 3. |   +-testthat (local) .capture(...)
+ 4. |   | \-base::withCallingHandlers(...)
+ 5. |   \-rlang::eval_bare(quo_get_expr(.quo), quo_get_env(.quo))
+ 6. \-dsBaseClient::ds.listOpals()
+ 7.   \-base::.Deprecated("DSI::datashield.connections")</system-out>
+    </testcase>
+    <testcase time="0.0520000000000014" classname="ds.listOpals_smk_check_results" name="check_results">
+      <failure type="failure" message="`res &lt;- ds.listOpals()` produced unexpected messages. ('test-smk_bug-ds.listOpals.R:26:5')">`res &lt;- ds.listOpals()` produced unexpected messages.
+Expected match: \n*  This function lists all Opal objects in the R analysis environment\n\n\n*  There is only one set of opals available,\n that is: 'ds.test_env$connections'\n\n\n\n*  This set of Opals has been copied to create 'default.opals',\n which all DataSHIELD functions will now use by default.\n If you want to change the default Opal object,\n please run the function ds.setDefaultOpals() again. \n\n\n\n
+Actual values:
+*  There is only one set of DSConnection objects available that is:
+
+
+*  This set of DSConnection objects has been copied to create 'default.connections',
+ which all DataSHIELD functions will now use by default.
+ If you want to change the default DSConnection objects,
+ please run the function datashield.connections_default() again.
+
+</failure>
+    </testcase>
+  </testsuite>
+</testsuites>
