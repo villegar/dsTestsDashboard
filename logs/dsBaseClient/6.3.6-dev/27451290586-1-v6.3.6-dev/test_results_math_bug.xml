@@ -1,0 +1,393 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<testsuites>
+  <testsuite name="math_bug-ds.asFactor" timestamp="2026-06-13T00:49:11Z" hostname="runnervm1li68" tests="2" skipped="0" failures="0" errors="2" time="11.723">
+    <testcase time="9.182" classname="math_bug_ds.asFactor" name="every_factor_should_be_unique">
+      <error type="error" message="Error: There are some DataSHIELD errors, list them with datashield.errors() ('test-math_bug-ds.asFactor.R:20:3')">Error: There are some DataSHIELD errors, list them with datashield.errors()
+Backtrace:
+    x
+ 1. \-global .test.uniqueness("D$INTEGER", "INT.f") at test-math_bug-ds.asFactor.R:20:3
+ 2.   \-dsBaseClient::ds.asFactor(variable.name, variable.recoded)
+ 3.     \-DSI::datashield.aggregate(datasources, calltext1)
+ 4.       \-DSI:::.handle_errors(errors.print)
+ 5.         \-DSI:::.checkLastErrors()
+ 6.           \-cli::cli_abort(...)
+ 7.             \-rlang::abort(...)</error>
+    </testcase>
+    <testcase time="2.541" classname="math_bug_ds.asFactor" name="every_factor_should_be_unique">
+      <error type="error" message="Error: There are some DataSHIELD errors, list them with datashield.errors() ('test-math_bug-ds.asFactor.R:35:4')">Error: There are some DataSHIELD errors, list them with datashield.errors()
+Backtrace:
+    x
+ 1. \-global .test.uniqueness("D$INTEGER", "INT.f") at test-math_bug-ds.asFactor.R:35:4
+ 2.   \-dsBaseClient::ds.asFactor(variable.name, variable.recoded)
+ 3.     \-DSI::datashield.aggregate(datasources, calltext1)
+ 4.       \-DSI:::.handle_errors(errors.print)
+ 5.         \-DSI:::.checkLastErrors()
+ 6.           \-cli::cli_abort(...)
+ 7.             \-rlang::abort(...)</error>
+    </testcase>
+  </testsuite>
+  <testsuite name="math_bug-ds.make" timestamp="2026-06-13T00:49:23Z" hostname="runnervm1li68" tests="64" skipped="0" failures="0" errors="0" time="66.756">
+    <testcase time="7.392" classname="math_bug_ds.make" name="transformation"/>
+    <testcase time="0.00199999999999889" classname="math_bug_ds.make" name="transformation"/>
+    <testcase time="2" classname="math_bug_ds.make" name="transformation"/>
+    <testcase time="0.00199999999999889" classname="math_bug_ds.make" name="transformation"/>
+    <testcase time="2.333" classname="math_bug_ds.make" name="transformation"/>
+    <testcase time="0.00199999999999889" classname="math_bug_ds.make" name="transformation"/>
+    <testcase time="1.988" classname="math_bug_ds.make" name="transformation"/>
+    <testcase time="0.00199999999999889" classname="math_bug_ds.make" name="transformation"/>
+    <testcase time="1.82" classname="math_bug_ds.make" name="transformation"/>
+    <testcase time="0.00199999999999889" classname="math_bug_ds.make" name="transformation"/>
+    <testcase time="1.938" classname="math_bug_ds.make" name="transformation"/>
+    <testcase time="0.00300000000000011" classname="math_bug_ds.make" name="transformation"/>
+    <testcase time="1.828" classname="math_bug_ds.make" name="transformation"/>
+    <testcase time="0.00300000000000011" classname="math_bug_ds.make" name="transformation"/>
+    <testcase time="1.889" classname="math_bug_ds.make" name="transformation"/>
+    <testcase time="0.00300000000000011" classname="math_bug_ds.make" name="transformation"/>
+    <testcase time="1.845" classname="math_bug_ds.make" name="transformation"/>
+    <testcase time="0.00199999999999534" classname="math_bug_ds.make" name="transformation"/>
+    <testcase time="1.908" classname="math_bug_ds.make" name="transformation"/>
+    <testcase time="0.00300000000000011" classname="math_bug_ds.make" name="transformation"/>
+    <testcase time="1.92" classname="math_bug_ds.make" name="transformation"/>
+    <testcase time="0.00200000000000244" classname="math_bug_ds.make" name="transformation"/>
+    <testcase time="1.912" classname="math_bug_ds.make" name="transformation"/>
+    <testcase time="0.00300000000000011" classname="math_bug_ds.make" name="transformation"/>
+    <testcase time="1.952" classname="math_bug_ds.make" name="transformation"/>
+    <testcase time="0.00300000000000011" classname="math_bug_ds.make" name="transformation"/>
+    <testcase time="1.849" classname="math_bug_ds.make" name="transformation"/>
+    <testcase time="0.00300000000000011" classname="math_bug_ds.make" name="transformation"/>
+    <testcase time="1.89100000000001" classname="math_bug_ds.make" name="transformation"/>
+    <testcase time="0.00300000000000011" classname="math_bug_ds.make" name="transformation"/>
+    <testcase time="1.812" classname="math_bug_ds.make" name="transformation"/>
+    <testcase time="0.00300000000000011" classname="math_bug_ds.make" name="transformation"/>
+    <testcase time="1.852" classname="math_bug_ds.make" name="transformation"/>
+    <testcase time="0.00200000000000244" classname="math_bug_ds.make" name="transformation"/>
+    <testcase time="1.931" classname="math_bug_ds.make" name="transformation"/>
+    <testcase time="0.00300000000000011" classname="math_bug_ds.make" name="transformation"/>
+    <testcase time="1.908" classname="math_bug_ds.make" name="transformation"/>
+    <testcase time="0.00300000000000011" classname="math_bug_ds.make" name="transformation"/>
+    <testcase time="1.962" classname="math_bug_ds.make" name="transformation"/>
+    <testcase time="0.00199999999999534" classname="math_bug_ds.make" name="transformation"/>
+    <testcase time="1.90900000000001" classname="math_bug_ds.make" name="transformation"/>
+    <testcase time="0.00300000000000011" classname="math_bug_ds.make" name="transformation"/>
+    <testcase time="1.907" classname="math_bug_ds.make" name="transformation"/>
+    <testcase time="0.00300000000000011" classname="math_bug_ds.make" name="transformation"/>
+    <testcase time="1.902" classname="math_bug_ds.make" name="transformation"/>
+    <testcase time="0.00300000000000011" classname="math_bug_ds.make" name="transformation"/>
+    <testcase time="1.889" classname="math_bug_ds.make" name="transformation"/>
+    <testcase time="0.00300000000000011" classname="math_bug_ds.make" name="transformation"/>
+    <testcase time="1.94" classname="math_bug_ds.make" name="transformation"/>
+    <testcase time="0.00199999999999534" classname="math_bug_ds.make" name="transformation"/>
+    <testcase time="1.836" classname="math_bug_ds.make" name="transformation"/>
+    <testcase time="0.00300000000000011" classname="math_bug_ds.make" name="transformation"/>
+    <testcase time="1.857" classname="math_bug_ds.make" name="transformation"/>
+    <testcase time="0.00300000000000011" classname="math_bug_ds.make" name="transformation"/>
+    <testcase time="1.90600000000001" classname="math_bug_ds.make" name="transformation"/>
+    <testcase time="0.00300000000000011" classname="math_bug_ds.make" name="transformation"/>
+    <testcase time="1.89699999999999" classname="math_bug_ds.make" name="transformation"/>
+    <testcase time="0.00300000000000011" classname="math_bug_ds.make" name="transformation"/>
+    <testcase time="1.89500000000001" classname="math_bug_ds.make" name="transformation"/>
+    <testcase time="0.00300000000000011" classname="math_bug_ds.make" name="transformation"/>
+    <testcase time="1.92399999999999" classname="math_bug_ds.make" name="transformation"/>
+    <testcase time="0.00300000000000011" classname="math_bug_ds.make" name="transformation"/>
+    <testcase time="1.878" classname="math_bug_ds.make" name="transformation"/>
+    <testcase time="0.00300000000000011" classname="math_bug_ds.make" name="transformation"/>
+  </testsuite>
+  <testsuite name="math_bug-ds.recodeValues" timestamp="2026-06-13T00:50:29Z" hostname="runnervm1li68" tests="15" skipped="0" failures="0" errors="2" time="11.778">
+    <testcase time="2.212" classname="math_bug_ds.recodeValues" name="difference"/>
+    <testcase time="0.00399999999999068" classname="math_bug_ds.recodeValues" name="difference"/>
+    <testcase time="0.00300000000000011" classname="math_bug_ds.recodeValues" name="difference"/>
+    <testcase time="0.00400000000000489" classname="math_bug_ds.recodeValues" name="difference"/>
+    <testcase time="0.00400000000000489" classname="math_bug_ds.recodeValues" name="difference"/>
+    <testcase time="0.00300000000000011" classname="math_bug_ds.recodeValues" name="difference"/>
+    <testcase time="0.00399999999999068" classname="math_bug_ds.recodeValues" name="difference"/>
+    <testcase time="0.00300000000000011" classname="math_bug_ds.recodeValues" name="difference"/>
+    <testcase time="0.00400000000000489" classname="math_bug_ds.recodeValues" name="difference"/>
+    <testcase time="2.827" classname="math_bug_ds.recodeValues" name="difference"/>
+    <testcase time="0.665000000000006" classname="math_bug_ds.recodeValues" name="difference"/>
+    <testcase time="0.0649999999999977" classname="math_bug_ds.recodeValues" name="difference">
+      <error type="error" message="Error: The input object must be an integer or a numeric vector. ('test-math_bug-ds.recodeValues.R:35:3')">Error: The input object must be an integer or a numeric vector.
+Backtrace:
+    x
+ 1. \-global .test.differences.in.sets(...) at test-math_bug-ds.recodeValues.R:35:3
+ 2.   \-global .calc.distribution.server(variable.name)
+ 3.     \-dsBaseClient::ds.mean(...)</error>
+    </testcase>
+    <testcase time="5.145" classname="math_bug_ds.recodeValues" name="difference">
+      <system-out>NAs introduced by coercion
+Backtrace:
+    x
+ 1. \-global .test.differences.in.sets(...) at test-math_bug-ds.recodeValues.R:83:13
+ 2.   \-global .identify.values.unique(some.values[, column], length(values.to.replace))</system-out>
+    </testcase>
+    <testcase time="0.00800000000000978" classname="math_bug_ds.recodeValues" name="difference">
+      <system-out>NAs introduced by coercion
+Backtrace:
+    x
+ 1. \-global .test.differences.in.sets(...) at test-math_bug-ds.recodeValues.R:83:13
+ 2.   \-global .identify.values.unique(some.values[, column], length(values.to.replace))</system-out>
+    </testcase>
+    <testcase time="0.826999999999998" classname="math_bug_ds.recodeValues" name="difference">
+      <error type="error" message="Error: To recode NAs you need to use the 'missing' argument ('test-math_bug-ds.recodeValues.R:83:13')">Error: To recode NAs you need to use the 'missing' argument
+Backtrace:
+    x
+ 1. \-global .test.differences.in.sets(...) at test-math_bug-ds.recodeValues.R:83:13
+ 2.   \-global .apply.changes.server(...)
+ 3.     \-dsBaseClient::ds.recodeValues(...)</error>
+    </testcase>
+  </testsuite>
+  <testsuite name="math_bug-ds.rPois" timestamp="2026-06-13T00:50:41Z" hostname="runnervm1li68" tests="28" skipped="0" failures="16" errors="0" time="38.817">
+    <testcase time="2.684" classname="math_bug_ds.rPois" name="lamdba_mean_and_lambda_var"/>
+    <testcase time="0.00199999999999534" classname="math_bug_ds.rPois" name="lamdba_mean_and_lambda_var"/>
+    <testcase time="0.504000000000005" classname="math_bug_ds.rPois" name="lamdba_mean_and_lambda_var"/>
+    <testcase time="0.00199999999999534" classname="math_bug_ds.rPois" name="lamdba_mean_and_lambda_var"/>
+    <testcase time="0.662000000000006" classname="math_bug_ds.rPois" name="lamdba_mean_and_lambda_var"/>
+    <testcase time="0.00199999999999534" classname="math_bug_ds.rPois" name="lamdba_mean_and_lambda_var"/>
+    <testcase time="6.501" classname="math_bug_ds.rPois" name="lamdba_mean_and_lambda_var"/>
+    <testcase time="0.000999999999990564" classname="math_bug_ds.rPois" name="lamdba_mean_and_lambda_var"/>
+    <testcase time="1.42500000000001" classname="math_bug_ds.rPois" name="lamdba_mean_and_lambda_var"/>
+    <testcase time="0.000999999999990564" classname="math_bug_ds.rPois" name="lamdba_mean_and_lambda_var"/>
+    <testcase time="1.90100000000001" classname="math_bug_ds.rPois" name="lamdba_mean_and_lambda_var"/>
+    <testcase time="0.000999999999990564" classname="math_bug_ds.rPois" name="lamdba_mean_and_lambda_var"/>
+    <testcase time="7.998" classname="math_bug_ds.rPois" name="changes_in_distribution">
+      <failure type="failure" message="Expected `errors[ds.test_env$MEAN]` to equal 0. ('test-math_bug-ds.rPois.R:44:3')">Expected `errors[ds.test_env$MEAN]` to equal 0.
+Differences:
+Lengths differ: 0 is not 1
+Backtrace:
+    x
+ 1. \-global .test.dispersions.stats.same.distribution(seed, c(6), seed, c(6)) at test-math_bug-ds.rPois.R:44:3
+ 2.   \-testthat::expect_equal(errors[ds.test_env$MEAN], 0, tolerance = ds.test_env$tolerance)</failure>
+    </testcase>
+    <testcase time="0.0150000000000006" classname="math_bug_ds.rPois" name="changes_in_distribution">
+      <failure type="failure" message="Expected `errors[ds.test_env$VARIANCE]` to equal 0. ('test-math_bug-ds.rPois.R:44:3')">Expected `errors[ds.test_env$VARIANCE]` to equal 0.
+Differences:
+Lengths differ: 0 is not 1
+Backtrace:
+    x
+ 1. \-global .test.dispersions.stats.same.distribution(seed, c(6), seed, c(6)) at test-math_bug-ds.rPois.R:44:3
+ 2.   \-testthat::expect_equal(errors[ds.test_env$VARIANCE], 0, tolerance = ds.test_env$tolerance)</failure>
+    </testcase>
+    <testcase time="3.39999999999999" classname="math_bug_ds.rPois" name="changes_in_distribution">
+      <failure type="failure" message="Expected `errors[ds.test_env$MEAN]` to equal `lambda.first.dist - lambda.second.dist`. ('test-math_bug-ds.rPois.R:45:3')">Expected `errors[ds.test_env$MEAN]` to equal `lambda.first.dist - lambda.second.dist`.
+Differences:
+Lengths differ: 0 is not 1
+Backtrace:
+    x
+ 1. \-global .test.dispersions.stats.diff.distribution(...) at test-math_bug-ds.rPois.R:45:3
+ 2.   \-testthat::expect_equal(...)</failure>
+    </testcase>
+    <testcase time="0.01400000000001" classname="math_bug_ds.rPois" name="changes_in_distribution">
+      <failure type="failure" message="Expected `errors[ds.test_env$VARIANCE]` to equal `lambda.first.dist - lambda.second.dist`. ('test-math_bug-ds.rPois.R:45:3')">Expected `errors[ds.test_env$VARIANCE]` to equal `lambda.first.dist - lambda.second.dist`.
+Differences:
+Lengths differ: 0 is not 1
+Backtrace:
+    x
+ 1. \-global .test.dispersions.stats.diff.distribution(...) at test-math_bug-ds.rPois.R:45:3
+ 2.   \-testthat::expect_equal(...)</failure>
+    </testcase>
+    <testcase time="2.91" classname="math_bug_ds.rPois" name="changes_in_distribution">
+      <failure type="failure" message="Expected `errors[ds.test_env$MEAN]` to equal `lambda.first.dist - lambda.second.dist`. ('test-math_bug-ds.rPois.R:46:3')">Expected `errors[ds.test_env$MEAN]` to equal `lambda.first.dist - lambda.second.dist`.
+Differences:
+Lengths differ: 0 is not 1
+Backtrace:
+    x
+ 1. \-global .test.dispersions.stats.diff.distribution(...) at test-math_bug-ds.rPois.R:46:3
+ 2.   \-testthat::expect_equal(...)</failure>
+    </testcase>
+    <testcase time="0.0150000000000006" classname="math_bug_ds.rPois" name="changes_in_distribution">
+      <failure type="failure" message="Expected `errors[ds.test_env$VARIANCE]` to equal `lambda.first.dist - lambda.second.dist`. ('test-math_bug-ds.rPois.R:46:3')">Expected `errors[ds.test_env$VARIANCE]` to equal `lambda.first.dist - lambda.second.dist`.
+Differences:
+Lengths differ: 0 is not 1
+Backtrace:
+    x
+ 1. \-global .test.dispersions.stats.diff.distribution(...) at test-math_bug-ds.rPois.R:46:3
+ 2.   \-testthat::expect_equal(...)</failure>
+    </testcase>
+    <testcase time="2.81" classname="math_bug_ds.rPois" name="changes_in_distribution">
+      <failure type="failure" message="Expected `errors[ds.test_env$MEAN]` to equal `lambda.first.dist - lambda.second.dist`. ('test-math_bug-ds.rPois.R:47:3')">Expected `errors[ds.test_env$MEAN]` to equal `lambda.first.dist - lambda.second.dist`.
+Differences:
+Lengths differ: 0 is not 1
+Backtrace:
+    x
+ 1. \-global .test.dispersions.stats.diff.distribution(...) at test-math_bug-ds.rPois.R:47:3
+ 2.   \-testthat::expect_equal(...)</failure>
+    </testcase>
+    <testcase time="0.0150000000000006" classname="math_bug_ds.rPois" name="changes_in_distribution">
+      <failure type="failure" message="Expected `errors[ds.test_env$VARIANCE]` to equal `lambda.first.dist - lambda.second.dist`. ('test-math_bug-ds.rPois.R:47:3')">Expected `errors[ds.test_env$VARIANCE]` to equal `lambda.first.dist - lambda.second.dist`.
+Differences:
+Lengths differ: 0 is not 1
+Backtrace:
+    x
+ 1. \-global .test.dispersions.stats.diff.distribution(...) at test-math_bug-ds.rPois.R:47:3
+ 2.   \-testthat::expect_equal(...)</failure>
+    </testcase>
+    <testcase time="2.92999999999999" classname="math_bug_ds.rPois" name="changes_in_distribution">
+      <failure type="failure" message="Expected `errors[ds.test_env$MEAN]` to equal `lambda.first.dist - lambda.second.dist`. ('test-math_bug-ds.rPois.R:48:3')">Expected `errors[ds.test_env$MEAN]` to equal `lambda.first.dist - lambda.second.dist`.
+Differences:
+Lengths differ: 0 is not 1
+Backtrace:
+    x
+ 1. \-global .test.dispersions.stats.diff.distribution(...) at test-math_bug-ds.rPois.R:48:3
+ 2.   \-testthat::expect_equal(...)</failure>
+    </testcase>
+    <testcase time="0.0200000000000102" classname="math_bug_ds.rPois" name="changes_in_distribution">
+      <failure type="failure" message="Expected `errors[ds.test_env$VARIANCE]` to equal `lambda.first.dist - lambda.second.dist`. ('test-math_bug-ds.rPois.R:48:3')">Expected `errors[ds.test_env$VARIANCE]` to equal `lambda.first.dist - lambda.second.dist`.
+Differences:
+Lengths differ: 0 is not 1
+Backtrace:
+    x
+ 1. \-global .test.dispersions.stats.diff.distribution(...) at test-math_bug-ds.rPois.R:48:3
+ 2.   \-testthat::expect_equal(...)</failure>
+    </testcase>
+    <testcase time="2.874" classname="math_bug_ds.rPois" name="changes_in_distribution">
+      <failure type="failure" message="Expected `errors[ds.test_env$MEAN]` to equal 0. ('test-math_bug-ds.rPois.R:56:3')">Expected `errors[ds.test_env$MEAN]` to equal 0.
+Differences:
+Lengths differ: 0 is not 1
+Backtrace:
+    x
+ 1. \-global .test.dispersions.stats.same.distribution(seed, c(6), seed, c(6)) at test-math_bug-ds.rPois.R:56:3
+ 2.   \-testthat::expect_equal(errors[ds.test_env$MEAN], 0, tolerance = ds.test_env$tolerance)</failure>
+    </testcase>
+    <testcase time="0.0190000000000055" classname="math_bug_ds.rPois" name="changes_in_distribution">
+      <failure type="failure" message="Expected `errors[ds.test_env$VARIANCE]` to equal 0. ('test-math_bug-ds.rPois.R:56:3')">Expected `errors[ds.test_env$VARIANCE]` to equal 0.
+Differences:
+Lengths differ: 0 is not 1
+Backtrace:
+    x
+ 1. \-global .test.dispersions.stats.same.distribution(seed, c(6), seed, c(6)) at test-math_bug-ds.rPois.R:56:3
+ 2.   \-testthat::expect_equal(errors[ds.test_env$VARIANCE], 0, tolerance = ds.test_env$tolerance)</failure>
+    </testcase>
+    <testcase time="1.07399999999998" classname="math_bug_ds.rPois" name="changes_in_distribution">
+      <failure type="failure" message="Expected `errors[ds.test_env$MEAN]` to equal `lambda.first.dist - lambda.second.dist`. ('test-math_bug-ds.rPois.R:57:3')">Expected `errors[ds.test_env$MEAN]` to equal `lambda.first.dist - lambda.second.dist`.
+Differences:
+Lengths differ: 0 is not 1
+Backtrace:
+    x
+ 1. \-global .test.dispersions.stats.diff.distribution(...) at test-math_bug-ds.rPois.R:57:3
+ 2.   \-testthat::expect_equal(...)</failure>
+    </testcase>
+    <testcase time="0.0150000000000148" classname="math_bug_ds.rPois" name="changes_in_distribution">
+      <failure type="failure" message="Expected `errors[ds.test_env$VARIANCE]` to equal `lambda.first.dist - lambda.second.dist`. ('test-math_bug-ds.rPois.R:57:3')">Expected `errors[ds.test_env$VARIANCE]` to equal `lambda.first.dist - lambda.second.dist`.
+Differences:
+Lengths differ: 0 is not 1
+Backtrace:
+    x
+ 1. \-global .test.dispersions.stats.diff.distribution(...) at test-math_bug-ds.rPois.R:57:3
+ 2.   \-testthat::expect_equal(...)</failure>
+    </testcase>
+    <testcase time="1.00299999999999" classname="math_bug_ds.rPois" name="changes_in_distribution">
+      <failure type="failure" message="Expected `errors[ds.test_env$MEAN]` to equal `lambda.first.dist - lambda.second.dist`. ('test-math_bug-ds.rPois.R:58:3')">Expected `errors[ds.test_env$MEAN]` to equal `lambda.first.dist - lambda.second.dist`.
+Differences:
+Lengths differ: 0 is not 1
+Backtrace:
+    x
+ 1. \-global .test.dispersions.stats.diff.distribution(...) at test-math_bug-ds.rPois.R:58:3
+ 2.   \-testthat::expect_equal(...)</failure>
+    </testcase>
+    <testcase time="0.0190000000000055" classname="math_bug_ds.rPois" name="changes_in_distribution">
+      <failure type="failure" message="Expected `errors[ds.test_env$VARIANCE]` to equal `lambda.first.dist - lambda.second.dist`. ('test-math_bug-ds.rPois.R:58:3')">Expected `errors[ds.test_env$VARIANCE]` to equal `lambda.first.dist - lambda.second.dist`.
+Differences:
+Lengths differ: 0 is not 1
+Backtrace:
+    x
+ 1. \-global .test.dispersions.stats.diff.distribution(...) at test-math_bug-ds.rPois.R:58:3
+ 2.   \-testthat::expect_equal(...)</failure>
+    </testcase>
+  </testsuite>
+  <testsuite name="math_bug-ds.rUnif" timestamp="2026-06-13T00:51:20Z" hostname="runnervm1li68" tests="36" skipped="0" failures="6" errors="0" time="34.169">
+    <testcase time="2.82300000000001" classname="math_bug_ds.rUnif" name="mean_variance">
+      <failure type="failure" message="Expected `dist.stats[5]` to equal `max.value`. ('test-math_bug-ds.rUnif.R:22:3')">Expected `dist.stats[5]` to equal `max.value`.
+Differences:
+1/1 mismatches
+[1] NA - 2 == NA
+Backtrace:
+    x
+ 1. \-global .test.range.values(1, 2, "uniform_1", seed) at test-math_bug-ds.rUnif.R:22:3
+ 2.   \-testthat::expect_equal(dist.stats[5], max.value, tolerance = 10^2)</failure>
+    </testcase>
+    <testcase time="0.0139999999999816" classname="math_bug_ds.rUnif" name="mean_variance">
+      <failure type="failure" message="Expected `dist.stats[4]` to equal `min.value`. ('test-math_bug-ds.rUnif.R:22:3')">Expected `dist.stats[4]` to equal `min.value`.
+Differences:
+1/1 mismatches
+[1] NA - 1 == NA
+Backtrace:
+    x
+ 1. \-global .test.range.values(1, 2, "uniform_1", seed) at test-math_bug-ds.rUnif.R:22:3
+ 2.   \-testthat::expect_equal(dist.stats[4], min.value, tolerance = 10^2)</failure>
+    </testcase>
+    <testcase time="0.0120000000000005" classname="math_bug_ds.rUnif" name="mean_variance"/>
+    <testcase time="0.00100000000000477" classname="math_bug_ds.rUnif" name="mean_variance"/>
+    <testcase time="0.405000000000001" classname="math_bug_ds.rUnif" name="mean_variance">
+      <failure type="failure" message="Expected `dist.stats[5]` to equal `max.value`. ('test-math_bug-ds.rUnif.R:23:3')">Expected `dist.stats[5]` to equal `max.value`.
+Differences:
+1/1 mismatches
+[1] NA - 2 == NA
+Backtrace:
+    x
+ 1. \-global .test.range.values(-1, 2, "uniform_2", seed) at test-math_bug-ds.rUnif.R:23:3
+ 2.   \-testthat::expect_equal(dist.stats[5], max.value, tolerance = 10^2)</failure>
+    </testcase>
+    <testcase time="0.0150000000000148" classname="math_bug_ds.rUnif" name="mean_variance">
+      <failure type="failure" message="Expected `dist.stats[4]` to equal `min.value`. ('test-math_bug-ds.rUnif.R:23:3')">Expected `dist.stats[4]` to equal `min.value`.
+Differences:
+1/1 mismatches
+[1] NA - -1 == NA
+Backtrace:
+    x
+ 1. \-global .test.range.values(-1, 2, "uniform_2", seed) at test-math_bug-ds.rUnif.R:23:3
+ 2.   \-testthat::expect_equal(dist.stats[4], min.value, tolerance = 10^2)</failure>
+    </testcase>
+    <testcase time="0.0120000000000005" classname="math_bug_ds.rUnif" name="mean_variance"/>
+    <testcase time="0.000999999999976353" classname="math_bug_ds.rUnif" name="mean_variance"/>
+    <testcase time="0.610000000000014" classname="math_bug_ds.rUnif" name="mean_variance">
+      <failure type="failure" message="Expected `dist.stats[5]` to equal `max.value`. ('test-math_bug-ds.rUnif.R:24:3')">Expected `dist.stats[5]` to equal `max.value`.
+Differences:
+1/1 mismatches
+[1] NA - -100 == NA
+Backtrace:
+    x
+ 1. \-global .test.range.values(-200, -100, "uniform_3", seed) at test-math_bug-ds.rUnif.R:24:3
+ 2.   \-testthat::expect_equal(dist.stats[5], max.value, tolerance = 10^2)</failure>
+    </testcase>
+    <testcase time="0.0149999999999864" classname="math_bug_ds.rUnif" name="mean_variance">
+      <failure type="failure" message="Expected `dist.stats[4]` to equal `min.value`. ('test-math_bug-ds.rUnif.R:24:3')">Expected `dist.stats[4]` to equal `min.value`.
+Differences:
+1/1 mismatches
+[1] NA - -200 == NA
+Backtrace:
+    x
+ 1. \-global .test.range.values(-200, -100, "uniform_3", seed) at test-math_bug-ds.rUnif.R:24:3
+ 2.   \-testthat::expect_equal(dist.stats[4], min.value, tolerance = 10^2)</failure>
+    </testcase>
+    <testcase time="0.0110000000000241" classname="math_bug_ds.rUnif" name="mean_variance"/>
+    <testcase time="0.000999999999976353" classname="math_bug_ds.rUnif" name="mean_variance"/>
+    <testcase time="3.06400000000002" classname="math_bug_ds.rUnif" name="changes_in_distribution"/>
+    <testcase time="0.000999999999976353" classname="math_bug_ds.rUnif" name="changes_in_distribution"/>
+    <testcase time="1.137" classname="math_bug_ds.rUnif" name="changes_in_distribution"/>
+    <testcase time="0.00100000000000477" classname="math_bug_ds.rUnif" name="changes_in_distribution"/>
+    <testcase time="0.906000000000006" classname="math_bug_ds.rUnif" name="changes_in_distribution"/>
+    <testcase time="0.00200000000000955" classname="math_bug_ds.rUnif" name="changes_in_distribution"/>
+    <testcase time="0.97799999999998" classname="math_bug_ds.rUnif" name="changes_in_distribution"/>
+    <testcase time="0.00100000000000477" classname="math_bug_ds.rUnif" name="changes_in_distribution"/>
+    <testcase time="0.918000000000006" classname="math_bug_ds.rUnif" name="changes_in_distribution"/>
+    <testcase time="0.00100000000000477" classname="math_bug_ds.rUnif" name="changes_in_distribution"/>
+    <testcase time="0.957999999999998" classname="math_bug_ds.rUnif" name="changes_in_distribution"/>
+    <testcase time="0.00100000000000477" classname="math_bug_ds.rUnif" name="changes_in_distribution"/>
+    <testcase time="7.92699999999999" classname="math_bug_ds.rUnif" name="changes_in_distribution"/>
+    <testcase time="0.00100000000000477" classname="math_bug_ds.rUnif" name="changes_in_distribution"/>
+    <testcase time="3.33599999999998" classname="math_bug_ds.rUnif" name="changes_in_distribution"/>
+    <testcase time="0.00100000000000477" classname="math_bug_ds.rUnif" name="changes_in_distribution"/>
+    <testcase time="2.70000000000002" classname="math_bug_ds.rUnif" name="changes_in_distribution"/>
+    <testcase time="0.000999999999976353" classname="math_bug_ds.rUnif" name="changes_in_distribution"/>
+    <testcase time="2.70700000000002" classname="math_bug_ds.rUnif" name="changes_in_distribution"/>
+    <testcase time="0.00100000000000477" classname="math_bug_ds.rUnif" name="changes_in_distribution"/>
+    <testcase time="2.78399999999999" classname="math_bug_ds.rUnif" name="changes_in_distribution"/>
+    <testcase time="0.00199999999998113" classname="math_bug_ds.rUnif" name="changes_in_distribution"/>
+    <testcase time="2.82000000000002" classname="math_bug_ds.rUnif" name="changes_in_distribution"/>
+    <testcase time="0.00100000000000477" classname="math_bug_ds.rUnif" name="changes_in_distribution"/>
+  </testsuite>
+  <testsuite name="math_bug-ds.table" timestamp="2026-06-13T00:51:54Z" hostname="runnervm1li68" tests="1" skipped="0" failures="0" errors="1" time="0.075">
+    <testcase time="0.0749999999999886" classname="math_bug_ds.table" name="row_and_col_proportions_sum_to_1">
+      <error type="error" message="Error in `connect.testing.group.dataset.1()`: could not find function &quot;connect.testing.group.dataset.1&quot; ('test-math_bug-ds.table.R:17:13')">Error in `connect.testing.group.dataset.1()`: could not find function "connect.testing.group.dataset.1"</error>
+    </testcase>
+  </testsuite>
+</testsuites>

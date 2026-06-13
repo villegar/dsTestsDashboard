@@ -1,0 +1,265 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<testsuites>
+  <testsuite name="math-ds.mean" timestamp="2026-06-13T01:50:54Z" hostname="runnervm1li68" tests="0" skipped="0" failures="0" errors="0" time="0"/>
+  <testsuite name="ds.mean::math::residual::multiple" timestamp="2026-06-13T01:50:55Z" hostname="runnervm1li68" tests="32" skipped="0" failures="0" errors="0" time="20.309">
+    <testcase time="14.386" classname="ds.mean_math_residual_multiple" name="residual_deviation_tends_to_0"/>
+    <testcase time="0.458000000000002" classname="ds.mean_math_residual_multiple" name="residual_deviation_tends_to_0"/>
+    <testcase time="0.389999999999997" classname="ds.mean_math_residual_multiple" name="residual_deviation_tends_to_0"/>
+    <testcase time="0.395" classname="ds.mean_math_residual_multiple" name="residual_deviation_tends_to_0"/>
+    <testcase time="0.429000000000002" classname="ds.mean_math_residual_multiple" name="residual_deviation_tends_to_0"/>
+    <testcase time="0.318000000000001" classname="ds.mean_math_residual_multiple" name="residual_deviation_tends_to_0"/>
+    <testcase time="0.43" classname="ds.mean_math_residual_multiple" name="residual_deviation_tends_to_0"/>
+    <testcase time="0.372" classname="ds.mean_math_residual_multiple" name="residual_deviation_tends_to_0"/>
+    <testcase time="0.420999999999999" classname="ds.mean_math_residual_multiple" name="residual_deviation_tends_to_0"/>
+    <testcase time="0.00199999999999889" classname="ds.mean_math_residual_multiple" name="residual_deviation_tends_to_0"/>
+    <testcase time="0.00300000000000011" classname="ds.mean_math_residual_multiple" name="residual_deviation_tends_to_0"/>
+    <testcase time="0.385000000000002" classname="ds.mean_math_residual_multiple" name="residual_deviation_tends_to_0"/>
+    <testcase time="0.000999999999997669" classname="ds.mean_math_residual_multiple" name="residual_deviation_tends_to_0"/>
+    <testcase time="0.00200000000000244" classname="ds.mean_math_residual_multiple" name="residual_deviation_tends_to_0"/>
+    <testcase time="0.407" classname="ds.mean_math_residual_multiple" name="residual_deviation_tends_to_0"/>
+    <testcase time="0.00199999999999889" classname="ds.mean_math_residual_multiple" name="residual_deviation_tends_to_0"/>
+    <testcase time="0.00100000000000122" classname="ds.mean_math_residual_multiple" name="residual_deviation_tends_to_0"/>
+    <testcase time="0.367999999999999" classname="ds.mean_math_residual_multiple" name="residual_deviation_tends_to_0"/>
+    <testcase time="0.00199999999999889" classname="ds.mean_math_residual_multiple" name="residual_deviation_tends_to_0"/>
+    <testcase time="0.00100000000000122" classname="ds.mean_math_residual_multiple" name="residual_deviation_tends_to_0"/>
+    <testcase time="0.373999999999999" classname="ds.mean_math_residual_multiple" name="residual_deviation_tends_to_0"/>
+    <testcase time="0.00100000000000122" classname="ds.mean_math_residual_multiple" name="residual_deviation_tends_to_0"/>
+    <testcase time="0.00199999999999889" classname="ds.mean_math_residual_multiple" name="residual_deviation_tends_to_0"/>
+    <testcase time="0.374000000000002" classname="ds.mean_math_residual_multiple" name="residual_deviation_tends_to_0"/>
+    <testcase time="0.00199999999999889" classname="ds.mean_math_residual_multiple" name="residual_deviation_tends_to_0"/>
+    <testcase time="0.00100000000000122" classname="ds.mean_math_residual_multiple" name="residual_deviation_tends_to_0"/>
+    <testcase time="0.407" classname="ds.mean_math_residual_multiple" name="residual_deviation_tends_to_0"/>
+    <testcase time="0.00199999999999889" classname="ds.mean_math_residual_multiple" name="residual_deviation_tends_to_0"/>
+    <testcase time="0.00100000000000122" classname="ds.mean_math_residual_multiple" name="residual_deviation_tends_to_0"/>
+    <testcase time="0.369" classname="ds.mean_math_residual_multiple" name="residual_deviation_tends_to_0"/>
+    <testcase time="0.00199999999999889" classname="ds.mean_math_residual_multiple" name="residual_deviation_tends_to_0"/>
+    <testcase time="0.00100000000000122" classname="ds.mean_math_residual_multiple" name="residual_deviation_tends_to_0"/>
+  </testsuite>
+  <testsuite name="ds.mean::math::residual::multiple" timestamp="2026-06-13T01:51:15Z" hostname="runnervm1li68" tests="32" skipped="0" failures="0" errors="0" time="14.234">
+    <testcase time="8.782" classname="ds.mean_math_residual_multiple" name="residual_deviation_tends_to_0"/>
+    <testcase time="0.326000000000001" classname="ds.mean_math_residual_multiple" name="residual_deviation_tends_to_0"/>
+    <testcase time="0.364000000000001" classname="ds.mean_math_residual_multiple" name="residual_deviation_tends_to_0"/>
+    <testcase time="0.377000000000002" classname="ds.mean_math_residual_multiple" name="residual_deviation_tends_to_0"/>
+    <testcase time="0.390000000000001" classname="ds.mean_math_residual_multiple" name="residual_deviation_tends_to_0"/>
+    <testcase time="0.396999999999998" classname="ds.mean_math_residual_multiple" name="residual_deviation_tends_to_0"/>
+    <testcase time="0.344999999999999" classname="ds.mean_math_residual_multiple" name="residual_deviation_tends_to_0"/>
+    <testcase time="0.339999999999996" classname="ds.mean_math_residual_multiple" name="residual_deviation_tends_to_0"/>
+    <testcase time="0.360000000000007" classname="ds.mean_math_residual_multiple" name="residual_deviation_tends_to_0"/>
+    <testcase time="0.00199999999999534" classname="ds.mean_math_residual_multiple" name="residual_deviation_tends_to_0"/>
+    <testcase time="0.00100000000000477" classname="ds.mean_math_residual_multiple" name="residual_deviation_tends_to_0"/>
+    <testcase time="0.388999999999996" classname="ds.mean_math_residual_multiple" name="residual_deviation_tends_to_0"/>
+    <testcase time="0.000999999999997669" classname="ds.mean_math_residual_multiple" name="residual_deviation_tends_to_0"/>
+    <testcase time="0.00200000000000244" classname="ds.mean_math_residual_multiple" name="residual_deviation_tends_to_0"/>
+    <testcase time="0.338000000000001" classname="ds.mean_math_residual_multiple" name="residual_deviation_tends_to_0"/>
+    <testcase time="0.00200000000000244" classname="ds.mean_math_residual_multiple" name="residual_deviation_tends_to_0"/>
+    <testcase time="0.000999999999997669" classname="ds.mean_math_residual_multiple" name="residual_deviation_tends_to_0"/>
+    <testcase time="0.347000000000001" classname="ds.mean_math_residual_multiple" name="residual_deviation_tends_to_0"/>
+    <testcase time="0.000999999999997669" classname="ds.mean_math_residual_multiple" name="residual_deviation_tends_to_0"/>
+    <testcase time="0.00200000000000244" classname="ds.mean_math_residual_multiple" name="residual_deviation_tends_to_0"/>
+    <testcase time="0.381999999999998" classname="ds.mean_math_residual_multiple" name="residual_deviation_tends_to_0"/>
+    <testcase time="0.00200000000000244" classname="ds.mean_math_residual_multiple" name="residual_deviation_tends_to_0"/>
+    <testcase time="0.000999999999997669" classname="ds.mean_math_residual_multiple" name="residual_deviation_tends_to_0"/>
+    <testcase time="0.390000000000001" classname="ds.mean_math_residual_multiple" name="residual_deviation_tends_to_0"/>
+    <testcase time="0.00300000000000011" classname="ds.mean_math_residual_multiple" name="residual_deviation_tends_to_0"/>
+    <testcase time="0.00200000000000244" classname="ds.mean_math_residual_multiple" name="residual_deviation_tends_to_0"/>
+    <testcase time="0.303999999999995" classname="ds.mean_math_residual_multiple" name="residual_deviation_tends_to_0"/>
+    <testcase time="0.00200000000000244" classname="ds.mean_math_residual_multiple" name="residual_deviation_tends_to_0"/>
+    <testcase time="0.000999999999997669" classname="ds.mean_math_residual_multiple" name="residual_deviation_tends_to_0"/>
+    <testcase time="0.377000000000002" classname="ds.mean_math_residual_multiple" name="residual_deviation_tends_to_0"/>
+    <testcase time="0.000999999999997669" classname="ds.mean_math_residual_multiple" name="residual_deviation_tends_to_0"/>
+    <testcase time="0.00200000000000244" classname="ds.mean_math_residual_multiple" name="residual_deviation_tends_to_0"/>
+  </testsuite>
+  <testsuite name="ds.mean::math::location_parameter::single" timestamp="2026-06-13T01:51:29Z" hostname="runnervm1li68" tests="8" skipped="0" failures="0" errors="0" time="7.149">
+    <testcase time="3.81" classname="ds.mean_math_location_parameter_single" name="mean_X_a_mean_X_a"/>
+    <testcase time="0.494" classname="ds.mean_math_location_parameter_single" name="mean_X_a_mean_X_a"/>
+    <testcase time="0.465999999999994" classname="ds.mean_math_location_parameter_single" name="mean_X_a_mean_X_a"/>
+    <testcase time="0.483000000000004" classname="ds.mean_math_location_parameter_single" name="mean_X_a_mean_X_a"/>
+    <testcase time="0.473999999999997" classname="ds.mean_math_location_parameter_single" name="mean_X_a_mean_X_a"/>
+    <testcase time="0.472000000000001" classname="ds.mean_math_location_parameter_single" name="mean_X_a_mean_X_a"/>
+    <testcase time="0.475999999999999" classname="ds.mean_math_location_parameter_single" name="mean_X_a_mean_X_a"/>
+    <testcase time="0.474000000000004" classname="ds.mean_math_location_parameter_single" name="mean_X_a_mean_X_a"/>
+  </testsuite>
+  <testsuite name="ds.mean::math::location_parameter::multiple" timestamp="2026-06-13T01:51:36Z" hostname="runnervm1li68" tests="8" skipped="0" failures="0" errors="0" time="19.058">
+    <testcase time="9.625" classname="ds.mean_math_location_parameter_multiple" name="mean_X_a_mean_X_a"/>
+    <testcase time="1.354" classname="ds.mean_math_location_parameter_multiple" name="mean_X_a_mean_X_a"/>
+    <testcase time="1.354" classname="ds.mean_math_location_parameter_multiple" name="mean_X_a_mean_X_a"/>
+    <testcase time="1.348" classname="ds.mean_math_location_parameter_multiple" name="mean_X_a_mean_X_a"/>
+    <testcase time="1.379" classname="ds.mean_math_location_parameter_multiple" name="mean_X_a_mean_X_a"/>
+    <testcase time="1.343" classname="ds.mean_math_location_parameter_multiple" name="mean_X_a_mean_X_a"/>
+    <testcase time="1.308" classname="ds.mean_math_location_parameter_multiple" name="mean_X_a_mean_X_a"/>
+    <testcase time="1.347" classname="ds.mean_math_location_parameter_multiple" name="mean_X_a_mean_X_a"/>
+  </testsuite>
+  <testsuite name="ds.mean::math::scale::multiple" timestamp="2026-06-13T01:51:55Z" hostname="runnervm1li68" tests="8" skipped="0" failures="0" errors="0" time="18.973">
+    <testcase time="9.605" classname="ds.mean_math_scale_multiple" name="mean_X_a_mean_X_a"/>
+    <testcase time="1.32600000000001" classname="ds.mean_math_scale_multiple" name="mean_X_a_mean_X_a"/>
+    <testcase time="1.33199999999999" classname="ds.mean_math_scale_multiple" name="mean_X_a_mean_X_a"/>
+    <testcase time="1.322" classname="ds.mean_math_scale_multiple" name="mean_X_a_mean_X_a"/>
+    <testcase time="1.29899999999999" classname="ds.mean_math_scale_multiple" name="mean_X_a_mean_X_a"/>
+    <testcase time="1.39" classname="ds.mean_math_scale_multiple" name="mean_X_a_mean_X_a"/>
+    <testcase time="1.36500000000001" classname="ds.mean_math_scale_multiple" name="mean_X_a_mean_X_a"/>
+    <testcase time="1.334" classname="ds.mean_math_scale_multiple" name="mean_X_a_mean_X_a"/>
+  </testsuite>
+  <testsuite name="ds.mean::math::scale::single" timestamp="2026-06-13T01:52:14Z" hostname="runnervm1li68" tests="8" skipped="0" failures="0" errors="0" time="6.906">
+    <testcase time="3.75399999999999" classname="ds.mean_math_scale_single" name="mean_X_a_mean_X_a"/>
+    <testcase time="0.463999999999999" classname="ds.mean_math_scale_single" name="mean_X_a_mean_X_a"/>
+    <testcase time="0.463999999999999" classname="ds.mean_math_scale_single" name="mean_X_a_mean_X_a"/>
+    <testcase time="0.423000000000002" classname="ds.mean_math_scale_single" name="mean_X_a_mean_X_a"/>
+    <testcase time="0.456000000000003" classname="ds.mean_math_scale_single" name="mean_X_a_mean_X_a"/>
+    <testcase time="0.457999999999998" classname="ds.mean_math_scale_single" name="mean_X_a_mean_X_a"/>
+    <testcase time="0.465000000000003" classname="ds.mean_math_scale_single" name="mean_X_a_mean_X_a"/>
+    <testcase time="0.421999999999997" classname="ds.mean_math_scale_single" name="mean_X_a_mean_X_a"/>
+  </testsuite>
+  <testsuite name="math-ds.var" timestamp="2026-06-13T01:52:21Z" hostname="runnervm1li68" tests="0" skipped="0" failures="0" errors="0" time="0"/>
+  <testsuite name="ds.var::math::positive_result::multiple" timestamp="2026-06-13T01:52:21Z" hostname="runnervm1li68" tests="32" skipped="0" failures="0" errors="0" time="16.698">
+    <testcase time="8.696" classname="ds.var_math_positive_result_multiple" name="variance_0"/>
+    <testcase time="0.497" classname="ds.var_math_positive_result_multiple" name="variance_0"/>
+    <testcase time="0.541000000000011" classname="ds.var_math_positive_result_multiple" name="variance_0"/>
+    <testcase time="0.525999999999996" classname="ds.var_math_positive_result_multiple" name="variance_0"/>
+    <testcase time="0.484999999999999" classname="ds.var_math_positive_result_multiple" name="variance_0"/>
+    <testcase time="0.545000000000002" classname="ds.var_math_positive_result_multiple" name="variance_0"/>
+    <testcase time="0.527000000000001" classname="ds.var_math_positive_result_multiple" name="variance_0"/>
+    <testcase time="0.539999999999992" classname="ds.var_math_positive_result_multiple" name="variance_0"/>
+    <testcase time="0.537000000000006" classname="ds.var_math_positive_result_multiple" name="variance_0"/>
+    <testcase time="0.00300000000000011" classname="ds.var_math_positive_result_multiple" name="variance_0"/>
+    <testcase time="0.00199999999999534" classname="ds.var_math_positive_result_multiple" name="variance_0"/>
+    <testcase time="0.542000000000002" classname="ds.var_math_positive_result_multiple" name="variance_0"/>
+    <testcase time="0.00300000000000011" classname="ds.var_math_positive_result_multiple" name="variance_0"/>
+    <testcase time="0.00199999999999534" classname="ds.var_math_positive_result_multiple" name="variance_0"/>
+    <testcase time="0.537000000000006" classname="ds.var_math_positive_result_multiple" name="variance_0"/>
+    <testcase time="0.00300000000000011" classname="ds.var_math_positive_result_multiple" name="variance_0"/>
+    <testcase time="0.00199999999999534" classname="ds.var_math_positive_result_multiple" name="variance_0"/>
+    <testcase time="0.534999999999997" classname="ds.var_math_positive_result_multiple" name="variance_0"/>
+    <testcase time="0.00199999999999534" classname="ds.var_math_positive_result_multiple" name="variance_0"/>
+    <testcase time="0.00300000000000011" classname="ds.var_math_positive_result_multiple" name="variance_0"/>
+    <testcase time="0.548000000000002" classname="ds.var_math_positive_result_multiple" name="variance_0"/>
+    <testcase time="0.00300000000000011" classname="ds.var_math_positive_result_multiple" name="variance_0"/>
+    <testcase time="0.00199999999999534" classname="ds.var_math_positive_result_multiple" name="variance_0"/>
+    <testcase time="0.538000000000011" classname="ds.var_math_positive_result_multiple" name="variance_0"/>
+    <testcase time="0.0029999999999859" classname="ds.var_math_positive_result_multiple" name="variance_0"/>
+    <testcase time="0.00300000000000011" classname="ds.var_math_positive_result_multiple" name="variance_0"/>
+    <testcase time="0.532000000000011" classname="ds.var_math_positive_result_multiple" name="variance_0"/>
+    <testcase time="0.00300000000000011" classname="ds.var_math_positive_result_multiple" name="variance_0"/>
+    <testcase time="0.00199999999999534" classname="ds.var_math_positive_result_multiple" name="variance_0"/>
+    <testcase time="0.531000000000006" classname="ds.var_math_positive_result_multiple" name="variance_0"/>
+    <testcase time="0.00300000000000011" classname="ds.var_math_positive_result_multiple" name="variance_0"/>
+    <testcase time="0.00199999999999534" classname="ds.var_math_positive_result_multiple" name="variance_0"/>
+  </testsuite>
+  <testsuite name="ds.var::math::positive_result::single" timestamp="2026-06-13T01:52:38Z" hostname="runnervm1li68" tests="32" skipped="0" failures="0" errors="0" time="6.37">
+    <testcase time="3.568" classname="ds.var_math_positive_result_single" name="variance_0"/>
+    <testcase time="0.183000000000007" classname="ds.var_math_positive_result_single" name="variance_0"/>
+    <testcase time="0.181999999999988" classname="ds.var_math_positive_result_single" name="variance_0"/>
+    <testcase time="0.185000000000002" classname="ds.var_math_positive_result_single" name="variance_0"/>
+    <testcase time="0.183999999999997" classname="ds.var_math_positive_result_single" name="variance_0"/>
+    <testcase time="0.185000000000002" classname="ds.var_math_positive_result_single" name="variance_0"/>
+    <testcase time="0.185000000000002" classname="ds.var_math_positive_result_single" name="variance_0"/>
+    <testcase time="0.182000000000002" classname="ds.var_math_positive_result_single" name="variance_0"/>
+    <testcase time="0.147999999999996" classname="ds.var_math_positive_result_single" name="variance_0"/>
+    <testcase time="0.00200000000000955" classname="ds.var_math_positive_result_single" name="variance_0"/>
+    <testcase time="0.00200000000000955" classname="ds.var_math_positive_result_single" name="variance_0"/>
+    <testcase time="0.189999999999998" classname="ds.var_math_positive_result_single" name="variance_0"/>
+    <testcase time="0.00300000000000011" classname="ds.var_math_positive_result_single" name="variance_0"/>
+    <testcase time="0.00199999999999534" classname="ds.var_math_positive_result_single" name="variance_0"/>
+    <testcase time="0.183999999999997" classname="ds.var_math_positive_result_single" name="variance_0"/>
+    <testcase time="0.00300000000000011" classname="ds.var_math_positive_result_single" name="variance_0"/>
+    <testcase time="0.00300000000000011" classname="ds.var_math_positive_result_single" name="variance_0"/>
+    <testcase time="0.183999999999997" classname="ds.var_math_positive_result_single" name="variance_0"/>
+    <testcase time="0.00300000000000011" classname="ds.var_math_positive_result_single" name="variance_0"/>
+    <testcase time="0.00300000000000011" classname="ds.var_math_positive_result_single" name="variance_0"/>
+    <testcase time="0.193000000000012" classname="ds.var_math_positive_result_single" name="variance_0"/>
+    <testcase time="0.00300000000000011" classname="ds.var_math_positive_result_single" name="variance_0"/>
+    <testcase time="0.00300000000000011" classname="ds.var_math_positive_result_single" name="variance_0"/>
+    <testcase time="0.197999999999993" classname="ds.var_math_positive_result_single" name="variance_0"/>
+    <testcase time="0.00400000000000489" classname="ds.var_math_positive_result_single" name="variance_0"/>
+    <testcase time="0.00300000000000011" classname="ds.var_math_positive_result_single" name="variance_0"/>
+    <testcase time="0.192999999999998" classname="ds.var_math_positive_result_single" name="variance_0"/>
+    <testcase time="0.00300000000000011" classname="ds.var_math_positive_result_single" name="variance_0"/>
+    <testcase time="0.00300000000000011" classname="ds.var_math_positive_result_single" name="variance_0"/>
+    <testcase time="0.181000000000012" classname="ds.var_math_positive_result_single" name="variance_0"/>
+    <testcase time="0.00300000000000011" classname="ds.var_math_positive_result_single" name="variance_0"/>
+    <testcase time="0.00199999999999534" classname="ds.var_math_positive_result_single" name="variance_0"/>
+  </testsuite>
+  <testsuite name="ds.var::math::square_root_std::single" timestamp="2026-06-13T01:52:44Z" hostname="runnervm1li68" tests="8" skipped="0" failures="0" errors="0" time="4.281">
+    <testcase time="3.46599999999999" classname="ds.var_math_square_root_std_single" name="variance_is_to_the_power_of_2_of_the_standard_deviation"/>
+    <testcase time="0.115000000000009" classname="ds.var_math_square_root_std_single" name="variance_is_to_the_power_of_2_of_the_standard_deviation"/>
+    <testcase time="0.117999999999995" classname="ds.var_math_square_root_std_single" name="variance_is_to_the_power_of_2_of_the_standard_deviation"/>
+    <testcase time="0.114000000000004" classname="ds.var_math_square_root_std_single" name="variance_is_to_the_power_of_2_of_the_standard_deviation"/>
+    <testcase time="0.113" classname="ds.var_math_square_root_std_single" name="variance_is_to_the_power_of_2_of_the_standard_deviation"/>
+    <testcase time="0.120000000000005" classname="ds.var_math_square_root_std_single" name="variance_is_to_the_power_of_2_of_the_standard_deviation"/>
+    <testcase time="0.119" classname="ds.var_math_square_root_std_single" name="variance_is_to_the_power_of_2_of_the_standard_deviation"/>
+    <testcase time="0.116" classname="ds.var_math_square_root_std_single" name="variance_is_to_the_power_of_2_of_the_standard_deviation"/>
+  </testsuite>
+  <testsuite name="ds.var::math::square_root_std::multiple" timestamp="2026-06-13T01:52:48Z" hostname="runnervm1li68" tests="32" skipped="0" failures="0" errors="0" time="13.322">
+    <testcase time="8.41199999999999" classname="ds.var_math_square_root_std_multiple" name="variance_is_to_the_power_of_2_of_the_standard_deviation"/>
+    <testcase time="0.335999999999999" classname="ds.var_math_square_root_std_multiple" name="variance_is_to_the_power_of_2_of_the_standard_deviation"/>
+    <testcase time="0.329999999999998" classname="ds.var_math_square_root_std_multiple" name="variance_is_to_the_power_of_2_of_the_standard_deviation"/>
+    <testcase time="0.331000000000003" classname="ds.var_math_square_root_std_multiple" name="variance_is_to_the_power_of_2_of_the_standard_deviation"/>
+    <testcase time="0.341000000000008" classname="ds.var_math_square_root_std_multiple" name="variance_is_to_the_power_of_2_of_the_standard_deviation"/>
+    <testcase time="0.330999999999989" classname="ds.var_math_square_root_std_multiple" name="variance_is_to_the_power_of_2_of_the_standard_deviation"/>
+    <testcase time="0.290000000000006" classname="ds.var_math_square_root_std_multiple" name="variance_is_to_the_power_of_2_of_the_standard_deviation"/>
+    <testcase time="0.329999999999998" classname="ds.var_math_square_root_std_multiple" name="variance_is_to_the_power_of_2_of_the_standard_deviation"/>
+    <testcase time="0.340000000000003" classname="ds.var_math_square_root_std_multiple" name="variance_is_to_the_power_of_2_of_the_standard_deviation"/>
+    <testcase time="0.00199999999999534" classname="ds.var_math_square_root_std_multiple" name="variance_is_to_the_power_of_2_of_the_standard_deviation"/>
+    <testcase time="0.00100000000000477" classname="ds.var_math_square_root_std_multiple" name="variance_is_to_the_power_of_2_of_the_standard_deviation"/>
+    <testcase time="0.296999999999997" classname="ds.var_math_square_root_std_multiple" name="variance_is_to_the_power_of_2_of_the_standard_deviation"/>
+    <testcase time="0.00199999999999534" classname="ds.var_math_square_root_std_multiple" name="variance_is_to_the_power_of_2_of_the_standard_deviation"/>
+    <testcase time="0.00100000000000477" classname="ds.var_math_square_root_std_multiple" name="variance_is_to_the_power_of_2_of_the_standard_deviation"/>
+    <testcase time="0.329999999999998" classname="ds.var_math_square_root_std_multiple" name="variance_is_to_the_power_of_2_of_the_standard_deviation"/>
+    <testcase time="0.007000000000005" classname="ds.var_math_square_root_std_multiple" name="variance_is_to_the_power_of_2_of_the_standard_deviation"/>
+    <testcase time="0.00199999999999534" classname="ds.var_math_square_root_std_multiple" name="variance_is_to_the_power_of_2_of_the_standard_deviation"/>
+    <testcase time="0.292999999999992" classname="ds.var_math_square_root_std_multiple" name="variance_is_to_the_power_of_2_of_the_standard_deviation"/>
+    <testcase time="0.00200000000000955" classname="ds.var_math_square_root_std_multiple" name="variance_is_to_the_power_of_2_of_the_standard_deviation"/>
+    <testcase time="0.00100000000000477" classname="ds.var_math_square_root_std_multiple" name="variance_is_to_the_power_of_2_of_the_standard_deviation"/>
+    <testcase time="0.331999999999994" classname="ds.var_math_square_root_std_multiple" name="variance_is_to_the_power_of_2_of_the_standard_deviation"/>
+    <testcase time="0.00200000000000955" classname="ds.var_math_square_root_std_multiple" name="variance_is_to_the_power_of_2_of_the_standard_deviation"/>
+    <testcase time="0.0029999999999859" classname="ds.var_math_square_root_std_multiple" name="variance_is_to_the_power_of_2_of_the_standard_deviation"/>
+    <testcase time="0.331000000000017" classname="ds.var_math_square_root_std_multiple" name="variance_is_to_the_power_of_2_of_the_standard_deviation"/>
+    <testcase time="0.00199999999998113" classname="ds.var_math_square_root_std_multiple" name="variance_is_to_the_power_of_2_of_the_standard_deviation"/>
+    <testcase time="0.00100000000000477" classname="ds.var_math_square_root_std_multiple" name="variance_is_to_the_power_of_2_of_the_standard_deviation"/>
+    <testcase time="0.331999999999994" classname="ds.var_math_square_root_std_multiple" name="variance_is_to_the_power_of_2_of_the_standard_deviation"/>
+    <testcase time="0.00200000000000955" classname="ds.var_math_square_root_std_multiple" name="variance_is_to_the_power_of_2_of_the_standard_deviation"/>
+    <testcase time="0.00200000000000955" classname="ds.var_math_square_root_std_multiple" name="variance_is_to_the_power_of_2_of_the_standard_deviation"/>
+    <testcase time="0.332999999999998" classname="ds.var_math_square_root_std_multiple" name="variance_is_to_the_power_of_2_of_the_standard_deviation"/>
+    <testcase time="0.00199999999998113" classname="ds.var_math_square_root_std_multiple" name="variance_is_to_the_power_of_2_of_the_standard_deviation"/>
+    <testcase time="0.00100000000000477" classname="ds.var_math_square_root_std_multiple" name="variance_is_to_the_power_of_2_of_the_standard_deviation"/>
+  </testsuite>
+  <testsuite name="ds.var::math::location::parameter::single" timestamp="2026-06-13T01:53:02Z" hostname="runnervm1li68" tests="8" skipped="0" failures="0" errors="0" time="7.792">
+    <testcase time="3.857" classname="ds.var_math_location_parameter_single" name="var_X_a_Var_X_"/>
+    <testcase time="0.572000000000003" classname="ds.var_math_location_parameter_single" name="var_X_a_Var_X_"/>
+    <testcase time="0.581999999999994" classname="ds.var_math_location_parameter_single" name="var_X_a_Var_X_"/>
+    <testcase time="0.530000000000001" classname="ds.var_math_location_parameter_single" name="var_X_a_Var_X_"/>
+    <testcase time="0.570000000000022" classname="ds.var_math_location_parameter_single" name="var_X_a_Var_X_"/>
+    <testcase time="0.575999999999993" classname="ds.var_math_location_parameter_single" name="var_X_a_Var_X_"/>
+    <testcase time="0.540999999999997" classname="ds.var_math_location_parameter_single" name="var_X_a_Var_X_"/>
+    <testcase time="0.563999999999993" classname="ds.var_math_location_parameter_single" name="var_X_a_Var_X_"/>
+  </testsuite>
+  <testsuite name="ds.var::math::location::parameter::multiple" timestamp="2026-06-13T01:53:10Z" hostname="runnervm1li68" tests="8" skipped="0" failures="0" errors="0" time="21.246">
+    <testcase time="9.77100000000002" classname="ds.var_math_location_parameter_multiple" name="var_X_a_Var_X_"/>
+    <testcase time="1.62699999999998" classname="ds.var_math_location_parameter_multiple" name="var_X_a_Var_X_"/>
+    <testcase time="1.64100000000002" classname="ds.var_math_location_parameter_multiple" name="var_X_a_Var_X_"/>
+    <testcase time="1.60299999999998" classname="ds.var_math_location_parameter_multiple" name="var_X_a_Var_X_"/>
+    <testcase time="1.67700000000002" classname="ds.var_math_location_parameter_multiple" name="var_X_a_Var_X_"/>
+    <testcase time="1.65899999999999" classname="ds.var_math_location_parameter_multiple" name="var_X_a_Var_X_"/>
+    <testcase time="1.63300000000001" classname="ds.var_math_location_parameter_multiple" name="var_X_a_Var_X_"/>
+    <testcase time="1.63499999999999" classname="ds.var_math_location_parameter_multiple" name="var_X_a_Var_X_"/>
+  </testsuite>
+  <testsuite name="ds.var::math::scale::single" timestamp="2026-06-13T01:53:31Z" hostname="runnervm1li68" tests="8" skipped="0" failures="0" errors="0" time="7.721">
+    <testcase time="3.858" classname="ds.var_math_scale_single" name="var_aX_a_2Var_X_"/>
+    <testcase time="0.563999999999993" classname="ds.var_math_scale_single" name="var_aX_a_2Var_X_"/>
+    <testcase time="0.566000000000003" classname="ds.var_math_scale_single" name="var_aX_a_2Var_X_"/>
+    <testcase time="0.528999999999996" classname="ds.var_math_scale_single" name="var_aX_a_2Var_X_"/>
+    <testcase time="0.563999999999993" classname="ds.var_math_scale_single" name="var_aX_a_2Var_X_"/>
+    <testcase time="0.572000000000003" classname="ds.var_math_scale_single" name="var_aX_a_2Var_X_"/>
+    <testcase time="0.533000000000015" classname="ds.var_math_scale_single" name="var_aX_a_2Var_X_"/>
+    <testcase time="0.534999999999997" classname="ds.var_math_scale_single" name="var_aX_a_2Var_X_"/>
+  </testsuite>
+  <testsuite name="ds.var::math::scale::multiple" timestamp="2026-06-13T01:53:39Z" hostname="runnervm1li68" tests="8" skipped="0" failures="0" errors="0" time="21.251">
+    <testcase time="9.62199999999999" classname="ds.var_math_scale_multiple" name="var_aX_a_2Var_X_"/>
+    <testcase time="1.55500000000001" classname="ds.var_math_scale_multiple" name="var_aX_a_2Var_X_"/>
+    <testcase time="1.65199999999999" classname="ds.var_math_scale_multiple" name="var_aX_a_2Var_X_"/>
+    <testcase time="1.58500000000001" classname="ds.var_math_scale_multiple" name="var_aX_a_2Var_X_"/>
+    <testcase time="1.94900000000001" classname="ds.var_math_scale_multiple" name="var_aX_a_2Var_X_"/>
+    <testcase time="1.59299999999999" classname="ds.var_math_scale_multiple" name="var_aX_a_2Var_X_"/>
+    <testcase time="1.63499999999999" classname="ds.var_math_scale_multiple" name="var_aX_a_2Var_X_"/>
+    <testcase time="1.66000000000003" classname="ds.var_math_scale_multiple" name="var_aX_a_2Var_X_"/>
+  </testsuite>
+</testsuites>
