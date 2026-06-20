@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<testsuites>
+  <testsuite name="_-vm-test" timestamp="2026-06-20T00:45:13Z" hostname="runnervm7b5n9" tests="1" skipped="0" failures="0" errors="1" time="0.232">
+    <testcase time="0.232" classname="__vm_test" name="The_virtual_machine_is_loaded._">
+      <error type="error" message="Error in `f(init, x[[i]])`: is.request(y) is not TRUE ('test-_-vm-test.R:29:5')">Error in `f(init, x[[i]])`: is.request(y) is not TRUE
+Backtrace:
+    x
+ 1. \-httr::HEAD(...) at test-_-vm-test.R:29:5
+ 2.   \-httr:::request_build("HEAD", hu$url, config, ...)
+ 3.     \-base::Reduce(request_combine, extra, init = request())
+ 4.       \-httr (local) f(init, x[[i]])
+ 5.         \-base::stopifnot(is.request(x), is.request(y))</error>
+    </testcase>
+  </testsuite>
+</testsuites>
