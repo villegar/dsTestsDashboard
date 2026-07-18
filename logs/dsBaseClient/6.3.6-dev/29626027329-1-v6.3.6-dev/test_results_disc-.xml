@@ -1,0 +1,166 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<testsuites>
+  <testsuite name="disc-ds.cor" timestamp="2026-07-18T01:58:39Z" hostname="runnervm3jd5f" tests="27" skipped="2" failures="0" errors="0" time="14.632">
+    <testcase time="9.185" classname="disc_ds.cor" name="setup"/>
+    <testcase time="0.0179999999999989" classname="disc_ds.cor" name="setup"/>
+    <testcase time="0.00700000000000145" classname="disc_ds.cor" name="setup"/>
+    <testcase time="4.231" classname="disc_ds.cor" name="simple_D3_setup"/>
+    <testcase time="0.000999999999999446" classname="disc_ds.cor" name="simple_D3_setup"/>
+    <testcase time="0.00200000000000067" classname="disc_ds.cor" name="simple_D3_setup"/>
+    <testcase time="0.000999999999999446" classname="disc_ds.cor" name="simple_D3_setup"/>
+    <testcase time="0.000999999999999446" classname="disc_ds.cor" name="simple_D3_setup"/>
+    <testcase time="0.00100000000000122" classname="disc_ds.cor" name="simple_D3_setup"/>
+    <testcase time="0.000999999999999446" classname="disc_ds.cor" name="simple_D3_setup"/>
+    <testcase time="0.000999999999999446" classname="disc_ds.cor" name="simple_D3_setup"/>
+    <testcase time="0.00100000000000122" classname="disc_ds.cor" name="simple_D3_setup"/>
+    <testcase time="0.000999999999999446" classname="disc_ds.cor" name="simple_D3_setup"/>
+    <testcase time="0.000999999999999446" classname="disc_ds.cor" name="simple_D3_setup"/>
+    <testcase time="0.00100000000000122" classname="disc_ds.cor" name="simple_D3_setup"/>
+    <testcase time="0.000999999999999446" classname="disc_ds.cor" name="simple_D3_setup"/>
+    <testcase time="0.477" classname="disc_ds.cor" name="simple_disc_test_type_split_"/>
+    <testcase time="0.00999999999999979" classname="disc_ds.cor" name="simple_disc_test_type_split_"/>
+    <testcase time="0.000999999999999446" classname="disc_ds.cor" name="simple_disc_test_type_split_"/>
+    <testcase time="0.00300000000000011" classname="disc_ds.cor" name="simple_disc_test_naAction_pairwise.complete_type_split_">
+      <skipped message="Reason: empty test ('test-disc-ds.cor.R:60:1')"/>
+    </testcase>
+    <testcase time="0.470999999999998" classname="disc_ds.cor" name="simple_disc_test_type_combine_"/>
+    <testcase time="0.00100000000000122" classname="disc_ds.cor" name="simple_disc_test_type_combine_"/>
+    <testcase time="0.00100000000000122" classname="disc_ds.cor" name="simple_disc_test_type_combine_"/>
+    <testcase time="0.00300000000000011" classname="disc_ds.cor" name="simple_disc_test_naAction_pairwise.complete_type_combine_">
+      <skipped message="Reason: empty test ('test-disc-ds.cor.R:94:1')"/>
+    </testcase>
+    <testcase time="0.209" classname="disc_ds.cor" name="shutdown"/>
+    <testcase time="0.00100000000000122" classname="disc_ds.cor" name="shutdown"/>
+    <testcase time="0.000999999999997669" classname="disc_ds.cor" name="shutdown"/>
+  </testsuite>
+  <testsuite name="disc-ds.cov" timestamp="2026-07-18T01:58:53Z" hostname="runnervm3jd5f" tests="39" skipped="2" failures="0" errors="0" time="10.936">
+    <testcase time="5.848" classname="disc_ds.cov" name="setup"/>
+    <testcase time="0.000999999999997669" classname="disc_ds.cov" name="setup"/>
+    <testcase time="0.00100000000000122" classname="disc_ds.cov" name="setup"/>
+    <testcase time="4.093" classname="disc_ds.cov" name="simple_D3_setup"/>
+    <testcase time="0.00100000000000122" classname="disc_ds.cov" name="simple_D3_setup"/>
+    <testcase time="0.000999999999997669" classname="disc_ds.cov" name="simple_D3_setup"/>
+    <testcase time="0.00100000000000122" classname="disc_ds.cov" name="simple_D3_setup"/>
+    <testcase time="0.000999999999997669" classname="disc_ds.cov" name="simple_D3_setup"/>
+    <testcase time="0.00100000000000122" classname="disc_ds.cov" name="simple_D3_setup"/>
+    <testcase time="0.00100000000000122" classname="disc_ds.cov" name="simple_D3_setup"/>
+    <testcase time="0.000999999999997669" classname="disc_ds.cov" name="simple_D3_setup"/>
+    <testcase time="0.00100000000000122" classname="disc_ds.cov" name="simple_D3_setup"/>
+    <testcase time="0.00100000000000122" classname="disc_ds.cov" name="simple_D3_setup"/>
+    <testcase time="0.000999999999997669" classname="disc_ds.cov" name="simple_D3_setup"/>
+    <testcase time="0.00100000000000122" classname="disc_ds.cov" name="simple_D3_setup"/>
+    <testcase time="0.00100000000000122" classname="disc_ds.cov" name="simple_D3_setup"/>
+    <testcase time="0.404" classname="disc_ds.cov" name="simple_disc_test_naAction_casewise.complete_type_split_"/>
+    <testcase time="0.00199999999999889" classname="disc_ds.cov" name="simple_disc_test_naAction_casewise.complete_type_split_"/>
+    <testcase time="0.00199999999999889" classname="disc_ds.cov" name="simple_disc_test_naAction_casewise.complete_type_split_"/>
+    <testcase time="0.00300000000000011" classname="disc_ds.cov" name="simple_disc_test_naAction_casewise.complete_type_split_"/>
+    <testcase time="0.00200000000000244" classname="disc_ds.cov" name="simple_disc_test_naAction_casewise.complete_type_split_"/>
+    <testcase time="0.000999999999997669" classname="disc_ds.cov" name="simple_disc_test_naAction_casewise.complete_type_split_"/>
+    <testcase time="0.00200000000000244" classname="disc_ds.cov" name="simple_disc_test_naAction_casewise.complete_type_split_"/>
+    <testcase time="0.00199999999999889" classname="disc_ds.cov" name="simple_disc_test_naAction_casewise.complete_type_split_"/>
+    <testcase time="0.00100000000000122" classname="disc_ds.cov" name="simple_disc_test_naAction_casewise.complete_type_split_"/>
+    <testcase time="0.00300000000000011" classname="disc_ds.cov" name="simple_disc_test_naAction_casewise.complete_type_split_"/>
+    <testcase time="0.00199999999999889" classname="disc_ds.cov" name="simple_disc_test_naAction_pairwise.complete_type_split_">
+      <skipped message="Reason: empty test ('test-disc-ds.cov.R:65:1')"/>
+    </testcase>
+    <testcase time="0.359999999999999" classname="disc_ds.cov" name="simple_disc_test_naAction_casewise.complete_type_combine_"/>
+    <testcase time="0.00199999999999889" classname="disc_ds.cov" name="simple_disc_test_naAction_casewise.complete_type_combine_"/>
+    <testcase time="0.00100000000000122" classname="disc_ds.cov" name="simple_disc_test_naAction_casewise.complete_type_combine_"/>
+    <testcase time="0.00199999999999889" classname="disc_ds.cov" name="simple_disc_test_naAction_casewise.complete_type_combine_"/>
+    <testcase time="0.00100000000000122" classname="disc_ds.cov" name="simple_disc_test_naAction_casewise.complete_type_combine_"/>
+    <testcase time="0.00100000000000122" classname="disc_ds.cov" name="simple_disc_test_naAction_casewise.complete_type_combine_"/>
+    <testcase time="0.000999999999997669" classname="disc_ds.cov" name="simple_disc_test_naAction_casewise.complete_type_combine_"/>
+    <testcase time="0.00200000000000244" classname="disc_ds.cov" name="simple_disc_test_naAction_casewise.complete_type_combine_"/>
+    <testcase time="0.00300000000000011" classname="disc_ds.cov" name="simple_disc_test_naAction_pairwise.complete_type_combine_">
+      <skipped message="Reason: empty test ('test-disc-ds.cov.R:93:1')"/>
+    </testcase>
+    <testcase time="0.181999999999999" classname="disc_ds.cov" name="shutdown"/>
+    <testcase time="0.00100000000000122" classname="disc_ds.cov" name="shutdown"/>
+    <testcase time="0.000999999999997669" classname="disc_ds.cov" name="shutdown"/>
+  </testsuite>
+  <testsuite name="disc-ds.levels" timestamp="2026-07-18T01:59:04Z" hostname="runnervm3jd5f" tests="7" skipped="1" failures="0" errors="0" time="6.032">
+    <testcase time="5.842" classname="disc_ds.levels" name="setup"/>
+    <testcase time="0.00199999999999534" classname="disc_ds.levels" name="setup"/>
+    <testcase time="0.00100000000000477" classname="disc_ds.levels" name="setup"/>
+    <testcase time="0.00199999999999534" classname="disc_ds.levels" name="simple_levels">
+      <skipped message="Reason: empty test ('test-disc-ds.levels.R:28:1')"/>
+    </testcase>
+    <testcase time="0.182000000000002" classname="disc_ds.levels" name="shutdown"/>
+    <testcase time="0.00200000000000244" classname="disc_ds.levels" name="shutdown"/>
+    <testcase time="0.000999999999997669" classname="disc_ds.levels" name="shutdown"/>
+  </testsuite>
+  <testsuite name="disc-ds.mean" timestamp="2026-07-18T01:59:10Z" hostname="runnervm3jd5f" tests="1" skipped="1" failures="0" errors="0" time="5.654">
+    <testcase time="5.654" classname="disc_ds.mean" name="mean_values_both_">
+      <skipped message="Reason: empty test ('test-disc-ds.mean.R:23:1')"/>
+    </testcase>
+  </testsuite>
+  <testsuite name="disc-ds.meanByClass" timestamp="2026-07-18T01:59:16Z" hostname="runnervm3jd5f" tests="1" skipped="1" failures="0" errors="0" time="5.57">
+    <testcase time="5.57" classname="disc_ds.meanByClass" name="meanByClass_erros">
+      <skipped message="Reason: empty test ('test-disc-ds.meanByClass.R:25:1')"/>
+    </testcase>
+  </testsuite>
+  <testsuite name="disc-ds.sample" timestamp="2026-07-18T01:59:22Z" hostname="runnervm3jd5f" tests="22" skipped="0" failures="0" errors="0" time="8.31">
+    <testcase time="6.057" classname="disc_ds.sample" name="cov_erros"/>
+    <testcase time="0.00100000000000477" classname="disc_ds.sample" name="cov_erros"/>
+    <testcase time="0.00199999999999534" classname="disc_ds.sample" name="cov_erros"/>
+    <testcase time="0.00100000000000477" classname="disc_ds.sample" name="cov_erros"/>
+    <testcase time="0.000999999999997669" classname="disc_ds.sample" name="cov_erros"/>
+    <testcase time="0.502000000000002" classname="disc_ds.sample" name="cov_erros"/>
+    <testcase time="0.000999999999997669" classname="disc_ds.sample" name="cov_erros"/>
+    <testcase time="0.000999999999997669" classname="disc_ds.sample" name="cov_erros"/>
+    <testcase time="0.00100000000000477" classname="disc_ds.sample" name="cov_erros"/>
+    <testcase time="0.000999999999997669" classname="disc_ds.sample" name="cov_erros"/>
+    <testcase time="0.505000000000003" classname="disc_ds.sample" name="cov_erros"/>
+    <testcase time="0.000999999999997669" classname="disc_ds.sample" name="cov_erros"/>
+    <testcase time="0.000999999999997669" classname="disc_ds.sample" name="cov_erros"/>
+    <testcase time="0.00100000000000477" classname="disc_ds.sample" name="cov_erros"/>
+    <testcase time="0.000999999999997669" classname="disc_ds.sample" name="cov_erros"/>
+    <testcase time="0.731000000000002" classname="disc_ds.sample" name="cov_erros"/>
+    <testcase time="0.00199999999999534" classname="disc_ds.sample" name="cov_erros"/>
+    <testcase time="0.00100000000000477" classname="disc_ds.sample" name="cov_erros"/>
+    <testcase time="0.495999999999995" classname="disc_ds.sample" name="cov_erros"/>
+    <testcase time="0.00100000000000477" classname="disc_ds.sample" name="cov_erros"/>
+    <testcase time="0.000999999999997669" classname="disc_ds.sample" name="cov_erros"/>
+    <testcase time="0.000999999999997669" classname="disc_ds.sample" name="cov_erros"/>
+  </testsuite>
+  <testsuite name="disc-ds.table" timestamp="2026-07-18T01:59:30Z" hostname="runnervm3jd5f" tests="33" skipped="0" failures="0" errors="0" time="21.761">
+    <testcase time="6.20500000000001" classname="disc_ds.table" name="setup"/>
+    <testcase time="0.000999999999997669" classname="disc_ds.table" name="setup"/>
+    <testcase time="0.000999999999997669" classname="disc_ds.table" name="setup"/>
+    <testcase time="3.586" classname="disc_ds.table" name="table_disclosure_table.assign_FALSE"/>
+    <testcase time="0.00100000000000477" classname="disc_ds.table" name="table_disclosure_table.assign_FALSE"/>
+    <testcase time="0.000999999999997669" classname="disc_ds.table" name="table_disclosure_table.assign_FALSE"/>
+    <testcase time="0.000999999999997669" classname="disc_ds.table" name="table_disclosure_table.assign_FALSE"/>
+    <testcase time="0.00100000000000477" classname="disc_ds.table" name="table_disclosure_table.assign_FALSE"/>
+    <testcase time="0.000999999999997669" classname="disc_ds.table" name="table_disclosure_table.assign_FALSE"/>
+    <testcase time="0.000999999999997669" classname="disc_ds.table" name="table_disclosure_table.assign_FALSE"/>
+    <testcase time="3.405" classname="disc_ds.table" name="table_disclosure_table.assign_TRUE"/>
+    <testcase time="0.492000000000004" classname="disc_ds.table" name="table_rvar_is_big_numeric"/>
+    <testcase time="0.000999999999990564" classname="disc_ds.table" name="table_rvar_is_big_numeric"/>
+    <testcase time="0.00100000000000477" classname="disc_ds.table" name="table_rvar_is_big_numeric"/>
+    <testcase time="0.000999999999990564" classname="disc_ds.table" name="table_rvar_is_big_numeric"/>
+    <testcase time="0.00100000000000477" classname="disc_ds.table" name="table_rvar_is_big_numeric"/>
+    <testcase time="0.170000000000002" classname="disc_ds.table" name="setup"/>
+    <testcase time="0.00100000000000477" classname="disc_ds.table" name="setup"/>
+    <testcase time="0.000999999999990564" classname="disc_ds.table" name="setup"/>
+    <testcase time="5.77000000000001" classname="disc_ds.table" name="setup"/>
+    <testcase time="0.000999999999990564" classname="disc_ds.table" name="setup"/>
+    <testcase time="0.00100000000000477" classname="disc_ds.table" name="setup"/>
+    <testcase time="0.793999999999997" classname="disc_ds.table" name="table_disclosure_table.assign_FALSE"/>
+    <testcase time="0.00100000000000477" classname="disc_ds.table" name="table_disclosure_table.assign_FALSE"/>
+    <testcase time="0.00100000000000477" classname="disc_ds.table" name="table_disclosure_table.assign_FALSE"/>
+    <testcase time="0.000999999999990564" classname="disc_ds.table" name="table_disclosure_table.assign_FALSE"/>
+    <testcase time="0.00100000000000477" classname="disc_ds.table" name="table_disclosure_table.assign_FALSE"/>
+    <testcase time="0.00100000000000477" classname="disc_ds.table" name="table_disclosure_table.assign_FALSE"/>
+    <testcase time="0.000999999999990564" classname="disc_ds.table" name="table_disclosure_table.assign_FALSE"/>
+    <testcase time="1.145" classname="disc_ds.table" name="table_disclosure_table.assign_TRUE"/>
+    <testcase time="0.170000000000002" classname="disc_ds.table" name="setup"/>
+    <testcase time="0.00100000000000477" classname="disc_ds.table" name="setup"/>
+    <testcase time="0.00100000000000477" classname="disc_ds.table" name="setup"/>
+  </testsuite>
+  <testsuite name="disc-ds.var" timestamp="2026-07-18T01:59:52Z" hostname="runnervm3jd5f" tests="1" skipped="1" failures="0" errors="0" time="5.405">
+    <testcase time="5.405" classname="disc_ds.var" name="var_values_both_">
+      <skipped message="Reason: empty test ('test-disc-ds.var.R:23:1')"/>
+    </testcase>
+  </testsuite>
+</testsuites>

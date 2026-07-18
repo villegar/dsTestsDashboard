@@ -1,0 +1,476 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<testsuites>
+  <testsuite name="smk_dgr-ds.asCharacter" timestamp="2026-07-18T02:10:20Z" hostname="runnervm3jd5f" tests="9" skipped="0" failures="0" errors="0" time="12.371">
+    <testcase time="11.101" classname="smk_dgr_ds.asCharacter" name="setup"/>
+    <testcase time="0.0259999999999998" classname="smk_dgr_ds.asCharacter" name="setup"/>
+    <testcase time="0.00999999999999979" classname="smk_dgr_ds.asCharacter" name="setup"/>
+    <testcase time="1.001" classname="smk_dgr_ds.asCharacter" name="simple_test"/>
+    <testcase time="0.00200000000000067" classname="smk_dgr_ds.asCharacter" name="simple_test"/>
+    <testcase time="0.00199999999999889" classname="smk_dgr_ds.asCharacter" name="simple_test"/>
+    <testcase time="0.226000000000001" classname="smk_dgr_ds.asCharacter" name="setup"/>
+    <testcase time="0.00200000000000067" classname="smk_dgr_ds.asCharacter" name="setup"/>
+    <testcase time="0.000999999999999446" classname="smk_dgr_ds.asCharacter" name="setup"/>
+  </testsuite>
+  <testsuite name="smk_dgr-ds.listClientsideFunctions" timestamp="2026-07-18T02:10:33Z" hostname="runnervm3jd5f" tests="15" skipped="0" failures="0" errors="0" time="6.981">
+    <testcase time="6.749" classname="smk_dgr_ds.listClientsideFunctions" name="setup"/>
+    <testcase time="0.00200000000000244" classname="smk_dgr_ds.listClientsideFunctions" name="setup"/>
+    <testcase time="0.00200000000000244" classname="smk_dgr_ds.listClientsideFunctions" name="setup"/>
+    <testcase time="0.0069999999999979" classname="smk_dgr_ds.listClientsideFunctions" name="check_results"/>
+    <testcase time="0.00300000000000011" classname="smk_dgr_ds.listClientsideFunctions" name="check_results"/>
+    <testcase time="0.00300000000000011" classname="smk_dgr_ds.listClientsideFunctions" name="check_results"/>
+    <testcase time="0.00199999999999889" classname="smk_dgr_ds.listClientsideFunctions" name="check_results"/>
+    <testcase time="0.00300000000000011" classname="smk_dgr_ds.listClientsideFunctions" name="check_results"/>
+    <testcase time="0.00300000000000011" classname="smk_dgr_ds.listClientsideFunctions" name="check_results"/>
+    <testcase time="0.00200000000000244" classname="smk_dgr_ds.listClientsideFunctions" name="check_results"/>
+    <testcase time="0.00300000000000011" classname="smk_dgr_ds.listClientsideFunctions" name="check_results"/>
+    <testcase time="0.00300000000000011" classname="smk_dgr_ds.listClientsideFunctions" name="check_results"/>
+    <testcase time="0.195999999999998" classname="smk_dgr_ds.listClientsideFunctions" name="shutdown"/>
+    <testcase time="0.00100000000000122" classname="smk_dgr_ds.listClientsideFunctions" name="shutdown"/>
+    <testcase time="0.00199999999999889" classname="smk_dgr_ds.listClientsideFunctions" name="shutdown"/>
+  </testsuite>
+  <testsuite name="smk_dgr-ds.listServersideFunctions" timestamp="2026-07-18T02:10:40Z" hostname="runnervm3jd5f" tests="37" skipped="0" failures="27" errors="0" time="7.906">
+    <testcase time="6.747" classname="smk_dgr_ds.listServersideFunctions" name="setup"/>
+    <testcase time="0.00200000000000244" classname="smk_dgr_ds.listServersideFunctions" name="setup"/>
+    <testcase time="0.000999999999997669" classname="smk_dgr_ds.listServersideFunctions" name="setup"/>
+    <testcase time="0.323" classname="smk_dgr_ds.listServersideFunctions" name="check_results"/>
+    <testcase time="0.00100000000000122" classname="smk_dgr_ds.listServersideFunctions" name="check_results"/>
+    <testcase time="0.00199999999999889" classname="smk_dgr_ds.listServersideFunctions" name="check_results"/>
+    <testcase time="0.00100000000000122" classname="smk_dgr_ds.listServersideFunctions" name="check_results"/>
+    <testcase time="0.0749999999999993" classname="smk_dgr_ds.listServersideFunctions" name="check_results">
+      <failure type="failure" message="Expected `func.name %in% sim1.aggregate.res$name` to be TRUE. ('test-smk_dgr-ds.listServersideFunctions.R:61:5')">Expected `func.name %in% sim1.aggregate.res$name` to be TRUE.
+Differences:
+`actual`:   FALSE
+`expected`: TRUE 
+
+DANGERc2sMATDFDS</failure>
+    </testcase>
+    <testcase time="0.0330000000000013" classname="smk_dgr_ds.listServersideFunctions" name="check_results">
+      <failure type="failure" message="Expected `func.name %in% sim1.aggregate.res$name` to be TRUE. ('test-smk_dgr-ds.listServersideFunctions.R:61:5')">Expected `func.name %in% sim1.aggregate.res$name` to be TRUE.
+Differences:
+`actual`:   FALSE
+`expected`: TRUE 
+
+DANGERlistcodeDS</failure>
+    </testcase>
+    <testcase time="0.0269999999999975" classname="smk_dgr_ds.listServersideFunctions" name="check_results">
+      <failure type="failure" message="Expected `func.name %in% sim1.aggregate.res$name` to be TRUE. ('test-smk_dgr-ds.listServersideFunctions.R:61:5')">Expected `func.name %in% sim1.aggregate.res$name` to be TRUE.
+Differences:
+`actual`:   FALSE
+`expected`: TRUE 
+
+DANGERdfEXTRACTDS</failure>
+    </testcase>
+    <testcase time="0.0259999999999998" classname="smk_dgr_ds.listServersideFunctions" name="check_results">
+      <failure type="failure" message="Expected `func.name %in% sim1.aggregate.res$name` to be TRUE. ('test-smk_dgr-ds.listServersideFunctions.R:61:5')">Expected `func.name %in% sim1.aggregate.res$name` to be TRUE.
+Differences:
+`actual`:   FALSE
+`expected`: TRUE 
+
+DANGERpassPARSERDS</failure>
+    </testcase>
+    <testcase time="0.0330000000000013" classname="smk_dgr_ds.listServersideFunctions" name="check_results">
+      <failure type="failure" message="Expected `func.name %in% sim1.aggregate.res$name` to be TRUE. ('test-smk_dgr-ds.listServersideFunctions.R:61:5')">Expected `func.name %in% sim1.aggregate.res$name` to be TRUE.
+Differences:
+`actual`:   FALSE
+`expected`: TRUE 
+
+DANGERprintDS</failure>
+    </testcase>
+    <testcase time="0.0189999999999984" classname="smk_dgr_ds.listServersideFunctions" name="check_results">
+      <failure type="failure" message="Expected `func.name %in% sim1.aggregate.res$name` to be TRUE. ('test-smk_dgr-ds.listServersideFunctions.R:61:5')">Expected `func.name %in% sim1.aggregate.res$name` to be TRUE.
+Differences:
+`actual`:   FALSE
+`expected`: TRUE 
+
+DANGERplotDS</failure>
+    </testcase>
+    <testcase time="0.0200000000000031" classname="smk_dgr_ds.listServersideFunctions" name="check_results">
+      <failure type="failure" message="Expected `func.name %in% sim1.aggregate.res$name` to be TRUE. ('test-smk_dgr-ds.listServersideFunctions.R:61:5')">Expected `func.name %in% sim1.aggregate.res$name` to be TRUE.
+Differences:
+`actual`:   FALSE
+`expected`: TRUE 
+
+DANGERsearchDS</failure>
+    </testcase>
+    <testcase time="0.0199999999999996" classname="smk_dgr_ds.listServersideFunctions" name="check_results">
+      <failure type="failure" message="Expected `func.name %in% sim1.aggregate.res$name` to be TRUE. ('test-smk_dgr-ds.listServersideFunctions.R:61:5')">Expected `func.name %in% sim1.aggregate.res$name` to be TRUE.
+Differences:
+`actual`:   FALSE
+`expected`: TRUE 
+
+DANGERseedEXTRACTDS</failure>
+    </testcase>
+    <testcase time="0.0199999999999996" classname="smk_dgr_ds.listServersideFunctions" name="check_results">
+      <failure type="failure" message="Expected `func.name %in% sim1.aggregate.res$name` to be TRUE. ('test-smk_dgr-ds.listServersideFunctions.R:61:5')">Expected `func.name %in% sim1.aggregate.res$name` to be TRUE.
+Differences:
+`actual`:   FALSE
+`expected`: TRUE 
+
+DANGERvarsEXTRACTDS</failure>
+    </testcase>
+    <testcase time="0.0210000000000008" classname="smk_dgr_ds.listServersideFunctions" name="check_results">
+      <failure type="failure" message="Expected `func.name %in% sim2.aggregate.res$name` to be TRUE. ('test-smk_dgr-ds.listServersideFunctions.R:65:5')">Expected `func.name %in% sim2.aggregate.res$name` to be TRUE.
+Differences:
+`actual`:   FALSE
+`expected`: TRUE 
+
+DANGERc2sMATDFDS</failure>
+    </testcase>
+    <testcase time="0.0209999999999972" classname="smk_dgr_ds.listServersideFunctions" name="check_results">
+      <failure type="failure" message="Expected `func.name %in% sim2.aggregate.res$name` to be TRUE. ('test-smk_dgr-ds.listServersideFunctions.R:65:5')">Expected `func.name %in% sim2.aggregate.res$name` to be TRUE.
+Differences:
+`actual`:   FALSE
+`expected`: TRUE 
+
+DANGERlistcodeDS</failure>
+    </testcase>
+    <testcase time="0.0199999999999996" classname="smk_dgr_ds.listServersideFunctions" name="check_results">
+      <failure type="failure" message="Expected `func.name %in% sim2.aggregate.res$name` to be TRUE. ('test-smk_dgr-ds.listServersideFunctions.R:65:5')">Expected `func.name %in% sim2.aggregate.res$name` to be TRUE.
+Differences:
+`actual`:   FALSE
+`expected`: TRUE 
+
+DANGERdfEXTRACTDS</failure>
+    </testcase>
+    <testcase time="0.0210000000000008" classname="smk_dgr_ds.listServersideFunctions" name="check_results">
+      <failure type="failure" message="Expected `func.name %in% sim2.aggregate.res$name` to be TRUE. ('test-smk_dgr-ds.listServersideFunctions.R:65:5')">Expected `func.name %in% sim2.aggregate.res$name` to be TRUE.
+Differences:
+`actual`:   FALSE
+`expected`: TRUE 
+
+DANGERpassPARSERDS</failure>
+    </testcase>
+    <testcase time="0.0210000000000008" classname="smk_dgr_ds.listServersideFunctions" name="check_results">
+      <failure type="failure" message="Expected `func.name %in% sim2.aggregate.res$name` to be TRUE. ('test-smk_dgr-ds.listServersideFunctions.R:65:5')">Expected `func.name %in% sim2.aggregate.res$name` to be TRUE.
+Differences:
+`actual`:   FALSE
+`expected`: TRUE 
+
+DANGERprintDS</failure>
+    </testcase>
+    <testcase time="0.0210000000000008" classname="smk_dgr_ds.listServersideFunctions" name="check_results">
+      <failure type="failure" message="Expected `func.name %in% sim2.aggregate.res$name` to be TRUE. ('test-smk_dgr-ds.listServersideFunctions.R:65:5')">Expected `func.name %in% sim2.aggregate.res$name` to be TRUE.
+Differences:
+`actual`:   FALSE
+`expected`: TRUE 
+
+DANGERplotDS</failure>
+    </testcase>
+    <testcase time="0.0259999999999998" classname="smk_dgr_ds.listServersideFunctions" name="check_results">
+      <failure type="failure" message="Expected `func.name %in% sim2.aggregate.res$name` to be TRUE. ('test-smk_dgr-ds.listServersideFunctions.R:65:5')">Expected `func.name %in% sim2.aggregate.res$name` to be TRUE.
+Differences:
+`actual`:   FALSE
+`expected`: TRUE 
+
+DANGERsearchDS</failure>
+    </testcase>
+    <testcase time="0.0199999999999996" classname="smk_dgr_ds.listServersideFunctions" name="check_results">
+      <failure type="failure" message="Expected `func.name %in% sim2.aggregate.res$name` to be TRUE. ('test-smk_dgr-ds.listServersideFunctions.R:65:5')">Expected `func.name %in% sim2.aggregate.res$name` to be TRUE.
+Differences:
+`actual`:   FALSE
+`expected`: TRUE 
+
+DANGERseedEXTRACTDS</failure>
+    </testcase>
+    <testcase time="0.0210000000000008" classname="smk_dgr_ds.listServersideFunctions" name="check_results">
+      <failure type="failure" message="Expected `func.name %in% sim2.aggregate.res$name` to be TRUE. ('test-smk_dgr-ds.listServersideFunctions.R:65:5')">Expected `func.name %in% sim2.aggregate.res$name` to be TRUE.
+Differences:
+`actual`:   FALSE
+`expected`: TRUE 
+
+DANGERvarsEXTRACTDS</failure>
+    </testcase>
+    <testcase time="0.0210000000000008" classname="smk_dgr_ds.listServersideFunctions" name="check_results">
+      <failure type="failure" message="Expected `func.name %in% sim3.aggregate.res$name` to be TRUE. ('test-smk_dgr-ds.listServersideFunctions.R:69:5')">Expected `func.name %in% sim3.aggregate.res$name` to be TRUE.
+Differences:
+`actual`:   FALSE
+`expected`: TRUE 
+
+DANGERc2sMATDFDS</failure>
+    </testcase>
+    <testcase time="0.0199999999999996" classname="smk_dgr_ds.listServersideFunctions" name="check_results">
+      <failure type="failure" message="Expected `func.name %in% sim3.aggregate.res$name` to be TRUE. ('test-smk_dgr-ds.listServersideFunctions.R:69:5')">Expected `func.name %in% sim3.aggregate.res$name` to be TRUE.
+Differences:
+`actual`:   FALSE
+`expected`: TRUE 
+
+DANGERlistcodeDS</failure>
+    </testcase>
+    <testcase time="0.0219999999999985" classname="smk_dgr_ds.listServersideFunctions" name="check_results">
+      <failure type="failure" message="Expected `func.name %in% sim3.aggregate.res$name` to be TRUE. ('test-smk_dgr-ds.listServersideFunctions.R:69:5')">Expected `func.name %in% sim3.aggregate.res$name` to be TRUE.
+Differences:
+`actual`:   FALSE
+`expected`: TRUE 
+
+DANGERdfEXTRACTDS</failure>
+    </testcase>
+    <testcase time="0.0199999999999996" classname="smk_dgr_ds.listServersideFunctions" name="check_results">
+      <failure type="failure" message="Expected `func.name %in% sim3.aggregate.res$name` to be TRUE. ('test-smk_dgr-ds.listServersideFunctions.R:69:5')">Expected `func.name %in% sim3.aggregate.res$name` to be TRUE.
+Differences:
+`actual`:   FALSE
+`expected`: TRUE 
+
+DANGERpassPARSERDS</failure>
+    </testcase>
+    <testcase time="0.0199999999999996" classname="smk_dgr_ds.listServersideFunctions" name="check_results">
+      <failure type="failure" message="Expected `func.name %in% sim3.aggregate.res$name` to be TRUE. ('test-smk_dgr-ds.listServersideFunctions.R:69:5')">Expected `func.name %in% sim3.aggregate.res$name` to be TRUE.
+Differences:
+`actual`:   FALSE
+`expected`: TRUE 
+
+DANGERprintDS</failure>
+    </testcase>
+    <testcase time="0.0210000000000008" classname="smk_dgr_ds.listServersideFunctions" name="check_results">
+      <failure type="failure" message="Expected `func.name %in% sim3.aggregate.res$name` to be TRUE. ('test-smk_dgr-ds.listServersideFunctions.R:69:5')">Expected `func.name %in% sim3.aggregate.res$name` to be TRUE.
+Differences:
+`actual`:   FALSE
+`expected`: TRUE 
+
+DANGERplotDS</failure>
+    </testcase>
+    <testcase time="0.0210000000000008" classname="smk_dgr_ds.listServersideFunctions" name="check_results">
+      <failure type="failure" message="Expected `func.name %in% sim3.aggregate.res$name` to be TRUE. ('test-smk_dgr-ds.listServersideFunctions.R:69:5')">Expected `func.name %in% sim3.aggregate.res$name` to be TRUE.
+Differences:
+`actual`:   FALSE
+`expected`: TRUE 
+
+DANGERsearchDS</failure>
+    </testcase>
+    <testcase time="0.0210000000000008" classname="smk_dgr_ds.listServersideFunctions" name="check_results">
+      <failure type="failure" message="Expected `func.name %in% sim3.aggregate.res$name` to be TRUE. ('test-smk_dgr-ds.listServersideFunctions.R:69:5')">Expected `func.name %in% sim3.aggregate.res$name` to be TRUE.
+Differences:
+`actual`:   FALSE
+`expected`: TRUE 
+
+DANGERseedEXTRACTDS</failure>
+    </testcase>
+    <testcase time="0.0249999999999986" classname="smk_dgr_ds.listServersideFunctions" name="check_results">
+      <failure type="failure" message="Expected `func.name %in% sim3.aggregate.res$name` to be TRUE. ('test-smk_dgr-ds.listServersideFunctions.R:69:5')">Expected `func.name %in% sim3.aggregate.res$name` to be TRUE.
+Differences:
+`actual`:   FALSE
+`expected`: TRUE 
+
+DANGERvarsEXTRACTDS</failure>
+    </testcase>
+    <testcase time="0.170000000000002" classname="smk_dgr_ds.listServersideFunctions" name="shutdown"/>
+    <testcase time="0.00199999999999889" classname="smk_dgr_ds.listServersideFunctions" name="shutdown"/>
+    <testcase time="0.00100000000000122" classname="smk_dgr_ds.listServersideFunctions" name="shutdown"/>
+  </testsuite>
+  <testsuite name="smk_dgr-ds.recodeValues-factor_missing" timestamp="2026-07-18T02:10:48Z" hostname="runnervm3jd5f" tests="18" skipped="0" failures="3" errors="3" time="12.194">
+    <testcase time="6.944" classname="smk_dgr_ds.recodeValues_factor_missing" name="setup"/>
+    <testcase time="0.00100000000000477" classname="smk_dgr_ds.recodeValues_factor_missing" name="setup"/>
+    <testcase time="0.000999999999997669" classname="smk_dgr_ds.recodeValues_factor_missing" name="setup"/>
+    <testcase time="0.835000000000001" classname="smk_dgr_ds.recodeValues_factor_missing" name="simple_missing_factor_1"/>
+    <testcase time="0.00300000000000011" classname="smk_dgr_ds.recodeValues_factor_missing" name="simple_missing_factor_1"/>
+    <testcase time="0.00200000000000244" classname="smk_dgr_ds.recodeValues_factor_missing" name="simple_missing_factor_1"/>
+    <testcase time="0.933" classname="smk_dgr_ds.recodeValues_factor_missing" name="simple_missing_factor_1">
+      <error type="error" message="Error: There are some DataSHIELD errors, list them with datashield.errors() ('test-smk_dgr-ds.recodeValues-factor_missing.R:37:5')">Error: There are some DataSHIELD errors, list them with datashield.errors()
+Backtrace:
+    x
+ 1. \-dsDangerClient::ds.DANGERdfEXTRACT("odf_1") at test-smk_dgr-ds.recodeValues-factor_missing.R:37:5
+ 2.   \-DSI::datashield.aggregate(datasources, calltext)
+ 3.     \-DSI:::.handle_errors(errors.print)
+ 4.       \-DSI:::.checkLastErrors()
+ 5.         \-cli::cli_abort(...)
+ 6.           \-rlang::abort(...)</error>
+    </testcase>
+    <testcase time="0.838999999999999" classname="smk_dgr_ds.recodeValues_factor_missing" name="simple_missing_factor_2"/>
+    <testcase time="0.00199999999999534" classname="smk_dgr_ds.recodeValues_factor_missing" name="simple_missing_factor_2"/>
+    <testcase time="0.00100000000000477" classname="smk_dgr_ds.recodeValues_factor_missing" name="simple_missing_factor_2"/>
+    <testcase time="0.945" classname="smk_dgr_ds.recodeValues_factor_missing" name="simple_missing_factor_2">
+      <error type="error" message="Error: There are some DataSHIELD errors, list them with datashield.errors() ('test-smk_dgr-ds.recodeValues-factor_missing.R:122:5')">Error: There are some DataSHIELD errors, list them with datashield.errors()
+Backtrace:
+    x
+ 1. \-dsDangerClient::ds.DANGERdfEXTRACT("odf_2") at test-smk_dgr-ds.recodeValues-factor_missing.R:122:5
+ 2.   \-DSI::datashield.aggregate(datasources, calltext)
+ 3.     \-DSI:::.handle_errors(errors.print)
+ 4.       \-DSI:::.checkLastErrors()
+ 5.         \-cli::cli_abort(...)
+ 6.           \-rlang::abort(...)</error>
+    </testcase>
+    <testcase time="0.662999999999997" classname="smk_dgr_ds.recodeValues_factor_missing" name="simple_missing_factor_3"/>
+    <testcase time="0.00200000000000244" classname="smk_dgr_ds.recodeValues_factor_missing" name="simple_missing_factor_3"/>
+    <testcase time="0.000999999999997669" classname="smk_dgr_ds.recodeValues_factor_missing" name="simple_missing_factor_3"/>
+    <testcase time="0.774999999999999" classname="smk_dgr_ds.recodeValues_factor_missing" name="simple_missing_factor_3">
+      <error type="error" message="Error: There are some DataSHIELD errors, list them with datashield.errors() ('test-smk_dgr-ds.recodeValues-factor_missing.R:189:5')">Error: There are some DataSHIELD errors, list them with datashield.errors()
+Backtrace:
+    x
+ 1. \-dsDangerClient::ds.DANGERdfEXTRACT("odf_3") at test-smk_dgr-ds.recodeValues-factor_missing.R:189:5
+ 2.   \-DSI::datashield.aggregate(datasources, calltext)
+ 3.     \-DSI:::.handle_errors(errors.print)
+ 4.       \-DSI:::.checkLastErrors()
+ 5.         \-cli::cli_abort(...)
+ 6.           \-rlang::abort(...)</error>
+    </testcase>
+    <testcase time="0.208000000000006" classname="smk_dgr_ds.recodeValues_factor_missing" name="shutdown">
+      <failure type="failure" message="Expected `study.current.variables$objects.found` to have the same values as `expected.variables`. ('test-smk_dgr-ds.recodeValues-factor_missing.R:259:5')">Expected `study.current.variables$objects.found` to have the same values as `expected.variables`.
+Actual: "D", "odf_1", "odf_2", "odf_3", "PM_BMI_CATEGORICAL"
+Expected: "D", "PM_BMI_CATEGORICAL", "odf_1", "ndf_1", "odf_2", "ndf_2", "odf_3", "ndf_3"
+Absent: "ndf_1", "ndf_2", "ndf_3"
+Backtrace:
+    x
+ 1. \-global ds_expect_variables(...) at test-smk_dgr-ds.recodeValues-factor_missing.R:259:5
+ 2.   \-testthat::expect_setequal(...)</failure>
+    </testcase>
+    <testcase time="0.019999999999996" classname="smk_dgr_ds.recodeValues_factor_missing" name="shutdown">
+      <failure type="failure" message="Expected `study.current.variables$objects.found` to have the same values as `expected.variables`. ('test-smk_dgr-ds.recodeValues-factor_missing.R:259:5')">Expected `study.current.variables$objects.found` to have the same values as `expected.variables`.
+Actual: "D", "odf_1", "odf_2", "odf_3", "PM_BMI_CATEGORICAL"
+Expected: "D", "PM_BMI_CATEGORICAL", "odf_1", "ndf_1", "odf_2", "ndf_2", "odf_3", "ndf_3"
+Absent: "ndf_1", "ndf_2", "ndf_3"
+Backtrace:
+    x
+ 1. \-global ds_expect_variables(...) at test-smk_dgr-ds.recodeValues-factor_missing.R:259:5
+ 2.   \-testthat::expect_setequal(...)</failure>
+    </testcase>
+    <testcase time="0.0189999999999984" classname="smk_dgr_ds.recodeValues_factor_missing" name="shutdown">
+      <failure type="failure" message="Expected `study.current.variables$objects.found` to have the same values as `expected.variables`. ('test-smk_dgr-ds.recodeValues-factor_missing.R:259:5')">Expected `study.current.variables$objects.found` to have the same values as `expected.variables`.
+Actual: "D", "odf_1", "odf_2", "odf_3", "PM_BMI_CATEGORICAL"
+Expected: "D", "PM_BMI_CATEGORICAL", "odf_1", "ndf_1", "odf_2", "ndf_2", "odf_3", "ndf_3"
+Absent: "ndf_1", "ndf_2", "ndf_3"
+Backtrace:
+    x
+ 1. \-global ds_expect_variables(...) at test-smk_dgr-ds.recodeValues-factor_missing.R:259:5
+ 2.   \-testthat::expect_setequal(...)</failure>
+    </testcase>
+  </testsuite>
+  <testsuite name="smk_dgr-ds.recodeValues-factor" timestamp="2026-07-18T02:11:00Z" hostname="runnervm3jd5f" tests="22" skipped="0" failures="3" errors="4" time="13.734">
+    <testcase time="6.572" classname="smk_dgr_ds.recodeValues_factor" name="setup"/>
+    <testcase time="0.00200000000000244" classname="smk_dgr_ds.recodeValues_factor" name="setup"/>
+    <testcase time="0.00199999999999534" classname="smk_dgr_ds.recodeValues_factor" name="setup"/>
+    <testcase time="0.870000000000005" classname="smk_dgr_ds.recodeValues_factor" name="simple_factor_1"/>
+    <testcase time="0.00199999999999534" classname="smk_dgr_ds.recodeValues_factor" name="simple_factor_1"/>
+    <testcase time="0.00100000000000477" classname="smk_dgr_ds.recodeValues_factor" name="simple_factor_1"/>
+    <testcase time="0.841999999999999" classname="smk_dgr_ds.recodeValues_factor" name="simple_factor_1">
+      <error type="error" message="Error: There are some DataSHIELD errors, list them with datashield.errors() ('test-smk_dgr-ds.recodeValues-factor.R:37:5')">Error: There are some DataSHIELD errors, list them with datashield.errors()
+Backtrace:
+    x
+ 1. \-dsDangerClient::ds.DANGERdfEXTRACT("odf_1") at test-smk_dgr-ds.recodeValues-factor.R:37:5
+ 2.   \-DSI::datashield.aggregate(datasources, calltext)
+ 3.     \-DSI:::.handle_errors(errors.print)
+ 4.       \-DSI:::.checkLastErrors()
+ 5.         \-cli::cli_abort(...)
+ 6.           \-rlang::abort(...)</error>
+    </testcase>
+    <testcase time="0.848999999999997" classname="smk_dgr_ds.recodeValues_factor" name="simple_factor_2"/>
+    <testcase time="0.00200000000000244" classname="smk_dgr_ds.recodeValues_factor" name="simple_factor_2"/>
+    <testcase time="0.000999999999997669" classname="smk_dgr_ds.recodeValues_factor" name="simple_factor_2"/>
+    <testcase time="0.895000000000003" classname="smk_dgr_ds.recodeValues_factor" name="simple_factor_2">
+      <error type="error" message="Error: There are some DataSHIELD errors, list them with datashield.errors() ('test-smk_dgr-ds.recodeValues-factor.R:92:5')">Error: There are some DataSHIELD errors, list them with datashield.errors()
+Backtrace:
+    x
+ 1. \-dsDangerClient::ds.DANGERdfEXTRACT("odf_2") at test-smk_dgr-ds.recodeValues-factor.R:92:5
+ 2.   \-DSI::datashield.aggregate(datasources, calltext)
+ 3.     \-DSI:::.handle_errors(errors.print)
+ 4.       \-DSI:::.checkLastErrors()
+ 5.         \-cli::cli_abort(...)
+ 6.           \-rlang::abort(...)</error>
+    </testcase>
+    <testcase time="0.894999999999996" classname="smk_dgr_ds.recodeValues_factor" name="simple_factor_3"/>
+    <testcase time="0.00200000000000244" classname="smk_dgr_ds.recodeValues_factor" name="simple_factor_3"/>
+    <testcase time="0.00200000000000244" classname="smk_dgr_ds.recodeValues_factor" name="simple_factor_3"/>
+    <testcase time="0.869999999999997" classname="smk_dgr_ds.recodeValues_factor" name="simple_factor_3">
+      <error type="error" message="Error: There are some DataSHIELD errors, list them with datashield.errors() ('test-smk_dgr-ds.recodeValues-factor.R:147:5')">Error: There are some DataSHIELD errors, list them with datashield.errors()
+Backtrace:
+    x
+ 1. \-dsDangerClient::ds.DANGERdfEXTRACT("odf_3") at test-smk_dgr-ds.recodeValues-factor.R:147:5
+ 2.   \-DSI::datashield.aggregate(datasources, calltext)
+ 3.     \-DSI:::.handle_errors(errors.print)
+ 4.       \-DSI:::.checkLastErrors()
+ 5.         \-cli::cli_abort(...)
+ 6.           \-rlang::abort(...)</error>
+    </testcase>
+    <testcase time="0.773000000000003" classname="smk_dgr_ds.recodeValues_factor" name="simple_factor_4"/>
+    <testcase time="0.00199999999999534" classname="smk_dgr_ds.recodeValues_factor" name="simple_factor_4"/>
+    <testcase time="0.00100000000000477" classname="smk_dgr_ds.recodeValues_factor" name="simple_factor_4"/>
+    <testcase time="0.905999999999999" classname="smk_dgr_ds.recodeValues_factor" name="simple_factor_4">
+      <error type="error" message="Error: There are some DataSHIELD errors, list them with datashield.errors() ('test-smk_dgr-ds.recodeValues-factor.R:208:5')">Error: There are some DataSHIELD errors, list them with datashield.errors()
+Backtrace:
+    x
+ 1. \-dsDangerClient::ds.DANGERdfEXTRACT("odf_4") at test-smk_dgr-ds.recodeValues-factor.R:208:5
+ 2.   \-DSI::datashield.aggregate(datasources, calltext)
+ 3.     \-DSI:::.handle_errors(errors.print)
+ 4.       \-DSI:::.checkLastErrors()
+ 5.         \-cli::cli_abort(...)
+ 6.           \-rlang::abort(...)</error>
+    </testcase>
+    <testcase time="0.205999999999996" classname="smk_dgr_ds.recodeValues_factor" name="shutdown">
+      <failure type="failure" message="Expected `study.current.variables$objects.found` to have the same values as `expected.variables`. ('test-smk_dgr-ds.recodeValues-factor.R:266:5')">Expected `study.current.variables$objects.found` to have the same values as `expected.variables`.
+Actual: "D", "GENDER", "odf_1", "odf_2", "odf_3", "odf_4"
+Expected: "D", "GENDER", "odf_1", "ndf_1", "odf_2", "ndf_2", "odf_3", "ndf_3", "odf_4", "ndf_4"
+Absent: "ndf_1", "ndf_2", "ndf_3", "ndf_4"
+Backtrace:
+    x
+ 1. \-global ds_expect_variables(...) at test-smk_dgr-ds.recodeValues-factor.R:266:5
+ 2.   \-testthat::expect_setequal(...)</failure>
+    </testcase>
+    <testcase time="0.0190000000000055" classname="smk_dgr_ds.recodeValues_factor" name="shutdown">
+      <failure type="failure" message="Expected `study.current.variables$objects.found` to have the same values as `expected.variables`. ('test-smk_dgr-ds.recodeValues-factor.R:266:5')">Expected `study.current.variables$objects.found` to have the same values as `expected.variables`.
+Actual: "D", "GENDER", "odf_1", "odf_2", "odf_3", "odf_4"
+Expected: "D", "GENDER", "odf_1", "ndf_1", "odf_2", "ndf_2", "odf_3", "ndf_3", "odf_4", "ndf_4"
+Absent: "ndf_1", "ndf_2", "ndf_3", "ndf_4"
+Backtrace:
+    x
+ 1. \-global ds_expect_variables(...) at test-smk_dgr-ds.recodeValues-factor.R:266:5
+ 2.   \-testthat::expect_setequal(...)</failure>
+    </testcase>
+    <testcase time="0.019999999999996" classname="smk_dgr_ds.recodeValues_factor" name="shutdown">
+      <failure type="failure" message="Expected `study.current.variables$objects.found` to have the same values as `expected.variables`. ('test-smk_dgr-ds.recodeValues-factor.R:266:5')">Expected `study.current.variables$objects.found` to have the same values as `expected.variables`.
+Actual: "D", "GENDER", "odf_1", "odf_2", "odf_3", "odf_4"
+Expected: "D", "GENDER", "odf_1", "ndf_1", "odf_2", "ndf_2", "odf_3", "ndf_3", "odf_4", "ndf_4"
+Absent: "ndf_1", "ndf_2", "ndf_3", "ndf_4"
+Backtrace:
+    x
+ 1. \-global ds_expect_variables(...) at test-smk_dgr-ds.recodeValues-factor.R:266:5
+ 2.   \-testthat::expect_setequal(...)</failure>
+    </testcase>
+  </testsuite>
+  <testsuite name="smk_dgr-ds.recodeValues" timestamp="2026-07-18T02:11:14Z" hostname="runnervm3jd5f" tests="10" skipped="0" failures="3" errors="1" time="8.56">
+    <testcase time="6.6" classname="smk_dgr_ds.recodeValues" name="setup"/>
+    <testcase time="0.00300000000000011" classname="smk_dgr_ds.recodeValues" name="setup"/>
+    <testcase time="0.000999999999997669" classname="smk_dgr_ds.recodeValues" name="setup"/>
+    <testcase time="0.856000000000002" classname="smk_dgr_ds.recodeValues" name="simple_test"/>
+    <testcase time="0.00200000000000244" classname="smk_dgr_ds.recodeValues" name="simple_test"/>
+    <testcase time="0.000999999999997669" classname="smk_dgr_ds.recodeValues" name="simple_test"/>
+    <testcase time="0.853000000000002" classname="smk_dgr_ds.recodeValues" name="simple_test">
+      <error type="error" message="Error: There are some DataSHIELD errors, list them with datashield.errors() ('test-smk_dgr-ds.recodeValues.R:37:5')">Error: There are some DataSHIELD errors, list them with datashield.errors()
+Backtrace:
+    x
+ 1. \-dsDangerClient::ds.DANGERdfEXTRACT("odf") at test-smk_dgr-ds.recodeValues.R:37:5
+ 2.   \-DSI::datashield.aggregate(datasources, calltext)
+ 3.     \-DSI:::.handle_errors(errors.print)
+ 4.       \-DSI:::.checkLastErrors()
+ 5.         \-cli::cli_abort(...)
+ 6.           \-rlang::abort(...)</error>
+    </testcase>
+    <testcase time="0.206000000000003" classname="smk_dgr_ds.recodeValues" name="shutdown">
+      <failure type="failure" message="Expected `study.current.variables$objects.found` to have the same values as `expected.variables`. ('test-smk_dgr-ds.recodeValues.R:95:5')">Expected `study.current.variables$objects.found` to have the same values as `expected.variables`.
+Actual: "D", "odf", "time.id"
+Expected: "D", "time.id", "odf", "ndf"
+Absent: "ndf"
+Backtrace:
+    x
+ 1. \-global ds_expect_variables(c("D", "time.id", "odf", "ndf")) at test-smk_dgr-ds.recodeValues.R:95:5
+ 2.   \-testthat::expect_setequal(...)</failure>
+    </testcase>
+    <testcase time="0.0189999999999912" classname="smk_dgr_ds.recodeValues" name="shutdown">
+      <failure type="failure" message="Expected `study.current.variables$objects.found` to have the same values as `expected.variables`. ('test-smk_dgr-ds.recodeValues.R:95:5')">Expected `study.current.variables$objects.found` to have the same values as `expected.variables`.
+Actual: "D", "odf", "time.id"
+Expected: "D", "time.id", "odf", "ndf"
+Absent: "ndf"
+Backtrace:
+    x
+ 1. \-global ds_expect_variables(c("D", "time.id", "odf", "ndf")) at test-smk_dgr-ds.recodeValues.R:95:5
+ 2.   \-testthat::expect_setequal(...)</failure>
+    </testcase>
+    <testcase time="0.0190000000000055" classname="smk_dgr_ds.recodeValues" name="shutdown">
+      <failure type="failure" message="Expected `study.current.variables$objects.found` to have the same values as `expected.variables`. ('test-smk_dgr-ds.recodeValues.R:95:5')">Expected `study.current.variables$objects.found` to have the same values as `expected.variables`.
+Actual: "D", "odf", "time.id"
+Expected: "D", "time.id", "odf", "ndf"
+Absent: "ndf"
+Backtrace:
+    x
+ 1. \-global ds_expect_variables(c("D", "time.id", "odf", "ndf")) at test-smk_dgr-ds.recodeValues.R:95:5
+ 2.   \-testthat::expect_setequal(...)</failure>
+    </testcase>
+  </testsuite>
+</testsuites>
