@@ -1,0 +1,107 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<testsuites>
+  <testsuite name="perf-conndisconn" timestamp="2026-09-19T03:58:18Z" hostname="runnervmlun5p" tests="0" skipped="0" failures="0" errors="0" time="0"/>
+  <testsuite name="conndisconn::perf::setup" timestamp="2026-09-19T03:58:18Z" hostname="runnervmlun5p" tests="0" skipped="0" failures="0" errors="0" time="0"/>
+  <testsuite name="conndisconn::perf::simple0" timestamp="2026-09-19T03:58:25Z" hostname="runnervmlun5p" tests="2" skipped="0" failures="0" errors="0" time="128.915">
+    <testcase time="128.905" classname="conndisconn_perf_simple0" name="simple_connect_disconnect_performance"/>
+    <testcase time="0.00999999999999091" classname="conndisconn_perf_simple0" name="simple_connect_disconnect_performance"/>
+  </testsuite>
+  <testsuite name="conndisconn::perf::shutdown" timestamp="2026-09-19T04:00:27Z" hostname="runnervmlun5p" tests="0" skipped="0" failures="0" errors="0" time="0"/>
+  <testsuite name="conndisconn::perf::done" timestamp="2026-09-19T04:00:27Z" hostname="runnervmlun5p" tests="0" skipped="0" failures="0" errors="0" time="0"/>
+  <testsuite name="perf-ds.abs" timestamp="2026-09-19T04:00:27Z" hostname="runnervmlun5p" tests="0" skipped="0" failures="0" errors="0" time="0"/>
+  <testsuite name="ds.abs::perf::setup" timestamp="2026-09-19T04:00:27Z" hostname="runnervmlun5p" tests="0" skipped="0" failures="0" errors="0" time="0"/>
+  <testsuite name="ds.abs::perf:0" timestamp="2026-09-19T04:00:32Z" hostname="runnervmlun5p" tests="2" skipped="0" failures="0" errors="0" time="35.401">
+    <testcase time="35.4" classname="ds.abs_perf_0" name="combine_performance"/>
+    <testcase time="0.00100000000000477" classname="ds.abs_perf_0" name="combine_performance"/>
+  </testsuite>
+  <testsuite name="ds.abs::perf::shutdown" timestamp="2026-09-19T04:01:02Z" hostname="runnervmlun5p" tests="0" skipped="0" failures="0" errors="0" time="0"/>
+  <testsuite name="ds.abs::perf::done" timestamp="2026-09-19T04:01:02Z" hostname="runnervmlun5p" tests="0" skipped="0" failures="0" errors="0" time="0"/>
+  <testsuite name="perf-ds.asInteger" timestamp="2026-09-19T04:01:02Z" hostname="runnervmlun5p" tests="0" skipped="0" failures="0" errors="0" time="0"/>
+  <testsuite name="ds.asInteger::perf::setup" timestamp="2026-09-19T04:01:02Z" hostname="runnervmlun5p" tests="0" skipped="0" failures="0" errors="0" time="0"/>
+  <testsuite name="ds.asInteger::perf:0" timestamp="2026-09-19T04:01:07Z" hostname="runnervmlun5p" tests="2" skipped="0" failures="0" errors="0" time="35.562">
+    <testcase time="35.561" classname="ds.asInteger_perf_0" name="combine_performance"/>
+    <testcase time="0.00100000000000477" classname="ds.asInteger_perf_0" name="combine_performance"/>
+  </testsuite>
+  <testsuite name="ds.asInteger::perf::shutdown" timestamp="2026-09-19T04:01:38Z" hostname="runnervmlun5p" tests="0" skipped="0" failures="0" errors="0" time="0"/>
+  <testsuite name="ds.asInteger::perf::done" timestamp="2026-09-19T04:01:38Z" hostname="runnervmlun5p" tests="0" skipped="0" failures="0" errors="0" time="0"/>
+  <testsuite name="perf-ds.asList" timestamp="2026-09-19T04:01:38Z" hostname="runnervmlun5p" tests="0" skipped="0" failures="0" errors="0" time="0"/>
+  <testsuite name="ds.asList::perf::setup" timestamp="2026-09-19T04:01:38Z" hostname="runnervmlun5p" tests="0" skipped="0" failures="0" errors="0" time="0"/>
+  <testsuite name="ds.asList::perf:0" timestamp="2026-09-19T04:01:43Z" hostname="runnervmlun5p" tests="2" skipped="0" failures="0" errors="0" time="35.61">
+    <testcase time="35.609" classname="ds.asList_perf_0" name="combine_performance"/>
+    <testcase time="0.00100000000000477" classname="ds.asList_perf_0" name="combine_performance"/>
+  </testsuite>
+  <testsuite name="ds.asList::perf::shutdown" timestamp="2026-09-19T04:02:13Z" hostname="runnervmlun5p" tests="0" skipped="0" failures="0" errors="0" time="0"/>
+  <testsuite name="ds.asList::perf::done" timestamp="2026-09-19T04:02:13Z" hostname="runnervmlun5p" tests="0" skipped="0" failures="0" errors="0" time="0"/>
+  <testsuite name="perf-ds.asNumeric" timestamp="2026-09-19T04:02:13Z" hostname="runnervmlun5p" tests="0" skipped="0" failures="0" errors="0" time="0"/>
+  <testsuite name="ds.asNumeric::perf::setup" timestamp="2026-09-19T04:02:13Z" hostname="runnervmlun5p" tests="0" skipped="0" failures="0" errors="0" time="0"/>
+  <testsuite name="ds.asNumeric::perf:0" timestamp="2026-09-19T04:02:19Z" hostname="runnervmlun5p" tests="2" skipped="0" failures="0" errors="0" time="35.552">
+    <testcase time="35.551" classname="ds.asNumeric_perf_0" name="combine_performance"/>
+    <testcase time="0.0010000000000332" classname="ds.asNumeric_perf_0" name="combine_performance"/>
+  </testsuite>
+  <testsuite name="ds.asNumeric::perf::shutdown" timestamp="2026-09-19T04:02:49Z" hostname="runnervmlun5p" tests="0" skipped="0" failures="0" errors="0" time="0"/>
+  <testsuite name="ds.asNumeric::perf::done" timestamp="2026-09-19T04:02:49Z" hostname="runnervmlun5p" tests="0" skipped="0" failures="0" errors="0" time="0"/>
+  <testsuite name="perf-ds.assign" timestamp="2026-09-19T04:02:49Z" hostname="runnervmlun5p" tests="0" skipped="0" failures="0" errors="0" time="0"/>
+  <testsuite name="ds.assign::perf::setup" timestamp="2026-09-19T04:02:49Z" hostname="runnervmlun5p" tests="0" skipped="0" failures="0" errors="0" time="0"/>
+  <testsuite name="ds.assign::perf::0" timestamp="2026-09-19T04:02:54Z" hostname="runnervmlun5p" tests="2" skipped="0" failures="0" errors="0" time="35.259">
+    <testcase time="35.258" classname="ds.assign_perf_0" name="performance"/>
+    <testcase time="0.000999999999976353" classname="ds.assign_perf_0" name="performance"/>
+  </testsuite>
+  <testsuite name="ds.assign::perf::shutdown" timestamp="2026-09-19T04:03:24Z" hostname="runnervmlun5p" tests="0" skipped="0" failures="0" errors="0" time="0"/>
+  <testsuite name="ds.assign::perf::done" timestamp="2026-09-19T04:03:24Z" hostname="runnervmlun5p" tests="0" skipped="0" failures="0" errors="0" time="0"/>
+  <testsuite name="perf-ds.class" timestamp="2026-09-19T04:03:24Z" hostname="runnervmlun5p" tests="0" skipped="0" failures="0" errors="0" time="0"/>
+  <testsuite name="ds.class::perf::setup" timestamp="2026-09-19T04:03:24Z" hostname="runnervmlun5p" tests="0" skipped="0" failures="0" errors="0" time="0"/>
+  <testsuite name="ds.class::perf::combine:0" timestamp="2026-09-19T04:03:29Z" hostname="runnervmlun5p" tests="2" skipped="0" failures="0" errors="0" time="35.308">
+    <testcase time="35.307" classname="ds.class_perf_combine_0" name="combine_performance"/>
+    <testcase time="0.000999999999976353" classname="ds.class_perf_combine_0" name="combine_performance"/>
+  </testsuite>
+  <testsuite name="ds.class::perf::shutdown" timestamp="2026-09-19T04:03:59Z" hostname="runnervmlun5p" tests="0" skipped="0" failures="0" errors="0" time="0"/>
+  <testsuite name="ds.class::perf::done" timestamp="2026-09-19T04:03:59Z" hostname="runnervmlun5p" tests="0" skipped="0" failures="0" errors="0" time="0"/>
+  <testsuite name="perf-ds.colnames" timestamp="2026-09-19T04:04:00Z" hostname="runnervmlun5p" tests="0" skipped="0" failures="0" errors="0" time="0"/>
+  <testsuite name="ds.colnames::perf::setup" timestamp="2026-09-19T04:04:00Z" hostname="runnervmlun5p" tests="0" skipped="0" failures="0" errors="0" time="0"/>
+  <testsuite name="ds.colnames::perf:0" timestamp="2026-09-19T04:04:05Z" hostname="runnervmlun5p" tests="2" skipped="0" failures="0" errors="0" time="35.256">
+    <testcase time="35.255" classname="ds.colnames_perf_0" name="combine_performance"/>
+    <testcase time="0.0010000000000332" classname="ds.colnames_perf_0" name="combine_performance"/>
+  </testsuite>
+  <testsuite name="ds.colnames::perf::shutdown" timestamp="2026-09-19T04:04:35Z" hostname="runnervmlun5p" tests="0" skipped="0" failures="0" errors="0" time="0"/>
+  <testsuite name="ds.colnames::perf::done" timestamp="2026-09-19T04:04:35Z" hostname="runnervmlun5p" tests="0" skipped="0" failures="0" errors="0" time="0"/>
+  <testsuite name="perf-ds.exists" timestamp="2026-09-19T04:04:35Z" hostname="runnervmlun5p" tests="0" skipped="0" failures="0" errors="0" time="0"/>
+  <testsuite name="ds.exists::perf::setup" timestamp="2026-09-19T04:04:35Z" hostname="runnervmlun5p" tests="0" skipped="0" failures="0" errors="0" time="0"/>
+  <testsuite name="ds.exists::perf::combine:0" timestamp="2026-09-19T04:04:40Z" hostname="runnervmlun5p" tests="2" skipped="0" failures="0" errors="0" time="35.35">
+    <testcase time="35.349" classname="ds.exists_perf_combine_0" name="combine_performance"/>
+    <testcase time="0.0010000000000332" classname="ds.exists_perf_combine_0" name="combine_performance"/>
+  </testsuite>
+  <testsuite name="ds.exists::perf::shutdown" timestamp="2026-09-19T04:05:10Z" hostname="runnervmlun5p" tests="0" skipped="0" failures="0" errors="0" time="0"/>
+  <testsuite name="ds.exists::perf::done" timestamp="2026-09-19T04:05:10Z" hostname="runnervmlun5p" tests="0" skipped="0" failures="0" errors="0" time="0"/>
+  <testsuite name="perf-ds.length" timestamp="2026-09-19T04:05:10Z" hostname="runnervmlun5p" tests="0" skipped="0" failures="0" errors="0" time="0"/>
+  <testsuite name="ds.length::perf::setup" timestamp="2026-09-19T04:05:10Z" hostname="runnervmlun5p" tests="0" skipped="0" failures="0" errors="0" time="0"/>
+  <testsuite name="ds.length::perf::combine:0" timestamp="2026-09-19T04:05:15Z" hostname="runnervmlun5p" tests="2" skipped="0" failures="0" errors="0" time="35.307">
+    <testcase time="35.306" classname="ds.length_perf_combine_0" name="combine_performance"/>
+    <testcase time="0.000999999999976353" classname="ds.length_perf_combine_0" name="combine_performance"/>
+  </testsuite>
+  <testsuite name="ds.length::perf::shutdown" timestamp="2026-09-19T04:05:45Z" hostname="runnervmlun5p" tests="0" skipped="0" failures="0" errors="0" time="0"/>
+  <testsuite name="ds.length::perf::done" timestamp="2026-09-19T04:05:45Z" hostname="runnervmlun5p" tests="0" skipped="0" failures="0" errors="0" time="0"/>
+  <testsuite name="perf-ds.mean" timestamp="2026-09-19T04:05:45Z" hostname="runnervmlun5p" tests="0" skipped="0" failures="0" errors="0" time="0"/>
+  <testsuite name="ds.mean::perf::setup" timestamp="2026-09-19T04:05:45Z" hostname="runnervmlun5p" tests="0" skipped="0" failures="0" errors="0" time="0"/>
+  <testsuite name="ds.mean::perf::combine:0" timestamp="2026-09-19T04:05:50Z" hostname="runnervmlun5p" tests="2" skipped="0" failures="0" errors="0" time="35.205">
+    <testcase time="35.204" classname="ds.mean_perf_combine_0" name="combine_performance"/>
+    <testcase time="0.0010000000000332" classname="ds.mean_perf_combine_0" name="combine_performance"/>
+  </testsuite>
+  <testsuite name="ds.mean::perf::split:0" timestamp="2026-09-19T04:06:20Z" hostname="runnervmlun5p" tests="2" skipped="0" failures="0" errors="0" time="30.075">
+    <testcase time="30.074" classname="ds.mean_perf_split_0" name="split_performance"/>
+    <testcase time="0.000999999999976353" classname="ds.mean_perf_split_0" name="split_performance"/>
+  </testsuite>
+  <testsuite name="ds.mean::perf::shutdown" timestamp="2026-09-19T04:06:51Z" hostname="runnervmlun5p" tests="0" skipped="0" failures="0" errors="0" time="0"/>
+  <testsuite name="ds.mean::perf::done" timestamp="2026-09-19T04:06:51Z" hostname="runnervmlun5p" tests="0" skipped="0" failures="0" errors="0" time="0"/>
+  <testsuite name="perf-void" timestamp="2026-09-19T04:06:51Z" hostname="runnervmlun5p" tests="0" skipped="0" failures="0" errors="0" time="0"/>
+  <testsuite name="void::perf::void::setup" timestamp="2026-09-19T04:06:51Z" hostname="runnervmlun5p" tests="0" skipped="0" failures="0" errors="0" time="0"/>
+  <testsuite name="void::perf::void::0" timestamp="2026-09-19T04:06:51Z" hostname="runnervmlun5p" tests="2" skipped="0" failures="1" errors="0" time="60.193">
+    <testcase time="60.189" classname="void_perf_void_0" name="simple_void_performance"/>
+    <testcase time="0.0040000000000191" classname="void_perf_void_0" name="simple_void_performance">
+      <failure type="failure" message="Expected Observed rate &lt; upper threshold on rate. ('test-perf-void.R:47:5')">Expected Observed rate &lt; upper threshold on rate.
+Actual comparison: 93052.7 &gt;= 54140.0
+Difference: 38912.7 &gt;= 0</failure>
+    </testcase>
+  </testsuite>
+  <testsuite name="void::perf::void::shutdown" timestamp="2026-09-19T04:07:51Z" hostname="runnervmlun5p" tests="0" skipped="0" failures="0" errors="0" time="0"/>
+  <testsuite name="void::perf::void::done" timestamp="2026-09-19T04:07:51Z" hostname="runnervmlun5p" tests="0" skipped="0" failures="0" errors="0" time="0"/>
+</testsuites>
